@@ -1,0 +1,51 @@
+using UnityEngine;
+
+public class MainScene : MonoSingleton
+{
+	public const string NAME = "Main";
+
+	private MainSceneFsm sceneFsm;
+
+	public static MainScene instance
+	{
+		get
+		{
+			return GetInstance<MainScene>();
+		}
+	}
+
+	public void Init()
+	{
+		sceneFsm = new MainSceneFsm(this);
+		sceneFsm.StartFsm();
+	}
+
+	protected override void OnMonoSingletonUpdate()
+	{
+		if (sceneFsm != null)
+		{
+			sceneFsm.Update();
+		}
+	}
+
+	public void DestroyScene()
+	{
+		Destroy(gameObject);
+		Resources.UnloadUnusedAssets();
+	}
+
+	public void SetupScene()
+	{
+		InitScene.instance.loadingPanel.Exit(OnLoadingPanelExitCompleted);
+	}
+
+	public void UnsetupScene()
+	{
+		Hud.instance.Unsetup();
+	}
+
+	private void OnLoadingPanelExitCompleted()
+	{
+		Hud.instance.Setup();
+	}
+}
