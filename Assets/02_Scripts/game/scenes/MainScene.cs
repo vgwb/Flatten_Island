@@ -48,4 +48,9 @@ public class MainScene : MonoSingleton
 	{
 		Hud.instance.Setup();
 	}
+
+	public void GoToMenu()
+	{
+		ScenesFlowManager.instance.UnloadingMainScene();
+	}
 }

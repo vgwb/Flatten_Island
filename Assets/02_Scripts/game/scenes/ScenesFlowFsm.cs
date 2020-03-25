@@ -117,7 +117,6 @@ public class ScenesFlowFsm : FiniteStateMachine
 	private void MenuScene_OnEnter()
 	{
 		//MonoGameApplication.instance.monoGameApplicationChef.Cook(MonoGameApplication.instance.monoGameApplicationChef.startMenuMusicRecipe);
-		GameCamera.instance.SetMenuScenePosition();
 	}
 
 	private void UnloadingMenuScene_OnEnter()

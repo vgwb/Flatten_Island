@@ -894,7 +894,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraComponent: {fileID: 2118358881}
-  menuScenePosition: {x: 0, y: 0, z: 0}
 --- !u!1 &2118358879
 GameObject:
   m_ObjectHideFlags: 0
