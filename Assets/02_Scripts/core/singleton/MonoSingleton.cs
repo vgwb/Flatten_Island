@@ -25,7 +25,10 @@ public class MonoSingleton : BaseBehaviour
 	{
 		Type type = GetType();
 
-		//AssertTrue(!instances.ContainsKey(type), "Cannot have more than one instance of " + type);
+		if (instances.ContainsKey(type))
+		{
+			instances.Remove(type);
+		}
 
 		instances.Add(type, this);
 	}
@@ -43,9 +46,6 @@ public class MonoSingleton : BaseBehaviour
 	private void RemoveInstance()
 	{
 		Type type = GetType();
-
-		//AssertTrue(instances.ContainsKey(type), "Trying to remove non-registered instance of " + type);
-
 		instances.Remove(type);
 	}
 

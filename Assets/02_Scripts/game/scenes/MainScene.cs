@@ -30,6 +30,7 @@ public class MainScene : MonoSingleton
 
 	public void DestroyScene()
 	{
+		Hud.instance.DestroyHud();
 		Destroy(gameObject);
 		Resources.UnloadUnusedAssets();
 	}

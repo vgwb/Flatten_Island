@@ -36,4 +36,9 @@ public class Hud : MonoSingleton
 	{
 		group.SetActive(active);
 	}
+
+	public void DestroyHud()
+	{
+		Destroy(gameObject);
+	}
 }
