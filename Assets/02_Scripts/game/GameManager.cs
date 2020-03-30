@@ -4,7 +4,12 @@ using Messages;
 public class GameManager : MonoSingleton
 {
 	public Camera mainCamera { get { return Camera.main; } }
-	public LocalPlayerNode localPlayerNode { get; private set; }
+	public LocalPlayer localPlayer;
+
+	public GameSerializer gameSerializer
+	{
+		get; private set;
+	}
 
 	public static GameManager instance
 	{
@@ -14,11 +19,16 @@ public class GameManager : MonoSingleton
 		}
 	}
 
+	protected override void OnMonoSingletonAwake()
+	{
+		gameSerializer = new PlayerPrefsGameSerializer();
+	}
+
 	protected override void OnMonoSingletonStart()
 	{
 		base.OnMonoSingletonStart();
 
-		localPlayerNode = new LocalPlayerNode();
+		localPlayer = new LocalPlayer();
 	}
 
 	protected override void OnMonoSingletonUpdate()
@@ -28,7 +38,12 @@ public class GameManager : MonoSingleton
 
 	protected override void OnMonoSingletonDestroyed()
 	{
-		localPlayerNode = null;
+		localPlayer = null;
 		base.OnMonoSingletonDestroyed();
+	}
+
+	public void LoadLocalPlayer()
+	{
+		gameSerializer.ReadSaveGame(out localPlayer);
 	}
 }

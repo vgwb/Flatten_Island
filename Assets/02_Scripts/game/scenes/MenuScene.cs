@@ -18,6 +18,8 @@ public class MenuScene : MonoSingleton
     {
 		InitScene.instance.loadingPanel.Exit();
 		SceneManager.SetActiveScene(SceneManager.GetSceneByName(MenuScene.NAME));
+
+		GameManager.instance.LoadLocalPlayer();
 	}
 
 	public void OnPlayClick()
