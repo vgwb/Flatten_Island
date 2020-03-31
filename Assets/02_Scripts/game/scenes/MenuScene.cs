@@ -1,10 +1,14 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Messages;
 
 public class MenuScene : MonoSingleton
 {
     public const string NAME = "Menu";
 	public GameObject playButton;
+	public CinematicMenu introCinematicMenu;
+	public GameObject menuCanvas;
+	public GameObject cinematicCanvas;
 
 	public static MenuScene instance
 	{
@@ -14,12 +18,37 @@ public class MenuScene : MonoSingleton
 		}
 	}
 
+	private MenuSceneFsm sceneFsm;
+
+	public void Init()
+	{
+		sceneFsm = new MenuSceneFsm(this);
+		sceneFsm.StartFsm();
+	}
+
+	protected override void OnMonoSingletonUpdate()
+	{
+		if (sceneFsm != null)
+		{
+			sceneFsm.Update();
+		}
+	}
+
 	void Start()
     {
-		InitScene.instance.loadingPanel.Exit();
-		SceneManager.SetActiveScene(SceneManager.GetSceneByName(MenuScene.NAME));
+		EventMessageHandler playCinematicCompletedMessageHandler = new EventMessageHandler(this, OnPlayCinematicCompleted);
+		EventMessageManager.instance.AddHandler(typeof(PlayCinematicCompletedEvent).Name, playCinematicCompletedMessageHandler);
+	}
 
-		GameManager.instance.LoadLocalPlayer();
+	private void OnPlayCinematicCompleted(EventMessage eventMessage)
+	{
+		PlayCinematicCompletedEvent playCinematicCompletedEvent = eventMessage.eventObject as PlayCinematicCompletedEvent;
+		if (playCinematicCompletedEvent.cinematicMenu == introCinematicMenu)
+		{
+			//GameManager.instance.localPlayer.skipIntro = true;
+			GameManager.instance.SaveLocalPlayer();
+			sceneFsm.TriggerState(MenuSceneFsm.MenuState);
+		}
 	}
 
 	public void OnPlayClick()
@@ -28,8 +57,30 @@ public class MenuScene : MonoSingleton
 		ScenesFlowManager.instance.UnloadingMenuScene();
 	}
 
+	public void SetupScene()
+	{
+		menuCanvas.SetActive(false);
+		cinematicCanvas.SetActive(false);
+		GameManager.instance.LoadLocalPlayer();
+		InitScene.instance.loadingPanel.Exit(OnLoadingPanelExitCompleted);
+	}
+
+	private void OnLoadingPanelExitCompleted()
+	{
+		if (GameManager.instance.localPlayer.skipIntro)
+		{
+			sceneFsm.TriggerState(MenuSceneFsm.MenuState);
+		}
+		else
+		{
+			sceneFsm.TriggerState(MenuSceneFsm.IntroState);
+		}
+	}
+
 	public void DestroyScene()
 	{
+		EventMessageManager.instance.RemoveHandler(typeof(PlayCinematicCompletedEvent).Name, this);
+
 		Destroy(gameObject);
 		Resources.UnloadUnusedAssets();
 	}
