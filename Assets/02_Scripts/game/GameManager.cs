@@ -46,4 +46,9 @@ public class GameManager : MonoSingleton
 	{
 		gameSerializer.ReadSaveGame(out localPlayer);
 	}
+
+	public void SaveLocalPlayer()
+	{
+		gameSerializer.WriteSaveGame(localPlayer);
+	}
 }
