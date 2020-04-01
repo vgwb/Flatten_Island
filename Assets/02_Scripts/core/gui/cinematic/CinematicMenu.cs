@@ -8,9 +8,40 @@ public class CinematicMenu : MonoBehaviour
 	public GameObject cinematicScenesContainer;
 	public GameObject fadeImage;
 
+	private GameObject currentScene = null;
+
 	public void PlayCinematic()
 	{
 		cinematicMenuChef.Cook(cinematicMenuChef.playCinematicRecipe, OnPlayCinematicCompleted);
+	}
+
+	public void ShowScene(GameObject cinematicScenePrefab)
+	{
+		if (currentScene != null)
+		{
+			currentScene.SetActive(false);
+		}
+
+		currentScene = Instantiate(cinematicScenePrefab, cinematicScenesContainer.transform);
+	}
+
+	public GameObject GetCurrentScene()
+	{
+		return currentScene;
+	}
+
+	public bool HasCurrentScene()
+	{
+		return currentScene != null;
+	}
+
+	public void HideCurrentScene()
+	{
+		if (HasCurrentScene())
+		{
+			currentScene.SetActive(false);
+			currentScene = null;
+		}
 	}
 
 	private void OnPlayCinematicCompleted()

@@ -1,14 +1,12 @@
 ﻿using UnityEngine;
 
-public class GameCamera : MonoSingleton
+public class GameCamera : MonoBehaviour
 {
 	public Camera cameraComponent;
+	public Vector3 resetPosition = Vector3.zero;
 
-	public static GameCamera instance
+	public void ResetPosition()
 	{
-		get
-		{
-			return GetInstance<GameCamera>();
-		}
+		cameraComponent.transform.position = resetPosition;
 	}
 }

@@ -30,10 +30,6 @@ public class ShowSpeechBubbleIngredient : Ingredient
 				speechMenu.HideSpeechBubble();
 				status = CookbookStatus.Success;
 			}
-			else
-			{
-				status = CookbookStatus.Running;
-			}
 		}
 
 		return status;
