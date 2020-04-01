@@ -6,6 +6,7 @@ public class CinematicMenu : MonoBehaviour
 {
 	public CinematicMenuChef cinematicMenuChef;
 	public GameObject cinematicScenesContainer;
+	public GameObject fadeImage;
 
 	public void PlayCinematic()
 	{

@@ -254,6 +254,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1867190775}
+  - {fileID: 1123851736}
   - {fileID: 381196122}
   m_Father: {fileID: 1704001156}
   m_RootOrder: 0
@@ -277,6 +278,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cinematicMenuChef: {fileID: 1867190776}
   cinematicScenesContainer: {fileID: 381196121}
+  fadeImage: {fileID: 1123851735}
 --- !u!1 &299202254
 GameObject:
   m_ObjectHideFlags: 0
@@ -327,9 +329,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cinematicScenePrefab: {fileID: 6321492271676890394, guid: 8eb0179179c4a1d4a93383f6ebec793b,
     type: 3}
-  cinematicSceneContainer: {fileID: 381196121}
-  fadeInDuration: 2
+  cinematicMenu: {fileID: 77749596}
+  fadeInDuration: 1
   fadeColor: {r: 0, g: 0, b: 0, a: 0}
+  durationTime: 4
 --- !u!1 &322954548
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,7 +409,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 77749595}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -773,9 +776,104 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cinematicScenePrefab: {fileID: 6321492271676890394, guid: 86f67e0f0fc4e8e4da0af5bb7850756f,
     type: 3}
-  cinematicSceneContainer: {fileID: 381196121}
-  fadeInDuration: 2
+  cinematicMenu: {fileID: 77749596}
+  fadeInDuration: 1
   fadeColor: {r: 0, g: 0, b: 0, a: 0}
+  durationTime: 4
+--- !u!1 &1123851735
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1123851736}
+  - component: {fileID: 1123851738}
+  - component: {fileID: 1123851737}
+  - component: {fileID: 1123851739}
+  m_Layer: 5
+  m_Name: FadeImage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1123851736
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123851735}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 77749595}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1080, y: 2160}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1123851737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123851735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -98529514, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Texture: {fileID: 0}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &1123851738
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123851735}
+  m_CullTransparentMesh: 0
+--- !u!223 &1123851739
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123851735}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 1
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 2
+  m_TargetDisplay: 0
 --- !u!1 &1159740241
 GameObject:
   m_ObjectHideFlags: 0
@@ -877,9 +975,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cinematicScenePrefab: {fileID: 6321492271676890394, guid: 7fe00706b30271a42b6b415fc77e3a94,
     type: 3}
-  cinematicSceneContainer: {fileID: 381196121}
-  fadeInDuration: 2
+  cinematicMenu: {fileID: 77749596}
+  fadeInDuration: 1
   fadeColor: {r: 0, g: 0, b: 0, a: 0}
+  durationTime: 4
 --- !u!1 &1704001155
 GameObject:
   m_ObjectHideFlags: 0
@@ -977,7 +1076,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!1 &1851171177
 GameObject:
