@@ -9,12 +9,17 @@ public class PlayCinematicSceneIngredient : Ingredient
 	public float fadeInDuration;
 	public Color fadeColor;
 	public float durationTime;
+	public Vector3 scenePanDirection = Vector3.zero;
+	public float scenePanSpeed;
+
+	private const float PAN_OFFSET = 800f;
 
 	private float elapsedTime = 0.0f;
 	private float fadeElapsedTime = 0.0f;
 	private GameObject cinematicScene;
-
+	private MoveObject panMoveObject;
 	private RawImage fadeImage;
+	private bool panEnabled;
 
 	public override void Prepare()
 	{
@@ -22,6 +27,7 @@ public class PlayCinematicSceneIngredient : Ingredient
 
 		elapsedTime = 0.0f;
 		fadeElapsedTime = 0.0f;
+		panEnabled = false;
 
 		fadeImage = cinematicMenu.fadeImage.GetComponent<RawImage>();
 
@@ -34,6 +40,14 @@ public class PlayCinematicSceneIngredient : Ingredient
 
 		cinematicScene = Instantiate(cinematicScenePrefab, cinematicMenu.cinematicScenesContainer.transform);
 		cinematicScene.SetActive(true);
+
+		if (scenePanDirection != Vector3.zero)
+		{
+			panEnabled = true;
+			Vector3 destination = cinematicScene.transform.position + (scenePanDirection * PAN_OFFSET);
+			panMoveObject = new MoveObject(cinematicScene.transform, destination, scenePanSpeed);
+			panMoveObject.Start();
+		}
 	}
 
 	public override CookbookStatus Use(float deltaTime)
@@ -44,10 +58,16 @@ public class PlayCinematicSceneIngredient : Ingredient
 			elapsedTime += deltaTime;
 			if (elapsedTime >= durationTime)
 			{
+				cinematicScene.SetActive(false);
 				status = CookbookStatus.Success;
 			}
 			else
 			{
+				if (panEnabled)
+				{
+					panMoveObject.Update(deltaTime);
+				}
+
 				fadeElapsedTime += deltaTime;
 				if (fadeElapsedTime <= fadeInDuration && fadeInDuration > 0)
 				{

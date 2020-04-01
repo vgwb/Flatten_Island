@@ -333,6 +333,8 @@ MonoBehaviour:
   fadeInDuration: 1
   fadeColor: {r: 0, g: 0, b: 0, a: 0}
   durationTime: 4
+  scenePanDirection: {x: 0, y: 0, z: -1}
+  scenePanSpeed: 25
 --- !u!1 &322954548
 GameObject:
   m_ObjectHideFlags: 0
@@ -780,6 +782,8 @@ MonoBehaviour:
   fadeInDuration: 1
   fadeColor: {r: 0, g: 0, b: 0, a: 0}
   durationTime: 4
+  scenePanDirection: {x: 0, y: 0, z: -1}
+  scenePanSpeed: 25
 --- !u!1 &1123851735
 GameObject:
   m_ObjectHideFlags: 0
@@ -979,6 +983,8 @@ MonoBehaviour:
   fadeInDuration: 1
   fadeColor: {r: 0, g: 0, b: 0, a: 0}
   durationTime: 4
+  scenePanDirection: {x: 0, y: 0, z: -1}
+  scenePanSpeed: 25
 --- !u!1 &1704001155
 GameObject:
   m_ObjectHideFlags: 0
