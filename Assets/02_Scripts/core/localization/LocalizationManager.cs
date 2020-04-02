@@ -24,9 +24,14 @@ public class LocalizationManager : MonoSingleton
 	protected override void OnMonoSingletonAwake()
 	{
 		base.OnMonoSingletonAwake();
-		localizationXmlModels = XmlModelManager.instance.FindModels<LocalizationXmlModel>();
+		localizationXmlModels = null;
 		localizedTexts = null;
 		localizedLanguages = null;
+	}
+
+	public void Init()
+	{
+		localizationXmlModels = XmlModelManager.instance.FindModels<LocalizationXmlModel>();
 	}
 
 	public string GetText(string localizationId)

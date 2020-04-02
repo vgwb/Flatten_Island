@@ -32,6 +32,7 @@ public class GameManager : MonoSingleton
 		PlatformCreator platformCreator = new PlatformCreator();
 		platform = platformCreator.CreatePlatform();
 
+		LocalizationManager.instance.Init();
 		SetLanguage();
 
 		Debug.Log("Current Language:" + LocalizationManager.instance.GetCurrentLanguage());
