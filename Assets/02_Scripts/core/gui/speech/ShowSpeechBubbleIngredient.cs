@@ -5,7 +5,7 @@ using Messages;
 public class ShowSpeechBubbleIngredient : Ingredient
 {
 	public SpeechMenu speechMenu;
-	public string localizationTextKey;
+	public string localizationId;
 	public float durationTime;
 	public bool skippable = true;
 
@@ -19,7 +19,7 @@ public class ShowSpeechBubbleIngredient : Ingredient
 		EventMessageManager.instance.AddHandler(typeof(BackgroundButtonTappedEvent).Name, backgroundButtonTappedEventHandler);
 
 		elapsedTime = 0.0f;
-		speechMenu.ShowSpeechBubble(localizationTextKey);
+		speechMenu.ShowSpeechBubble(localizationId);
 	}
 
 

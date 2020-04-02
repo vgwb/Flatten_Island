@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public class LocalizationManager : Singleton
+public class LocalizationManager : MonoSingleton
 {
+	public TextAsset languages;
+
 	public static string LANGUAGE_KEY = "Language";
 	public static string DEFAULT_LANGUAGE_ID = "English";
 
@@ -16,14 +18,20 @@ public class LocalizationManager : Singleton
 
 	private List<LocalizationXmlModel> localizationXmlModels;
 
-	public LocalizationManager()
+	protected override void OnMonoSingletonAwake()
 	{
+		base.OnMonoSingletonAwake();
 		localizationXmlModels = XmlModelManager.instance.FindModels<LocalizationXmlModel>();
 	}
 
-	public string GetLocalizedText(string localizationKey)
+	public string GetLocalizedText(string localizationId)
 	{
-		return localizationKey;
+		if (localizationId == null)
+		{
+			return null;
+		}
+
+		return localizationId;
 	}
 
 	public string GetCurrentLanguage()

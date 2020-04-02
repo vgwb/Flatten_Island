@@ -16,10 +16,9 @@ public class SpeechMenu : MonoBehaviour
 		EventMessageManager.instance.QueueMessage(backgroundButtonTappedEventMessage);
 	}
 
-	public void ShowSpeechBubble(string localizetionTextKey)
+	public void ShowSpeechBubble(string localizationId)
 	{
-		//ToDo: localize string
-		string text = localizetionTextKey;
+		string text = LocalizationManager.instance.GetLocalizedText(localizationId);
 
 		speechBubble.SetText(text);
 		speechBubble.gameObject.SetActive(true);

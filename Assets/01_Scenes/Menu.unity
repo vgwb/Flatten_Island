@@ -888,7 +888,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speechMenu: {fileID: 960258667}
-  localizationTextKey: Flatten Island is famous for 3 things...
+  localizationId: Intro_Text3
   durationTime: 2.5
   skippable: 1
 --- !u!1 &537747643
@@ -1091,8 +1091,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speechMenu: {fileID: 960258667}
-  localizationTextKey: "Even if it\u2019s lost in the middle of the ocean, you\u2019ll
-    have a great time here."
+  localizationId: Intro_Text2
   durationTime: 3.5
   skippable: 1
 --- !u!1 &582078679
@@ -1704,8 +1703,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speechMenu: {fileID: 960258667}
-  localizationTextKey: 'The Governor rules the island with the help of a team of expert
-    advisors and of all citizens, that constantly propose new ideas. '
+  localizationId: Intro_Text7
   durationTime: 3.5
   skippable: 1
 --- !u!1 &905445924
@@ -2861,8 +2859,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speechMenu: {fileID: 960258667}
-  localizationTextKey: First, the huge volcano that raises from the sea just behind
-    the island.
+  localizationId: Intro_Text4
   durationTime: 3.5
   skippable: 1
 --- !u!1 &1753892456
@@ -2914,8 +2911,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speechMenu: {fileID: 960258667}
-  localizationTextKey: "It\u2019s active and dangerous, that\u2019s why all citizens
-    live on Flatten Island."
+  localizationId: Intro_Text5
   durationTime: 3.5
   skippable: 1
 --- !u!1 &1779833612
@@ -3016,8 +3012,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speechMenu: {fileID: 960258667}
-  localizationTextKey: "Second, it\u2019s the only country in the world in which the
-    Governor is selected with a lottery among all citizens. "
+  localizationId: Intro_Text6
   durationTime: 3.5
   skippable: 1
 --- !u!1 &1847426297
@@ -3069,7 +3064,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speechMenu: {fileID: 960258667}
-  localizationTextKey: Welcome to Flatten Island!
+  localizationId: Intro_Text1
   durationTime: 2.5
   skippable: 1
 --- !u!1 &1851171177
