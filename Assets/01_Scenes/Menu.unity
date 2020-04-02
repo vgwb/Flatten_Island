@@ -548,6 +548,8 @@ GameObject:
   - component: {fileID: 349054633}
   - component: {fileID: 349054632}
   - component: {fileID: 349054631}
+  - component: {fileID: 349054635}
+  - component: {fileID: 349054634}
   m_Layer: 5
   m_Name: BlockingBackground
   m_TagString: Untagged
@@ -615,7 +617,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 960258667}
-        m_MethodName: TestOnClick
+        m_MethodName: OnBackgroundButtonTapped
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -664,6 +666,44 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 349054629}
   m_CullTransparentMesh: 0
+--- !u!114 &349054634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 349054629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!223 &349054635
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 349054629}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 1
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 100
+  m_TargetDisplay: 0
 --- !u!1 &381196121
 GameObject:
   m_ObjectHideFlags: 0
@@ -798,7 +838,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f369e34b3e851b4f9b9709f3de14aa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 1
+  delay: 0.5
 --- !u!1 &483944812
 GameObject:
   m_ObjectHideFlags: 0
@@ -1563,7 +1603,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f369e34b3e851b4f9b9709f3de14aa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 1
+  delay: 0.5
 --- !u!1 &855065276
 GameObject:
   m_ObjectHideFlags: 0
@@ -1768,6 +1808,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speechBubble: {fileID: 1634013139}
+  blockingBackgrounButton: {fileID: 349054631}
 --- !u!1 &1025336142
 GameObject:
   m_ObjectHideFlags: 0
@@ -1816,7 +1857,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f369e34b3e851b4f9b9709f3de14aa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 1
+  delay: 0.5
 --- !u!1 &1092517332
 GameObject:
   m_ObjectHideFlags: 0
@@ -2925,7 +2966,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f369e34b3e851b4f9b9709f3de14aa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 1
+  delay: 0.5
 --- !u!1 &1826043430
 GameObject:
   m_ObjectHideFlags: 0
@@ -3283,7 +3324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f369e34b3e851b4f9b9709f3de14aa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 1
+  delay: 0.5
 --- !u!1 &2025457405
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,6 +14,10 @@ public class ShowSpeechBubbleIngredient : Ingredient
 	public override void Prepare()
 	{
 		base.Prepare();
+
+		EventMessageHandler backgroundButtonTappedEventHandler = new EventMessageHandler(this, OnBackgroundButtonTapped);
+		EventMessageManager.instance.AddHandler(typeof(BackgroundButtonTappedEvent).Name, backgroundButtonTappedEventHandler);
+
 		elapsedTime = 0.0f;
 		speechMenu.ShowSpeechBubble(localizationTextKey);
 	}
@@ -27,11 +31,26 @@ public class ShowSpeechBubbleIngredient : Ingredient
 			elapsedTime += deltaTime;
 			if (elapsedTime >= durationTime)
 			{
-				speechMenu.HideSpeechBubble();
-				status = CookbookStatus.Success;
+				Complete();
 			}
 		}
 
+		if (status == CookbookStatus.Success)
+		{
+			EventMessageManager.instance.RemoveHandler(typeof(BackgroundButtonTappedEvent).Name, this);
+		}
+
 		return status;
+	}
+
+	private void OnBackgroundButtonTapped(EventMessage eventMessage)
+	{
+		Complete();
+	}
+
+	private void Complete()
+	{
+		speechMenu.HideSpeechBubble();
+		status = CookbookStatus.Success;
 	}
 }
