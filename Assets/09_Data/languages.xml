@@ -12,5 +12,9 @@
 	<localization id="1003" name="Italiano" languageId="Italian">
 		<tag>it</tag>
 		<tag>italian</tag>
-	</localization>	
+	</localization>
+	<localization id="1004" name="Français" languageId="French">
+		<tag>fr</tag>
+		<tag>french</tag>
+	</localization>
 </group>
