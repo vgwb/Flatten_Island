@@ -45,7 +45,10 @@ public class ShowSpeechBubbleIngredient : Ingredient
 
 	private void OnBackgroundButtonTapped(EventMessage eventMessage)
 	{
-		Complete();
+		if (skippable)
+		{
+			Complete();
+		}
 	}
 
 	private void Complete()
