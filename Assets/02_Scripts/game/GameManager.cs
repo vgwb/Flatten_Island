@@ -4,6 +4,8 @@ using Messages;
 public class GameManager : MonoSingleton
 {
 	public Camera mainCamera { get { return Camera.main; } }
+
+	public Platform platform;
 	public LocalPlayer localPlayer;
 
 	public GameSerializer gameSerializer
@@ -19,16 +21,20 @@ public class GameManager : MonoSingleton
 		}
 	}
 
-	protected override void OnMonoSingletonAwake()
-	{
-		gameSerializer = new PlayerPrefsGameSerializer();
-	}
-
 	protected override void OnMonoSingletonStart()
 	{
 		base.OnMonoSingletonStart();
 
+		gameSerializer = new PlayerPrefsGameSerializer();
+
 		localPlayer = new LocalPlayer();
+
+		PlatformCreator platformCreator = new PlatformCreator();
+		platform = platformCreator.CreatePlatform();
+
+		SetLanguage();
+
+		Debug.Log("Current Language:" + LocalizationManager.instance.GetCurrentLanguage());
 	}
 
 	protected override void OnMonoSingletonUpdate()
@@ -50,5 +56,25 @@ public class GameManager : MonoSingleton
 	public void SaveLocalPlayer()
 	{
 		gameSerializer.WriteSaveGame(localPlayer);
+	}
+
+	private void SetLanguage()
+	{
+		if (!LocalizationManager.instance.HasCurrentLanguage())
+		{
+			string languageCode = platform.GetCurrentLanguage();
+			if (languageCode != null)
+			{
+				LocalizationXmlModel localizationXmlModel = LocalizationManager.instance.FindLocalizationXmlModel(languageCode);
+				if (localizationXmlModel != null)
+				{
+					LocalizationManager.instance.SetLanguage(localizationXmlModel.languageId);
+				}
+			}
+			else
+			{
+				LocalizationManager.instance.SetDefaultLanguage();
+			}
+		}
 	}
 }

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<group>
+	<localization id="1001" name="English" languageId="English">
+		<tag>en</tag>
+		<tag>english</tag>
+	</localization>
+	<localization id="1002" name="Español" languageId="Spanish">
+		<tag>es</tag>
+		<tag>spanish</tag>
+	</localization>	
+	<localization id="1003" name="Italiano" languageId="Italian">
+		<tag>it</tag>
+		<tag>italian</tag>
+	</localization>	
+</group>
