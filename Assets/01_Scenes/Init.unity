@@ -528,7 +528,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9474f927f303d44794ffdd317232d9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  languages: {fileID: 4900000, guid: ec8d51f653b2374428b43c450bde4803, type: 3}
+  localizationFile: {fileID: 4900000, guid: 633921517c5d78b46a9b6508f0d506c1, type: 3}
 --- !u!1 &1556574781
 GameObject:
   m_ObjectHideFlags: 0
