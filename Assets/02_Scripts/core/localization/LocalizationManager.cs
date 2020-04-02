@@ -151,8 +151,6 @@ public class LocalizationManager : MonoSingleton
 
 	public string GetCurrentLanguage()
 	{
-		return "French";
-
 		if (HasCurrentLanguage())
 		{
 			return PlayerPrefs.GetString(LANGUAGE_KEY);
