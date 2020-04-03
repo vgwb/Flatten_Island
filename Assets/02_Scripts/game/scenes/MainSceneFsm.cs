@@ -54,6 +54,7 @@ public class MainSceneFsm : FiniteStateMachine
 
 	private void Play_Update()
 	{
+		// mainScene.UpdateMainScene();
 	}
 
 	private void Play_Exit()

@@ -1,10 +1,23 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using ProtoTurtle.BitmapDrawing;
 
 public class MainScene : MonoSingleton
 {
 	public const string NAME = "Main";
 
 	private MainSceneFsm sceneFsm;
+	public GameObject advisorImage;
+	public GameObject evolutionChart;
+
+	// Temporary. Hacky test
+	private bool mustRecalculateSuggestion;
+	public Sprite advisorSprite1;
+	public Sprite advisorSprite2;
+	private Sprite chartSprite;
 
 	public static MainScene instance
 	{
@@ -18,6 +31,8 @@ public class MainScene : MonoSingleton
 	{
 		sceneFsm = new MainSceneFsm(this);
 		sceneFsm.StartFsm();
+		mustRecalculateSuggestion = true;
+		chartSprite = ChartFactory.CreateChartSprite();
 	}
 
 	protected override void OnMonoSingletonUpdate()
@@ -25,6 +40,18 @@ public class MainScene : MonoSingleton
 		if (sceneFsm != null)
 		{
 			sceneFsm.Update();
+			UpdateMainScene();
+		}
+	}
+
+	public void UpdateMainScene() {
+		if (mustRecalculateSuggestion) // TODO change this to FSM managed events
+		{
+			Debug.Log("Recalculating suggestion");
+		    Image advisorImageImage = advisorImage.gameObject.GetComponent<Image>();
+			advisorImageImage.sprite = advisorSprite1; // TODO hardcoded
+		    Image evolutionChartImage = evolutionChart.gameObject.GetComponent<Image>();
+			evolutionChartImage.sprite = chartSprite; // TODO hardcoded
 		}
 	}
 
