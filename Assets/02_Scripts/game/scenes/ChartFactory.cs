@@ -20,26 +20,42 @@ public class ChartFactory
 		int yAxisX = AXIS_MARGIN;
 
 		// Axis
-		tex.DrawThickLine(AXIS_MARGIN, xAxisY, xAxisMaxX, xAxisY, Color.black, 3);
-		tex.DrawThickLine(AXIS_MARGIN, xAxisY, AXIS_MARGIN, AXIS_MARGIN, Color.black, 3);
+		tex.DrawThickLine(AXIS_MARGIN, xAxisY, xAxisMaxX, xAxisY, Color.black, 2);
+		tex.DrawThickLine(AXIS_MARGIN, xAxisY, AXIS_MARGIN, AXIS_MARGIN, Color.black, 2);
 
 		// Segment per day. Hardcoded proof of concept
 		DrawSegment(tex, 10, 190, 20, 188);
 		DrawSegment(tex, 20, 188, 30, 185);
 		DrawSegment(tex, 30, 185, 40, 180);
 		DrawSegment(tex, 40, 180, 50, 170);
-		DrawSegment(tex, 50, 170, 60, 150);
-		DrawSegment(tex, 60, 150, 70, 115);
-		DrawSegment(tex, 70, 115, 80,  90);
-		DrawSegment(tex, 80,  90, 90,  80);
-		DrawSegment(tex, 90,  80, 100, 75);
-		DrawSegment(tex, 100, 75, 110, 72);
-		DrawSegment(tex, 110, 72, 120, 70);
-		DrawSegment(tex, 120, 70, 130, 69);
-		DrawSegment(tex, 130, 69, 140, 68);
-		DrawSegment(tex, 140, 68, 150, 68);
-		DrawSegment(tex, 150, 68, 160, 70);
-		
+		DrawSegment(tex, 50, 170, 60, 160);
+		DrawSegment(tex, 60, 160, 70, 148);
+		DrawSegment(tex, 70, 148, 80, 135);
+		DrawSegment(tex, 80, 135, 90, 122);
+		DrawSegment(tex, 90, 122, 100, 115);
+		DrawSegment(tex, 100, 115, 110, 110);
+		DrawSegment(tex, 110, 110, 120, 106);
+		DrawSegment(tex, 120, 106, 130, 102);
+		DrawSegment(tex, 130, 102, 140, 99);
+		DrawSegment(tex, 140, 99, 150, 96);
+		DrawSegment(tex, 150, 96, 160, 93);
+		DrawSegment(tex, 160, 93, 170, 90);
+		DrawSegment(tex, 170, 90, 180, 87);
+		DrawSegment(tex, 180, 87, 190, 82);
+		DrawSegment(tex, 190, 82, 200, 75);
+		DrawSegment(tex, 200, 75, 210, 72);
+		DrawSegment(tex, 210, 72, 220, 70);
+		DrawSegment(tex, 220, 70, 230, 69);
+		DrawSegment(tex, 230, 69, 240, 68);
+		DrawSegment(tex, 240, 68, 250, 68);
+		DrawSegment(tex, 250, 68, 260, 70);
+
+		// Begin and end of the line
+		tex.DrawFilledCircle(10, 190, 7, Color.white);
+		tex.DrawCircle(10, 190, 7, Color.black);
+		tex.DrawFilledCircle(260, 70, 7, Color.white);
+		tex.DrawCircle(260, 70, 7, Color.black);
+
 		tex.Apply();
 		Sprite mySprite = Sprite.Create(tex, new Rect(0.0f, 0.0f, tex.width, tex.height), new Vector2(0.5f, 0.5f), 100.0f);
 		return mySprite;
@@ -61,6 +77,6 @@ public class ChartFactory
 
 	public static void DrawSegment(Texture2D tex, int x1, int y1, int x2, int y2)
 	{
-		tex.DrawThickLine(x1, y1, x2, y2, Color.black, 4);
+		tex.DrawThickLine(x1, y1, x2, y2, Color.black, 3);
 	}
 }
