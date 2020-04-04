@@ -17,7 +17,6 @@ public class MainScene : MonoSingleton
 	private bool mustRecalculateSuggestion;
 	public Sprite advisorSprite1;
 	public Sprite advisorSprite2;
-	private Sprite chartSprite;
 
 	public static MainScene instance
 	{
@@ -32,7 +31,6 @@ public class MainScene : MonoSingleton
 		sceneFsm = new MainSceneFsm(this);
 		sceneFsm.StartFsm();
 		mustRecalculateSuggestion = true;
-		chartSprite = ChartFactory.CreateChartSprite();
 	}
 
 	protected override void OnMonoSingletonUpdate()
@@ -51,7 +49,10 @@ public class MainScene : MonoSingleton
 		    Image advisorImageImage = advisorImage.gameObject.GetComponent<Image>();
 			advisorImageImage.sprite = advisorSprite1; // TODO hardcoded
 		    Image evolutionChartImage = evolutionChart.gameObject.GetComponent<Image>();
-			evolutionChartImage.sprite = chartSprite; // TODO hardcoded
+			int[] patients = GameManager.instance.localPlayerNode.patients;
+			int day = GameManager.instance.localPlayerNode.day;
+			int maxPatients = LocalPlayerNode.MAX_PATIENTS;
+			evolutionChartImage.sprite = ChartFactory.CreateChartSprite(patients, maxPatients, day); // TODO hardcoded
 		}
 	}
 
