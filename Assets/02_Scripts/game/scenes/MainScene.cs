@@ -12,9 +12,11 @@ public class MainScene : MonoSingleton
 	private MainSceneFsm sceneFsm;
 	public GameObject advisorImage;
 	public GameObject evolutionChart;
+	public Text growthValue;
+	public Text moneyValue;
+	public Text dayValue;
 
 	// Temporary. Hacky test
-	private bool mustRecalculateSuggestion;
 	public Sprite advisorSprite1;
 	public Sprite advisorSprite2;
 
@@ -30,7 +32,6 @@ public class MainScene : MonoSingleton
 	{
 		sceneFsm = new MainSceneFsm(this);
 		sceneFsm.StartFsm();
-		mustRecalculateSuggestion = true;
 	}
 
 	protected override void OnMonoSingletonUpdate()
@@ -38,21 +39,7 @@ public class MainScene : MonoSingleton
 		if (sceneFsm != null)
 		{
 			sceneFsm.Update();
-			UpdateMainScene();
-		}
-	}
-
-	public void UpdateMainScene() {
-		if (mustRecalculateSuggestion) // TODO change this to FSM managed events
-		{
-			Debug.Log("Recalculating suggestion");
-		    Image advisorImageImage = advisorImage.gameObject.GetComponent<Image>();
-			advisorImageImage.sprite = advisorSprite1; // TODO hardcoded
-		    Image evolutionChartImage = evolutionChart.gameObject.GetComponent<Image>();
-			int[] patients = GameManager.instance.localPlayerNode.patients;
-			int day = GameManager.instance.localPlayerNode.day;
-			int maxPatients = LocalPlayerNode.MAX_PATIENTS;
-			evolutionChartImage.sprite = ChartFactory.CreateChartSprite(patients, maxPatients, day); // TODO hardcoded
+			RenderCurrentState();
 		}
 	}
 
@@ -76,6 +63,43 @@ public class MainScene : MonoSingleton
 	private void OnLoadingPanelExitCompleted()
 	{
 		Hud.instance.Setup();
+	}
+
+	public void RenderCurrentState() // TODO refactor and extract formatting responsibilities
+	{
+		Debug.Log("StartDayTransition. Recalculating suggestion");
+		LocalPlayerNode lpn = GameManager.instance.localPlayerNode;
+		growthValue.text = lpn.growthRate + "%";
+		moneyValue.text = lpn.money + "M";
+		dayValue.text = lpn.day + "";
+		Image advisorImageImage = advisorImage.gameObject.GetComponent<Image>();
+		advisorImageImage.sprite = advisorSprite1; // TODO hardcoded
+		Image evolutionChartImage = evolutionChart.gameObject.GetComponent<Image>();
+		evolutionChartImage.sprite = ChartFactory.CreateChartSprite(lpn.patients, LocalPlayerNode.MAX_PATIENTS, lpn.day);
+	}
+
+	public void StartDayTransition()
+	{
+		RenderCurrentState();
+	}
+
+	public void AnimateDayTransition()
+	{
+		// TODO
+	}
+
+	public void AcceptSuggestion()
+	{
+		GameManager.instance.localPlayerNode.IncreaseDayWithSuggestion();
+		Debug.Log("AcceptSuggestion");
+		sceneFsm.TriggerState(MainSceneFsm.DayTransitionState);
+	}
+
+	public void RejectSuggestion()
+	{
+		GameManager.instance.localPlayerNode.IncreaseDayWithoutMeasures();
+		Debug.Log("RejectSuggestion");
+		sceneFsm.TriggerState(MainSceneFsm.DayTransitionState);
 	}
 
 	public void GoToMenu()

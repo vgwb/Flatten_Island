@@ -13,25 +13,27 @@
 	public LocalPlayerNode()
 	{
 		// TODO provisional initial state
-		day = 10;
+		day = 1;
 		patients = new int[MAX_DAYS];
 		patients[0] = 1000;
-		patients[1] = 1300;
-		patients[2] = 1500;
-		patients[3] = 1800;
-		patients[4] = 2000;
-		patients[5] = 2500;
-		patients[6] = 2800;
-		patients[7] = 3000;
-		patients[8] = 3100;
-		patients[9] = 3000;
-		growthRate = 1;
+		growthRate = 5;
 		capacity = 1000;
 		money = 10000;
 		publicOpinion = 0.5f;
 	}
 
+    // TODO apply a suggestion's effect
+    public void IncreaseDayWithSuggestion() {
+		money-=400;
+		growthRate--;
+		int patientsIncrease = (patients[day-1] * growthRate) / 100;
+		patients[day] = patients[day-1] + patientsIncrease; 
+        day++;
+    }
+
     public void IncreaseDayWithoutMeasures() {
+		money+=500;
+		growthRate++; // TODO, Remove. just to play with the chart
 		int patientsIncrease = (patients[day-1] * growthRate) / 100;
 		patients[day] = patients[day-1] + patientsIncrease; 
         day++;
