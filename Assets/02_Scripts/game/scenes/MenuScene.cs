@@ -54,7 +54,7 @@ public class MenuScene : MonoSingleton
 	public void OnPlayClick()
     {
 		Debug.Log("OnPlayClick()");
-		ScenesFlowManager.instance.UnloadingMenuScene();
+		ScenesFlowManager.instance.UnloadingMenuScene(); // PABLO: what if we had 2 navigations?
 	}
 
 	public void SetupScene()
