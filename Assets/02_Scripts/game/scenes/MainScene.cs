@@ -32,6 +32,7 @@ public class MainScene : MonoSingleton
 	{
 		sceneFsm = new MainSceneFsm(this);
 		sceneFsm.StartFsm();
+		RenderCurrentState(); // initial state, including first suggestion
 	}
 
 	protected override void OnMonoSingletonUpdate()
@@ -39,7 +40,6 @@ public class MainScene : MonoSingleton
 		if (sceneFsm != null)
 		{
 			sceneFsm.Update();
-			RenderCurrentState();
 		}
 	}
 
