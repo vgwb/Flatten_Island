@@ -986,6 +986,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dataModelFiles:
   - {fileID: 4900000, guid: 582563eea499e2e4da62f3759d2d0de1, type: 3}
+  - {fileID: 4900000, guid: 9ac1e5ed5f4e22b4982cf57563a2f86d, type: 3}
+  - {fileID: 4900000, guid: d548caaa71a52324daae364879b3f50d, type: 3}
+  - {fileID: 4900000, guid: 2b875e56703f5904582bbeedf0d1daf3, type: 3}
+  - {fileID: 4900000, guid: 5a436db0dba14d74181c4464c941c684, type: 3}
 --- !u!1 &2118358879
 GameObject:
   m_ObjectHideFlags: 0

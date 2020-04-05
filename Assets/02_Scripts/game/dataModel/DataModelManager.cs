@@ -31,6 +31,14 @@ public class DataModelManager : MonoSingleton
 
 		//register here other game specific mappings
 		XmlModelTypeMappings.instance.AddMapping("localization", typeof(LocalizationXmlModel));
+		XmlModelTypeMappings.instance.AddMapping("advisor", typeof(AdvisorXmlModel));
+		XmlModelTypeMappings.instance.AddMapping("gamePhase", typeof(GamePhaseXmlModel));
+		XmlModelTypeMappings.instance.AddMapping("gameStory", typeof(GameStoryXmlModel));
+		XmlModelTypeMappings.instance.AddMapping("suggestion", typeof(SuggestionXmlModel));
+
+		XmlModelTypeMappings.instance.AddMapping("gamePhaseRequirement", typeof(GamePhaseRequirementXmlModel));
+		XmlModelTypeMappings.instance.AddMapping("gameStoryRequirement", typeof(GameStoryRequirementXmlModel));
+
 	}
 
 	private void LoadModels()
