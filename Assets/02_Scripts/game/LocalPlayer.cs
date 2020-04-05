@@ -10,39 +10,65 @@ public class LocalPlayer
 
 	public int day { get; set; }
 	public int[] patients { get; set; }
+	public int vaccineDevelopment { get; set; }
 	public int growthRate { get; set; }
 	public int capacity { get; set; }
 	public int money { get; set; }
 	public float publicOpinion { get; set; }
+	public Suggestion[] suggestions { get; private set; }
+	public Suggestion adviced { get; private set; }
 
 	public LocalPlayer()
 	{
+		patients = new int[MAX_DAYS];
+	}
+
+	public void Init()
+	{
 		// TODO provisional initial state
 		day = 1;
-		patients = new int[MAX_DAYS];
+		vaccineDevelopment=0;
 		patients[0] = 1000;
 		growthRate = 5;
 		capacity = 1000;
 		money = 10000;
 		publicOpinion = 0.5f;
+
+		CreateAdvisorSuggestions();
 	}
 
-	// TODO apply a suggestion's effect
-	public void IncreaseDayWithSuggestion()
+	public void IncreaseDayAcceptSuggestion()
 	{
-		money -= 400;
-		growthRate--;
+		Debug.Log("IncreaseDayAcceptSuggestion");
+		Debug.Log("Adviced" + adviced.ToString());
+		money += adviced.moneyModifier;
+		growthRate += adviced.growthRateModifier;
+		publicOpinion += adviced.publicOpinionModifier;
+		capacity += adviced.capacityModifier;
 		int patientsIncrease = (patients[day - 1] * growthRate) / 100;
-		patients[day] = patients[day - 1] + patientsIncrease;
-		day++;
+		patients[day] = patients[day - 1] + patientsIncrease + adviced.patientsModifier;
+		IncreaseDay();
 	}
 
-	public void IncreaseDayWithoutMeasures()
+	public void IncreaseDayRejectSuggestion()
 	{
-		money += 500;
-		growthRate++; // TODO, Remove. just to play with the chart
 		int patientsIncrease = (patients[day - 1] * growthRate) / 100;
 		patients[day] = patients[day - 1] + patientsIncrease;
+		IncreaseDay();
+	}
+
+	public void IncreaseDay()
+	{
+		money += patients[day] * 3 - capacity * 2;
+		vaccineDevelopment++;
 		day++;
+		CreateAdvisorSuggestions();
+	}
+
+	private void CreateAdvisorSuggestions()
+	{
+		SuggestionFactory sf = GameManager.instance.suggestionFactory;
+		suggestions = sf.CreateNextSuggestions(adviced, this);
+		adviced = suggestions[0]; // TODO allow the player to choose. Bypassing
 	}
 }

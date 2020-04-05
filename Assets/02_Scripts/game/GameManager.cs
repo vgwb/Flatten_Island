@@ -6,6 +6,7 @@ public class GameManager : MonoSingleton
 	public Camera mainCamera { get { return Camera.main; } }
 
 	public Platform platform;
+	public SuggestionFactory suggestionFactory;
 	public LocalPlayer localPlayer;
 
 	public GameSerializer gameSerializer
@@ -26,6 +27,8 @@ public class GameManager : MonoSingleton
 		base.OnMonoSingletonStart();
 
 		gameSerializer = new PlayerPrefsGameSerializer();
+
+		suggestionFactory = new SuggestionFactory();
 
 		localPlayer = new LocalPlayer();
 
