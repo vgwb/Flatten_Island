@@ -17,6 +17,7 @@ public class XmlModelTypeMappings : Singleton
 	public void InitializeCoreMappings()
 	{
 		mappings.Add(XmlModelGroup.ELEMENT_NAME, typeof(XmlModelGroup));
+		mappings.Add(RequirementGroupXmlModel.ELEMENT_NAME, typeof(RequirementGroupXmlModel));
 	}
 
 	public void AddMapping(string xmlName,Type xmlModelType)

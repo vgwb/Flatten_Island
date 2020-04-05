@@ -140,6 +140,17 @@ public class XmlModel
 		return strings.ToArray();
 	}
 
+	public static List<int> ParseIntsFromChildElement(XElement element, string childElementName)
+	{
+		List<int> integers = new List<int>();
+		foreach (XElement childElement in element.Elements(childElementName))
+		{
+			int integer = int.Parse(childElement.Value);
+			integers.Add(integer);
+		}
+		return integers;
+	}
+
 	public static T ParseEnumAttribute<T>(XElement element, string attributeName, bool ignoreCase = false, T defaultValue = default(T))
 	{
 		string stringValue = ParseStringAttribute(element, attributeName);
@@ -165,7 +176,31 @@ public class XmlModel
 		}
 		return defaultDate;
 	}
-	
+
+
+	public static RequirementGroupXmlModel ParseRequirementGroupFromChildElement(XElement element, string childElementName)
+	{
+		XElement childElement = element.Element(childElementName);
+		if (childElement != null)
+		{
+			RequirementGroupXmlModel requirementGroupXmlModel = new RequirementGroupXmlModel();
+			requirementGroupXmlModel.Initialize(childElement);
+			return requirementGroupXmlModel;
+		}
+		return null;
+	}
+
+	public static RequirementXmlModel ParseRequirementXmlElement(XElement element)
+	{
+		RequirementXmlModel requirementXmlModel = XmlModelTypeMappings.instance.CreateInstanceFromName(element.Name.ToString()) as RequirementXmlModel;
+		if (requirementXmlModel != null)
+		{
+			requirementXmlModel.Initialize(element);
+		}
+
+		return requirementXmlModel;
+	}
+
 	public XElement GetFirstChildElement(XElement element)
 	{
 		XElement childElement = element.FirstNode as XElement;
@@ -206,19 +241,4 @@ public class XmlModel
 		
 		return models;
 	}
-
-	/*
-	public System.Object CreateInstanceFromName()
-	{
-		try 
-		{
-			return Activator.CreateInstance(this.GetType());
-		} 
-		catch 
-		{
-			//[FC] Raise an error + assert here when we have our console
-			return null;
-		}
-	}
-	*/
 }
