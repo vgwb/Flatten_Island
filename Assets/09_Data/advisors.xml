@@ -2,26 +2,26 @@
 <group>
 	<advisor id="2001" name="Commander Cosquillas" iconTexture="GUI/Portraits/advisor1">
 	</advisor>
-	<advisor id="2002" name="Dr. Esponjoso" iconTexture="GUI/Portraits/advisor1">
+	<advisor id="2002" name="Dr. Esponjoso" iconTexture="GUI/Portraits/advisor2">
 	</advisor>
-	<advisor id="2003" name="Professor Calderilla" iconTexture="GUI/Portraits/advisor1">
+	<advisor id="2003" name="Professor Calderilla" iconTexture="GUI/Portraits/advisor3">
 	</advisor>
-	<advisor id="2004" name="Sr. Murmullos" iconTexture="GUI/Portraits/advisor1">
+	<advisor id="2004" name="Sr. Murmullos" iconTexture="GUI/Portraits/advisor4">
 	</advisor>
 	<advisor id="2005" name="Director Burbujas" iconTexture="GUI/Portraits/advisor1">
 	</advisor>
-	<advisor id="2006" name="Citizen 1" iconTexture="GUI/Portraits/advisor1">
+	<advisor id="2006" name="Citizen 1" iconTexture="GUI/Portraits/advisor2">
 	</advisor>
-	<advisor id="2007" name="Citizen 2" iconTexture="GUI/Portraits/advisor1">
+	<advisor id="2007" name="Citizen 2" iconTexture="GUI/Portraits/advisor3">
 	</advisor>
-	<advisor id="2008" name="Citizen 3" iconTexture="GUI/Portraits/advisor1">
+	<advisor id="2008" name="Citizen 3" iconTexture="GUI/Portraits/advisor4">
 	</advisor>
-	<advisor id="2009" name="Citizen 4" iconTexture="">
+	<advisor id="2009" name="Citizen 4" iconTexture="GUI/Portraits/advisor1">
 	</advisor>
-	<advisor id="2010" name="Citizen 5" iconTexture="GUI/Portraits/advisor1">
+	<advisor id="2010" name="Citizen 5" iconTexture="GUI/Portraits/advisor2">
 	</advisor>
-	<advisor id="2011" name="Citizen 6" iconTexture="GUI/Portraits/advisor1">
+	<advisor id="2011" name="Citizen 6" iconTexture="GUI/Portraits/advisor3">
 	</advisor>
-	<advisor id="2012" name="Citizen 7" iconTexture="GUI/Portraits/advisor1">
+	<advisor id="2012" name="Citizen 7" iconTexture="GUI/Portraits/advisor4">
 	</advisor>
 </group>
