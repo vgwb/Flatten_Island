@@ -9,7 +9,20 @@ public class AdvisorEntry : MonoBehaviour
 
 	public Image portrait;
 	public Text advisorName;
+	public AdvisorEntryChef advisorEntryChef;
+
 	public AdvisorXmlModel advisorXmlModel;
+
+	private void OnEnable()
+	{
+		EventMessageHandler advisorSelectedMessageHandler = new EventMessageHandler(this, OnAdvisorSelectedEvent);
+		EventMessageManager.instance.AddHandler(typeof(AdvisorSelectedEvent).Name, advisorSelectedMessageHandler);
+	}
+
+	public void OnDisable()
+	{
+		EventMessageManager.instance.RemoveHandler(typeof(AdvisorSelectedEvent).Name, this);
+	}
 
 	public void SetAdvisor(AdvisorXmlModel advisorXmlModel)
 	{
@@ -25,9 +38,63 @@ public class AdvisorEntry : MonoBehaviour
 
 	public void OnSelected()
 	{
+		Debug.Log("Advisor " + advisorXmlModel.name + " Selected");
+
 		AdvisorSelectedEvent advisorSelectedEvent = AdvisorSelectedEvent.CreateInstance(this);
 		EventMessage advisorSelectedEventMessage = new EventMessage(this, advisorSelectedEvent);
 		advisorSelectedEventMessage.SetMessageType(MessageType.BROADCAST);
 		EventMessageManager.instance.QueueMessage(advisorSelectedEventMessage);
+	}
+
+	public void OnAdvisorSelectedEvent(EventMessage eventMessage)
+	{
+		AdvisorSelectedEvent advisorSelectedEvent = eventMessage.eventObject as AdvisorSelectedEvent;
+		if (advisorSelectedEvent.advisorEntrySelected == this)
+		{
+			advisorEntryChef.Cook(advisorEntryChef.onSelectedRecipe, OnSelectedRecipeCompleted);
+		}
+		else
+		{
+			advisorEntryChef.Cook(advisorEntryChef.onDiscardedRecipe, OnDiscardedRecipeCompleted);
+		}
+	}
+
+	private void OnSelectedRecipeCompleted()
+	{
+		Debug.Log("Advisor " + advisorXmlModel.name + " Selected Recipe completed");
+		SendExitCompletedEvent();
+	}
+
+	public void OnDiscardedRecipeCompleted()
+	{
+		Debug.Log("Advisor " + advisorXmlModel.name + " Discarded Recipe completed");
+		SendExitCompletedEvent();
+	}
+
+	private void SendExitCompletedEvent()
+	{
+		AdvisorEntryExitCompletedEvent exitCompletedEvent = AdvisorEntryExitCompletedEvent.CreateInstance(this);
+		EventMessage exitCompletedEventMessage = new EventMessage(this, exitCompletedEvent);
+		exitCompletedEventMessage.SetMessageType(MessageType.BROADCAST);
+		EventMessageManager.instance.QueueMessage(exitCompletedEventMessage);
+	}
+
+	private void SendEnterCompletedEvent()
+	{
+		AdvisorEntryEnterCompletedEvent enterCompletedEvent = AdvisorEntryEnterCompletedEvent.CreateInstance(this);
+		EventMessage enterCompletedEventMessage = new EventMessage(this, enterCompletedEvent);
+		enterCompletedEventMessage.SetMessageType(MessageType.BROADCAST);
+		EventMessageManager.instance.QueueMessage(enterCompletedEventMessage);
+	}
+
+	public void PlayEnterRecipe()
+	{
+		advisorEntryChef.Cook(advisorEntryChef.onEnterRecipe, OnEnterRecipeCompleted);
+	}
+
+	private void OnEnterRecipeCompleted()
+	{
+		Debug.Log("Advisor " + advisorXmlModel.name + " Enter Recipe completed");
+		SendEnterCompletedEvent();
 	}
 }
