@@ -12,10 +12,18 @@ public class SuggestionButton : MonoBehaviour
 	public Text buttonCostText;
 	public Image buttonCostIcon;
 
-	public void SetButton(string buttonTextId, string buttonCostTextid, bool showCostIcon)
+	public void SetButton(SuggestionOptionXmlModel suggestionOptionXmlModel)
 	{
-		buttonText.text = LocalizationManager.instance.GetText(buttonTextId);
-		buttonCostText.text = LocalizationManager.instance.GetText(buttonCostTextid);
-		buttonCostIcon.gameObject.SetActive(showCostIcon);
+		buttonText.text = LocalizationManager.instance.GetText(suggestionOptionXmlModel.text);
+		if (suggestionOptionXmlModel.moneyModifier == 0)
+		{
+			buttonCostIcon.gameObject.SetActive(false);
+			buttonCostText.text = LocalizationManager.instance.GetText("FREE");
+		}
+		else
+		{
+			buttonCostIcon.gameObject.SetActive(true);
+			buttonCostText.text = suggestionOptionXmlModel.moneyModifier.ToString();
+		}
 	}
 }

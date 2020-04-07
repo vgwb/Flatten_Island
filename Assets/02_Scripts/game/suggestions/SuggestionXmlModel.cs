@@ -5,6 +5,7 @@ public class SuggestionXmlModel : XmlModel
 {
 	public int advisorId;
 	public string title;
+	public string description;
 	public List<SuggestionOptionXmlModel> suggestionOptionsList;
 	public RequirementGroupXmlModel requirements;
 
@@ -13,6 +14,7 @@ public class SuggestionXmlModel : XmlModel
 		base.Initialize(element);
 		advisorId = ParseIntAttribute(element, "advisorId");
 		title = ParseStringAttribute(element, "title");
+		description = ParseStringAttribute(element, "description");
 
 		XElement suggestionOptionsElement = element.Element("suggestionOptions");
 		suggestionOptionsList = ParseModelsFromChildElement<SuggestionOptionXmlModel>(suggestionOptionsElement, "suggestionOption");
