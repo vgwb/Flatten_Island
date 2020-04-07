@@ -52,6 +52,8 @@ public class MainSceneFsm : FiniteStateMachine
 
 	private void Play_Enter()
 	{
+		//test only for now
+		AdvisorsManager.instance.ShowAdvisors();
 	}
 
 	private void Play_Update()
