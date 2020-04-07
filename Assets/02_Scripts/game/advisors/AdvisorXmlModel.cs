@@ -2,11 +2,13 @@
 
 public class AdvisorXmlModel : XmlModel
 {
-	public string iconTexture;
+	public string portraitSprite;
+	public string iconSprite;
 
 	override public void Initialize(XElement element)
 	{
 		base.Initialize(element);
-		iconTexture = ParseStringAttribute(element, "iconTexture");
+		portraitSprite = ParseStringAttribute(element, "portraitSprite");
+		iconSprite = ParseStringAttribute(element, "iconSprite");
 	}
 }

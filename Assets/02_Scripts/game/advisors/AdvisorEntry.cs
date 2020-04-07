@@ -16,9 +16,9 @@ public class AdvisorEntry : MonoBehaviour
 		this.advisorXmlModel = advisorXmlModel;
 
 		advisorName.text = LocalizationManager.instance.GetText(advisorXmlModel.name);
-		if (!string.IsNullOrEmpty(advisorXmlModel.iconTexture))
+		if (!string.IsNullOrEmpty(advisorXmlModel.portraitSprite))
 		{
-			Sprite advisorSprite = Resources.Load<Sprite>(advisorXmlModel.iconTexture);
+			Sprite advisorSprite = Resources.Load<Sprite>(advisorXmlModel.portraitSprite);
 			portrait.overrideSprite = advisorSprite;
 		}
 	}
