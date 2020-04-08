@@ -643,11 +643,11 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 4
+  m_ChildAlignment: 1
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 200, y: 100}
-  m_Spacing: {x: 0, y: 0}
+  m_CellSize: {x: 380, y: 120}
+  m_Spacing: {x: 0, y: 20}
   m_Constraint: 1
   m_ConstraintCount: 1
 --- !u!1 &5581308545998044165
@@ -703,9 +703,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8279fa59d0de4d04b99ed1b7e464c32a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moneySprite: {fileID: 21300000, guid: 5e5dbd743d368864cb9b01464689b3f9, type: 3}
+  publicOpinionSprite: {fileID: 21300000, guid: b2f880e83820e6f43a8d97c4327c9acc,
+    type: 3}
+  growRateSprite: {fileID: 21300000, guid: fd1d471a02645d04fa4923220878b233, type: 3}
+  capacitySprite: {fileID: 21300000, guid: fa51487fcc7f83b4998987cdccda3544, type: 3}
   suggestionResultEntryChef: {fileID: 6637584083492393942}
   advisorPortrait: {fileID: 4908693536312888460}
   parametersGridLayoutGroup: {fileID: 8422757720299170530}
+  optionParameterEntryPrefab: {fileID: 0}
 --- !u!1 &7233423876241912376
 GameObject:
   m_ObjectHideFlags: 0

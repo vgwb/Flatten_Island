@@ -7,9 +7,15 @@ public class SuggestionResultEntry : MonoBehaviour
 {
 	public static string PREFAB = "GUI/SuggestionResultEntry";
 
+	public Sprite moneySprite;
+	public Sprite publicOpinionSprite;
+	public Sprite growRateSprite;
+	public Sprite capacitySprite;
+
 	public SuggestionResultEntryChef suggestionResultEntryChef;
 	public Image advisorPortrait;
 	public GridLayoutGroup parametersGridLayoutGroup;
+	public OptionParameterEntry optionParameterEntryPrefab;
 
 	private SuggestionOptionXmlModel suggestionOptionXmlModel;
 
@@ -30,6 +36,42 @@ public class SuggestionResultEntry : MonoBehaviour
 			Sprite advisorSprite = Resources.Load<Sprite>(advisorXmlModel.portraitSprite);
 			advisorPortrait.overrideSprite = advisorSprite;
 		}
+
+		if (suggestionOptionXmlModel.publicOpinionModifier != 0)
+		{
+			OptionParameterEntry optionParameterEntry = CreateOptionParameterEntry();
+			optionParameterEntry.SetParameter(suggestionOptionXmlModel.publicOpinionModifier, publicOpinionSprite);
+			optionParameterEntry.gameObject.SetActive(true);
+		}
+
+		if (suggestionOptionXmlModel.moneyModifier != 0)
+		{
+			OptionParameterEntry optionParameterEntry = CreateOptionParameterEntry();
+			optionParameterEntry.SetParameter(suggestionOptionXmlModel.moneyModifier, moneySprite);
+			optionParameterEntry.gameObject.SetActive(true);
+		}
+
+		if (suggestionOptionXmlModel.growthRateModifier != 0)
+		{
+			OptionParameterEntry optionParameterEntry = CreateOptionParameterEntry();
+			optionParameterEntry.SetParameter(suggestionOptionXmlModel.growthRateModifier, growRateSprite);
+			optionParameterEntry.gameObject.SetActive(true);
+		}
+
+		if (suggestionOptionXmlModel.capacityModifier != 0)
+		{
+			OptionParameterEntry optionParameterEntry = CreateOptionParameterEntry();
+			optionParameterEntry.SetParameter(suggestionOptionXmlModel.capacityModifier, capacitySprite);
+			optionParameterEntry.gameObject.SetActive(true);
+		}
+	}
+
+	private OptionParameterEntry CreateOptionParameterEntry()
+	{
+		GameObject optionParameterEntry = GameObjectFactory.instance.InstantiateGameObject(OptionParameterEntry.PREFAB, parametersGridLayoutGroup.transform, false);
+		optionParameterEntry.gameObject.transform.SetParent(parametersGridLayoutGroup.transform, true);
+		OptionParameterEntry optionParameterEntryScript = optionParameterEntry.GetComponent<OptionParameterEntry>();
+		return optionParameterEntryScript;
 	}
 
 	public void OnOkButtonSelected()
