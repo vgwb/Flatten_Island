@@ -12,6 +12,7 @@ public class AdvisorsManager : MonoSingleton
 	}
 
 	public AdvisorsMenu advisorMenu;
+	public SuggestionMenu suggestionMenu;
 
 	private LocalPlayer localPlayer;
 	private IAdvisorSpawnPolicy advisorSpawnPolicy;
@@ -55,17 +56,6 @@ public class AdvisorsManager : MonoSingleton
 		List<SuggestionXmlModel> suggestionXmlModels = XmlModelManager.instance.FindModels<SuggestionXmlModel>((suggestionXmlModel) => suggestionXmlModel.advisorId == advisorId);
 
 		//should randomize here
-		CreateSuggestionEntry(suggestionXmlModels[0], advisorEntrySelected.advisorXmlModel);
-	}
-
-	private SuggestionEntry CreateSuggestionEntry(SuggestionXmlModel suggestionXmlModel, AdvisorXmlModel advisorXmlModel)
-	{
-		GameObject suggestionEntry = GameObjectFactory.instance.InstantiateGameObject(SuggestionEntry.PREFAB, advisorMenu.transform, false);
-		suggestionEntry.gameObject.transform.SetParent(advisorMenu.transform, true);
-		SuggestionEntry suggestionEntryScript = suggestionEntry.GetComponent<SuggestionEntry>();
-		suggestionEntryScript.SetSuggestion(suggestionXmlModel, advisorXmlModel);
-		suggestionEntry.gameObject.SetActive(true);
-		return suggestionEntryScript;
-
+		suggestionMenu.Show(suggestionXmlModels[0], advisorEntrySelected.advisorXmlModel);
 	}
 }
