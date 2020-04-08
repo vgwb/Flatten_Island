@@ -22,6 +22,14 @@ public class GameManager : MonoSingleton
 		}
 	}
 
+	protected override void OnMonoSingletonAwake()
+	{
+		base.OnMonoSingletonAwake();
+
+		EventMessageHandler suggestionResultEntryExitCompletedMessageHandler = new EventMessageHandler(this, OnSuggestionResultEntryExitCompleted);
+		EventMessageManager.instance.AddHandler(typeof(SuggestionResultEntryExitCompletedEvent).Name, suggestionResultEntryExitCompletedMessageHandler);
+	}
+
 	protected override void OnMonoSingletonStart()
 	{
 		base.OnMonoSingletonStart();
@@ -49,6 +57,9 @@ public class GameManager : MonoSingleton
 	protected override void OnMonoSingletonDestroyed()
 	{
 		localPlayer = null;
+
+		EventMessageManager.instance.RemoveHandler(typeof(SuggestionResultEntryExitCompletedEvent).Name, this);
+
 		base.OnMonoSingletonDestroyed();
 	}
 
@@ -80,5 +91,21 @@ public class GameManager : MonoSingleton
 				LocalizationManager.instance.SetDefaultLanguage();
 			}
 		}
+	}
+
+	private void OnSuggestionResultEntryExitCompleted(EventMessage eventMessage)
+	{
+		SuggestionResultEntryExitCompletedEvent suggestionResultEntryExitCompletedEvent = eventMessage.eventObject as SuggestionResultEntryExitCompletedEvent;
+
+		SuggestionOptionXmlModel selectedSuggestionOptionXmlModel = suggestionResultEntryExitCompletedEvent.selectedSuggestionOptionXmlModel;
+
+		localPlayer.ApplySuggestionOption(selectedSuggestionOptionXmlModel);
+
+		//Should be in the Game Manager
+		MainScene.instance.StartDayTransition();
+		MainScene.instance.AnimateDayTransition(); // TODO probably not instantaneous
+
+
+		AdvisorsManager.instance.ShowAdvisors();
 	}
 }

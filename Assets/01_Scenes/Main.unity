@@ -142,7 +142,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1824390127}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -376,7 +376,7 @@ RectTransform:
   - {fileID: 1642366696}
   - {fileID: 1651401221}
   m_Father: {fileID: 1824390127}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -407,6 +407,7 @@ GameObject:
   - component: {fileID: 614687939}
   - component: {fileID: 614687941}
   - component: {fileID: 614687940}
+  - component: {fileID: 614687942}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -425,8 +426,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1824390127}
-  m_RootOrder: 0
+  m_Father: {fileID: 4727782014539924481}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -453,7 +454,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: ef6dec3ed2590d1c7b5b4eab0bc04e44, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 010aae1052fedb94993e24482e620f00, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -470,6 +471,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 614687938}
   m_CullTransparentMesh: 0
+--- !u!223 &614687942
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 614687938}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 1
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: -1
+  m_TargetDisplay: 0
 --- !u!1 &745158951
 GameObject:
   m_ObjectHideFlags: 0
@@ -582,14 +604,6 @@ MonoBehaviour:
   growthValue: {fileID: 59786005}
   moneyValue: {fileID: 1969586655}
   dayValue: {fileID: 745158953}
-  advisorImage: {fileID: 1917738573}
-  advisorTitle: {fileID: 1281147143}
-  advisorDescription: {fileID: 1793172062}
-  advisorSprite1: {fileID: 21300000, guid: 44574c6497c11e896a1cf51325221c60, type: 3}
-  advisorSprite2: {fileID: 21300000, guid: e1756cd9a143eab7098484e8e687a8e2, type: 3}
-  advisorSprite3: {fileID: 21300000, guid: 77dc742500241d30f9c10dbf85056bd0, type: 3}
-  advisorSprite4: {fileID: 21300000, guid: ce806f160978eb8ecbe45f39ac8fe7c2, type: 3}
-  advisorSprite5: {fileID: 21300000, guid: 1c42e1df5feb081e79a8f38d2718c530, type: 3}
 --- !u!4 &832730269
 Transform:
   m_ObjectHideFlags: 0
@@ -989,7 +1003,7 @@ RectTransform:
   m_Children:
   - {fileID: 1484432604}
   m_Father: {fileID: 1824390127}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -1302,7 +1316,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1350102540
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1317,7 +1331,7 @@ RectTransform:
   - {fileID: 1936600785}
   - {fileID: 1285125965}
   m_Father: {fileID: 1824390127}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -1830,7 +1844,6 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 614687939}
   - {fileID: 1230211320}
   - {fileID: 243463297}
   - {fileID: 23463066}
@@ -2671,6 +2684,7 @@ RectTransform:
   m_Children:
   - {fileID: 4727782016051036448}
   - {fileID: 1642954195}
+  - {fileID: 614687939}
   m_Father: {fileID: 1917745240}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2735,7 +2749,7 @@ GameObject:
   - component: {fileID: 4727782014539924483}
   - component: {fileID: 4727782014539924480}
   m_Layer: 5
-  m_Name: UICardsCanvas
+  m_Name: UIWorldCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2853,7 +2867,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

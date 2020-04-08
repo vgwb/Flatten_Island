@@ -82,12 +82,15 @@ public class SuggestionResultEntry : MonoBehaviour
 	private void OnExitRecipeCompleted()
 	{
 		Debug.Log("Suggestion Result Exit Recipe completed");
+
+		GameObjectUtils.instance.DestroyAllChildren(parametersGridLayoutGroup.transform);
+
 		SendExitCompletedEvent();
 	}
 
 	private void SendExitCompletedEvent()
 	{
-		SuggestionResultEntryExitCompletedEvent exitCompletedEvent = SuggestionResultEntryExitCompletedEvent.CreateInstance(this);
+		SuggestionResultEntryExitCompletedEvent exitCompletedEvent = SuggestionResultEntryExitCompletedEvent.CreateInstance(this, suggestionOptionXmlModel);
 		EventMessage exitCompletedEventMessage = new EventMessage(this, exitCompletedEvent);
 		exitCompletedEventMessage.SetMessageType(MessageType.BROADCAST);
 		EventMessageManager.instance.QueueMessage(exitCompletedEventMessage);

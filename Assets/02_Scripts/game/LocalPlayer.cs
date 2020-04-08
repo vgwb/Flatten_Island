@@ -33,8 +33,6 @@ public class LocalPlayer
 		capacity = 1000;
 		money = 10000;
 		publicOpinion = 0.5f;
-
-		CreateAdvisorSuggestions();
 	}
 
 	public void IncreaseDayAcceptSuggestion()
@@ -62,13 +60,16 @@ public class LocalPlayer
 		money += patients[day] * 3 - capacity * 2;
 		vaccineDevelopment++;
 		day++;
-		CreateAdvisorSuggestions();
 	}
 
-	private void CreateAdvisorSuggestions()
+	public void ApplySuggestionOption(SuggestionOptionXmlModel selectedSuggestionOptionXmlModel)
 	{
-		SuggestionFactory sf = GameManager.instance.suggestionFactory;
-		suggestions = sf.CreateNextSuggestions(adviced, this);
-		adviced = suggestions[0]; // TODO allow the player to choose. Bypassing
+		money += selectedSuggestionOptionXmlModel.moneyModifier;
+		growthRate += selectedSuggestionOptionXmlModel.growthRateModifier;
+		publicOpinion += selectedSuggestionOptionXmlModel.publicOpinionModifier;
+		capacity += selectedSuggestionOptionXmlModel.capacityModifier;
+		int patientsIncrease = (patients[day - 1] * growthRate) / 100;
+		patients[day] = patients[day - 1] + patientsIncrease;
+		IncreaseDay();
 	}
 }

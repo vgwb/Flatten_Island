@@ -6,7 +6,6 @@ public class MainSceneFsm : FiniteStateMachine
 	public static readonly string ReadyState = "Ready";
 	public static readonly string PlayState = "Play";
 	public static readonly string UninitState = "Uninit";
-	public static readonly string DayTransitionState = "DayTransition";
 
 	private MainScene mainScene;
 
@@ -21,7 +20,6 @@ public class MainSceneFsm : FiniteStateMachine
 		AddState(InitState, null, Init_Update, Init_Exit);
 		AddState(ReadyState, Ready_Enter, Ready_Update, null);
 		AddState(PlayState, Play_Enter, Play_Update, Play_Exit);
-		AddState(DayTransitionState, DayTransition_Enter, DayTransition_Update, DayTransition_Exit);
 		AddState(UninitState, null, null, null);
 	}
 
@@ -64,20 +62,5 @@ public class MainSceneFsm : FiniteStateMachine
 	private void Play_Exit()
 	{
 		mainScene.UnsetupScene();
-	}
-
-	private void DayTransition_Enter()
-	{
-		mainScene.StartDayTransition();
-	}
-
-	private void DayTransition_Update()
-	{
-		mainScene.AnimateDayTransition(); // TODO probably not instantaneous
-		TriggerState(PlayState);
-	}
-
-	private void DayTransition_Exit()
-	{
 	}
 }
