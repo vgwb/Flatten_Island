@@ -86,7 +86,7 @@ public class AdvisorsMenu : MonoBehaviour
 		{
 			Debug.Log("All Advisor Entries have exited");
 
-			AdvisorsManager.instance.OnAdvisorSelected(advisorEntrySelected);
+			AdvisorsManager.instance.ShowAdvisorSuggestion(advisorEntrySelected);
 
 			//should tell AdvisorManager I have finished, passing the selected advisor
 			//should Hide the Menu

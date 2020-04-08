@@ -34,6 +34,7 @@ public class SuggestionResultEntry : MonoBehaviour
 
 	public void OnOkButtonSelected()
 	{
+		suggestionResultEntryChef.Cook(suggestionResultEntryChef.onExitRecipe, OnExitRecipeCompleted);
 	}
 
 	private void OnExitRecipeCompleted()
