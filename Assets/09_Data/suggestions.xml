@@ -3,7 +3,7 @@
 	<suggestion id="3001" advisorId="2001" title="CardTitle_1" description="CardDescription_1">
 		<suggestionOptions>
 			<suggestionOption id="1" text="Card_OptA_1" money="-2000" capacity="5000" />
-			<suggestionOption id="2" text="Card_OptA_1" money="-10000" capacity="20000" />
+			<suggestionOption id="2" text="Card_OptB_1" money="-10000" capacity="20000" />
 		</suggestionOptions>
 		<requirements>
 			<gamePhaseRequirement>
@@ -14,7 +14,7 @@
 	<suggestion id="3002" advisorId="2002" title="CardTitle_2" description="CardDescription_2">
 		<suggestionOptions>
 			<suggestionOption id="1" text="Card_OptA_2" money="-3000" growthRate="-2" />
-			<suggestionOption id="2" text="Card_OptA_2" money="-1000"/>
+			<suggestionOption id="2" text="Card_OptB_2" money="-1000"/>
 		</suggestionOptions>
 		<requirements>
 			<gamePhaseRequirement>
@@ -26,7 +26,7 @@
 	<suggestion id="3003" advisorId="2003" title="CardTitle_3" description="CardDescription_3">
 		<suggestionOptions>
 			<suggestionOption id="1" text="Card_OptA_3" money="-2000" growthRate="-5" />
-			<suggestionOption id="2" text="Card_OptA_3" publicOpinion="-10" growthRate="-2" />
+			<suggestionOption id="2" text="Card_OptB_3" publicOpinion="-10" growthRate="-2" />
 		</suggestionOptions>
 		<requirements>
 			<gamePhaseRequirement>
@@ -38,7 +38,7 @@
 	<suggestion id="3004" advisorId="2004" title="CardTitle_4" description="CardDescription_4">
 		<suggestionOptions>
 			<suggestionOption id="1" text="Card_OptA_4" money="-2000" patients="-100" />
-			<suggestionOption id="2" text="Card_OptA_4" publicOpinion="10" growthRate="-5" />
+			<suggestionOption id="2" text="Card_OptB_4" publicOpinion="10" growthRate="-5" />
 		</suggestionOptions>
 		<requirements>
 			<gamePhaseRequirement>
@@ -52,7 +52,7 @@
 	<suggestion id="3005" advisorId="2005" title="CardTitle_5" description="CardDescription_5">
 		<suggestionOptions>
 			<suggestionOption id="1" text="Card_OptA_" money="1000" patients="-100" />
-			<suggestionOption id="2" text="Card_OptA_5" publicOpinion="5" growthRate="-1" />
+			<suggestionOption id="2" text="Card_OptB_5" publicOpinion="5" growthRate="-1" />
 		</suggestionOptions>
 		<requirements>
 			<gamePhaseRequirement>
