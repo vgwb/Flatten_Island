@@ -7,6 +7,7 @@ public class SuggestionOptionXmlModel : XmlModel
 	public int capacityModifier;
 	public int publicOpinionModifier;
 	public int growthRateModifier;
+	public int vaccineModifier;
 
 	override public void Initialize(XElement element)
 	{
@@ -17,5 +18,6 @@ public class SuggestionOptionXmlModel : XmlModel
 		capacityModifier = ParseIntAttribute(element, "capacity");
 		publicOpinionModifier = ParseIntAttribute(element, "publicOpinion");
 		growthRateModifier = ParseIntAttribute(element, "growthRate");
+		vaccineModifier = ParseIntAttribute(element, "vaccine");
 	}
 }
