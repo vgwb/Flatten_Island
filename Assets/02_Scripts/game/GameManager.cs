@@ -69,12 +69,12 @@ public class GameManager : MonoSingleton
 
 	public void LoadPlayer()
 	{
-		gameSerializer.ReadSaveGame(saveGameStorage, out localPlayer);
+		//gameSerializer.ReadSaveGame(saveGameStorage, out localPlayer);
 	}
 
 	public void SavePlayer()
 	{
-		gameSerializer.WriteSaveGame(saveGameStorage, localPlayer);
+		//gameSerializer.WriteSaveGame(saveGameStorage, localPlayer);
 	}
 
 	private void SetLanguage()
