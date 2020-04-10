@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group>
-	<gamePhase id="1" name="Phase1" description="Phase1_Description">
+	<gamePhase id="1" name="Tutorial_Phase" description="Phase1_Description">
 	</gamePhase>
-	<gamePhase id="2" name="Phase2" description="Phase2_Description">
+	<gamePhase id="2" name="FirstCases_Phase" description="Phase2_Description">
 	</gamePhase>
-	<gamePhase id="3" name="Phase3" description="Phase3_Description">
+	<gamePhase id="3" name="Emergency_Phase" description="Phase3_Description">
 	</gamePhase>
-	<gamePhase id="4" name="Phase4" description="Phase4_Description">
+	<gamePhase id="4" name="PullingCurveDown_Phase" description="Phase4_Description">
 	</gamePhase>
 </group>
