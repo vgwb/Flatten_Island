@@ -45,8 +45,8 @@ public class MenuScene : MonoSingleton
 		PlayCinematicCompletedEvent playCinematicCompletedEvent = eventMessage.eventObject as PlayCinematicCompletedEvent;
 		if (playCinematicCompletedEvent.cinematicMenu == introCinematicMenu)
 		{
-			//GameManager.instance.localPlayer.skipIntro = true;
-			GameManager.instance.SaveLocalPlayer();
+			GameManager.instance.localPlayer.skipIntro = true;
+			GameManager.instance.SavePlayer();
 			sceneFsm.TriggerState(MenuSceneFsm.MenuState);
 		}
 	}
@@ -61,7 +61,7 @@ public class MenuScene : MonoSingleton
 	{
 		menuCanvas.SetActive(false);
 		cinematicCanvas.SetActive(false);
-		GameManager.instance.LoadLocalPlayer();
+		GameManager.instance.LoadPlayer();
 		InitScene.instance.loadingPanel.Exit(OnLoadingPanelExitCompleted);
 	}
 

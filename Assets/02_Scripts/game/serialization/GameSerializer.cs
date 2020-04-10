@@ -1,6 +1,6 @@
 ﻿public interface GameSerializer
 {
-	void DeleteSaveGame();
-	void WriteSaveGame(LocalPlayer localPlayer);
-	void ReadSaveGame(out LocalPlayer localPlayer);
+	void DeleteSaveGame(ISaveGameStorage saveGameStorage);
+	void WriteSaveGame(ISaveGameStorage saveGameStorage, LocalPlayer localPlayer);
+	void ReadSaveGame(ISaveGameStorage saveGameStorage, out LocalPlayer localPlayer);
 }

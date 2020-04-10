@@ -72,4 +72,29 @@ public class LocalPlayer
 		patients[day] = patients[day - 1] + patientsIncrease;
 		IncreaseDay();
 	}
+
+	public LocalPlayerData WriteSaveData()
+	{
+		LocalPlayerData localPlayerData = new LocalPlayerData();
+		localPlayerData.skipIntro = skipIntro;
+		localPlayerData.day = day;
+		localPlayerData.growthRate = growthRate;
+		localPlayerData.money = money;
+		localPlayerData.vaccineDevelopment = vaccineDevelopment;
+		localPlayerData.capacity = capacity;
+		localPlayerData.publicOpinion = publicOpinion;
+
+		return localPlayerData;
+	}
+
+	public void ReadSaveData(LocalPlayerData localPlayerData)
+	{
+		skipIntro = localPlayerData.skipIntro;
+		day = localPlayerData.day;
+		growthRate = localPlayerData.growthRate;
+		money = localPlayerData.money;
+		vaccineDevelopment = localPlayerData.vaccineDevelopment;
+		capacity = localPlayerData.capacity;
+		publicOpinion = localPlayerData.publicOpinion;
+	}
 }

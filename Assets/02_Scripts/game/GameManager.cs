@@ -14,6 +14,8 @@ public class GameManager : MonoSingleton
 		get; private set;
 	}
 
+	public ISaveGameStorage saveGameStorage;
+
 	public static GameManager instance
 	{
 		get
@@ -34,7 +36,9 @@ public class GameManager : MonoSingleton
 	{
 		base.OnMonoSingletonStart();
 
-		gameSerializer = new PlayerPrefsGameSerializer();
+		saveGameStorage = new LocalSaveGameStorage();
+
+		gameSerializer = new JsonGameSerializer();
 
 		suggestionFactory = new SuggestionFactory();
 
@@ -63,14 +67,14 @@ public class GameManager : MonoSingleton
 		base.OnMonoSingletonDestroyed();
 	}
 
-	public void LoadLocalPlayer()
+	public void LoadPlayer()
 	{
-		gameSerializer.ReadSaveGame(out localPlayer);
+		gameSerializer.ReadSaveGame(saveGameStorage, out localPlayer);
 	}
 
-	public void SaveLocalPlayer()
+	public void SavePlayer()
 	{
-		gameSerializer.WriteSaveGame(localPlayer);
+		gameSerializer.WriteSaveGame(saveGameStorage, localPlayer);
 	}
 
 	private void SetLanguage()
@@ -105,6 +109,7 @@ public class GameManager : MonoSingleton
 		MainScene.instance.StartDayTransition();
 		MainScene.instance.AnimateDayTransition(); // TODO probably not instantaneous
 
+		GameManager.instance.SavePlayer(); //temp
 
 		AdvisorsManager.instance.ShowAdvisors();
 	}

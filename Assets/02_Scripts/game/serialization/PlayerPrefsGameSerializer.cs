@@ -3,18 +3,18 @@ using System.Collections;
 
 public class PlayerPrefsGameSerializer : GameSerializer
 {
-	public void DeleteSaveGame()
+	public void DeleteSaveGame(ISaveGameStorage saveGameStorage)
 	{
 		PlayerPrefs.DeleteAll();
 	}
 
-	public void WriteSaveGame(LocalPlayer localPlayer)
+	public void WriteSaveGame(ISaveGameStorage saveGameStorage, LocalPlayer localPlayer)
 	{
 		PlayerPrefs.SetInt("skipIntro", localPlayer.skipIntro ? 1 : 0);
 
 	}
 
-	public void ReadSaveGame(out LocalPlayer localPlayer)
+	public void ReadSaveGame(ISaveGameStorage saveGameStorage, out LocalPlayer localPlayer)
 	{
 		localPlayer = new LocalPlayer();
 
