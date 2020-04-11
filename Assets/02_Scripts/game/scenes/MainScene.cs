@@ -27,7 +27,6 @@ public class MainScene : MonoSingleton
 	{
 		sceneFsm = new MainSceneFsm(this);
 		sceneFsm.StartFsm();
-		GameManager.instance.localPlayer.Init(); // initial state, including first suggestion
 		RenderCurrentState();
 	}
 

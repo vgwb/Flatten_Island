@@ -42,15 +42,14 @@ public class GameManager : MonoSingleton
 
 		suggestionFactory = new SuggestionFactory();
 
-		localPlayer = new LocalPlayer();
-
 		PlatformCreator platformCreator = new PlatformCreator();
 		platform = platformCreator.CreatePlatform();
 
 		LocalizationManager.instance.Init();
 		SetLanguage();
-
 		Debug.Log("Current Language:" + LocalizationManager.instance.GetCurrentLanguage());
+
+		LoadPlayer();
 	}
 
 	protected override void OnMonoSingletonUpdate()
@@ -60,16 +59,18 @@ public class GameManager : MonoSingleton
 
 	protected override void OnMonoSingletonDestroyed()
 	{
-		localPlayer = null;
-
 		EventMessageManager.instance.RemoveHandler(typeof(SuggestionResultEntryExitCompletedEvent).Name, this);
-
 		base.OnMonoSingletonDestroyed();
 	}
 
 	public void LoadPlayer()
 	{
 		localPlayer = gameSerializer.ReadSaveGame(saveGameStorage) as LocalPlayer;
+		if (localPlayer == null)
+		{
+			localPlayer = new LocalPlayer();
+			localPlayer.Init();
+		}
 	}
 
 	public void SavePlayer()
@@ -105,12 +106,12 @@ public class GameManager : MonoSingleton
 
 		localPlayer.ApplySuggestionOption(selectedSuggestionOptionXmlModel);
 
-		//Should be in the Game Manager
 		MainScene.instance.StartDayTransition();
 		MainScene.instance.AnimateDayTransition(); // TODO probably not instantaneous
 
-		GameManager.instance.SavePlayer(); //temp
+		localPlayer.gameSession.NextDay();
+		SavePlayer();
 
-		AdvisorsManager.instance.ShowAdvisors();
+		AdvisorsManager.instance.ShowAdvisors(localPlayer.gameSession.advisors);
 	}
 }

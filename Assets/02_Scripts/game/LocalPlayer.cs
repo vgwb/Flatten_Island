@@ -15,10 +15,8 @@ public class LocalPlayer : Player
 	public int capacity { get; set; }
 	public int money { get; set; }
 	public float publicOpinion { get; set; }
-	public Suggestion[] suggestions { get; private set; }
-	public Suggestion adviced { get; private set; }
 
-	private GameSession gameSession;
+	public GameSession gameSession;
 
 	public LocalPlayer()
 	{
@@ -37,7 +35,18 @@ public class LocalPlayer : Player
 		money = 10000;
 		publicOpinion = 0.5f;
 
+		gameSession = null;
+	}
+
+	public bool HasSession()
+	{
+		return gameSession != null;
+	}
+
+	public void StartNewSession()
+	{
 		gameSession = new GameSession();
+		gameSession.Start();
 	}
 
 	public void IncreaseDay()
@@ -95,7 +104,16 @@ public class LocalPlayer : Player
 			gameSession = null;
 		}
 
-
 		skipIntro = localPlayerData.skipIntro;
+
+		//Begin TEMP
+		day = gameSession.day;
+		vaccineDevelopment = gameSession.vaccineDevelopment;
+		patients = gameSession.patients;
+		growthRate = gameSession.growthRate;
+		capacity = gameSession.capacity;
+		money = gameSession.money;
+		publicOpinion = gameSession.publicOpinion;
+
 	}
 }

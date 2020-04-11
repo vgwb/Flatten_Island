@@ -22,20 +22,20 @@ public class JsonGameSerializer : ISaveGameSerializer
 
 	public ISavable ReadSaveGame(ISaveGameStorage saveGameStorage)
 	{
-		ISavable savableObject = new LocalPlayer();
-
 		string jsonSaveGame = ReadJsonFromDataStorage(saveGameStorage);
 		if (jsonSaveGame != null)
 		{
 			LocalPlayerData localPlayerData = JsonUtility.FromJson<LocalPlayerData>(jsonSaveGame);
 			if (localPlayerData != null)
 			{
+				LocalPlayer localPlayer = new LocalPlayer();
 				saveGameStorage.Write(SAVE_GAME_BACKUP_FILE, jsonSaveGame);
-				savableObject.ReadSaveData(localPlayerData);
+				localPlayer.ReadSaveData(localPlayerData);
+				return localPlayer;
 			}
 		}
 
-		return savableObject;
+		return null;
 	}
 
 	private string GetSaveGame(LocalPlayer localPlayer)

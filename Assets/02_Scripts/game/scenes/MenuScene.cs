@@ -61,7 +61,6 @@ public class MenuScene : MonoSingleton
 	{
 		menuCanvas.SetActive(false);
 		cinematicCanvas.SetActive(false);
-		GameManager.instance.LoadPlayer();
 		InitScene.instance.loadingPanel.Exit(OnLoadingPanelExitCompleted);
 	}
 

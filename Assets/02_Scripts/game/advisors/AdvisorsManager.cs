@@ -17,37 +17,22 @@ public class AdvisorsManager : MonoSingleton
 	private LocalPlayer localPlayer;
 	private IAdvisorSpawnPolicy advisorSpawnPolicy;
 
-	private List<AdvisorXmlModel> currentAdvisors;
-
 	protected override void OnMonoSingletonAwake()
 	{
 		base.OnMonoSingletonAwake();
 		localPlayer = GameManager.instance.localPlayer;
-		currentAdvisors = new List<AdvisorXmlModel>();
 		advisorSpawnPolicy = new AdvisorRandomSpawnPolicy();
 		advisorSpawnPolicy.Initialize();
-
-		//should check here if we have to load advisors from save game
 	}
 
-	public List<AdvisorXmlModel> GetCurrentAdvisors()
+	public List<AdvisorXmlModel> PickAdvisors()
 	{
-		return currentAdvisors;
+		return advisorSpawnPolicy.GetAdvisors();
 	}
 
-	public void DiscardCurrentAdvisors()
+	public void ShowAdvisors(List<AdvisorXmlModel> advisors)
 	{
-		currentAdvisors.Clear();
-	}
-
-	public void ShowAdvisors()
-	{
-		if (currentAdvisors.Count == 0)
-		{
-			currentAdvisors = new List<AdvisorXmlModel>(advisorSpawnPolicy.GetAdvisors());
-		}
-
-		advisorMenu.Show(currentAdvisors);
+		advisorMenu.Show(advisors);
 	}
 
 	public void ShowAdvisorSuggestion(AdvisorEntry advisorEntrySelected)

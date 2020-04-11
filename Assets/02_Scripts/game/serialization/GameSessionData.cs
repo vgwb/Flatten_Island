@@ -10,4 +10,5 @@ public class GameSessionData : GameData
 	public int money;
 	public float publicOpinion;
 	public int[] patients;
+	public int[] advisorIds;
 }

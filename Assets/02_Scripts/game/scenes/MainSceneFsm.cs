@@ -50,8 +50,15 @@ public class MainSceneFsm : FiniteStateMachine
 
 	private void Play_Enter()
 	{
+		LocalPlayer localPlayer = GameManager.instance.localPlayer;
+
+		if (!localPlayer.HasSession())
+		{
+			localPlayer.StartNewSession();
+		}
+
 		//test only for now
-		AdvisorsManager.instance.ShowAdvisors();
+		AdvisorsManager.instance.ShowAdvisors(localPlayer.gameSession.advisors);
 	}
 
 	private void Play_Update()
