@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-public class JsonGameSerializer : GameSerializer
+public class JsonGameSerializer : ISaveGameSerializer
 {
 	private const string SAVE_GAME_FILE = "json_savegame";
 	private const string SAVE_GAME_BACKUP_FILE = "json_backup_savegame";
@@ -12,15 +12,17 @@ public class JsonGameSerializer : GameSerializer
 		saveGameStorage.Delete(SAVE_GAME_BACKUP_FILE);
 	}
 
-	public void WriteSaveGame(ISaveGameStorage saveGameStorage, LocalPlayer localPlayer)
+	public void WriteSaveGame(ISaveGameStorage saveGameStorage, ISavable savableObject)
 	{
+		LocalPlayer localPlayer = savableObject as LocalPlayer;
+
 		string jsonSaveGame = GetSaveGame(localPlayer).ToString();
 		saveGameStorage.Write(SAVE_GAME_FILE, jsonSaveGame);
 	}
 
-	public void ReadSaveGame(ISaveGameStorage saveGameStorage, out LocalPlayer localPlayer)
+	public ISavable ReadSaveGame(ISaveGameStorage saveGameStorage)
 	{
-		localPlayer = new LocalPlayer();
+		ISavable savableObject = new LocalPlayer();
 
 		string jsonSaveGame = ReadJsonFromDataStorage(saveGameStorage);
 		if (jsonSaveGame != null)
@@ -29,9 +31,11 @@ public class JsonGameSerializer : GameSerializer
 			if (localPlayerData != null)
 			{
 				saveGameStorage.Write(SAVE_GAME_BACKUP_FILE, jsonSaveGame);
-				localPlayer.ReadSaveData(localPlayerData);
+				savableObject.ReadSaveData(localPlayerData);
 			}
 		}
+
+		return savableObject;
 	}
 
 	private string GetSaveGame(LocalPlayer localPlayer)

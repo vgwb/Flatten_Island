@@ -9,7 +9,7 @@ public class GameManager : MonoSingleton
 	public SuggestionFactory suggestionFactory;
 	public LocalPlayer localPlayer;
 
-	public GameSerializer gameSerializer
+	public ISaveGameSerializer gameSerializer
 	{
 		get; private set;
 	}
@@ -69,7 +69,7 @@ public class GameManager : MonoSingleton
 
 	public void LoadPlayer()
 	{
-		gameSerializer.ReadSaveGame(saveGameStorage, out localPlayer);
+		localPlayer = gameSerializer.ReadSaveGame(saveGameStorage) as LocalPlayer;
 	}
 
 	public void SavePlayer()

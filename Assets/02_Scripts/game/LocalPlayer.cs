@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class LocalPlayer : ISavable
+public class LocalPlayer : Player
 {
 	public const int MAX_DAYS = 110;
 	public const int MAX_PATIENTS = 10000;
@@ -58,7 +58,7 @@ public class LocalPlayer : ISavable
 		IncreaseDay();
 	}
 
-	public GameData WriteSaveData()
+	public override GameData WriteSaveData()
 	{
 		LocalPlayerData localPlayerData = new LocalPlayerData();
 		localPlayerData.skipIntro = skipIntro;
@@ -81,7 +81,7 @@ public class LocalPlayer : ISavable
 		return localPlayerData;
 	}
 
-	public void ReadSaveData(GameData gameData)
+	public override void ReadSaveData(GameData gameData)
 	{
 		LocalPlayerData localPlayerData = gameData as LocalPlayerData;
 
