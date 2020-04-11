@@ -36,7 +36,7 @@ public class JsonGameSerializer : GameSerializer
 
 	private string GetSaveGame(LocalPlayer localPlayer)
 	{
-		LocalPlayerData localPlayerData = localPlayer.WriteSaveData();
+		LocalPlayerData localPlayerData = localPlayer.WriteSaveData() as LocalPlayerData;
 		return JsonUtility.ToJson(localPlayerData);
 	}
 

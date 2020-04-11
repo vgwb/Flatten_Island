@@ -1,11 +1,10 @@
-﻿public class LocalPlayerData
+﻿using System;
+
+[Serializable]
+public class LocalPlayerData : GameData
 {
+	public GameSessionData gameSessionData;
+
 	public bool skipIntro;
-	public int day;
-	public int vaccineDevelopment;
-	public int growthRate;
-	public int capacity;
-	public int money;
-	public float publicOpinion;
 
 }
