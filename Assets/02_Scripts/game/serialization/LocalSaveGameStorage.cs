@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
+using System;
+using System.Collections;
 using System.IO;
+using System.Text;
 
 public class LocalSaveGameStorage : ISaveGameStorage
 {
@@ -7,7 +10,7 @@ public class LocalSaveGameStorage : ISaveGameStorage
 
 	public LocalSaveGameStorage()
 	{
-		dataPath = Application.dataPath;
+		dataPath = Application.persistentDataPath;
 	}
 
 	private string GetFilePath(string fileName)
@@ -27,20 +30,70 @@ public class LocalSaveGameStorage : ISaveGameStorage
 	public void Write(string fileName, string contents)
 	{
 		string filePath = GetFilePath(fileName);
-		File.WriteAllText(filePath, contents);
+		WriteAllLines(filePath, new string[] { contents });
+	}
+
+	private void WriteAllLines(string fileName, string[] lines)
+	{
+		if (lines == null)
+		{
+			throw new ArgumentNullException("lines");
+		}
+
+		string directoryPath = Path.GetDirectoryName(fileName);
+		if (!Directory.Exists(directoryPath))
+		{
+			try
+			{
+				Directory.CreateDirectory(directoryPath);
+			}
+			catch
+			{
+				throw new IOException("Cant create directory at:" + directoryPath);
+			}
+		}
+
+		StreamWriter streamWriter = new StreamWriter(fileName, false, Encoding.UTF8);
+		for (int i = 0; i < lines.Length; i++)
+		{
+			string line = lines[i];
+			streamWriter.WriteLine(line);
+		}
+		streamWriter.Close();
 	}
 
 	public string Read(string fileName)
 	{
 		string filePath = GetFilePath(fileName);
+		if (File.Exists(filePath))
+		{
+			string[] lines = ReadAllLines(filePath);
+			if (lines == null || lines.Length == 0)
+			{
+				return null;
+			}
+			else
+			{
+				return lines[0];
+			}
+		}
 
-		try
+		return null;
+	}
+
+	public string[] ReadAllLines(string filePath)
+	{
+		ArrayList arrayList = new ArrayList();
+		StreamReader streamReader = new StreamReader(filePath, Encoding.UTF8);
+
+		string line;
+		while ((line = streamReader.ReadLine()) != null)
 		{
-			return File.ReadAllText(filePath);
+			arrayList.Add(line);
 		}
-		catch (FileNotFoundException)
-		{
-			return null;
-		}
+
+		streamReader.Close();
+
+		return (string[])arrayList.ToArray(typeof(string));
 	}
 }
