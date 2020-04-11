@@ -40,13 +40,29 @@ public class LocalPlayer : Player
 
 	public bool HasSession()
 	{
-		return gameSession != null;
+		//The check day > 0 is needed because Unity Json Serializer serialize a null object with its default values :-(
+		return gameSession != null && gameSession.day > 0;
 	}
 
-	public void StartNewSession()
+	public void StartNewGameSession()
 	{
 		gameSession = new GameSession();
 		gameSession.Start();
+
+		//Begin TEMP
+		day = gameSession.day;
+		vaccineDevelopment = gameSession.vaccineDevelopment;
+		patients = gameSession.patients;
+		growthRate = gameSession.growthRate;
+		capacity = gameSession.capacity;
+		money = gameSession.money;
+		publicOpinion = gameSession.publicOpinion;
+		//End TEMP
+	}
+
+	public void QuitGameSession()
+	{
+		gameSession = null;
 	}
 
 	public void IncreaseDay()
@@ -86,6 +102,10 @@ public class LocalPlayer : Player
 			GameSessionData gameSessionData = gameSession.WriteSaveData() as GameSessionData;
 			localPlayerData.gameSessionData = gameSessionData;
 		}
+		else
+		{
+			localPlayerData.gameSessionData = null;
+		}
 
 		return localPlayerData;
 	}
@@ -114,6 +134,7 @@ public class LocalPlayer : Player
 		capacity = gameSession.capacity;
 		money = gameSession.money;
 		publicOpinion = gameSession.publicOpinion;
+		//End TEMP
 
 	}
 }

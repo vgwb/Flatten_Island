@@ -27,7 +27,6 @@ public class MainScene : MonoSingleton
 	{
 		sceneFsm = new MainSceneFsm(this);
 		sceneFsm.StartFsm();
-		RenderCurrentState();
 	}
 
 	protected override void OnMonoSingletonUpdate()
@@ -93,6 +92,10 @@ public class MainScene : MonoSingleton
 
 	public void GoToMenu()
 	{
+		//quitting current game session, we should have here a popup dialog	
+		GameManager.instance.localPlayer.QuitGameSession();
+		GameManager.instance.SavePlayer();
+
 		ScenesFlowManager.instance.UnloadingMainScene();
 	}
 }

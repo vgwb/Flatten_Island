@@ -78,6 +78,11 @@ public class GameManager : MonoSingleton
 		gameSerializer.WriteSaveGame(saveGameStorage, localPlayer);
 	}
 
+	public bool HasPendingGameSession()
+	{
+		return localPlayer.HasSession();
+	}
+
 	private void SetLanguage()
 	{
 		if (!LocalizationManager.instance.HasCurrentLanguage())

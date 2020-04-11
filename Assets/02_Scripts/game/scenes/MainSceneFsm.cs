@@ -54,8 +54,11 @@ public class MainSceneFsm : FiniteStateMachine
 
 		if (!localPlayer.HasSession())
 		{
-			localPlayer.StartNewSession();
+			localPlayer.StartNewGameSession();
 		}
+
+		MainScene.instance.RenderCurrentState();
+
 
 		//test only for now
 		AdvisorsManager.instance.ShowAdvisors(localPlayer.gameSession.advisors);
