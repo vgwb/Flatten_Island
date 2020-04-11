@@ -35,26 +35,6 @@ public class LocalPlayer
 		publicOpinion = 0.5f;
 	}
 
-	public void IncreaseDayAcceptSuggestion()
-	{
-		Debug.Log("IncreaseDayAcceptSuggestion");
-		Debug.Log("Adviced" + adviced.ToString());
-		money += adviced.moneyModifier;
-		growthRate += adviced.growthRateModifier;
-		publicOpinion += adviced.publicOpinionModifier;
-		capacity += adviced.capacityModifier;
-		int patientsIncrease = (patients[day - 1] * growthRate) / 100;
-		patients[day] = patients[day - 1] + patientsIncrease + adviced.patientsModifier;
-		IncreaseDay();
-	}
-
-	public void IncreaseDayRejectSuggestion()
-	{
-		int patientsIncrease = (patients[day - 1] * growthRate) / 100;
-		patients[day] = patients[day - 1] + patientsIncrease;
-		IncreaseDay();
-	}
-
 	public void IncreaseDay()
 	{
 		money += patients[day] * 3 - capacity * 2;

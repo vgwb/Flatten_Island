@@ -10,7 +10,6 @@ public class MainScene : MonoSingleton
 	public const string NAME = "Main";
 
 	private MainSceneFsm sceneFsm;
-	public GameObject evolutionChart;
 	public Text growthValue;
 	public Text moneyValue;
 	public Text dayValue;
@@ -79,8 +78,7 @@ public class MainScene : MonoSingleton
 	public void RenderChart()
 	{
 		LocalPlayer lpn = GameManager.instance.localPlayer;
-		Image evolutionChartImage = evolutionChart.gameObject.GetComponent<Image>();
-		evolutionChartImage.sprite = ChartFactory.CreateChartSprite(lpn.patients, LocalPlayer.MAX_PATIENTS, lpn.day);
+		ChartManager.UpdateChart(lpn);
 	}
 
 	public void StartDayTransition()
@@ -92,18 +90,6 @@ public class MainScene : MonoSingleton
 	public void AnimateDayTransition()
 	{
 		// TODO
-	}
-
-	public void AcceptSuggestion()
-	{
-		Debug.Log("AcceptSuggestion");
-		GameManager.instance.localPlayer.IncreaseDayAcceptSuggestion();
-	}
-
-	public void RejectSuggestion()
-	{
-		Debug.Log("RejectSuggestion");
-		GameManager.instance.localPlayer.IncreaseDayRejectSuggestion();
 	}
 
 	public void GoToMenu()
