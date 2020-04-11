@@ -3,9 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Messages;
 using ProtoTurtle.BitmapDrawing;
 
-public class ChartManager
+public class ChartManager : MonoSingleton
 {
 	public const int WIDTH = 500;
 	public const int HEIGHT = 300;
@@ -16,16 +17,75 @@ public class ChartManager
 	public const int BIG_CIRCLE_RADIUS = 7;
 	public const int GROWTH_PANEL_OFFSET_X = -575;
 	public const int GROWTH_PANEL_OFFSET_Y = -900;
+	public const float TOTAL_ANIMATION_TIME_SEC = 2.0f;
 
-	public static void UpdateChart(LocalPlayer lpn)
+	LocalPlayer localPlayer;
+	GameObject growthPanel;
+	GameObject evolutionChart;
+    private float elapsedTime = 0.0f;
+	private bool animating = false;
+
+	public static ChartManager instance
 	{
-		GameObject growthPanel = GameObject.Find("GrowthPanel");
-		GameObject evolutionChart = GameObject.Find("EvolutionChart");
+		get
+		{
+			return GetInstance<ChartManager>();
+		}
+	}
 
+	protected override void OnMonoSingletonAwake()
+	{
+		Debug.Log("Chart OnMonoSingletonAwake");
+		base.OnMonoSingletonAwake();
+
+		localPlayer = GameManager.instance.localPlayer;
+		growthPanel = GameObject.Find("GrowthPanel");
+		evolutionChart = GameObject.Find("EvolutionChart");
+		UpdateChart(0.0f);
+
+		EventMessageHandler suggestionResultEntryExitCompletedMessageHandler = new EventMessageHandler(this, OnSuggestionResultEntryExitCompleted);
+		EventMessageManager.instance.AddHandler(typeof(SuggestionResultEntryExitCompletedEvent).Name, suggestionResultEntryExitCompletedMessageHandler);
+	}
+
+	protected override void OnMonoSingletonUpdate()
+	{
+		elapsedTime += Time.deltaTime;
+		if (animating && elapsedTime > TOTAL_ANIMATION_TIME_SEC)
+		{
+			// TODO publish event ChartUpdateFinished
+			// Do a single final render in complete state, including the Patients indicator
+			UpdateChart(TOTAL_ANIMATION_TIME_SEC);
+			ShowPatientsIndicator();
+			animating = false;
+		} else if (animating)
+		{
+			UpdateChart(elapsedTime);
+		}
+		EventMessageManager.instance.Update();
+	}
+
+	protected override void OnMonoSingletonDestroyed()
+	{
+		Debug.Log("Chart OnMonoSingletonDestroyed");
+		EventMessageManager.instance.RemoveHandler(typeof(SuggestionResultEntryExitCompletedEvent).Name, this);
+		base.OnMonoSingletonDestroyed();
+	}
+
+	private void OnSuggestionResultEntryExitCompleted(EventMessage eventMessage)
+	{
+		Debug.Log("Animate the chart");
+		animating = true;
+		elapsedTime = 0.0f; // restarts the animation
+	}
+
+	public void UpdateChart(float elapsedTime)
+	{
 		Image evolutionChartImage = evolutionChart.gameObject.GetComponent<Image>();
-		evolutionChartImage.sprite = CreateChartSprite(lpn);
-	
-		growthPanel.transform.localPosition = CalculateGrowthPanelPosition(lpn);
+		evolutionChartImage.sprite = CreateChartSprite(elapsedTime);
+	}
+
+	public void ShowPatientsIndicator() {
+		growthPanel.transform.localPosition = CalculateGrowthPanelPosition();
 	}
 
 	/*
@@ -33,9 +93,9 @@ public class ChartManager
 	   the position of days and patients. However, the drawing library uses a different coordinate
 	   model and the chart is scaled to reduce the sprite size, so the functions are separate.
 	 */
-	public static Vector3 CalculateGrowthPanelPosition(LocalPlayer lpn) {
-		int patients = lpn.patients[lpn.day-1];
-		int day = lpn.day;
+	public Vector3 CalculateGrowthPanelPosition() {
+		int patients = localPlayer.patients[localPlayer.day-1];
+		int day = localPlayer.day;
 		int ratio = 2; // Charts scales x2 to reduce sprite size
 		float patientsNormal = patients / (float)LocalPlayer.MAX_PATIENTS; 
 		float x = GROWTH_PANEL_OFFSET_X + day * DAY_X_INCREMENT * ratio;
@@ -43,50 +103,78 @@ public class ChartManager
 		return new Vector3(x, y, 0f);
 	}
 
-	public static Sprite CreateChartSprite(LocalPlayer lpn)
+	public Sprite CreateChartSprite(float elapsedTime)
 	{
 		Texture2D tex = GetTransparentTexture();
 		
-		int[] patients = lpn.patients;
-		int day = lpn.day;
+		float animationProgress = elapsedTime / TOTAL_ANIMATION_TIME_SEC;
+		int[] patients = localPlayer.patients;
+		int day = localPlayer.day;
 		int xAxisY = HEIGHT-AXIS_MARGIN;
 		int xAxisMaxX = WIDTH-AXIS_MARGIN;
-		int yAxisX = AXIS_MARGIN;
 
 		// Axis
 		tex.DrawThickLine(AXIS_MARGIN, xAxisY, xAxisMaxX, xAxisY, Color.black, AXIS_THICKNESS);
 		tex.DrawThickLine(AXIS_MARGIN, xAxisY, AXIS_MARGIN, AXIS_MARGIN, Color.black, AXIS_THICKNESS);
 
-		// Line, as concatenation of segments
-		for (int i = 1; i < day; i++) {
-			int x1 = getXForDay(i-1);
-			int x2 = getXForDay(i);
-			int y1 = getYForPatients(patients[i-1]);
-			int y2 = getYForPatients(patients[i]);
-			DrawSegment(tex, x1, y1, x2, y2);
+		// Line, as concatenation of segments. Animate segments up to some day
+		float daysToDraw = day * animationProgress;
+		int lastFullDay = (int)Math.Truncate(daysToDraw);
+		float lastDayProportion = daysToDraw - lastFullDay;
+
+		for (int d = 1; d < lastFullDay; d++)
+		{
+			DrawOneDay(tex, d, patients);
+		}
+		if (lastFullDay > 0 && lastFullDay < day && lastDayProportion > 0.05f) // TUNE, some epsilon worth drawing 
+		{
+			DrawOnePartialDay(tex, lastFullDay, patients, lastDayProportion);
 		}
 
-		// Begin and end of the line
-		DrawBigWhiteCircle(tex, getXForDay(0), getYForPatients(patients[0]));
-		DrawBigWhiteCircle(tex, getXForDay(day-1), getYForPatients(patients[day-1]));
+		// Begin and end of the line. The end only when the animation is about to finish
+		DrawBigWhiteCircle(tex, GetXForDay(0), GetYForPatients(patients[0]));
+		if (animationProgress > 0.95) // TODO tune
+		{
+			DrawBigWhiteCircle(tex, GetXForDay(day-1), GetYForPatients(patients[day-1]));
+		}
 
 		tex.Apply();
 		Sprite mySprite = Sprite.Create(tex, new Rect(0.0f, 0.0f, tex.width, tex.height), new Vector2(0.5f, 0.5f), 100.0f);
 		return mySprite;
 	}
 
-	private static int getXForDay(int day)
+	private static void DrawOneDay(Texture2D tex, int day, int[] patients)
+	{
+		int x1 = GetXForDay(day-1);
+		int x2 = GetXForDay(day);
+		int y1 = GetYForPatients(patients[day-1]);
+		int y2 = GetYForPatients(patients[day]);
+		DrawSegment(tex, x1, y1, x2, y2);
+	}
+
+	private static void DrawOnePartialDay(Texture2D tex, int day, int[] patients, float proportion)
+	{
+		int x1 = GetXForDay(day-1);
+		int x2 = GetXForDay(day);
+		int y1 = GetYForPatients(patients[day-1]);
+		int y2 = GetYForPatients(patients[day]);
+		int xp = x1 + (int)Math.Round((x2 - x1) * proportion);
+		int yp = y1 + (int)Math.Round((y2 - y1) * proportion);
+		DrawSegment(tex, x1, y1, xp, yp);
+	}
+
+	private static int GetXForDay(int day)
 	{
 		return AXIS_MARGIN + BIG_CIRCLE_RADIUS + day * DAY_X_INCREMENT;
 	}
 
-	private static int getYForPatients(int patients)
+	private static int GetYForPatients(int patients)
 	{
 		int maxY = HEIGHT - (AXIS_MARGIN + BIG_CIRCLE_RADIUS);
 		return maxY - (patients * maxY) / LocalPlayer.MAX_PATIENTS;
 	}
 
-	public static Texture2D GetTransparentTexture()
+	public Texture2D GetTransparentTexture()
 	{
 		// TODO ideally this texture could be cached and cloned, but doesn't seem to work
 		Texture2D clearTexture = new Texture2D(WIDTH, HEIGHT);

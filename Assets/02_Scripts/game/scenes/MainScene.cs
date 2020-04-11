@@ -27,6 +27,11 @@ public class MainScene : MonoSingleton
 	{
 		sceneFsm = new MainSceneFsm(this);
 		sceneFsm.StartFsm();
+<<<<<<< HEAD
+=======
+		GameManager.instance.localPlayer.Init(); // TODO. Not here: initial state, including first suggestion
+		RenderCurrentState();
+>>>>>>> basic animation
 	}
 
 	protected override void OnMonoSingletonUpdate()
@@ -61,8 +66,7 @@ public class MainScene : MonoSingleton
 
 	public void RenderCurrentState()
 	{
-		RenderHudInformation();
-		RenderChart();
+		RenderHudInformation(); // TODO the Hud could have a manager updating this
 	}
 
 	public void RenderHudInformation()
@@ -73,21 +77,10 @@ public class MainScene : MonoSingleton
 		dayValue.text = lpn.day + "";
 	}
 
-	public void RenderChart()
-	{
-		LocalPlayer lpn = GameManager.instance.localPlayer;
-		ChartManager.UpdateChart(lpn);
-	}
-
 	public void StartDayTransition()
 	{
 		Debug.Log("StartDayTransition");
 		RenderCurrentState();
-	}
-
-	public void AnimateDayTransition()
-	{
-		// TODO
 	}
 
 	public void GoToMenu()

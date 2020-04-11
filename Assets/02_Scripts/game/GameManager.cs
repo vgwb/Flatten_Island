@@ -112,7 +112,6 @@ public class GameManager : MonoSingleton
 		localPlayer.ApplySuggestionOption(selectedSuggestionOptionXmlModel);
 
 		MainScene.instance.StartDayTransition();
-		MainScene.instance.AnimateDayTransition(); // TODO probably not instantaneous
 
 		localPlayer.gameSession.NextDay();
 		SavePlayer();
