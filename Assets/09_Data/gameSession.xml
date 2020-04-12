@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group>
-	<gameSession id="5000" initialPatients="1000" initialPublicOpinion="70" initialCapacity="1000" initialGrowthRate="5" initialMoney="10000" initialVaccineDevelopment="0">
+	<gameSession id="5000" initialPatients="1000" initialPublicOpinion="70" initialCapacity="3000" initialGrowthRate="5" initialMoney="10000" initialVaccineDevelopment="0">
 	</gameSession>
 </group>
