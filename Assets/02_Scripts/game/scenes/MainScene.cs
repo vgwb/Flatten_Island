@@ -27,11 +27,6 @@ public class MainScene : MonoSingleton
 	{
 		sceneFsm = new MainSceneFsm(this);
 		sceneFsm.StartFsm();
-<<<<<<< HEAD
-=======
-		GameManager.instance.localPlayer.Init(); // TODO. Not here: initial state, including first suggestion
-		RenderCurrentState();
->>>>>>> basic animation
 	}
 
 	protected override void OnMonoSingletonUpdate()
@@ -71,16 +66,10 @@ public class MainScene : MonoSingleton
 
 	public void RenderHudInformation()
 	{
-		LocalPlayer lpn = GameManager.instance.localPlayer;
-		growthValue.text = lpn.growthRate + "%";
-		moneyValue.text = lpn.money + "M";
-		dayValue.text = lpn.day + "";
-	}
-
-	public void StartDayTransition()
-	{
-		Debug.Log("StartDayTransition");
-		RenderCurrentState();
+		GameSession session = GameManager.instance.localPlayer.gameSession;
+		growthValue.text = session.growthRate + "%";
+		moneyValue.text = session.money + "M";
+		dayValue.text = session.day + "";
 	}
 
 	public void GoToMenu()

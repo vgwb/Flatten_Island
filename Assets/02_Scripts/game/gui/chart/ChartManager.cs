@@ -19,7 +19,7 @@ public class ChartManager : MonoSingleton
 	public const int GROWTH_PANEL_OFFSET_Y = -900;
 	public const float TOTAL_ANIMATION_TIME_SEC = 2.0f;
 
-	LocalPlayer localPlayer;
+	GameSession session;
 	GameObject growthPanel;
 	GameObject evolutionChart;
     private float elapsedTime = 0.0f;
@@ -38,7 +38,7 @@ public class ChartManager : MonoSingleton
 		Debug.Log("Chart OnMonoSingletonAwake");
 		base.OnMonoSingletonAwake();
 
-		localPlayer = GameManager.instance.localPlayer;
+		session = GameManager.instance.localPlayer.gameSession;
 		growthPanel = GameObject.Find("GrowthPanel");
 		evolutionChart = GameObject.Find("EvolutionChart");
 		UpdateChart(0.0f);
@@ -94,10 +94,10 @@ public class ChartManager : MonoSingleton
 	   model and the chart is scaled to reduce the sprite size, so the functions are separate.
 	 */
 	public Vector3 CalculateGrowthPanelPosition() {
-		int patients = localPlayer.patients[localPlayer.day-1];
-		int day = localPlayer.day;
+		int patients = session.patients[session.day-1];
+		int day = session.day;
 		int ratio = 2; // Charts scales x2 to reduce sprite size
-		float patientsNormal = patients / (float)LocalPlayer.MAX_PATIENTS; 
+		float patientsNormal = patients / (float)GameSession.MAX_PATIENTS; 
 		float x = GROWTH_PANEL_OFFSET_X + day * DAY_X_INCREMENT * ratio;
 		float y = GROWTH_PANEL_OFFSET_Y + patientsNormal * HEIGHT * ratio;
 		return new Vector3(x, y, 0f);
@@ -108,8 +108,8 @@ public class ChartManager : MonoSingleton
 		Texture2D tex = GetTransparentTexture();
 		
 		float animationProgress = elapsedTime / TOTAL_ANIMATION_TIME_SEC;
-		int[] patients = localPlayer.patients;
-		int day = localPlayer.day;
+		int[] patients = session.patients;
+		int day = session.day;
 		int xAxisY = HEIGHT-AXIS_MARGIN;
 		int xAxisMaxX = WIDTH-AXIS_MARGIN;
 
@@ -171,7 +171,7 @@ public class ChartManager : MonoSingleton
 	private static int GetYForPatients(int patients)
 	{
 		int maxY = HEIGHT - (AXIS_MARGIN + BIG_CIRCLE_RADIUS);
-		return maxY - (patients * maxY) / LocalPlayer.MAX_PATIENTS;
+		return maxY - (patients * maxY) / GameSession.MAX_PATIENTS;
 	}
 
 	public Texture2D GetTransparentTexture()
