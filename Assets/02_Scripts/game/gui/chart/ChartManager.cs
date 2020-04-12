@@ -11,15 +11,16 @@ public class ChartManager : MonoSingleton
 	public const int WIDTH = 500;
 	public const int HEIGHT = 300;
 	public const int AXIS_MARGIN = 5;
-	public const int DAY_X_INCREMENT = 20;
 	public const int AXIS_THICKNESS = 2;
 	public const int LINE_THICKNESS = 3;
 	public const int BIG_CIRCLE_RADIUS = 7;
-	public const int PATIENTS_PANEL_OFFSET_X = -593;
-	public const int PATIENTS_PANEL_OFFSET_Y = -900;
-	public const float TOTAL_ANIMATION_TIME_SEC = 2.0f;
+	public const int PATIENTS_PANEL_OFFSET_X = -38;
+	public const int PATIENTS_PANEL_OFFSET_Y = 5;
+	public const float TOTAL_ANIMATION_TIME_SEC = 1.5f;
+	public const int CURVE_MIN_WIDTH = 180; // TODO Tune
+	public const int CURVE_MAX_WIDTH = 370; // TODO Tune
+	public const int DAY_WIDTH_INCREMENT = (CURVE_MAX_WIDTH - CURVE_MIN_WIDTH) / 20; // 5%
 
-	GameSession session;
 	GameObject patientsPanel;
 	GameObject evolutionChart;
     private float elapsedTime = 0.0f;
@@ -35,13 +36,11 @@ public class ChartManager : MonoSingleton
 
 	protected override void OnMonoSingletonAwake()
 	{
-		Debug.Log("Chart OnMonoSingletonAwake");
 		base.OnMonoSingletonAwake();
 
-		session = GameManager.instance.localPlayer.gameSession;
 		patientsPanel = GameObject.Find("PatientsPanel");
 		evolutionChart = GameObject.Find("EvolutionChart");
-		UpdateFullChart();
+		UpdateFullChart(); // Could be done later, but it's safe
 
 		EventMessageHandler suggestionResultEntryExitCompletedMessageHandler = new EventMessageHandler(this, OnSuggestionResultEntryExitCompleted);
 		EventMessageManager.instance.AddHandler(typeof(SuggestionResultEntryExitCompletedEvent).Name, suggestionResultEntryExitCompletedMessageHandler);
@@ -64,14 +63,12 @@ public class ChartManager : MonoSingleton
 
 	protected override void OnMonoSingletonDestroyed()
 	{
-		Debug.Log("Chart OnMonoSingletonDestroyed");
 		EventMessageManager.instance.RemoveHandler(typeof(SuggestionResultEntryExitCompletedEvent).Name, this);
 		base.OnMonoSingletonDestroyed();
 	}
 
 	private void OnSuggestionResultEntryExitCompleted(EventMessage eventMessage)
 	{
-		Debug.Log("Animate the chart");
 		animating = true;
 		elapsedTime = 0.0f; // restarts the animation
 		HidePatientsIndicator();
@@ -80,7 +77,7 @@ public class ChartManager : MonoSingleton
 	public void UpdateFullChart()
 	{
 		UpdateChart(TOTAL_ANIMATION_TIME_SEC);
-		if (session.day > 1) 
+		if (CanDrawSomePeriod()) 
 		{
 			ShowPatientsIndicator();
 		}
@@ -97,26 +94,20 @@ public class ChartManager : MonoSingleton
 	}
 
 	private void HidePatientsIndicator() {
-		patientsPanel.transform.localPosition = new Vector3(0, 0,-100f);
+		patientsPanel.transform.localPosition = new Vector3(0, 0, 100f); // Push back
 	}
 
 	private void ShowPatientsIndicator() {
 		patientsPanel.transform.localPosition = CalculatePatientsPanelPosition();
 	}
 
-	/*
-	   NOTE: Ideally the patients panel and chart would reuse the same functions to calculate
-	   the position of days and patients. However, the drawing library uses a different coordinate
-	   model and the chart is scaled to reduce the sprite size, so the functions are separate.
-	 */
 	private Vector3 CalculatePatientsPanelPosition() {
-		int patients = session.patients[session.day-1];
-		int day = session.day;
-		int ratio = 2; // Charts scales x2 to reduce sprite size
-		float patientsNormal = patients / (float)GameSession.MAX_PATIENTS; 
-		float x = PATIENTS_PANEL_OFFSET_X + day * DAY_X_INCREMENT * ratio;
-		float y = PATIENTS_PANEL_OFFSET_Y + patientsNormal * HEIGHT * ratio;
-		return new Vector3(x, y, 0f);
+		int day = GameManager.instance.localPlayer.gameSession.day;
+		int patients = GameManager.instance.localPlayer.gameSession.patients[day-1];
+
+		float x = PATIENTS_PANEL_OFFSET_X + GetXForDay(day-1);
+		float y = PATIENTS_PANEL_OFFSET_Y + HEIGHT - GetYForPatients(patients);
+		return new Vector3(x, y, 0);
 	}
 
 	private Sprite CreateChartSprite(float elapsedTime)
@@ -124,14 +115,23 @@ public class ChartManager : MonoSingleton
 		Texture2D tex = GetTransparentTexture();
 		// TODO Review. Probably the background image should have the Axis
 		// DrawAxis(tex);
-		DrawDaySegments(tex, elapsedTime);
-		DrawBeginAndEndCircles(tex, elapsedTime);
-
+		if (CanDrawSomePeriod())
+		{
+			DrawDaySegments(tex, elapsedTime);
+			DrawBeginAndEndCircles(tex, elapsedTime);
+		}
+		
 		tex.Apply();
 		return Sprite.Create(tex, new Rect(0.0f, 0.0f, tex.width, tex.height), new Vector2(0.5f, 0.5f), 100.0f);
 	}
 
-	private static void DrawAxis(Texture2D tex)
+	private bool CanDrawSomePeriod()
+	{
+		return GameManager.instance.localPlayer.gameSession != null && 
+			GameManager.instance.localPlayer.gameSession.day > 1;
+	}
+
+	private void DrawAxis(Texture2D tex)
 	{
 		int xAxisY = HEIGHT-AXIS_MARGIN;
 		int xAxisMaxX = WIDTH-AXIS_MARGIN;
@@ -143,8 +143,8 @@ public class ChartManager : MonoSingleton
 	private void DrawDaySegments(Texture2D tex, float elapsedTime)
 	{
 		float animationProgress = elapsedTime / TOTAL_ANIMATION_TIME_SEC;
-		int[] patients = session.patients;
-		int day = session.day;
+		int[] patients = GameManager.instance.localPlayer.gameSession.patients;
+		int day = GameManager.instance.localPlayer.gameSession.day;
 
 		// Line, as concatenation of segments. Animate segments up to some day
 		float daysToDraw = day * animationProgress;
@@ -161,7 +161,7 @@ public class ChartManager : MonoSingleton
 		}
 	}
 
-	private static void DrawOneDay(Texture2D tex, int day, int[] patients)
+	private void DrawOneDay(Texture2D tex, int day, int[] patients)
 	{
 		int x1 = GetXForDay(day-1);
 		int x2 = GetXForDay(day);
@@ -170,7 +170,7 @@ public class ChartManager : MonoSingleton
 		DrawSegment(tex, x1, y1, x2, y2);
 	}
 
-	private static void DrawOnePartialDay(Texture2D tex, int day, int[] patients, float proportion)
+	private void DrawOnePartialDay(Texture2D tex, int day, int[] patients, float proportion)
 	{
 		int x1 = GetXForDay(day-1);
 		int x2 = GetXForDay(day);
@@ -184,8 +184,8 @@ public class ChartManager : MonoSingleton
 	private void DrawBeginAndEndCircles(Texture2D tex, float elapsedTime)
 	{		
 		float animationProgress = elapsedTime / TOTAL_ANIMATION_TIME_SEC;
-		int[] patients = session.patients;
-		int day = session.day;
+		int[] patients = GameManager.instance.localPlayer.gameSession.patients;
+		int day = GameManager.instance.localPlayer.gameSession.day;
 
 		DrawBigWhiteCircle(tex, GetXForDay(0), GetYForPatients(patients[0]));
 		if (animationProgress > 0.95) // TODO tune
@@ -194,15 +194,24 @@ public class ChartManager : MonoSingleton
 		}
 	}
 
-	private static int GetXForDay(int day)
+	private int GetXForDay(int day)
 	{
-		return AXIS_MARGIN + BIG_CIRCLE_RADIUS + day * DAY_X_INCREMENT;
+		return AXIS_MARGIN + BIG_CIRCLE_RADIUS + day * GetDayXIncrement();
 	}
 
-	private static int GetYForPatients(int patients)
+	private int GetYForPatients(int patients)
 	{
 		int maxY = HEIGHT - (AXIS_MARGIN + BIG_CIRCLE_RADIUS);
 		return maxY - (patients * maxY) / GameSession.MAX_PATIENTS;
+	}
+
+	private int GetDayXIncrement()
+	{
+		int day = GameManager.instance.localPlayer.gameSession.day;
+		if (day < 1) return 0;
+		int dayTargetWidth = CURVE_MIN_WIDTH + day * DAY_WIDTH_INCREMENT;
+		int totalWidth = Math.Min(dayTargetWidth, CURVE_MAX_WIDTH);
+		return totalWidth / day; // Eg: 150x1, 85x2, 63x3, etc  
 	}
 
 	public Texture2D GetTransparentTexture()

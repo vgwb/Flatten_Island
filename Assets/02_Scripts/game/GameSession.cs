@@ -2,8 +2,8 @@
 
 public class GameSession : ISavable
 {
-	public const int MAX_DAYS = 110;
-	public const int MAX_PATIENTS = 10000;
+	public const int MAX_DAYS = 110; // TODO
+	public const int MAX_PATIENTS = 30000; // TODO
 
 	public int day { get; set; }
 	public int[] patients { get; set; }
@@ -76,28 +76,15 @@ public class GameSession : ISavable
 		vaccineDevelopment = gameSessionData.vaccineDevelopment;
 		capacity = gameSessionData.capacity;
 		publicOpinion = gameSessionData.publicOpinion;
-
-		// TODO Review. seems like the previous code can fail, but this might not be good either
-		// Probably if any of these data (patients or advisorIds) fail to load we want to reset
-		if (gameSessionData.patients != null)
-		{
-			patients = (int[]) gameSessionData.patients.Clone(); 
-		}
-		else
-		{
-			patients = new int[MAX_DAYS];
-		}
+		patients = (int[]) gameSessionData.patients.Clone();
 
 		advisors = new List<AdvisorXmlModel>();
-		if (gameSessionData.advisorIds != null)
+		for (int i = 0; i < gameSessionData.advisorIds.Length; i++)
 		{
-			for (int i = 0; i < gameSessionData.advisorIds.Length; i++)
+			AdvisorXmlModel advisorXmlModel = XmlModelManager.instance.FindModel<AdvisorXmlModel>(gameSessionData.advisorIds[i]);
+			if (advisorXmlModel != null)
 			{
-				AdvisorXmlModel advisorXmlModel = XmlModelManager.instance.FindModel<AdvisorXmlModel>(gameSessionData.advisorIds[i]);
-				if (advisorXmlModel != null)
-				{
-					advisors.Add(advisorXmlModel);
-				}
+				advisors.Add(advisorXmlModel);
 			}
 		}
 	}
