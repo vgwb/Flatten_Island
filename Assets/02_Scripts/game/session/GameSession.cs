@@ -11,21 +11,28 @@ public class GameSession : ISavable
 	public int growthRate { get; set; }
 	public int capacity { get; set; }
 	public int money { get; set; }
-	public float publicOpinion { get; set; }
+	public int publicOpinion { get; set; }
 	public List<AdvisorXmlModel> advisors;
+
+	private GameSessionXmlModel gameSessionXmlModel;
 
 	public void Start()
 	{
-		//temp
+		if (gameSessionXmlModel == null)
+		{
+			gameSessionXmlModel = XmlModelManager.instance.FindModel<GameSessionXmlModel>();
+		}
+
+
 		patients = new int[MAX_DAYS];
 		advisors = AdvisorsManager.instance.PickAdvisors();
 		day = 1;
-		vaccineDevelopment = 0;
-		patients[0] = 1000;
-		growthRate = 5;
-		capacity = 1000;
-		money = 10000;
-		publicOpinion = 0.5f;
+		vaccineDevelopment = gameSessionXmlModel.initialVaccineDevelopment;
+		patients[0] = gameSessionXmlModel.initialPatients;
+		growthRate = gameSessionXmlModel.initialGrowthRate;
+		capacity = gameSessionXmlModel.initialCapacity;
+		money = gameSessionXmlModel.initialMoney;
+		publicOpinion = gameSessionXmlModel.initialPublicOpinion;
 	}
 
 	public void ApplySuggestionOption(SuggestionOptionXmlModel selectedSuggestionOptionXmlModel)

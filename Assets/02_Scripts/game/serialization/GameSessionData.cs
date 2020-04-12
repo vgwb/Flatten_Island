@@ -8,7 +8,7 @@ public class GameSessionData : GameData
 	public int growthRate;
 	public int capacity;
 	public int money;
-	public float publicOpinion;
+	public int publicOpinion;
 	public int[] patients;
 	public int[] advisorIds;
 }
