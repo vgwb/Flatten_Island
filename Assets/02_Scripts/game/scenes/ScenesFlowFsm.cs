@@ -135,7 +135,6 @@ public class ScenesFlowFsm : FiniteStateMachine
 
 	private void OnEnterMenuSceneLoadingPanelCompleted()
 	{
-		// PABLO: Shouldn't this logic (playButton) be inside MenuScene ?
 		MenuScene.instance.playButton.SetActive(false);
 		MenuScene.instance.DestroyScene();
 		scenesFlowManager.unloadingAsyncOperation = SceneManager.UnloadSceneAsync(global::MenuScene.NAME);

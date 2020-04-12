@@ -13,6 +13,7 @@ public class MainScene : MonoSingleton
 	public Text growthValue;
 	public Text moneyValue;
 	public Text dayValue;
+	public Text patientsValue;
 
 
 	public static MainScene instance
@@ -61,33 +62,16 @@ public class MainScene : MonoSingleton
 
 	public void RenderCurrentState()
 	{
-		RenderHudInformation();
-		RenderChart();
+		RenderHudInformation(); // TODO the Hud could have a manager updating this
 	}
 
 	public void RenderHudInformation()
 	{
-		LocalPlayer lpn = GameManager.instance.localPlayer;
-		growthValue.text = lpn.growthRate + "%";
-		moneyValue.text = lpn.money + "M";
-		dayValue.text = lpn.day + "";
-	}
-
-	public void RenderChart()
-	{
-		LocalPlayer lpn = GameManager.instance.localPlayer;
-		ChartManager.UpdateChart(lpn);
-	}
-
-	public void StartDayTransition()
-	{
-		Debug.Log("StartDayTransition");
-		RenderCurrentState();
-	}
-
-	public void AnimateDayTransition()
-	{
-		// TODO
+		GameSession session = GameManager.instance.localPlayer.gameSession;
+		growthValue.text = session.growthRate + "%";
+		moneyValue.text = session.money + "M";
+		dayValue.text = session.day + "";
+		patientsValue.text = session.patients[session.day-1] + "";
 	}
 
 	public void GoToMenu()

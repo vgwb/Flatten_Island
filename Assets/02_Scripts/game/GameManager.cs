@@ -109,13 +109,11 @@ public class GameManager : MonoSingleton
 
 		SuggestionOptionXmlModel selectedSuggestionOptionXmlModel = suggestionResultEntryExitCompletedEvent.selectedSuggestionOptionXmlModel;
 
-		localPlayer.ApplySuggestionOption(selectedSuggestionOptionXmlModel);
-
-		MainScene.instance.StartDayTransition();
-		MainScene.instance.AnimateDayTransition(); // TODO probably not instantaneous
-
+		localPlayer.gameSession.ApplySuggestionOption(selectedSuggestionOptionXmlModel);
 		localPlayer.gameSession.NextDay();
 		SavePlayer();
+
+		MainScene.instance.RenderCurrentState();
 
 		AdvisorsManager.instance.ShowAdvisors(localPlayer.gameSession.advisors);
 	}

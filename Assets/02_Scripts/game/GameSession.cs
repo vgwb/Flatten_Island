@@ -2,6 +2,9 @@
 
 public class GameSession : ISavable
 {
+	public const int MAX_DAYS = 110; // TODO
+	public const int MAX_PATIENTS = 30000; // TODO
+
 	public int day { get; set; }
 	public int[] patients { get; set; }
 	public int vaccineDevelopment { get; set; }
@@ -14,7 +17,7 @@ public class GameSession : ISavable
 	public void Start()
 	{
 		//temp
-		patients = new int[LocalPlayer.MAX_DAYS];
+		patients = new int[MAX_DAYS];
 		advisors = AdvisorsManager.instance.PickAdvisors();
 		day = 1;
 		vaccineDevelopment = 0;
@@ -25,9 +28,22 @@ public class GameSession : ISavable
 		publicOpinion = 0.5f;
 	}
 
+	public void ApplySuggestionOption(SuggestionOptionXmlModel selectedSuggestionOptionXmlModel)
+	{
+		money += selectedSuggestionOptionXmlModel.moneyModifier;
+		growthRate += selectedSuggestionOptionXmlModel.growthRateModifier;
+		publicOpinion += selectedSuggestionOptionXmlModel.publicOpinionModifier;
+		capacity += selectedSuggestionOptionXmlModel.capacityModifier;
+		int patientsIncrease = (patients[day - 1] * growthRate) / 100;
+		patients[day] = patients[day - 1] + patientsIncrease;
+	}
+
 	public void NextDay()
 	{
-		//[TO] other parameter to modify here 
+		money += patients[day] * 3 - capacity * 2;
+		vaccineDevelopment++;
+		day++;
+
 		advisors = AdvisorsManager.instance.PickAdvisors();
 	}
 
