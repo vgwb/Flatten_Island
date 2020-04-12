@@ -13,6 +13,7 @@ public class MainScene : MonoSingleton
 	public Text growthValue;
 	public Text moneyValue;
 	public Text dayValue;
+	public Text patientsValue;
 
 
 	public static MainScene instance
@@ -70,6 +71,7 @@ public class MainScene : MonoSingleton
 		growthValue.text = session.growthRate + "%";
 		moneyValue.text = session.money + "M";
 		dayValue.text = session.day + "";
+		patientsValue.text = session.patients[session.day-1] + "";
 	}
 
 	public void GoToMenu()
