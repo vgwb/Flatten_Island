@@ -10,11 +10,6 @@ public class MainScene : MonoSingleton
 	public const string NAME = "Main";
 
 	private MainSceneFsm sceneFsm;
-	public Text growthValue;
-	public Text moneyValue;
-	public Text dayValue;
-	public Text patientsValue;
-
 
 	public static MainScene instance
 	{
@@ -62,16 +57,7 @@ public class MainScene : MonoSingleton
 
 	public void RenderCurrentState()
 	{
-		RenderHudInformation(); // TODO the Hud could have a manager updating this
-	}
-
-	public void RenderHudInformation()
-	{
-		GameSession session = GameManager.instance.localPlayer.gameSession;
-		growthValue.text = session.growthRate + "%";
-		moneyValue.text = session.money + "M";
-		dayValue.text = session.day + "";
-		patientsValue.text = session.patients[session.day-1] + "";
+		Hud.instance.UpdateDayValues();
 	}
 
 	public void GoToMenu()
