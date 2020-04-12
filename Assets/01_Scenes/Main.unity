@@ -121,13 +121,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 11845012}
+  - component: {fileID: 11845018}
   - component: {fileID: 11845016}
   - component: {fileID: 11845015}
   - component: {fileID: 11845014}
   - component: {fileID: 11845013}
   - component: {fileID: 11845017}
   m_Layer: 5
-  m_Name: SettingsButton
+  m_Name: QuitButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -214,8 +215,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 832730268}
-        m_MethodName: GoToMenu
+      - m_Target: {fileID: 11845018}
+        m_MethodName: OnButtonSelected
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -281,6 +282,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &11845018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 11845011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebbe58fbec646274b8af5c2b44671689, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &23463065
 GameObject:
   m_ObjectHideFlags: 0
@@ -448,7 +461,7 @@ GameObject:
   - component: {fileID: 178302973}
   - component: {fileID: 178302972}
   m_Layer: 5
-  m_Name: SettingsBackground
+  m_Name: QuitBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1158,6 +1171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a37aa1e5dd4fd4a4ea2836a5d562ceaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiWorldCanvas: {fileID: 4727782014539924482}
 --- !u!4 &832730269
 Transform:
   m_ObjectHideFlags: 0
@@ -1315,7 +1329,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1917745240}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1065009009
 GameObject:
@@ -1329,7 +1343,7 @@ GameObject:
   - component: {fileID: 1065009012}
   - component: {fileID: 1065009011}
   m_Layer: 5
-  m_Name: Settings
+  m_Name: QuitGame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1683,12 +1697,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1348542143}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1917745240}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1446400451
 GameObject:
@@ -2456,8 +2470,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 954614970}
   - {fileID: 1348542145}
+  - {fileID: 954614970}
   - {fileID: 1446400452}
   - {fileID: 2025505615}
   - {fileID: 4727782014539924481}

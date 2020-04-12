@@ -1,13 +1,10 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using ProtoTurtle.BitmapDrawing;
 
 public class MainScene : MonoSingleton
 {
 	public const string NAME = "Main";
+
+	public Canvas uiWorldCanvas;
 
 	private MainSceneFsm sceneFsm;
 
@@ -58,14 +55,5 @@ public class MainScene : MonoSingleton
 	public void RenderCurrentState()
 	{
 		Hud.instance.UpdateDayValues();
-	}
-
-	public void GoToMenu()
-	{
-		//quitting current game session, we should have here a popup dialog	
-		GameManager.instance.localPlayer.QuitGameSession();
-		GameManager.instance.SavePlayer();
-
-		ScenesFlowManager.instance.UnloadingMainScene();
 	}
 }
