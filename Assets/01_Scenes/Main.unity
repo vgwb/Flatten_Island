@@ -1747,6 +1747,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c457acea6658f179aa6e8a0d7304e377, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  patientsNormalImg: {fileID: 21300000, guid: dd8433815a03ad9bf958b34e02b25883, type: 3}
+  patientsOverflowImg: {fileID: 21300000, guid: 1695a7586e07ac61b8b9218d5e949565,
+    type: 3}
 --- !u!1 &1455012466
 GameObject:
   m_ObjectHideFlags: 0

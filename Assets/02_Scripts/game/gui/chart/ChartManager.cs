@@ -23,6 +23,8 @@ public class ChartManager : MonoSingleton
 	public const int CURVE_MAX_WIDTH = 370; // TODO Tune
 	public const int DAY_WIDTH_INCREMENT = (CURVE_MAX_WIDTH - CURVE_MIN_WIDTH) / 20; // 5%
 
+	public Sprite patientsNormalImg;
+	public Sprite patientsOverflowImg;
 	GameObject patientsPanel;
 	GameObject evolutionChart;
     private float elapsedTime = 0.0f;
@@ -100,13 +102,17 @@ public class ChartManager : MonoSingleton
 	}
 
 	private void ShowPatientsIndicator() {
-		patientsPanel.transform.localPosition = CalculatePatientsPanelPosition();
-	}
-
-	private Vector3 CalculatePatientsPanelPosition() {
 		int day = GameManager.instance.localPlayer.gameSession.day;
 		int patients = GameManager.instance.localPlayer.gameSession.patients[day-1];
+		bool isOverflow = patients > GameManager.instance.localPlayer.gameSession.capacity;
+		
+		Image patientsPanelImage = patientsPanel.gameObject.GetComponent<Image>();
+		patientsPanelImage.sprite = isOverflow ? patientsOverflowImg : patientsNormalImg;
 
+		patientsPanel.transform.localPosition = CalculatePatientsPanelPosition(day, patients);
+	}
+
+	private Vector3 CalculatePatientsPanelPosition(int day, int patients) {
 		float x = PATIENTS_PANEL_OFFSET_X + GetXForDay(day-1);
 		float y = PATIENTS_PANEL_OFFSET_Y + HEIGHT - GetYForPatients(patients);
 		return new Vector3(x, y, 0);
