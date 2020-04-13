@@ -29,6 +29,11 @@ public class LocalPlayer : Player
 		gameSession.Start();
 	}
 
+	public void ResumeGameSession()
+	{
+		gameSession.Resume();
+	}
+
 	public void QuitGameSession()
 	{
 		gameSession = null;

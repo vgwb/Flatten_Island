@@ -56,12 +56,12 @@ public class MainSceneFsm : FiniteStateMachine
 		{
 			localPlayer.StartNewGameSession();
 		}
+		else
+		{
+			localPlayer.ResumeGameSession();
+		}
 
 		MainScene.instance.RenderCurrentState();
-
-
-		//test only for now
-		AdvisorsManager.instance.ShowAdvisors(localPlayer.gameSession.advisors);
 	}
 
 	private void Play_Update()

@@ -111,6 +111,16 @@ public class GameManager : MonoSingleton
 
 		localPlayer.gameSession.ApplySuggestionOption(selectedSuggestionOptionXmlModel);
 		localPlayer.gameSession.NextDay();
+
+		if (localPlayer.gameSession.IsCurrentPhaseFinished())
+		{
+			int nextPhaseId = localPlayer.gameSession.gamePhase.GetNextPhaseId();
+			localPlayer.gameSession.gamePhase.Stop();
+			localPlayer.gameSession.StartGamePhase(nextPhaseId);
+		}
+
+		localPlayer.gameSession.PickAdvisors();
+
 		SavePlayer();
 
 		MainScene.instance.RenderCurrentState();

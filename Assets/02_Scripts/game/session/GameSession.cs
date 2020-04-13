@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class GameSession : ISavable
 {
@@ -36,8 +37,15 @@ public class GameSession : ISavable
 		money = gameSessionXmlModel.initialMoney;
 		publicOpinion = gameSessionXmlModel.initialPublicOpinion;
 
-		gamePhase = new GamePhase();
-		gamePhase.StartPhase(INITIAL_PHASE_ID);
+		StartGamePhase(INITIAL_PHASE_ID);
+
+		AdvisorsManager.instance.ShowAdvisors(advisors);
+	}
+
+	public void Resume()
+	{
+		gamePhase.Resume();
+		AdvisorsManager.instance.ShowAdvisors(advisors);
 	}
 
 	public void ApplySuggestionOption(SuggestionOptionXmlModel selectedSuggestionOptionXmlModel)
@@ -55,8 +63,24 @@ public class GameSession : ISavable
 		money += patients[day] * 3 - capacity * 2;
 		vaccineDevelopment++;
 		day++;
+	}
 
+	public void PickAdvisors()
+	{
 		advisors = AdvisorsManager.instance.PickAdvisors();
+	}
+
+	public bool IsCurrentPhaseFinished()
+	{
+		return gamePhase.IsFinished(this);
+	}
+
+	public void StartGamePhase(int gamePhaseId)
+	{
+		gamePhase = new GamePhase();
+		gamePhase.Start(gamePhaseId, day);
+
+		Debug.Log("GameSession = Starting Game Phase:" + gamePhase.GetName());
 	}
 
 	public GameData WriteSaveData()
