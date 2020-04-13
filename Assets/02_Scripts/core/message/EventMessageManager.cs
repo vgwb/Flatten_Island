@@ -87,7 +87,9 @@ namespace Messages
 			{
 				if (messageHandlers != null)
 				{
-					foreach (EventMessageHandler messageHandler in messageHandlers)
+					List<EventMessageHandler> clonedMessageHandlers = new List<EventMessageHandler>(messageHandlers);
+
+					foreach (EventMessageHandler messageHandler in clonedMessageHandlers)
 					{
 						switch (eventMessage.type)
 						{
