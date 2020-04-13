@@ -24,14 +24,6 @@ public class GameManager : MonoSingleton
 		}
 	}
 
-	protected override void OnMonoSingletonAwake()
-	{
-		base.OnMonoSingletonAwake();
-
-		EventMessageHandler suggestionResultEntryExitCompletedMessageHandler = new EventMessageHandler(this, OnSuggestionResultEntryExitCompleted);
-		EventMessageManager.instance.AddHandler(typeof(SuggestionResultEntryExitCompletedEvent).Name, suggestionResultEntryExitCompletedMessageHandler);
-	}
-
 	protected override void OnMonoSingletonStart()
 	{
 		base.OnMonoSingletonStart();
@@ -55,12 +47,6 @@ public class GameManager : MonoSingleton
 	protected override void OnMonoSingletonUpdate()
 	{
 		EventMessageManager.instance.Update();
-	}
-
-	protected override void OnMonoSingletonDestroyed()
-	{
-		EventMessageManager.instance.RemoveHandler(typeof(SuggestionResultEntryExitCompletedEvent).Name, this);
-		base.OnMonoSingletonDestroyed();
 	}
 
 	public void LoadPlayer()
@@ -101,30 +87,5 @@ public class GameManager : MonoSingleton
 				LocalizationManager.instance.SetDefaultLanguage();
 			}
 		}
-	}
-
-	private void OnSuggestionResultEntryExitCompleted(EventMessage eventMessage)
-	{
-		SuggestionResultEntryExitCompletedEvent suggestionResultEntryExitCompletedEvent = eventMessage.eventObject as SuggestionResultEntryExitCompletedEvent;
-
-		SuggestionOptionXmlModel selectedSuggestionOptionXmlModel = suggestionResultEntryExitCompletedEvent.selectedSuggestionOptionXmlModel;
-
-		localPlayer.gameSession.ApplySuggestionOption(selectedSuggestionOptionXmlModel);
-		localPlayer.gameSession.NextDay();
-
-		if (localPlayer.gameSession.IsCurrentPhaseFinished())
-		{
-			int nextPhaseId = localPlayer.gameSession.gamePhase.GetNextPhaseId();
-			localPlayer.gameSession.gamePhase.Stop();
-			localPlayer.gameSession.StartGamePhase(nextPhaseId);
-		}
-
-		localPlayer.gameSession.PickAdvisors();
-
-		SavePlayer();
-
-		MainScene.instance.RenderCurrentState();
-
-		AdvisorsManager.instance.ShowAdvisors(localPlayer.gameSession.advisors);
 	}
 }

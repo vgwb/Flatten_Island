@@ -60,13 +60,14 @@ public class MainSceneFsm : FiniteStateMachine
 		{
 			localPlayer.ResumeGameSession();
 		}
-
-		MainScene.instance.RenderCurrentState();
 	}
 
 	private void Play_Update()
 	{
-		// mainScene.UpdateMainScene();
+		if (GameManager.instance.localPlayer.HasSession())
+		{
+			GameManager.instance.localPlayer.gameSession.UpdateFsm();
+		}
 	}
 
 	private void Play_Exit()

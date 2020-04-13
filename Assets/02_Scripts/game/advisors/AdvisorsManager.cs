@@ -35,12 +35,17 @@ public class AdvisorsManager : MonoSingleton
 		advisorMenu.Show(advisors);
 	}
 
-	public void ShowAdvisorSuggestion(AdvisorEntry advisorEntrySelected)
+	public void ShowAdvisorSuggestion(AdvisorXmlModel advisorXmlModel)
 	{
-		int advisorId = advisorEntrySelected.advisorXmlModel.id;
+		int advisorId = advisorXmlModel.id;
 		List<SuggestionXmlModel> suggestionXmlModels = XmlModelManager.instance.FindModels<SuggestionXmlModel>((suggestionXmlModel) => suggestionXmlModel.advisorId == advisorId);
 
 		//should randomize here
-		suggestionMenu.ShowSuggestion(suggestionXmlModels[0], advisorEntrySelected.advisorXmlModel);
+		suggestionMenu.ShowSuggestion(suggestionXmlModels[0], advisorXmlModel);
+	}
+
+	public void ShowAdvisorSuggestionResult(SuggestionOptionXmlModel suggestionOptionXmlModel)
+	{
+		suggestionMenu.ShowSuggestionResult(suggestionOptionXmlModel);
 	}
 }

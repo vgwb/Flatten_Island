@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Messages;
 
 public class GamePhase : ISavable
 {
@@ -38,6 +39,11 @@ public class GamePhase : ISavable
 
 	public bool IsFinished(GameSession gameSession)
 	{
+		if (gamePhaseXmlModel.endConditions == null)
+		{
+			return false;
+		}
+
 		return gamePhaseXmlModel.endConditions.IsSatisfied(gameSession);
 	}
 

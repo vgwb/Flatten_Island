@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group>
-	<genericDialog id="5001" name="Quit Game Dialog" buttons="2" title="QuitGameDialogTitle" message="QuitGameDialogMessage">
-	</genericDialog>
+	<genericDialog id="5001" name="Quit Game Dialog" buttons="2" title="QuitGameDialogTitle" message="QuitGameDialogMessage" />
+	<genericDialog id="5002" name="Change Phase Test" buttons="1" title="Change Phase Test" message="New Phase!" />
 </group>

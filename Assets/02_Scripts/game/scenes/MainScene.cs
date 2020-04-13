@@ -5,6 +5,7 @@ public class MainScene : MonoSingleton
 	public const string NAME = "Main";
 
 	public Canvas uiWorldCanvas;
+	public SuggestionMenu suggestionMenu;
 
 	private MainSceneFsm sceneFsm;
 
@@ -50,10 +51,5 @@ public class MainScene : MonoSingleton
 	private void OnLoadingPanelExitCompleted()
 	{
 		Hud.instance.Setup();
-	}
-
-	public void RenderCurrentState()
-	{
-		Hud.instance.UpdateDayValues();
 	}
 }

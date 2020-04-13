@@ -59,4 +59,14 @@ public class Hud : MonoSingleton
 		capacityValue.text = session.capacity.ToString();
 		publicOpinionValue.text = session.publicOpinion + "%";
 	}
+
+	public void UpdateSuggestionOptions()
+	{
+		GameSession session = GameManager.instance.localPlayer.gameSession;
+		growthValue.text = session.growthRate + "%";
+		moneyValue.text = session.money.ToString();
+		patientsValue.text = session.patients[session.day].ToString();
+		capacityValue.text = session.capacity.ToString();
+		publicOpinionValue.text = session.publicOpinion + "%";
+	}
 }

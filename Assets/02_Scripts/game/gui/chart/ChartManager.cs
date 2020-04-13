@@ -45,9 +45,6 @@ public class ChartManager : MonoSingleton
 		patientsPanel = GameObject.Find("PatientsPanel");
 		evolutionChart = GameObject.Find("EvolutionChart");
 		UpdateFullChart(); // Could be done later, but it's safe
-
-		EventMessageHandler suggestionResultEntryExitCompletedMessageHandler = new EventMessageHandler(this, OnSuggestionResultEntryExitCompleted);
-		EventMessageManager.instance.AddHandler(typeof(SuggestionResultEntryExitCompletedEvent).Name, suggestionResultEntryExitCompletedMessageHandler);
 	}
 
 	protected override void OnMonoSingletonUpdate()
@@ -62,16 +59,9 @@ public class ChartManager : MonoSingleton
 		{
 			UpdateChart(elapsedTime);
 		}
-		EventMessageManager.instance.Update();
 	}
 
-	protected override void OnMonoSingletonDestroyed()
-	{
-		EventMessageManager.instance.RemoveHandler(typeof(SuggestionResultEntryExitCompletedEvent).Name, this);
-		base.OnMonoSingletonDestroyed();
-	}
-
-	private void OnSuggestionResultEntryExitCompleted(EventMessage eventMessage)
+	public void RestartChartAnimation()
 	{
 		animating = true;
 		elapsedTime = 0.0f; // restarts the animation

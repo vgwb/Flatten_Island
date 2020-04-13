@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameSession : ISavable
@@ -19,6 +20,7 @@ public class GameSession : ISavable
 	public GamePhase gamePhase;
 
 	private GameSessionXmlModel gameSessionXmlModel;
+	private GameSessionFsm gameSessionFsm;
 
 	public void Start()
 	{
@@ -39,13 +41,33 @@ public class GameSession : ISavable
 
 		StartGamePhase(INITIAL_PHASE_ID);
 
-		AdvisorsManager.instance.ShowAdvisors(advisors);
+		StartFsm();
+	}
+
+	private void StartFsm()
+	{
+		gameSessionFsm = new GameSessionFsm(this);
+		gameSessionFsm.StartFsm();
+	}
+
+	public void Dispose()
+	{
+		if (gameSessionFsm != null)
+		{
+			gameSessionFsm.Dispose();
+			gameSessionFsm = null;
+		}
 	}
 
 	public void Resume()
 	{
+		StartFsm();
 		gamePhase.Resume();
-		AdvisorsManager.instance.ShowAdvisors(advisors);
+	}
+
+	public void UpdateFsm()
+	{
+		gameSessionFsm.Update();
 	}
 
 	public void ApplySuggestionOption(SuggestionOptionXmlModel selectedSuggestionOptionXmlModel)
@@ -75,12 +97,37 @@ public class GameSession : ISavable
 		return gamePhase.IsFinished(this);
 	}
 
+	public bool HasPlayerWon()
+	{
+		//TODO
+		return false;
+	}
+
+	public bool HasPlayerLose()
+	{
+		//TODO
+		return false;
+	}
+
+
 	public void StartGamePhase(int gamePhaseId)
 	{
 		gamePhase = new GamePhase();
 		gamePhase.Start(gamePhaseId, day);
 
 		Debug.Log("GameSession = Starting Game Phase:" + gamePhase.GetName());
+
+		//To Do: Show Game Phase Start Dialog or Intro Sequence
+	}
+
+	public NextDayEntry ShowNextDayEntry()
+	{
+		Transform parentTransform = MainScene.instance.suggestionMenu.transform;
+		GameObject nextDayEntry = GameObjectFactory.instance.InstantiateGameObject(NextDayEntry.PREFAB, parentTransform, false);
+		nextDayEntry.gameObject.transform.SetParent(parentTransform, true);
+		NextDayEntry nextDayEntryScript = nextDayEntry.GetComponent<NextDayEntry>();
+		nextDayEntry.gameObject.SetActive(true);
+		return nextDayEntryScript;
 	}
 
 	public GameData WriteSaveData()

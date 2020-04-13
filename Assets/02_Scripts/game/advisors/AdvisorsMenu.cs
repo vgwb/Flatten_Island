@@ -17,9 +17,6 @@ public class AdvisorsMenu : MonoBehaviour
 		EventMessageHandler advisorSelectedMessageHandler = new EventMessageHandler(this, OnAdvisorSelected);
 		EventMessageManager.instance.AddHandler(typeof(AdvisorSelectedEvent).Name, advisorSelectedMessageHandler);
 
-		EventMessageHandler advisorEntryEnterCompletedMessageHandler = new EventMessageHandler(this, OnAdvisorEntryEnterCompleted);
-		EventMessageManager.instance.AddHandler(typeof(AdvisorEntryEnterCompletedEvent).Name, advisorEntryEnterCompletedMessageHandler);
-
 		EventMessageHandler advisorEntryExitCompletedMessageHandler = new EventMessageHandler(this, OnAdvisorEntryExitCompleted);
 		EventMessageManager.instance.AddHandler(typeof(AdvisorEntryExitCompletedEvent).Name, advisorEntryExitCompletedMessageHandler);
 	}
@@ -27,7 +24,6 @@ public class AdvisorsMenu : MonoBehaviour
 	private void OnDisable()
 	{
 		EventMessageManager.instance.RemoveHandler(typeof(AdvisorSelectedEvent).Name, this);
-		EventMessageManager.instance.RemoveHandler(typeof(AdvisorEntryEnterCompletedEvent).Name, this);
 		EventMessageManager.instance.RemoveHandler(typeof(AdvisorEntryExitCompletedEvent).Name, this);
 	}
 
@@ -55,8 +51,6 @@ public class AdvisorsMenu : MonoBehaviour
 
 	private void OnAdvisorSelected(EventMessage eventMessage)
 	{
-		//should disable Input
-
 		AdvisorSelectedEvent advisorSelectedEvent = eventMessage.eventObject as AdvisorSelectedEvent;
 		advisorEntrySelected = advisorSelectedEvent.advisorEntrySelected;
 	}
@@ -71,11 +65,6 @@ public class AdvisorsMenu : MonoBehaviour
 		return advisorEntryScript;
 	}
 
-	private void OnAdvisorEntryEnterCompleted(EventMessage eventMessage)
-	{
-		AdvisorEntryEnterCompletedEvent adviceEntryEnterCompletedEvent = eventMessage.eventObject as AdvisorEntryEnterCompletedEvent;
-	}
-
 	private void OnAdvisorEntryExitCompleted(EventMessage eventMessage)
 	{
 		AdvisorEntryExitCompletedEvent adviceEntryExitCompletedEvent = eventMessage.eventObject as AdvisorEntryExitCompletedEvent;
@@ -86,11 +75,10 @@ public class AdvisorsMenu : MonoBehaviour
 		{
 			Debug.Log("All Advisor Entries have exited");
 
-			AdvisorsManager.instance.ShowAdvisorSuggestion(advisorEntrySelected);
-
-			//should tell AdvisorManager I have finished, passing the selected advisor
-			//should Hide the Menu
-			//should re-enable Input here o later?
+			AllAdvisorsExitCompletedEvent allAdvisorsExitCompletedEvent = AllAdvisorsExitCompletedEvent.CreateInstance(advisorEntrySelected.advisorXmlModel);
+			EventMessage allAdvisorsExitCompletedEventMessage = new EventMessage(this, allAdvisorsExitCompletedEvent);
+			allAdvisorsExitCompletedEventMessage.SetMessageType(MessageType.BROADCAST);
+			EventMessageManager.instance.QueueMessage(allAdvisorsExitCompletedEventMessage);
 		}
 	}
 

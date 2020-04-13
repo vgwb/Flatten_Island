@@ -36,6 +36,7 @@ public class LocalPlayer : Player
 
 	public void QuitGameSession()
 	{
+		gameSession.Dispose();
 		gameSession = null;
 	}
 

@@ -15,21 +15,12 @@ public class SuggestionEntry : MonoBehaviour
 	public SuggestionButton buttonOptionB;
 
 	public SuggestionXmlModel suggestionXmlModel;
-
-	private void OnEnable()
-	{
-		EventMessageHandler SuggestionOptionSelectedMessageHandler = new EventMessageHandler(this, OnSuggestionOptionSelectedEvent);
-		EventMessageManager.instance.AddHandler(typeof(SuggestionOptionSelectedEvent).Name, SuggestionOptionSelectedMessageHandler);
-	}
-
-	public void OnDisable()
-	{
-		EventMessageManager.instance.RemoveHandler(typeof(SuggestionOptionSelectedEvent).Name, this);
-	}
+	private SuggestionOptionXmlModel selectedSuggestionOptionXmlModel;
 
 	public void SetSuggestion(SuggestionXmlModel suggestionXmlModel, AdvisorXmlModel advisorXmlModel)
 	{
 		this.suggestionXmlModel = suggestionXmlModel;
+		selectedSuggestionOptionXmlModel = null;
 
 		title.text = LocalizationManager.instance.GetText(suggestionXmlModel.title);
 		description.text = LocalizationManager.instance.GetText(suggestionXmlModel.description);
@@ -50,18 +41,18 @@ public class SuggestionEntry : MonoBehaviour
 	public void OnButtonOptionASelected()
 	{
 		Debug.Log("Suggestion - Option A Selected");
+		selectedSuggestionOptionXmlModel = suggestionXmlModel.suggestionOptionsList[0];
 		SendSuggestionOptionSelectedMessage(suggestionXmlModel.suggestionOptionsList[0]);
+
+		suggestionEntryChef.Cook(suggestionEntryChef.onExitRecipe, OnExitRecipeCompleted);
 	}
 
 	public void OnButtonOptionBSelected()
 	{
 		Debug.Log("Suggestion - Option B Selected");
+		selectedSuggestionOptionXmlModel = suggestionXmlModel.suggestionOptionsList[1];
 		SendSuggestionOptionSelectedMessage(suggestionXmlModel.suggestionOptionsList[1]);
-	}
 
-	public void OnSuggestionOptionSelectedEvent(EventMessage eventMessage)
-	{
-		SuggestionOptionSelectedEvent suggestionOptionSelectedEvent = eventMessage.eventObject as SuggestionOptionSelectedEvent;
 		suggestionEntryChef.Cook(suggestionEntryChef.onExitRecipe, OnExitRecipeCompleted);
 	}
 
@@ -75,13 +66,13 @@ public class SuggestionEntry : MonoBehaviour
 
 	private void OnExitRecipeCompleted()
 	{
-		Debug.Log("Suggestion " + suggestionXmlModel.name + " Exit Recipe completed");
+		//Debug.Log("Suggestion " + suggestionXmlModel.name + " Exit Recipe completed");
 		SendExitCompletedEvent();
 	}
 
 	private void SendExitCompletedEvent()
 	{
-		SuggestionEntryExitCompletedEvent exitCompletedEvent = SuggestionEntryExitCompletedEvent.CreateInstance(this);
+		SuggestionEntryExitCompletedEvent exitCompletedEvent = SuggestionEntryExitCompletedEvent.CreateInstance(selectedSuggestionOptionXmlModel);
 		EventMessage exitCompletedEventMessage = new EventMessage(this, exitCompletedEvent);
 		exitCompletedEventMessage.SetMessageType(MessageType.BROADCAST);
 		EventMessageManager.instance.QueueMessage(exitCompletedEventMessage);
@@ -102,7 +93,7 @@ public class SuggestionEntry : MonoBehaviour
 
 	private void OnEnterRecipeCompleted()
 	{
-		Debug.Log("Suggestion " + suggestionXmlModel.name + " Enter Recipe completed");
+		//Debug.Log("Suggestion " + suggestionXmlModel.name + " Enter Recipe completed");
 		SendEnterCompletedEvent();
 	}
 }
