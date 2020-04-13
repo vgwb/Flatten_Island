@@ -10,7 +10,9 @@ public class ChartManager : MonoSingleton
 {
 	public const int WIDTH = 500;
 	public const int HEIGHT = 300;
-	public const int AXIS_MARGIN = 5;
+	public const int AXIS_MARGIN = 15;
+	public const int CAPACITY_LINE_Y = 50; // APROX
+	public const int OVERFLOW_MIN_Y = CAPACITY_LINE_Y -15; // Just to see the circle above
 	public const int AXIS_THICKNESS = 2;
 	public const int LINE_THICKNESS = 3;
 	public const int BIG_CIRCLE_RADIUS = 7;
@@ -201,8 +203,11 @@ public class ChartManager : MonoSingleton
 
 	private int GetYForPatients(int patients)
 	{
-		int maxY = HEIGHT - (AXIS_MARGIN + BIG_CIRCLE_RADIUS);
-		return maxY - (patients * maxY) / GameSession.MAX_PATIENTS;
+		int maxYRange = HEIGHT - CAPACITY_LINE_Y;
+		float currentCapacity = (float)GameManager.instance.localPlayer.gameSession.capacity;
+		float capacityUsage = patients / currentCapacity;
+		int y = HEIGHT - (int)(capacityUsage * maxYRange);
+		return (y < CAPACITY_LINE_Y) ? OVERFLOW_MIN_Y : y; // Avoid drawing too out of bounds
 	}
 
 	private int GetDayXIncrement()
