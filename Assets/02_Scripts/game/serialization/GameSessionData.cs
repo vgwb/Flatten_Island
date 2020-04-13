@@ -11,4 +11,6 @@ public class GameSessionData : GameData
 	public int publicOpinion;
 	public int[] patients;
 	public int[] advisorIds;
+
+	public GamePhaseData gamePhaseData;
 }

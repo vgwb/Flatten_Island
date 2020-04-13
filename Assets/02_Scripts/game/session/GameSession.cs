@@ -2,6 +2,8 @@
 
 public class GameSession : ISavable
 {
+	public static int INITIAL_PHASE_ID = 2;
+
 	public const int MAX_DAYS = 110; // TODO
 	public const int MAX_PATIENTS = 30000; // TODO
 
@@ -13,6 +15,7 @@ public class GameSession : ISavable
 	public int money { get; set; }
 	public int publicOpinion { get; set; }
 	public List<AdvisorXmlModel> advisors;
+	public GamePhase gamePhase;
 
 	private GameSessionXmlModel gameSessionXmlModel;
 
@@ -23,7 +26,6 @@ public class GameSession : ISavable
 			gameSessionXmlModel = XmlModelManager.instance.FindModel<GameSessionXmlModel>();
 		}
 
-
 		patients = new int[MAX_DAYS];
 		advisors = AdvisorsManager.instance.PickAdvisors();
 		day = 1;
@@ -33,6 +35,9 @@ public class GameSession : ISavable
 		capacity = gameSessionXmlModel.initialCapacity;
 		money = gameSessionXmlModel.initialMoney;
 		publicOpinion = gameSessionXmlModel.initialPublicOpinion;
+
+		gamePhase = new GamePhase();
+		gamePhase.StartPhase(INITIAL_PHASE_ID);
 	}
 
 	public void ApplySuggestionOption(SuggestionOptionXmlModel selectedSuggestionOptionXmlModel)
@@ -71,6 +76,9 @@ public class GameSession : ISavable
 			gameSessionData.advisorIds[i] = advisors[i].id;
 		}
 
+		GamePhaseData gamePhaseData = gamePhase.WriteSaveData() as GamePhaseData;
+		gameSessionData.gamePhaseData = gamePhaseData;
+
 		return gameSessionData;
 	}
 
@@ -94,5 +102,8 @@ public class GameSession : ISavable
 				advisors.Add(advisorXmlModel);
 			}
 		}
+
+		gamePhase = new GamePhase();
+		gamePhase.ReadSaveData(gameSessionData.gamePhaseData);
 	}
 }
