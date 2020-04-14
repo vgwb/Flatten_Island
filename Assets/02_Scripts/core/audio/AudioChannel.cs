@@ -62,6 +62,7 @@ public class AudioChannel
 		}
 
 		audioSource.volume = channelSettings.GetVolume();
+		audioSource.mute = IsMuted();
 		audioSource.Play();
 	}
 

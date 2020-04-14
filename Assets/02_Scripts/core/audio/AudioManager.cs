@@ -4,6 +4,7 @@ using UnityEngine;
 public class AudioManager : MonoSingleton
 {
 	public AudioSource oneShotAudioSource;
+	public AudioSource musicAudioSource;
 
 	public Dictionary<EAudioChannelType, AudioChannel> channels;
 
@@ -15,22 +16,13 @@ public class AudioManager : MonoSingleton
 		}
 	}
 
-	protected override void OnMonoSingletonStart()
+	protected override void OnMonoSingletonAwake()
 	{
-		base.OnMonoSingletonStart();
+		base.OnMonoSingletonAwake();
 
 		channels = new Dictionary<EAudioChannelType, AudioChannel>();
 		channels.Add(EAudioChannelType.Music, new AudioChannel(EAudioChannelType.Music));
 		channels.Add(EAudioChannelType.Sfx, new AudioChannel(EAudioChannelType.Sfx));
-	}
-
-	public void PlayAudio(AudioSource audioSource, EAudioChannelType audioChannelType)
-	{
-		AudioChannel audioChannel;
-		if (channels.TryGetValue(audioChannelType, out audioChannel))
-		{
-			audioChannel.Play(audioSource);
-		}
 	}
 
 	public float GetChannelVolume(EAudioChannelType audioChannelType)
@@ -71,5 +63,41 @@ public class AudioManager : MonoSingleton
 		{
 			audioSource.PlayOneShot(audioClip);
 		}
+	}
+
+	public AudioSource PlayMusic(AudioClip audioClip)
+	{
+		return PlayAudio(musicAudioSource, audioClip, EAudioChannelType.Music);
+	}
+
+	public AudioSource PlayAudio(AudioSource audioSource, AudioClip audioClip, EAudioChannelType audioChannelType)
+	{
+		AudioChannel audioChannel;
+		if (!channels.TryGetValue(audioChannelType, out audioChannel))
+		{
+			Debug.LogError("AudioManager.PlayAudio - audioChannel:" + audioChannelType + " not set! - clip:" + audioClip.name);
+			return null;
+		}
+
+		audioSource.clip = audioClip;
+		audioChannel.Play(audioSource);
+		return audioSource;
+	}
+
+	public void StopMusic(AudioSource audioSource)
+	{
+		StopAudio(audioSource, EAudioChannelType.Music);
+	}
+
+	public void StopAudio(AudioSource audioSource, EAudioChannelType audioChannelType)
+	{
+		AudioChannel audioChannel;
+		if (!channels.TryGetValue(audioChannelType, out audioChannel))
+		{
+			Debug.LogError("AudioManager.StopAudio - audioChannel:" + audioChannelType + " not set!");
+			return;
+		}
+
+		audioChannel.Stop(audioSource);
 	}
 }

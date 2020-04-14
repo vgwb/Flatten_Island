@@ -1,5 +1,5 @@
 ﻿public enum EAudioChannelType
 {
-	Music,
-	Sfx
+	Music = 0,
+	Sfx = 1
 }
