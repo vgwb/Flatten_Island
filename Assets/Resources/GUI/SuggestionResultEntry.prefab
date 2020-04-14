@@ -707,6 +707,7 @@ MonoBehaviour:
   capacitySprite: {fileID: 21300000, guid: fa51487fcc7f83b4998987cdccda3544, type: 3}
   suggestionResultEntryChef: {fileID: 6637584083492393942}
   advisorPortrait: {fileID: 4908693536312888460}
+  background: {fileID: 4593394562058782599}
   parametersGridLayoutGroup: {fileID: 8422757720299170530}
   optionParameterEntryPrefab: {fileID: 0}
 --- !u!1 &5640207497457172572

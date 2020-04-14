@@ -596,6 +596,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   portrait: {fileID: 4142684821846198157}
+  background: {fileID: 4818270107696204934}
   advisorName: {fileID: 40504809927663206}
   advisorEntryChef: {fileID: 7587976137361191511}
 --- !u!1 &4818270107696204932

@@ -949,6 +949,8 @@ MonoBehaviour:
   description: {fileID: 5581308545177549498}
   buttonOptionA: {fileID: 5581308547076949068}
   buttonOptionB: {fileID: 5581308545895770117}
+  background: {fileID: 4593394562058782599}
+  advisorBubble: {fileID: 6366440777238055573}
 --- !u!1 &5581308546145096122
 GameObject:
   m_ObjectHideFlags: 0

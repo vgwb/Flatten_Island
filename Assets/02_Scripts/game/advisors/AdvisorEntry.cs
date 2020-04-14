@@ -8,6 +8,7 @@ public class AdvisorEntry : MonoBehaviour
 	public static string PREFAB = "GUI/AdvisorEntry";
 
 	public Image portrait;
+	public Image background;
 	public Text advisorName;
 	public AdvisorEntryChef advisorEntryChef;
 
@@ -33,6 +34,12 @@ public class AdvisorEntry : MonoBehaviour
 		{
 			Sprite advisorSprite = Resources.Load<Sprite>(advisorXmlModel.portraitSprite);
 			portrait.overrideSprite = advisorSprite;
+		}
+
+		if (!string.IsNullOrEmpty(advisorXmlModel.portraitBackgroundSprite))
+		{
+			Sprite advisorBackgroundSprite = Resources.Load<Sprite>(advisorXmlModel.portraitBackgroundSprite);
+			background.overrideSprite = advisorBackgroundSprite;
 		}
 	}
 

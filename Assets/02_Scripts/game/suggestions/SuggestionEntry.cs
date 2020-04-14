@@ -13,6 +13,8 @@ public class SuggestionEntry : MonoBehaviour
 	public Text description;
 	public SuggestionButton buttonOptionA;
 	public SuggestionButton buttonOptionB;
+	public Image background;
+	public Image advisorBubble;
 
 	public SuggestionXmlModel suggestionXmlModel;
 	private SuggestionOptionXmlModel selectedSuggestionOptionXmlModel;
@@ -29,6 +31,18 @@ public class SuggestionEntry : MonoBehaviour
 		{
 			Sprite advisorSprite = Resources.Load<Sprite>(advisorXmlModel.iconSprite);
 			advisorIcon.overrideSprite = advisorSprite;
+		}
+
+		if (!string.IsNullOrEmpty(advisorXmlModel.bubbleSprite))
+		{
+			Sprite bubbleSprite = Resources.Load<Sprite>(advisorXmlModel.bubbleSprite);
+			advisorBubble.overrideSprite = bubbleSprite;
+		}
+
+		if (!string.IsNullOrEmpty(advisorXmlModel.suggestionBackgroundSprite))
+		{
+			Sprite suggestionBackgroundSprite = Resources.Load<Sprite>(advisorXmlModel.suggestionBackgroundSprite);
+			background.overrideSprite = suggestionBackgroundSprite;
 		}
 
 		SuggestionOptionXmlModel optionAXmlModel = suggestionXmlModel.suggestionOptionsList[0];

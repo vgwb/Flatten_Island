@@ -14,8 +14,8 @@ public class SuggestionResultEntry : MonoBehaviour
 
 	public SuggestionResultEntryChef suggestionResultEntryChef;
 	public Image advisorPortrait;
+	public Image background;
 	public GridLayoutGroup parametersGridLayoutGroup;
-	public OptionParameterEntry optionParameterEntryPrefab;
 
 	private SuggestionOptionXmlModel suggestionOptionXmlModel;
 
@@ -35,6 +35,12 @@ public class SuggestionResultEntry : MonoBehaviour
 		{
 			Sprite advisorSprite = Resources.Load<Sprite>(advisorXmlModel.portraitSprite);
 			advisorPortrait.overrideSprite = advisorSprite;
+		}
+
+		if (!string.IsNullOrEmpty(advisorXmlModel.suggestionResultBackgroundSprite))
+		{
+			Sprite backgroundSprite = Resources.Load<Sprite>(advisorXmlModel.suggestionResultBackgroundSprite);
+			background.overrideSprite = backgroundSprite;
 		}
 
 		if (suggestionOptionXmlModel.publicOpinionModifier != 0)
