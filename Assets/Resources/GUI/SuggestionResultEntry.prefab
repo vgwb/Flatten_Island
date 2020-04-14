@@ -478,7 +478,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 900, y: 700}
+  m_SizeDelta: {x: 1000, y: 700}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4593394562058782600
 CanvasRenderer:
@@ -709,7 +709,6 @@ MonoBehaviour:
   advisorPortrait: {fileID: 4908693536312888460}
   background: {fileID: 4593394562058782599}
   parametersGridLayoutGroup: {fileID: 8422757720299170530}
-  optionParameterEntryPrefab: {fileID: 0}
 --- !u!1 &5640207497457172572
 GameObject:
   m_ObjectHideFlags: 0
