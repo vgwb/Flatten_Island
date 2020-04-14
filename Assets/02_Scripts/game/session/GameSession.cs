@@ -76,7 +76,8 @@ public class GameSession : ISavable
 	{
 		money += selectedSuggestionOptionXmlModel.moneyModifier;
 		growthRate += selectedSuggestionOptionXmlModel.growthRateModifier;
-		publicOpinion += selectedSuggestionOptionXmlModel.publicOpinionModifier;
+		publicOpinion = Math.Min(100, publicOpinion + selectedSuggestionOptionXmlModel.publicOpinionModifier);
+		publicOpinion = Math.Max(0, publicOpinion);
 		capacity += selectedSuggestionOptionXmlModel.capacityModifier;
 		int patientsIncrease = (patients[day - 1] * growthRate) / 100;
 		patients[day] = patients[day - 1] + patientsIncrease;
