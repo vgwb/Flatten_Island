@@ -14,7 +14,7 @@
 	<suggestion id="3002" advisorId="2002" title="CardTitle_2" description="CardDescription_2">
 		<suggestionOptions>
 			<suggestionOption id="1" text="Card_OptA_2" money="3000" growthRate="7" />
-			<suggestionOption id="2" text="Card_OptB_2" money="-1000"/>
+			<suggestionOption id="2" text="Card_OptB_2" money="-500"/>
 		</suggestionOptions>
 		<requirements>
 			<gamePhaseRequirement>
@@ -25,7 +25,7 @@
 	</suggestion>
 	<suggestion id="3003" advisorId="2003" title="CardTitle_3" description="CardDescription_3" startStoryId="4001">
 		<suggestionOptions>
-			<suggestionOption id="1" text="Card_OptA_3" money="-2000" growthRate="-3" />
+			<suggestionOption id="1" text="Card_OptA_3" money="2000" growthRate="-3" />
 			<suggestionOption id="2" text="Card_OptB_3" publicOpinion="-10" growthRate="5" />
 		</suggestionOptions>
 		<requirements>
