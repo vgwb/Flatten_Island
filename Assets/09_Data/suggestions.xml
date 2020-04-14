@@ -37,7 +37,7 @@
 	</suggestion>
 	<suggestion id="3004" advisorId="2004" title="CardTitle_4" description="CardDescription_4">
 		<suggestionOptions>
-			<suggestionOption id="1" text="Card_OptA_4" money="-200" vaccine="1" />
+			<suggestionOption id="1" text="Card_OptA_4" money="-200" vaccine="20" />
 			<suggestionOption id="2" text="Card_OptB_4" publicOpinion="10" growthRate="-2" />
 		</suggestionOptions>
 		<requirements>

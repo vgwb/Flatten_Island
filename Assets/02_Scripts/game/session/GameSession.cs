@@ -102,13 +102,31 @@ public class GameSession : ISavable
 
 	public bool HasPlayerWon()
 	{
-		//TODO
-		return false;
+		return vaccineDevelopment >= 100f;
 	}
 
 	public bool HasPlayerLose()
 	{
-		//TODO
+		if (patients[day - 1] > capacity)
+		{
+			return true;
+		}
+
+		if (capacity <= 0)
+		{
+			return true;
+		}
+
+		if (money <= 0)
+		{
+			return true;
+		}
+
+		if (publicOpinion <= 0)
+		{
+			return true;
+		}
+
 		return false;
 	}
 

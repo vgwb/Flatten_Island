@@ -41,8 +41,8 @@ public class GameSessionFsm : FiniteStateMachine
 		AddState(SuggestionResultState, SuggestionResult_Enter, null, SuggestionResult_Exit);
 		AddState(UpdateResultState, UpdateResult_Enter, UpdateResult_Update, null);
 		AddState(NextDayConfirmationState, NextDayConfirmation_Enter, null, NextDayConfirmation_Exit);
-		AddState(WinningState, null, null, null);
-		AddState(LosingState, null, null, null);
+		AddState(WinningState, Winning_Enter, null, Winning_Exit);
+		AddState(LosingState, Losing_Enter, null, Losing_Exit);
 	}
 
 	public void StartFsm()
@@ -80,6 +80,46 @@ public class GameSessionFsm : FiniteStateMachine
 		TriggerState(AdvisorsState);
 	}
 
+	private void Winning_Enter()
+	{
+		EventMessageHandler winningDialogExitCompletedMessageHandler = new EventMessageHandler(this, OnWinningDialogExit);
+		EventMessageManager.instance.AddHandler(typeof(GenericDialogExitCompletedEvent).Name, winningDialogExitCompletedMessageHandler);
+		GenericDialog.Show(5003, MainScene.instance.uiWorldCanvas.transform);
+	}
+
+	private void OnWinningDialogExit(EventMessage eventMessage)
+	{
+		//TO DO, before quitting should record the high score
+		GameManager.instance.localPlayer.QuitGameSession();
+		GameManager.instance.SavePlayer();
+		ScenesFlowManager.instance.UnloadingMainScene();
+	}
+
+	private void Winning_Exit()
+	{
+		EventMessageManager.instance.RemoveHandler(typeof(GenericDialogExitCompletedEvent).Name, this);
+	}
+
+	private void Losing_Enter()
+	{
+		EventMessageHandler losingDialogExitCompletedMessageHandler = new EventMessageHandler(this, OnLosingDialogExit);
+		EventMessageManager.instance.AddHandler(typeof(GenericDialogExitCompletedEvent).Name, losingDialogExitCompletedMessageHandler);
+		GenericDialog.Show(5004, MainScene.instance.uiWorldCanvas.transform);
+	}
+
+	private void OnLosingDialogExit(EventMessage eventMessage)
+	{
+		//TO DO, before quitting should record the high score if there is one
+		GameManager.instance.localPlayer.QuitGameSession();
+		GameManager.instance.SavePlayer();
+		ScenesFlowManager.instance.UnloadingMainScene();
+	}
+
+	private void Losing_Exit()
+	{
+		EventMessageManager.instance.RemoveHandler(typeof(GenericDialogExitCompletedEvent).Name, this);
+	}
+
 	private void ChangeGamePhase_Enter()
 	{
 		int nextPhaseId = gameSession.gamePhase.GetNextPhaseId();
@@ -87,8 +127,8 @@ public class GameSessionFsm : FiniteStateMachine
 		gameSession.StartGamePhase(nextPhaseId);
 
 		//just to test the flow
-		EventMessageHandler allAdvisorsExitCompletedMessageHandler = new EventMessageHandler(this, OnChangePhaseEntryExit);
-		EventMessageManager.instance.AddHandler(typeof(GenericDialogExitCompletedEvent).Name, allAdvisorsExitCompletedMessageHandler);
+		EventMessageHandler changeGamePhaseDialogExitCompletedMessageHandler = new EventMessageHandler(this, OnChangePhaseEntryExit);
+		EventMessageManager.instance.AddHandler(typeof(GenericDialogExitCompletedEvent).Name, changeGamePhaseDialogExitCompletedMessageHandler);
 		GenericDialog.Show(5002, MainScene.instance.uiWorldCanvas.transform);
 	}
 

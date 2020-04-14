@@ -2,4 +2,6 @@
 <group>
 	<genericDialog id="5001" name="Quit Game Dialog" buttons="2" title="QuitGameDialogTitle" message="QuitGameDialogMessage" />
 	<genericDialog id="5002" name="Change Phase Test" buttons="1" title="Change Phase Test" message="New Phase!" />
+	<genericDialog id="5003" name="Winning Test" buttons="1" title="YOU WIN!" message="Your scientists found a cure for the virus!" />
+	<genericDialog id="5004" name="Loosing Test" buttons="1" title="YOU LOSE!" message="The virus infected everybody on the island and you have been Fired!" />
 </group>
