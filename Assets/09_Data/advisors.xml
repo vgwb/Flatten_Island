@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group>
-	<advisor id="2001" name="PressSecretary_Name" portraitSprite="GUI/Portraits/advisor5" iconSprite="GUI/Portraits/iconAdvisor5" portraitBackgroundSprite="GUI/advisorBox5Top" bubbleSprite="GUI/iconAdvisorBubble5" suggestionBackgroundSprite ="iconAdvisorBoard" suggestionResultBackgrounSprite="iconAdvisorBoardResult">
+	<advisor id="2001" name="PressSecretary_Name" portraitSprite="GUI/Portraits/advisor1" iconSprite="GUI/Portraits/iconAdvisor1" portraitBackgroundSprite="GUI/advisorBox1Top" bubbleSprite="GUI/advisorBubbleOrange" suggestionBackgroundSprite ="GUI/advisorBoardOrange" suggestionResultBackgroundSprite="GUI/advisorBoardOrange1">
 	</advisor>
-	<advisor id="2002" name="Treasurer_Name" portraitSprite="GUI/Portraits/advisor1" iconSprite="GUI/Portraits/iconAdvisor1" portraitBackgroundSprite="GUI/advisorBox1Top" bubbleSprite="GUI/iconAdvisorBubble" suggestionBackgroundSprite ="iconAdvisorBoard" suggestionResultBackgrounSprite="iconAdvisorBoardResult">
+	<advisor id="2002" name="Treasurer_Name" portraitSprite="GUI/Portraits/advisor2" iconSprite="GUI/Portraits/iconAdvisor2" portraitBackgroundSprite="GUI/advisorBox3Top" bubbleSprite="GUI/advisorBubbleBlue" suggestionBackgroundSprite ="GUI/advisorBoardBlue" suggestionResultBackgroundSprite="GUI/advisorBoardBlue1">
 	</advisor>
-	<advisor id="2003" name="LabScientist_Name" portraitSprite="GUI/Portraits/advisor4" iconSprite="GUI/Portraits/iconAdvisor4" portraitBackgroundSprite="GUI/advisorBox4Top" bubbleSprite="GUI/iconAdvisorBubble4" suggestionBackgroundSprite ="iconAdvisorBoard" suggestionResultBackgrounSprite="iconAdvisorBoardResult">
+	<advisor id="2003" name="LabScientist_Name" portraitSprite="GUI/Portraits/advisor3" iconSprite="GUI/Portraits/iconAdvisor3" portraitBackgroundSprite="GUI/advisorBox5Top" bubbleSprite="GUI/advisorBubblePurple" suggestionBackgroundSprite ="GUI/advisorBoardPurple" suggestionResultBackgroundSprite="GUI/advisorBoardPurple1">
 	</advisor>
-	<advisor id="2004" name="HospitalDirector_Name" portraitSprite="GUI/Portraits/advisor3" iconSprite="GUI/Portraits/iconAdvisor3" portraitBackgroundSprite="GUI/advisorBox3Top" bubbleSprite="GUI/iconAdvisorBubble3" suggestionBackgroundSprite ="iconAdvisorBoard" suggestionResultBackgrounSprite="iconAdvisorBoardResult">
+	<advisor id="2004" name="HospitalDirector_Name" portraitSprite="GUI/Portraits/advisor4" iconSprite="GUI/Portraits/iconAdvisor4" portraitBackgroundSprite="GUI/advisorBox4Top" bubbleSprite="GUI/advisorBubbleYellow" suggestionBackgroundSprite ="GUI/advisorBoardYellow" suggestionResultBackgroundSprite="GUI/advisorBoardYellow1">
 	</advisor>
-	<advisor id="2005" name="Commander_Name" portraitSprite="GUI/Portraits/advisor2" iconSprite="GUI/Portraits/iconAdvisor2" portraitBackgroundSprite="GUI/advisorBox2Top" bubbleSprite="GUI/iconAdvisorBubble2" suggestionBackgroundSprite ="iconAdvisorBoard" suggestionResultBackgrounSprite="iconAdvisorBoardResult">
+	<advisor id="2005" name="Commander_Name" portraitSprite="GUI/Portraits/advisor5" iconSprite="GUI/Portraits/iconAdvisor5" portraitBackgroundSprite="GUI/advisorBox2Top" bubbleSprite="GUI/advisorBubbleGreen" suggestionBackgroundSprite ="GUI/advisorBoardGreen" suggestionResultBackgroundSprite="GUI/advisorBoardGreen1">
 	</advisor>
 </group>
