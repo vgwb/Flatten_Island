@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group>
-	<advisor id="2001" name="Professor Calderilla" portraitSprite="GUI/Portraits/advisor1" iconSprite="GUI/Portraits/iconAdvisor1">
+	<advisor id="2001" name="PressSecretary_Name" portraitSprite="GUI/Portraits/advisor5" iconSprite="GUI/Portraits/iconAdvisor5">
 	</advisor>
-	<advisor id="2002" name="Commander Cosquillas" portraitSprite="GUI/Portraits/advisor2" iconSprite="GUI/Portraits/iconAdvisor2">
+	<advisor id="2002" name="Treasurer_Name" portraitSprite="GUI/Portraits/advisor1" iconSprite="GUI/Portraits/iconAdvisor1">
 	</advisor>
-	<advisor id="2003" name="Doctor Esponjoso" portraitSprite="GUI/Portraits/advisor3" iconSprite="GUI/Portraits/iconAdvisor3">
+	<advisor id="2003" name="LabScientist_Name" portraitSprite="GUI/Portraits/advisor4" iconSprite="GUI/Portraits/iconAdvisor4">
 	</advisor>
-	<advisor id="2004" name="Director Burbujas" portraitSprite="GUI/Portraits/advisor4" iconSprite="GUI/Portraits/iconAdvisor4">
+	<advisor id="2004" name="HospitalDirector_Name" portraitSprite="GUI/Portraits/advisor3" iconSprite="GUI/Portraits/iconAdvisor3">
 	</advisor>
-	<advisor id="2005" name="Mr Chisme" portraitSprite="GUI/Portraits/advisor1" iconSprite="GUI/Portraits/iconAdvisor5">
+	<advisor id="2005" name="Commander_Name" portraitSprite="GUI/Portraits/advisor2" iconSprite="GUI/Portraits/iconAdvisor2">
 	</advisor>
 </group>

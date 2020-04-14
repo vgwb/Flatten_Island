@@ -11,3 +11,8 @@ YesText		Yes	Si	Si	Oui
 NoText		No	No	No	No
 QuitGameDialogTitle		Quit Game	Salir del juego	Termina partita	Quitter le jeu
 QuitGameDialogMessage		Are you sure?	Estas seguro?	Sei sicuro?	Êtes-vous sûr?
+PressSecretary_Name		Mr Chisme			
+Treasurer_Name		Mrs Calderilla			
+LabScientist_Name		Dr Burbujas			
+HospitalDirector_Name		Dr Esponjoso			
+Commander_Name		Comm. Cosquillas			
