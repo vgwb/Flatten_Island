@@ -7,19 +7,47 @@ public class GamePhase : ISavable
 
 	private int startDay;
 
+	private AudioSource musicAudioSource;
+
 	public void Start(int gamePhaseId, int startDay)
 	{
 		gamePhaseXmlModel = XmlModelManager.instance.FindModel<GamePhaseXmlModel>(gamePhaseId);
 		this.startDay = startDay;
+
+		StartMusic();
 	}
 
 	public void Resume()
 	{
+		StartMusic();
+	}
+
+	private void StartMusic()
+	{
+		if (!string.IsNullOrEmpty(gamePhaseXmlModel.musicAudioClip))
+		{
+			AudioClip musicAudioClip = Resources.Load<AudioClip>(gamePhaseXmlModel.musicAudioClip);
+			musicAudioSource = AudioManager.instance.PlayMusic(musicAudioClip);
+		}
 	}
 
 	public void Stop()
 	{
+		StopMusic();
+	}
 
+	public void Dispose()
+	{
+		StopMusic();
+	}
+
+	private void StopMusic()
+	{
+		if (musicAudioSource != null)
+		{
+			AudioManager.instance.StopMusic(musicAudioSource);
+			musicAudioSource = null;
+		}
 	}
 
 	public string GetName()
