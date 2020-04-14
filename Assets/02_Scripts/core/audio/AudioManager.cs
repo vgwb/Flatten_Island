@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class AudioManager : MonoSingleton
 {
+	public AudioSource oneShotAudioSource;
+
 	public Dictionary<EAudioChannelType, AudioChannel> channels;
 
 	public static AudioManager instance
@@ -48,6 +50,26 @@ public class AudioManager : MonoSingleton
 		if (channels.TryGetValue(audioChannelType, out audioChannel))
 		{
 			audioChannel.channelSettings.SetVolume(volume);
+		}
+	}
+
+	public void PlayOneShot(AudioClip audioClip, EAudioChannelType audioChannelType)
+	{
+		PlayOneShot(oneShotAudioSource, audioClip, audioChannelType);
+	}
+
+	public void PlayOneShot(AudioSource audioSource, AudioClip audioClip, EAudioChannelType audioChannelType)
+	{
+		AudioChannel audioChannel;
+		if (!channels.TryGetValue(audioChannelType, out audioChannel))
+		{
+			Debug.LogError("AudioManager.PlayOneShot - audioChannel:" + audioChannelType + " not set! - clip:" + audioClip.name);
+			return;
+		}
+
+		if (!audioChannel.IsMuted())
+		{
+			audioSource.PlayOneShot(audioClip);
 		}
 	}
 }
