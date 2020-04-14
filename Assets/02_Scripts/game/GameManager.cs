@@ -8,6 +8,8 @@ public class GameManager : MonoSingleton
 	public Platform platform;
 	public SuggestionFactory suggestionFactory;
 	public LocalPlayer localPlayer;
+	public float musicChannelVolume = 0.2f;
+	public float sfxChannelVolume = 1.0f;
 
 	public ISaveGameSerializer gameSerializer
 	{
@@ -36,6 +38,9 @@ public class GameManager : MonoSingleton
 
 		PlatformCreator platformCreator = new PlatformCreator();
 		platform = platformCreator.CreatePlatform();
+
+		AudioManager.instance.SetChannelVolume(EAudioChannelType.Music, musicChannelVolume);
+		AudioManager.instance.SetChannelVolume(EAudioChannelType.Sfx, sfxChannelVolume);
 
 		LocalizationManager.instance.Init();
 		SetLanguage();
