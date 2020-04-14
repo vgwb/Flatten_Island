@@ -33,12 +33,12 @@ public class GamePhaseEndConditionGroupXmlModel : GamePhaseEndConditionXmlModel
 	{
 		for (int i = 0, n = gamePhaseEndConditionsXmlModels.Count; i < n; i++)
 		{
-			if (!gamePhaseEndConditionsXmlModels[i].IsSatisfied(gameSession))
+			if (gamePhaseEndConditionsXmlModels[i].IsSatisfied(gameSession))
 			{
-				return false;
+				return true;
 			}
 		}
-		return true;
+		return false;
 	}
 
 	public GamePhaseEndConditionXmlModel ParseGamePhaseEndConditionXmlElement(XElement element)

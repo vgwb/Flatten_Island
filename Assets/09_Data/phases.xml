@@ -8,11 +8,12 @@
 	<gamePhase id="2" name="FirstCases_Phase" description="Phase2_Description" nextPhaseId="3" musicAudioClip="Audio/music/FirstCases">
 		<endConditions>
 			<gamePhaseDurationCondition days="14"/>
+			<gamePhaseGrowthCondition maxGrowthRate="30"/>
 		</endConditions>
 	</gamePhase>
 	<gamePhase id="3" name="Emergency_Phase" description="Phase3_Description" nextPhaseId="4" musicAudioClip="Audio/music/Emergency">
 		<endConditions>
-			<gamePhaseGrowthCondition growthRate="3"/>
+			<gamePhaseGrowthCondition minGrowthRate="-5"/>
 		</endConditions>
 	</gamePhase>
 	<gamePhase id="4" name="PullingCurveDown_Phase" description="Phase4_Description" musicAudioClip="Audio/music/PullingCurveDown">

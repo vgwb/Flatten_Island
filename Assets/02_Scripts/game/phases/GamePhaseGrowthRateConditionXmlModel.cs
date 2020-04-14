@@ -2,7 +2,8 @@
 
 public class GamePhaseGrowthRateConditionXmlModel : GamePhaseEndConditionXmlModel
 {
-	private int growthRate;
+	private int minGrowthRate;
+	private int maxGrowthRate;
 
 	public GamePhaseGrowthRateConditionXmlModel()
 	{
@@ -13,11 +14,12 @@ public class GamePhaseGrowthRateConditionXmlModel : GamePhaseEndConditionXmlMode
 	{
 		base.Initialize(element);
 
-		growthRate = ParseIntAttribute(element, "growthRate");
+		minGrowthRate = ParseIntAttribute(element, "minGrowthRate", int.MinValue);
+		maxGrowthRate = ParseIntAttribute(element, "maxGrowthRate", int.MaxValue);
 	}
 
 	public override bool IsSatisfied(GameSession gameSession)
 	{
-		return (gameSession.growthRate < growthRate);
+		return (gameSession.growthRate < minGrowthRate || gameSession.growthRate > maxGrowthRate);
 	}
 }
