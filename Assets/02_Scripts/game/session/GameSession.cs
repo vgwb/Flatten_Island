@@ -52,6 +52,8 @@ public class GameSession : ISavable
 
 	public void Dispose()
 	{
+		gamePhase.Dispose();
+
 		if (gameSessionFsm != null)
 		{
 			gameSessionFsm.Dispose();
