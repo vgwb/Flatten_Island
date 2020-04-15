@@ -35,17 +35,12 @@ public class LocalizationManager : MonoSingleton
 
 	public void Init()
 	{
-		Debug.Log("LocaliationManager - Init()");
-
 		localizationXmlModels = XmlModelManager.instance.FindModels<LocalizationXmlModel>();
 		nonLatinFont = Resources.GetBuiltinResource<Font>("Arial.ttf");
 	}
 
 	public void SetLocalizedText(Text textField, string localizationId)
 	{
-		Debug.Log("LocalizationManager - SetLocalizedText - localizationId:" + localizationId);
-
-
 		string localizedText = GetText(localizationId);
 		LocalizationXmlModel currentLocalizationXmlModel = FindLocalizationXmlModelWithLanguageId(GetCurrentLanguage());
 		if (currentLocalizationXmlModel.useLatinFont)
@@ -62,8 +57,6 @@ public class LocalizationManager : MonoSingleton
 
 	private string GetText(string localizationId)
 	{
-		Debug.Log("LocalizationManager - GetText - localizationId:" + localizationId);
-
 		if (localizationId == null)
 		{
 			return null;
@@ -85,18 +78,15 @@ public class LocalizationManager : MonoSingleton
 
 	private string GetLocalizedText(string localizationId)
 	{
-		Debug.Log("LocalizationManager - GetLocalizedText - localizationId:" + localizationId);
 		string currentLanguage = GetCurrentLanguage();
 		if (localizedTexts.ContainsKey(localizationId))
 		{
 			Dictionary<string, string> translations = localizedTexts[localizationId];
 			if (translations.ContainsKey(currentLanguage))
 			{
-				Debug.Log("LocalizationManager - return translations[currentLanguage]:" + translations[currentLanguage]);
 				return translations[currentLanguage];
 			}
 
-			Debug.Log("LocalizationManager - return translations[DEFAULT_LANGUAGE_ID]:" + translations[DEFAULT_LANGUAGE_ID]);
 			return translations[DEFAULT_LANGUAGE_ID];
 		}
 
@@ -105,11 +95,7 @@ public class LocalizationManager : MonoSingleton
 
 	private void LoadLocalizedTexts()
 	{
-		Debug.Log("LocalizationManager - LoadLocalizedTexts()");
-
 		localizedTexts = new Dictionary<string, Dictionary<string, string>>();
-
-		Debug.Log("LocalizationManager - LoadLocalizedTexts - localizationFile.text:" + localizationFile.text);
 
 		string[] separator = { "\r\n", "\r", "\n", };
 		string[] fileLines = localizationFile.text.Split(separator, System.StringSplitOptions.None);
@@ -157,7 +143,6 @@ public class LocalizationManager : MonoSingleton
 		for (int i = 0; i < lineColumns.Count; i++)
 		{
 			translations.Add(localizedLanguages[i], lineColumns[i]);
-			Debug.Log("LocalizationManager - GetTranslations() - adding " + localizedLanguages[i] + " ->" + lineColumns[i]);
 		}
 
 		return translations;
@@ -165,8 +150,6 @@ public class LocalizationManager : MonoSingleton
 
 	private List<string> GetLocalizationFileLineColumns(string line)
 	{
-		Debug.Log("LocalizationManager - GetLocalizationFileLineColumns() - line:" + line);
-
 		List<string> columns = new List<string>();
 
 		int cursor = 0;
@@ -186,8 +169,6 @@ public class LocalizationManager : MonoSingleton
 
 	private List<string> GetLocalizedLanguages(string localizationFileHeader)
 	{
-		Debug.Log("LocalizationManager - GetLocalizedLanguages() - localizationFileHeader:" + localizationFileHeader);
-
 		List<string> languages = new List<string>();
 
 		int cursor = 0;
@@ -198,7 +179,6 @@ public class LocalizationManager : MonoSingleton
 			{
 				if (columnIndex >= LOCALIZATION_FILE_FIRST_LANGUAGE_COLUMN)
 				{
-					Debug.Log("LocalizationManager - GetLocalizedLanguages() - Adding language:" + localizationFileHeader.Substring(cursor, (i - cursor)));
 					languages.Add(localizationFileHeader.Substring(cursor, (i-cursor)));
 				}
 
@@ -214,14 +194,11 @@ public class LocalizationManager : MonoSingleton
 
 	public string GetCurrentLanguage()
 	{
-		Debug.Log("LocalizationManager - GetCurrentLanguage():" + PlayerPrefs.GetString(LANGUAGE_KEY));
-
 		if (HasCurrentLanguage())
 		{
 			return PlayerPrefs.GetString(LANGUAGE_KEY);
 		}
 
-		Debug.Log("LocalizationManager - GetCurrentLanguage() returns null");
 		return null;
 	}
 
@@ -232,13 +209,11 @@ public class LocalizationManager : MonoSingleton
 
 	public void SetLanguage(string languageId)
 	{
-		Debug.Log("LocalizationManager - SetLanguage() - languageId:" + languageId);
 		PlayerPrefs.SetString(LANGUAGE_KEY, languageId);
 	}
 
 	public void SetDefaultLanguage()
 	{
-		Debug.Log("LocalizationManager - SetDefaultLanguage() - language:" + DEFAULT_LANGUAGE_ID);
 		PlayerPrefs.SetString(LANGUAGE_KEY, DEFAULT_LANGUAGE_ID);
 	}
 
@@ -252,40 +227,33 @@ public class LocalizationManager : MonoSingleton
 			localizationXmlModelFound = FindLocalizationXmlModelWithPartialMatch(languageCode);
 		}
 
-		Debug.Log("LocalizationManager - FindLocalizationXmlModel() - localizationXmlModelFound:" + localizationXmlModelFound.name);
 		return localizationXmlModelFound;
 	}
 
 	private LocalizationXmlModel FindLocalizationXmlModelWithExactMatch(string languageCode)
 	{
-		Debug.Log("LocalizationManager - FindLocalizationXmlModelWithExactMatch() - languageCode:" + languageCode);
-
 		foreach (LocalizationXmlModel localizationXmlModel in localizationXmlModels)
 		{
 			foreach (string tag in localizationXmlModel.tags)
 			{
 				if (languageCode.Equals(tag.ToLower()))
 				{
-					Debug.Log("LocalizationManager - FindLocalizationXmlModelWithExactMatch() -returns :" + localizationXmlModel.name);
 					return localizationXmlModel;
 				}
 			}
 		}
 
-		Debug.Log("LocalizationManager - FindLocalizationXmlModelWithExactMatch() -returns null");
 		return null;
 	}
 
 	private LocalizationXmlModel FindLocalizationXmlModelWithPartialMatch(string languageCode)
 	{
-		Debug.Log("LocalizationManager - FindLocalizationXmlModelWithPartialMatch() - languageCode:" + languageCode);
 		foreach (LocalizationXmlModel localizationXmlModel in localizationXmlModels)
 		{
 			foreach (string tag in localizationXmlModel.tags)
 			{
 				if (languageCode.StartsWith(tag.ToLower()))
 				{
-					Debug.Log("LocalizationManager - FindLocalizationXmlModelWithPartialMatch() -returns :" + localizationXmlModel.name);
 					return localizationXmlModel;
 				}
 			}
@@ -296,8 +264,6 @@ public class LocalizationManager : MonoSingleton
 
 	private LocalizationXmlModel FindLocalizationXmlModelWithLanguageId(string languageId)
 	{
-		Debug.Log("LocalizationManager - FindLocalizationXmlModelWithLanguageId() - languageId:" + languageId);
 		return localizationXmlModels.Find((localizationXmlModel) => localizationXmlModel.languageId == languageId);
-
 	}
 }
