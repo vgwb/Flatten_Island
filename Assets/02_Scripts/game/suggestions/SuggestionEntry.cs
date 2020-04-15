@@ -24,8 +24,8 @@ public class SuggestionEntry : MonoBehaviour
 		this.suggestionXmlModel = suggestionXmlModel;
 		selectedSuggestionOptionXmlModel = null;
 
-		title.text = LocalizationManager.instance.GetText(suggestionXmlModel.title);
-		description.text = LocalizationManager.instance.GetText(suggestionXmlModel.description);
+		LocalizationManager.instance.SetLocalizedText(title, suggestionXmlModel.title);
+		LocalizationManager.instance.SetLocalizedText(description, suggestionXmlModel.description);
 
 		if (!string.IsNullOrEmpty(advisorXmlModel.iconSprite))
 		{

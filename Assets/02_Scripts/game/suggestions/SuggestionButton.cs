@@ -14,11 +14,11 @@ public class SuggestionButton : MonoBehaviour
 
 	public void SetButton(SuggestionOptionXmlModel suggestionOptionXmlModel)
 	{
-		buttonText.text = LocalizationManager.instance.GetText(suggestionOptionXmlModel.text);
+		LocalizationManager.instance.SetLocalizedText(buttonText, suggestionOptionXmlModel.text);
 		if (suggestionOptionXmlModel.moneyModifier == 0)
 		{
 			buttonCostIcon.gameObject.SetActive(false);
-			buttonCostText.text = LocalizationManager.instance.GetText("FREE");
+			LocalizationManager.instance.SetLocalizedText(buttonCostText, "FREE");
 		}
 		else
 		{

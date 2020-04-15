@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections.Generic;
 
 public class LocalizationManager : MonoSingleton
 {
 	public TextAsset localizationFile;
+	public Font latinFont;
 
 	public static string LANGUAGE_KEY = "Language";
 	public static string DEFAULT_LANGUAGE_ID = "English";
@@ -21,6 +23,8 @@ public class LocalizationManager : MonoSingleton
 	private Dictionary<string, Dictionary<string,string>> localizedTexts;
 	private List<string> localizedLanguages;
 
+	private Font nonLatinFont;
+
 	protected override void OnMonoSingletonAwake()
 	{
 		base.OnMonoSingletonAwake();
@@ -32,9 +36,26 @@ public class LocalizationManager : MonoSingleton
 	public void Init()
 	{
 		localizationXmlModels = XmlModelManager.instance.FindModels<LocalizationXmlModel>();
+		nonLatinFont = Resources.GetBuiltinResource<Font>("Arial.ttf");
 	}
 
-	public string GetText(string localizationId)
+	public void SetLocalizedText(Text textField, string localizationId)
+	{
+		string localizedText = GetText(localizationId);
+		LocalizationXmlModel currentLocalizationXmlModel = FindLocalizationXmlModelWithLanguageId(GetCurrentLanguage());
+		if (currentLocalizationXmlModel.useLatinFont)
+		{
+			textField.font = latinFont;
+		}
+		else
+		{
+			textField.font = nonLatinFont;
+		}
+
+		textField.text = localizedText;
+	}
+
+	private string GetText(string localizationId)
 	{
 		if (localizationId == null)
 		{
@@ -222,5 +243,11 @@ public class LocalizationManager : MonoSingleton
 		}
 
 		return null;
+	}
+
+	private LocalizationXmlModel FindLocalizationXmlModelWithLanguageId(string languageId)
+	{
+		return localizationXmlModels.Find((localizationXmlModel) => localizationXmlModel.languageId == languageId);
+
 	}
 }
