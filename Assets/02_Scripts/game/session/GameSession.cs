@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameSession : ISavable
 {
 	public static int INITIAL_PHASE_ID = 2;
+	private const int MIN_GROWTH_RATE = -50;
 
 	public const int MAX_DAYS = 110; // TODO
 	public const int MAX_PATIENTS = 30000; // TODO
@@ -75,7 +76,7 @@ public class GameSession : ISavable
 	public void ApplySuggestionOption(SuggestionOptionXmlModel selectedSuggestionOptionXmlModel)
 	{
 		money += selectedSuggestionOptionXmlModel.moneyModifier;
-		growthRate += selectedSuggestionOptionXmlModel.growthRateModifier;
+		growthRate = Math.Max(MIN_GROWTH_RATE, growthRate + selectedSuggestionOptionXmlModel.growthRateModifier);
 		publicOpinion = Math.Min(100, publicOpinion + selectedSuggestionOptionXmlModel.publicOpinionModifier);
 		publicOpinion = Math.Max(0, publicOpinion);
 		capacity += selectedSuggestionOptionXmlModel.capacityModifier;
