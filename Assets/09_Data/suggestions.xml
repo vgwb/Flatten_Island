@@ -2,8 +2,8 @@
 <group>
 	<suggestion id="3001" advisorId="2001" title="CardTitle_1" description="CardDescription_1">
 		<suggestionOptions>
-			<suggestionOption id="1" text="Card_OptA_1" money="-20" capacity="7000" />
-			<suggestionOption id="2" text="Card_OptB_1" money="-40" capacity="5000" />
+			<suggestionOption id="1" text="Card_OptA_1" money="-20" capacity="1000" />
+			<suggestionOption id="2" text="Card_OptB_1" money="-40" capacity="2000" />
 		</suggestionOptions>
 		<requirements>
 			<gamePhaseRequirement>
