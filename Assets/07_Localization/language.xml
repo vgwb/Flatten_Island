@@ -16,4 +16,8 @@
 		<tag>fr</tag>
 		<tag>french</tag>
 	</localization>
+	<localization id="1005" name="Arabic" languageId="Arabic">
+		<tag>ar</tag>
+		<tag>arabic</tag>
+	</localization>
 </group>
