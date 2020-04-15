@@ -111,7 +111,7 @@ public class LocalizationManager : MonoSingleton
 
 		Debug.Log("LocalizationManager - LoadLocalizedTexts - localizationFile.text:" + localizationFile.text);
 
-		string[] separator = { "\r" };
+		string[] separator = { "\r\n", "\r", "\n", };
 		string[] fileLines = localizationFile.text.Split(separator, System.StringSplitOptions.None);
 		if (fileLines.Length > 0)
 		{
