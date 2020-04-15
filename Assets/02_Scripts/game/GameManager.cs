@@ -76,19 +76,26 @@ public class GameManager : MonoSingleton
 
 	private void SetLanguage()
 	{
+		Debug.Log("GameManager - SetLanguage()");
+
 		if (!LocalizationManager.instance.HasCurrentLanguage())
 		{
+			Debug.Log("GameManager - SetLanguage() - No current language found");
 			string languageCode = platform.GetCurrentLanguage();
+			Debug.Log("GameManager - SetLanguage() - platform language code" + languageCode);
 			if (languageCode != null)
 			{
 				LocalizationXmlModel localizationXmlModel = LocalizationManager.instance.FindLocalizationXmlModel(languageCode);
+				Debug.Log("GameManager - SetLanguage() - localizationXmlModel:" + localizationXmlModel);
 				if (localizationXmlModel != null)
 				{
+					Debug.Log("GameManager - SetLanguage() - Setting language:" + localizationXmlModel.languageId);
 					LocalizationManager.instance.SetLanguage(localizationXmlModel.languageId);
 				}
 			}
 			else
 			{
+				Debug.Log("GameManager - SetLanguage() - Setting Default Language");
 				LocalizationManager.instance.SetDefaultLanguage();
 			}
 		}
