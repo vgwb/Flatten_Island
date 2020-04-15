@@ -111,7 +111,7 @@ public class LocalizationManager : MonoSingleton
 
 		Debug.Log("LocalizationManager - LoadLocalizedTexts - localizationFile.text:" + localizationFile.text);
 
-		string[] separator = { "\r\n" };
+		string[] separator = { "\r" };
 		string[] fileLines = localizationFile.text.Split(separator, System.StringSplitOptions.None);
 		if (fileLines.Length > 0)
 		{
@@ -121,7 +121,8 @@ public class LocalizationManager : MonoSingleton
 
 			for (int i = 1; i < fileLines.Length; i++)
 			{
-				string line = fileLines[i];
+				string line = RemoveLineBreaks(fileLines[i]);
+
 				List<string> lineColumns = GetLocalizationFileLineColumns(line);
 
 				string localizationId = lineColumns[0];
@@ -129,6 +130,22 @@ public class LocalizationManager : MonoSingleton
 				localizedTexts.Add(localizationId, translations);
 			}
 		}
+	}
+
+	private string RemoveLineBreaks(string inputLine)
+	{
+		string line = inputLine;
+		if (line.StartsWith("\n") || line.StartsWith("\r"))
+		{
+			line = line.Substring(1);
+		}
+
+		if (line.EndsWith("\r") || line.EndsWith("\n"))
+		{
+			line = line.Substring(0, line.Length - 1);
+		}
+
+		return line;
 	}
 
 	private Dictionary<string, string> GetTranslations(List<string> lineColumns)
