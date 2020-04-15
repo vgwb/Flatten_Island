@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group>
-	<localization id="1001" name="English" languageId="English">
+	<localization id="1001" name="English" languageId="English" useLatinFont="true">
 		<tag>en</tag>
 		<tag>english</tag>
 	</localization>
-	<localization id="1002" name="Español" languageId="Spanish">
+	<localization id="1002" name="Español" languageId="Spanish" useLatinFont="true">
 		<tag>es</tag>
 		<tag>spanish</tag>
 	</localization>	
-	<localization id="1003" name="Italiano" languageId="Italian">
+	<localization id="1003" name="Italiano" languageId="Italian" useLatinFont="true">
 		<tag>it</tag>
 		<tag>italian</tag>
 	</localization>
-	<localization id="1004" name="Français" languageId="French">
+	<localization id="1004" name="Français" languageId="French" useLatinFont="true">
 		<tag>fr</tag>
 		<tag>french</tag>
 	</localization>
-	<localization id="1005" name="Arabic" languageId="Arabic">
+	<localization id="1005" name="Arabic" languageId="Arabic" useLatinFont="false">
 		<tag>ar</tag>
 		<tag>arabic</tag>
 	</localization>
