@@ -3,18 +3,18 @@ using System.Collections;
 
 public class LocalPlayer : Player
 {
-	public bool skipIntro;
-
 	public GameSession gameSession;
+	public PlayerSettings playerSettings;
 
 	public LocalPlayer()
 	{
-		gameSession = null;
+		Init();
 	}
 
 	public void Init()
 	{
 		gameSession = null;
+		playerSettings = new PlayerSettings();
 	}
 
 	public bool HasSession()
@@ -43,7 +43,9 @@ public class LocalPlayer : Player
 	public override GameData WriteSaveData()
 	{
 		LocalPlayerData localPlayerData = new LocalPlayerData();
-		localPlayerData.skipIntro = skipIntro;
+
+		PlayerSettingsData playerSettingsData = playerSettings.WriteSaveData() as PlayerSettingsData;
+		localPlayerData.playerSettingsData = playerSettingsData;
 
 		if (gameSession != null)
 		{
@@ -72,6 +74,13 @@ public class LocalPlayer : Player
 			gameSession = null;
 		}
 
-		skipIntro = localPlayerData.skipIntro;
+		if (localPlayerData.playerSettingsData != null)
+		{
+			playerSettings.ReadSaveData(localPlayerData.playerSettingsData);
+		}
+		else
+		{
+			playerSettings = new PlayerSettings();
+		}
 	}
 }
