@@ -23,6 +23,21 @@ public class LocalPlayer : Player
 		return gameSession != null && gameSession.day > 0;
 	}
 
+	public bool HasLanguageId()
+	{
+		return playerSettings.HasLanguageId();
+	}
+
+	public void SetLanguageId(string languageId)
+	{
+		playerSettings.SetLanguageId(languageId);
+	}
+
+	public string GetLanguageId()
+	{
+		return playerSettings.GetLanguageId();
+	}
+
 	public void StartNewGameSession()
 	{
 		gameSession = new GameSession();

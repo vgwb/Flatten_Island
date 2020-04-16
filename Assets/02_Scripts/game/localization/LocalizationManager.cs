@@ -7,7 +7,6 @@ public class LocalizationManager : MonoSingleton
 	public TextAsset localizationFile;
 	public Font latinFont;
 
-	public static string LANGUAGE_KEY = "Language";
 	public static string DEFAULT_LANGUAGE_ID = "English";
 	public static int LOCALIZATION_FILE_FIRST_LANGUAGE_COLUMN = 2;
 
@@ -41,8 +40,10 @@ public class LocalizationManager : MonoSingleton
 
 	public void SetLocalizedText(Text textField, string localizationId)
 	{
+		LocalPlayer localPlayer = GameManager.instance.localPlayer;
+
 		string localizedText = GetText(localizationId);
-		LocalizationXmlModel currentLocalizationXmlModel = FindLocalizationXmlModelWithLanguageId(GetCurrentLanguage());
+		LocalizationXmlModel currentLocalizationXmlModel = FindLocalizationXmlModelWithLanguageId(localPlayer.GetLanguageId());
 		if (currentLocalizationXmlModel.useLatinFont)
 		{
 			textField.font = latinFont;
@@ -78,13 +79,15 @@ public class LocalizationManager : MonoSingleton
 
 	private string GetLocalizedText(string localizationId)
 	{
-		string currentLanguage = GetCurrentLanguage();
+		LocalPlayer localPlayer = GameManager.instance.localPlayer;
+
+		string languageId = localPlayer.GetLanguageId();
 		if (localizedTexts.ContainsKey(localizationId))
 		{
 			Dictionary<string, string> translations = localizedTexts[localizationId];
-			if (translations.ContainsKey(currentLanguage))
+			if (translations.ContainsKey(languageId))
 			{
-				return translations[currentLanguage];
+				return translations[languageId];
 			}
 
 			return translations[DEFAULT_LANGUAGE_ID];
@@ -190,31 +193,6 @@ public class LocalizationManager : MonoSingleton
 		languages.Add(localizationFileHeader.Substring(cursor));
 
 		return languages;
-	}
-
-	public string GetCurrentLanguage()
-	{
-		if (HasCurrentLanguage())
-		{
-			return PlayerPrefs.GetString(LANGUAGE_KEY);
-		}
-
-		return null;
-	}
-
-	public bool HasCurrentLanguage()
-	{
-		return PlayerPrefs.HasKey(LANGUAGE_KEY);
-	}
-
-	public void SetLanguage(string languageId)
-	{
-		PlayerPrefs.SetString(LANGUAGE_KEY, languageId);
-	}
-
-	public void SetDefaultLanguage()
-	{
-		PlayerPrefs.SetString(LANGUAGE_KEY, DEFAULT_LANGUAGE_ID);
 	}
 
 	public LocalizationXmlModel FindLocalizationXmlModel(string languageCode)
