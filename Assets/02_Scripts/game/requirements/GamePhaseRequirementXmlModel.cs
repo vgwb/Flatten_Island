@@ -17,9 +17,15 @@ public class GamePhaseRequirementXmlModel : RequirementXmlModel
 		gamePhaseIds = ParseIntsFromChildElement(element, "phaseId");
 	}
 
-
 	public override bool IsSatisfied()
 	{
-		throw new System.NotImplementedException();
+		if (gamePhaseIds.Count == 0)
+		{
+			return true;
+		}
+
+		GameSession gameSession = GameManager.instance.localPlayer.gameSession;
+
+		return gamePhaseIds.Contains(gameSession.gamePhase.GetPhaseId());
 	}
 }

@@ -60,6 +60,11 @@ public class GamePhase : ISavable
 		return gamePhaseXmlModel.nextPhaseId;
 	}
 
+	public int GetPhaseId()
+	{
+		return gamePhaseXmlModel.id;
+	}
+
 	public int GetStartDay()
 	{
 		return startDay;

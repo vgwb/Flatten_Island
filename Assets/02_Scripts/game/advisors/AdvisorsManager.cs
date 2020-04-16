@@ -40,7 +40,28 @@ public class AdvisorsManager : MonoSingleton
 		int advisorId = advisorXmlModel.id;
 		List<SuggestionXmlModel> suggestionXmlModels = XmlModelManager.instance.FindModels<SuggestionXmlModel>((suggestionXmlModel) => suggestionXmlModel.advisorId == advisorId);
 
-		//should randomize and check suggestion requirements (active stories and current phase)
+		ShowNextAvailableSuggestion(suggestionXmlModels, advisorXmlModel);
+	}
+
+	private void ShowNextAvailableSuggestion(List<SuggestionXmlModel> suggestionXmlModels, AdvisorXmlModel advisorXmlModel)
+	{
+		SuggestionXmlModel selectedSuggestionXmlModel = null;
+
+		//[TEMP] this should be a proper random
+		foreach (SuggestionXmlModel suggestionXmlModel in suggestionXmlModels)
+		{
+			if (suggestionXmlModel.IsAvailable(localPlayer.gameSession))
+			{
+				selectedSuggestionXmlModel = suggestionXmlModel;
+			}
+		}
+
+		//[TEMP] it should never happen in the final game with the full set of suggestions
+		if (selectedSuggestionXmlModel == null)
+		{
+			selectedSuggestionXmlModel = suggestionXmlModels[0];
+		}
+
 		suggestionMenu.ShowSuggestion(suggestionXmlModels[0], advisorXmlModel);
 	}
 

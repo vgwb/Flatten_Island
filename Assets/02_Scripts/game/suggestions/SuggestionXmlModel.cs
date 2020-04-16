@@ -20,4 +20,19 @@ public class SuggestionXmlModel : XmlModel
 		suggestionOptionsList = ParseModelsFromChildElement<SuggestionOptionXmlModel>(suggestionOptionsElement, "suggestionOption");
 		requirements = ParseRequirementGroupFromChildElement(element, "requirements");
 	}
+
+	public bool IsAvailable(GameSession gameSession)
+	{
+		if (requirements == null)
+		{
+			return true;
+		}
+
+		if (requirements.IsSatisfied())
+		{
+			return true;
+		}
+
+		return false;
+	}
 }
