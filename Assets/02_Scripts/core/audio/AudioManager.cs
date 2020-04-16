@@ -84,6 +84,11 @@ public class AudioManager : MonoSingleton
 		return audioSource;
 	}
 
+	public void StopMusic()
+	{
+		StopAudio(musicAudioSource, EAudioChannelType.Music);
+	}
+
 	public void StopMusic(AudioSource audioSource)
 	{
 		StopAudio(audioSource, EAudioChannelType.Music);

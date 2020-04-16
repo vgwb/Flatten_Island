@@ -22,7 +22,7 @@ public class MenuSceneFsm : FiniteStateMachine
 		AddState(ReadyState, Ready_Enter, Ready_Update, null);
 		AddState(IntroState, Intro_Enter, Intro_Update, Intro_Exit);
 		AddState(MenuState, Menu_Enter, Menu_Update, Menu_Exit);
-		AddState(UninitState, null, null, null);
+		AddState(UninitState, Uninit_Enter, null, null);
 	}
 
 	public void StartFsm()
@@ -75,6 +75,12 @@ public class MenuSceneFsm : FiniteStateMachine
 
 	private void Menu_Exit()
 	{
+		AudioManager.instance.StopMusic();
 		menuScene.menuCanvas.SetActive(false);
+	}
+
+	private void Uninit_Enter()
+	{
+		ScenesFlowManager.instance.UnloadingMenuScene(); // PABLO: what if we had 2 navigations?
 	}
 }
