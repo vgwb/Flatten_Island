@@ -128,6 +128,7 @@ public class GenericDialog : MonoBehaviour
 		GenericDialog genericDialog = genericDialogObject.GetComponent<GenericDialog>();
 		genericDialog.SetDialog(genericDialogXmlModel);
 		genericDialogObject.gameObject.SetActive(true);
+		genericDialogObject.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
 		return genericDialog;
 	}
 

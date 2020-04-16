@@ -77,6 +77,7 @@ public class SuggestionResultEntry : MonoBehaviour
 		GameObject optionParameterEntry = GameObjectFactory.instance.InstantiateGameObject(OptionParameterEntry.PREFAB, parametersGridLayoutGroup.transform, false);
 		optionParameterEntry.gameObject.transform.SetParent(parametersGridLayoutGroup.transform, true);
 		OptionParameterEntry optionParameterEntryScript = optionParameterEntry.GetComponent<OptionParameterEntry>();
+		optionParameterEntryScript.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
 		return optionParameterEntryScript;
 	}
 

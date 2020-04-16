@@ -43,6 +43,7 @@ public class SuggestionMenu : MonoBehaviour
 		SuggestionEntry suggestionEntryScript = suggestionEntry.GetComponent<SuggestionEntry>();
 		suggestionEntryScript.SetSuggestion(suggestionXmlModel, advisorXmlModel);
 		suggestionEntry.gameObject.SetActive(true);
+		suggestionEntry.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
 		return suggestionEntryScript;
 	}
 
@@ -66,6 +67,7 @@ public class SuggestionMenu : MonoBehaviour
 		SuggestionResultEntry suggestionResultEntryScript = suggestionResultEntry.GetComponent<SuggestionResultEntry>();
 		suggestionResultEntryScript.SetSuggestionResult(suggestionOptionXmlModel, advisorXmlModel);
 		suggestionResultEntry.gameObject.SetActive(true);
+		suggestionResultEntry.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
 		return suggestionResultEntryScript;
 	}
 

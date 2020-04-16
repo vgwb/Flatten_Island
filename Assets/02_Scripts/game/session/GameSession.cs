@@ -149,6 +149,7 @@ public class GameSession : ISavable
 		nextDayEntry.gameObject.transform.SetParent(parentTransform, true);
 		NextDayEntry nextDayEntryScript = nextDayEntry.GetComponent<NextDayEntry>();
 		nextDayEntry.gameObject.SetActive(true);
+		nextDayEntry.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
 		return nextDayEntryScript;
 	}
 
