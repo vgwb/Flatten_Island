@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d5df26f5a097cc74595956826646269f
+guid: 2ebae75a56bb4c544aa8ba6d8a2df825
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
@@ -34,15 +34,15 @@ TextureImporter:
     filterMode: -1
     aniso: -1
     mipBias: -100
-    wrapU: 1
-    wrapV: 1
-    wrapW: -1
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
   spriteMode: 1
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -86,7 +86,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 74494491ed51b8b4c9810e0d25184c40
     vertices: []
     indices: 
     edges: []
