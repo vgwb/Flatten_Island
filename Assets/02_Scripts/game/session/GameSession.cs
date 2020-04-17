@@ -10,6 +10,8 @@ public class GameSession : ISavable
 	public const int MAX_DAYS = 110; // TODO
 	public const int MAX_PATIENTS = 30000; // TODO
 
+	private const int VACCINE_PROGRESS_END_DEVELOPMENT = 90;
+
 	public int day { get; set; }
 	public int[] patients { get; set; }
 	public int vaccineDevelopment { get; set; }
@@ -84,10 +86,16 @@ public class GameSession : ISavable
 		capacity += selectedSuggestionOptionXmlModel.capacityModifier;
 		int patientsIncrease = (patients[day - 1] * growthRate) / 100;
 		patients[day] = patients[day - 1] + patientsIncrease;
+		IncrementVaccineDevelopment(selectedSuggestionOptionXmlModel.vaccineModifier);
 
 		TryStartStory(selectedSuggestionOptionXmlModel);
 
 		TryStopStory(selectedSuggestionOptionXmlModel);
+	}
+
+	private void IncrementVaccineDevelopment(int increment)
+	{
+		vaccineDevelopment = Math.Min(VACCINE_PROGRESS_END_DEVELOPMENT, vaccineDevelopment + increment);
 	}
 
 	private void TryStartStory(SuggestionOptionXmlModel suggestionOptionXmlModel)
@@ -117,7 +125,7 @@ public class GameSession : ISavable
 	public void NextDay()
 	{
 		money += patients[day] * 3 - capacity * 2;
-		vaccineDevelopment++;
+		IncrementVaccineDevelopment(1);
 		day++;
 	}
 
@@ -133,7 +141,7 @@ public class GameSession : ISavable
 
 	public bool HasPlayerWon()
 	{
-		return vaccineDevelopment >= 100f;
+		return vaccineDevelopment >= VACCINE_PROGRESS_END_DEVELOPMENT;
 	}
 
 	public bool HasPlayerLose()
