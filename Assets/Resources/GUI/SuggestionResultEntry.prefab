@@ -705,6 +705,7 @@ MonoBehaviour:
     type: 3}
   growRateSprite: {fileID: 21300000, guid: fd1d471a02645d04fa4923220878b233, type: 3}
   capacitySprite: {fileID: 21300000, guid: fa51487fcc7f83b4998987cdccda3544, type: 3}
+  vaccineSprite: {fileID: 21300000, guid: 1feed2a5a2c76e148befd0b93f982b9a, type: 3}
   suggestionResultEntryChef: {fileID: 6637584083492393942}
   advisorPortrait: {fileID: 4908693536312888460}
   background: {fileID: 4593394562058782599}

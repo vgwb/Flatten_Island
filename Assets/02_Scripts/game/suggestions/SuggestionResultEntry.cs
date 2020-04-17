@@ -11,6 +11,7 @@ public class SuggestionResultEntry : MonoBehaviour
 	public Sprite publicOpinionSprite;
 	public Sprite growRateSprite;
 	public Sprite capacitySprite;
+	public Sprite vaccineSprite;
 
 	public SuggestionResultEntryChef suggestionResultEntryChef;
 	public Image advisorPortrait;
@@ -68,6 +69,13 @@ public class SuggestionResultEntry : MonoBehaviour
 		{
 			OptionParameterEntry optionParameterEntry = CreateOptionParameterEntry();
 			optionParameterEntry.SetParameter(suggestionOptionXmlModel.capacityModifier, capacitySprite);
+			optionParameterEntry.gameObject.SetActive(true);
+		}
+
+		if (suggestionOptionXmlModel.vaccineModifier != 0)
+		{
+			OptionParameterEntry optionParameterEntry = CreateOptionParameterEntry();
+			optionParameterEntry.SetParameter(suggestionOptionXmlModel.vaccineModifier, vaccineSprite);
 			optionParameterEntry.gameObject.SetActive(true);
 		}
 	}
