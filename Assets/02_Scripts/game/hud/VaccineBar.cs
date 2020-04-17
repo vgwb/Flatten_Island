@@ -5,18 +5,20 @@ public class VaccineBar : MonoBehaviour
 	private const float BORDER_MOVEMENT_FACTOR = 100f;
 
 	public Transform barTransform;
-	public Transform rightBorderTransform;
+	public Transform rightBorderPivotTransform;
+	public Transform diagonalBorderSpriteTransform;
 
-	private Vector3 rightBorderStartPosition;
+	private Vector3 rightBorderPivotStartPosition;
 
 	private void Start()
 	{
-		rightBorderStartPosition = rightBorderTransform.position;
+		rightBorderPivotStartPosition = rightBorderPivotTransform.position;
+		diagonalBorderSpriteTransform.position = rightBorderPivotStartPosition;
 	}
 
 	public void UpdateBar(float percentage)
 	{
 		barTransform.localScale = new Vector3(percentage, 1.0f);
-		rightBorderTransform.position = new Vector3(rightBorderStartPosition.x + (BORDER_MOVEMENT_FACTOR * percentage), rightBorderTransform.position.y, rightBorderTransform.position.z);
+		diagonalBorderSpriteTransform.position = rightBorderPivotTransform.position;
 	}
 }
