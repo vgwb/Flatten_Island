@@ -8,25 +8,37 @@ using ProtoTurtle.BitmapDrawing;
 
 public class ChartManager : MonoSingleton
 {
-	public const int WIDTH = 500;
+	// From the editor
+	public const int VIEWPORT_WITDH = 2235;
+	public const int VIEWPORT_HEIGHT = 1242;
+
+	// Internal config. Reduced sprite for speed, as we're drawing bitmaps at low level
+	public const int WIDTH = (HEIGHT * VIEWPORT_WITDH) / VIEWPORT_HEIGHT;
 	public const int HEIGHT = 300;
-	public const int AXIS_MARGIN = 15;
-	public const int CAPACITY_LINE_Y = 50; // APROX
+	public const int CAPACITY_LINE_Y = 30; // 10% down from the top, adjusted in the editor
+	public const int MAX_Y_RANGE = HEIGHT - CAPACITY_LINE_Y;
 	public const int OVERFLOW_MIN_Y = CAPACITY_LINE_Y -15; // Just to see the circle above
-	public const int AXIS_THICKNESS = 2;
 	public const int LINE_THICKNESS = 3;
-	public const int BIG_CIRCLE_RADIUS = 7;
-	public const int PATIENTS_PANEL_OFFSET_X = -38;
-	public const int PATIENTS_PANEL_OFFSET_Y = 5;
 	public const float TOTAL_ANIMATION_TIME_SEC = 1.5f;
-	public const int CURVE_MIN_WIDTH = 180; // TODO Tune
-	public const int CURVE_MAX_WIDTH = 370; // TODO Tune
+
+	// Sprite adjustments
+	public const int CIRCLE_OFFSET_X = 0; // to adjust the position
+	public const int CIRCLE_OFFSET_Y = 0; // to adjust the position
+	public const int PATIENTS_PANEL_OFFSET_X = -40; // to adjust the tip of the box
+	public const int PATIENTS_PANEL_OFFSET_Y = 20; // to adjust the tip of the box
+
+	// X axis daily expansion and margins
+	public const int CURVE_MIN_WIDTH = (int)(WIDTH * 0.33); // tune
+	public const int CURVE_MAX_WIDTH = (int)(WIDTH * 0.75); // tune
 	public const int DAY_WIDTH_INCREMENT = (CURVE_MAX_WIDTH - CURVE_MIN_WIDTH) / 20; // 5%
 
 	public Sprite patientsNormalImg;
 	public Sprite patientsOverflowImg;
-	GameObject patientsPanel;
-	GameObject evolutionChart;
+	public GameObject patientsPanel;
+	public GameObject growthPanel;
+	public GameObject evolutionChart;
+	public GameObject initialDot;
+	public GameObject finalDot;
     private float elapsedTime = 0.0f;
 	private bool animating = false;
 
@@ -41,9 +53,6 @@ public class ChartManager : MonoSingleton
 	protected override void OnMonoSingletonAwake()
 	{
 		base.OnMonoSingletonAwake();
-
-		patientsPanel = GameObject.Find("PatientsPanel");
-		evolutionChart = GameObject.Find("EvolutionChart");
 		UpdateFullChart(); // Could be done later, but it's safe
 	}
 
@@ -88,14 +97,14 @@ public class ChartManager : MonoSingleton
 	}
 
 	private void HidePatientsIndicator() {
-		patientsPanel.transform.localPosition = new Vector3(0, 0, 100f); // Push back
+		patientsPanel.transform.localPosition = new Vector3(10000, 10000, 0f); // Push out
 	}
 
 	private void ShowPatientsIndicator() {
 		int day = GameManager.instance.localPlayer.gameSession.day;
 		int patients = GameManager.instance.localPlayer.gameSession.patients[day-1];
 		bool isOverflow = patients > GameManager.instance.localPlayer.gameSession.capacity;
-		
+
 		Image patientsPanelImage = patientsPanel.gameObject.GetComponent<Image>();
 		patientsPanelImage.sprite = isOverflow ? patientsOverflowImg : patientsNormalImg;
 
@@ -103,20 +112,25 @@ public class ChartManager : MonoSingleton
 	}
 
 	private Vector3 CalculatePatientsPanelPosition(int day, int patients) {
+		// Coordinates in the sprite space (like any dot in the chart sprite)
 		float x = PATIENTS_PANEL_OFFSET_X + GetXForDay(day-1);
 		float y = PATIENTS_PANEL_OFFSET_Y + HEIGHT - GetYForPatients(patients);
-		return new Vector3(x, y, 0);
+
+		return CoordinatesInViewport(x, y);
 	}
 
 	private Sprite CreateChartSprite(float elapsedTime)
 	{
 		Texture2D tex = GetTransparentTexture();
-		// TODO Review. Probably the background image should have the Axis
-		// DrawAxis(tex);
 		if (CanDrawSomePeriod())
 		{
 			DrawDaySegments(tex, elapsedTime);
-			DrawBeginAndEndCircles(tex, elapsedTime);
+			PositionBeginAndEndDots(elapsedTime);
+		}
+		else
+		{
+			HideDot(initialDot);
+			HideDot(finalDot);
 		}
 		
 		tex.Apply();
@@ -127,15 +141,6 @@ public class ChartManager : MonoSingleton
 	{
 		return GameManager.instance.localPlayer.gameSession != null && 
 			GameManager.instance.localPlayer.gameSession.day > 1;
-	}
-
-	private void DrawAxis(Texture2D tex)
-	{
-		int xAxisY = HEIGHT-AXIS_MARGIN;
-		int xAxisMaxX = WIDTH-AXIS_MARGIN;
-
-		tex.DrawThickLine(AXIS_MARGIN, xAxisY, xAxisMaxX, xAxisY, Color.black, AXIS_THICKNESS);
-		tex.DrawThickLine(AXIS_MARGIN, xAxisY, AXIS_MARGIN, AXIS_MARGIN, Color.black, AXIS_THICKNESS);
 	}
 
 	private void DrawDaySegments(Texture2D tex, float elapsedTime)
@@ -179,30 +184,45 @@ public class ChartManager : MonoSingleton
 		DrawSegment(tex, x1, y1, xp, yp);
 	}
 
-	private void DrawBeginAndEndCircles(Texture2D tex, float elapsedTime)
+	private void PositionBeginAndEndDots(float elapsedTime)
 	{		
 		float animationProgress = elapsedTime / TOTAL_ANIMATION_TIME_SEC;
 		int[] patients = GameManager.instance.localPlayer.gameSession.patients;
 		int day = GameManager.instance.localPlayer.gameSession.day;
 
-		DrawBigWhiteCircle(tex, GetXForDay(0), GetYForPatients(patients[0]));
+		PositionDot(initialDot, GetXForDay(0), GetYForPatients(patients[0]));
 		if (animationProgress > 0.95) // TODO tune
 		{
-			DrawBigWhiteCircle(tex, GetXForDay(day-1), GetYForPatients(patients[day-1]));
+		    PositionDot(finalDot, GetXForDay(day-1), GetYForPatients(patients[day-1]));
 		}
+		else
+		{
+			HideDot(finalDot);
+		}
+	}
+
+	private void HideDot(GameObject dot)
+	{		
+		PositionDot(dot, -10000, -10000);
+	}
+
+	private void PositionDot(GameObject dot, int x, int y) {
+		// Coordinates in the sprite space (like any dot in the chart sprite)
+		float x1 = CIRCLE_OFFSET_X + x;
+		float y1 = CIRCLE_OFFSET_Y + HEIGHT - y;
+		dot.transform.localPosition = CoordinatesInViewport(x1, y1);
 	}
 
 	private int GetXForDay(int day)
 	{
-		return AXIS_MARGIN + BIG_CIRCLE_RADIUS + day * GetDayXIncrement();
+		return day * GetDayXIncrement();
 	}
 
 	private int GetYForPatients(int patients)
 	{
-		int maxYRange = HEIGHT - CAPACITY_LINE_Y;
 		float currentCapacity = (float)GameManager.instance.localPlayer.gameSession.capacity;
 		float capacityUsage = patients / currentCapacity;
-		int y = HEIGHT - (int)(capacityUsage * maxYRange);
+		int y = HEIGHT - (int)(capacityUsage * MAX_Y_RANGE);
 		return (y < CAPACITY_LINE_Y) ? OVERFLOW_MIN_Y : y; // Avoid drawing too out of bounds
 	}
 
@@ -234,11 +254,11 @@ public class ChartManager : MonoSingleton
 		tex.DrawThickLine(x1, y1, x2, y2, Color.black, LINE_THICKNESS);
 	}
 
-	public static void DrawBigWhiteCircle(Texture2D tex, int x1, int y1)
-	{
-		tex.DrawFilledCircle(x1, y1, BIG_CIRCLE_RADIUS, Color.white);
-		tex.DrawCircle(x1, y1, BIG_CIRCLE_RADIUS, Color.black);
+	private Vector3 CoordinatesInViewport(float x, float y) {
+		float ratio = VIEWPORT_WITDH / (float)WIDTH; 
+		float x1 = x * ratio - (VIEWPORT_WITDH /2); // anchor is 0.5 , 0
+		float y1 = y * ratio;
+		
+		return new Vector3(x1, y1, 0);
 	}
-	
-
 }
