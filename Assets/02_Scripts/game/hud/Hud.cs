@@ -33,7 +33,7 @@ public class Hud : MonoSingleton
 
 	public void Setup()
 	{
-		vaccineBar.Initialize();
+		UpdateDayValues();
 	}
 
 	public void Unsetup()
@@ -54,6 +54,7 @@ public class Hud : MonoSingleton
 		patientsValue.text = session.patients[session.day - 1].ToString();
 		capacityValue.text = session.capacity.ToString();
 		publicOpinionValue.text = session.publicOpinion + "%";
+		vaccineBar.UpdateBar(session.vaccineDevelopment / 100f);
 	}
 
 	public void UpdateSuggestionOptions()

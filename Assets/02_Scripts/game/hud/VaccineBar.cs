@@ -9,14 +9,9 @@ public class VaccineBar : MonoBehaviour
 
 	private Vector3 rightBorderStartPosition;
 
-	private void Awake()
+	private void Start()
 	{
 		rightBorderStartPosition = rightBorderTransform.position;
-	}
-
-	public void Initialize()
-	{
-		barTransform.localScale = new Vector3(0.0f, 1.0f);
 	}
 
 	public void UpdateBar(float percentage)
