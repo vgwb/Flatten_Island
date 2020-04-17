@@ -700,12 +700,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8279fa59d0de4d04b99ed1b7e464c32a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moneySprite: {fileID: 21300000, guid: 5e5dbd743d368864cb9b01464689b3f9, type: 3}
-  publicOpinionSprite: {fileID: 21300000, guid: b2f880e83820e6f43a8d97c4327c9acc,
+  moneySprite: {fileID: 21300000, guid: 967f0a58dec24b449a241e033adec1ca, type: 3}
+  publicOpinionSprite: {fileID: 21300000, guid: 1a98d8bbe52dafa448619590d1755078,
     type: 3}
-  growRateSprite: {fileID: 21300000, guid: fd1d471a02645d04fa4923220878b233, type: 3}
-  capacitySprite: {fileID: 21300000, guid: fa51487fcc7f83b4998987cdccda3544, type: 3}
-  vaccineSprite: {fileID: 21300000, guid: 1feed2a5a2c76e148befd0b93f982b9a, type: 3}
+  growRateSprite: {fileID: 21300000, guid: 030003a1c300a11468c5f2642adccc28, type: 3}
+  capacitySprite: {fileID: 21300000, guid: 740f594a1ff85944fab0dd7e54bee356, type: 3}
+  vaccineSprite: {fileID: 21300000, guid: 9213a583c8a226941be18a1af209b923, type: 3}
   suggestionResultEntryChef: {fileID: 6637584083492393942}
   advisorPortrait: {fileID: 4908693536312888460}
   background: {fileID: 4593394562058782599}
