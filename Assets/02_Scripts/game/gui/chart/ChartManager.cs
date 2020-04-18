@@ -24,8 +24,8 @@ public class ChartManager : MonoSingleton
 	// Sprite adjustments
 	public const int CIRCLE_OFFSET_X = 0; // to adjust the position
 	public const int CIRCLE_OFFSET_Y = 0; // to adjust the position
-	public const int PATIENTS_PANEL_OFFSET_X = -40; // to adjust the tip of the box
-	public const int PATIENTS_PANEL_OFFSET_Y = 20; // to adjust the tip of the box
+	public const int PATIENTS_PANEL_OFFSET_X = -37; // to adjust the tip of the box
+	public const int PATIENTS_PANEL_OFFSET_Y = 13; // to adjust the tip of the box
 
 	// X axis daily expansion and margins
 	public const int CURVE_MIN_WIDTH = (int)(WIDTH * 0.33); // tune
@@ -39,6 +39,8 @@ public class ChartManager : MonoSingleton
 	public GameObject evolutionChart;
 	public GameObject initialDot;
 	public GameObject finalDot;
+
+	private int dayToDrawTo = -1; // The chart is being drawn up to day and day-1
     private float elapsedTime = 0.0f;
 	private bool animating = false;
 
@@ -53,20 +55,26 @@ public class ChartManager : MonoSingleton
 	protected override void OnMonoSingletonAwake()
 	{
 		base.OnMonoSingletonAwake();
+		dayToDrawTo = -1; // draw up to whatever day was stored, if any. Otherwise empty chart
 		UpdateFullChart(); // Could be done later, but it's safe
 	}
 
 	protected override void OnMonoSingletonUpdate()
 	{
 		elapsedTime += Time.deltaTime;
-		if (animating && elapsedTime > TOTAL_ANIMATION_TIME_SEC)
+		if (animating)
 		{
-			// TODO publish event ChartUpdateFinished
-			UpdateFullChart();
-			animating = false;
-		} else if (animating)
-		{
-			UpdateChart(elapsedTime);
+			// Note: Due to the order, the chart is animated before the day increase, but values are of day+1
+			dayToDrawTo = GameManager.instance.localPlayer.gameSession.day + 1;
+
+			if (elapsedTime > TOTAL_ANIMATION_TIME_SEC)
+			{
+				UpdateFullChart();
+				animating = false;
+			} else
+			{
+				UpdateChart(elapsedTime);
+			}
 		}
 	}
 
@@ -101,7 +109,7 @@ public class ChartManager : MonoSingleton
 	}
 
 	private void ShowPatientsIndicator() {
-		int day = GameManager.instance.localPlayer.gameSession.day;
+		int day = GetDayToDrawTo();
 		int patients = GameManager.instance.localPlayer.gameSession.patients[day-1];
 		bool isOverflow = patients > GameManager.instance.localPlayer.gameSession.capacity;
 
@@ -147,8 +155,8 @@ public class ChartManager : MonoSingleton
 	{
 		float animationProgress = elapsedTime / TOTAL_ANIMATION_TIME_SEC;
 		int[] patients = GameManager.instance.localPlayer.gameSession.patients;
-		int day = GameManager.instance.localPlayer.gameSession.day;
-
+		int day = GetDayToDrawTo();
+		
 		// Line, as concatenation of segments. Animate segments up to some day
 		float daysToDraw = day * animationProgress;
 		int lastFullDay = (int)Math.Truncate(daysToDraw);
@@ -188,10 +196,10 @@ public class ChartManager : MonoSingleton
 	{		
 		float animationProgress = elapsedTime / TOTAL_ANIMATION_TIME_SEC;
 		int[] patients = GameManager.instance.localPlayer.gameSession.patients;
-		int day = GameManager.instance.localPlayer.gameSession.day;
-
+		int day = GetDayToDrawTo();
+		
 		PositionDot(initialDot, GetXForDay(0), GetYForPatients(patients[0]));
-		if (animationProgress > 0.95) // TODO tune
+		if (animationProgress > 0.99)
 		{
 		    PositionDot(finalDot, GetXForDay(day-1), GetYForPatients(patients[day-1]));
 		}
@@ -228,7 +236,7 @@ public class ChartManager : MonoSingleton
 
 	private int GetDayXIncrement()
 	{
-		int day = GameManager.instance.localPlayer.gameSession.day;
+		int day = GetDayToDrawTo();
 		if (day < 1) return 0;
 		int dayTargetWidth = CURVE_MIN_WIDTH + day * DAY_WIDTH_INCREMENT;
 		int totalWidth = Math.Min(dayTargetWidth, CURVE_MAX_WIDTH);
@@ -252,6 +260,11 @@ public class ChartManager : MonoSingleton
 	public static void DrawSegment(Texture2D tex, int x1, int y1, int x2, int y2)
 	{
 		tex.DrawThickLine(x1, y1, x2, y2, Color.black, LINE_THICKNESS);
+	}
+
+	public int GetDayToDrawTo()
+	{
+		return (dayToDrawTo > -1) ? dayToDrawTo : GameManager.instance.localPlayer.gameSession.day;
 	}
 
 	private Vector3 CoordinatesInViewport(float x, float y) {
