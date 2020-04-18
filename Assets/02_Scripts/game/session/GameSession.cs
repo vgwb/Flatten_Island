@@ -26,13 +26,16 @@ public class GameSession : ISavable
 	private GameSessionXmlModel gameSessionXmlModel;
 	private GameSessionFsm gameSessionFsm;
 
-	public void Start()
+	public GameSession()
 	{
 		if (gameSessionXmlModel == null)
 		{
 			gameSessionXmlModel = XmlModelManager.instance.FindModel<GameSessionXmlModel>();
 		}
+	}
 
+	public void Start()
+	{
 		patients = new int[MAX_DAYS];
 		advisors = AdvisorsManager.instance.PickAdvisors();
 		activeGameStories = new List<GameStoryXmlModel>();
@@ -124,8 +127,9 @@ public class GameSession : ISavable
 
 	public void NextDay()
 	{
-		money += patients[day] * 3 - capacity * 2;
-		IncrementVaccineDevelopment(1);
+		money += gameSessionXmlModel.nextDayMoneyIncrement;
+		IncrementVaccineDevelopment(gameSessionXmlModel.nextDayVaccineIncrement);
+		growthRate += gameSessionXmlModel.nextDayGrowthRateIncrement;
 		day++;
 	}
 
@@ -181,6 +185,7 @@ public class GameSession : ISavable
 		GameObject nextDayEntry = GameObjectFactory.instance.InstantiateGameObject(NextDayEntry.PREFAB, parentTransform, false);
 		nextDayEntry.gameObject.transform.SetParent(parentTransform, true);
 		NextDayEntry nextDayEntryScript = nextDayEntry.GetComponent<NextDayEntry>();
+		nextDayEntryScript.SetParameters(gameSessionXmlModel, day);
 		nextDayEntry.gameObject.SetActive(true);
 		nextDayEntry.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
 		return nextDayEntryScript;
