@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "JuNPjcmgwmGL9gd3DJIFyamZH0RxM0NzxkvDMNucXKMK042Cr25ykiiuOfEClfS9hCyo1ntYjtG1W6PnL6Mp1Q==",
+  "success": true,
+  "projectFilePath": "/home/javi/unity/Flatten_Island/Tools/SuggestionParser/SuggestionParser.csproj",
+  "expectedPackageFiles": [
+    "/home/javi/.nuget/packages/google.apis/1.45.0/google.apis.1.45.0.nupkg.sha512",
+    "/home/javi/.nuget/packages/google.apis.auth/1.45.0/google.apis.auth.1.45.0.nupkg.sha512",
+    "/home/javi/.nuget/packages/google.apis.core/1.45.0/google.apis.core.1.45.0.nupkg.sha512",
+    "/home/javi/.nuget/packages/google.apis.sheets.v4/1.45.0.1930/google.apis.sheets.v4.1.45.0.1930.nupkg.sha512",
+    "/home/javi/.nuget/packages/newtonsoft.json/12.0.3/newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
