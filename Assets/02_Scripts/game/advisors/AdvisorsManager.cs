@@ -73,7 +73,7 @@ public class AdvisorsManager : MonoSingleton
 		//[TEMP] this should be a proper random
 		foreach (SuggestionXmlModel suggestionXmlModel in suggestionXmlModels)
 		{
-			if (suggestionXmlModel.IsAvailable(localPlayer.gameSession))
+			if (suggestionXmlModel.IsAvailable(localPlayer))
 			{
 				selectedSuggestionXmlModel = suggestionXmlModel;
 			}

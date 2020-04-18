@@ -271,7 +271,16 @@ public class GameSession : ISavable
 		stringBuilder.AppendLine("Capacity:" + capacity);
 		stringBuilder.AppendLine("Money:" + money);
 		stringBuilder.AppendLine("Public Opinion:" + publicOpinion);
-		stringBuilder.AppendLine("Patients:" + patients[day]);
+		stringBuilder.AppendLine("Vaccine Progress:" + vaccineDevelopment);
+
+		if (day> 0)
+		{
+			stringBuilder.AppendLine("Patients:" + patients[day - 1]);
+		}
+		else
+		{
+			stringBuilder.AppendLine("Patients:" + patients[day]);
+		}
 		return stringBuilder.ToString();
 	}
 }

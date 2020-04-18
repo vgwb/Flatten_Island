@@ -21,14 +21,16 @@ public class SuggestionXmlModel : XmlModel
 		requirements = ParseRequirementGroupFromChildElement(element, "requirements");
 	}
 
-	public bool IsAvailable(GameSession gameSession)
+	public bool IsAvailable(LocalPlayer localPlayer)
 	{
 		if (requirements == null)
 		{
 			return true;
 		}
 
-		if (requirements.IsSatisfied())
+		GameRequirementContext gameRequirementContext = new GameRequirementContext(localPlayer);
+
+		if (requirements.IsSatisfied(gameRequirementContext))
 		{
 			return true;
 		}
