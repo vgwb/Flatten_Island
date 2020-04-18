@@ -10,7 +10,9 @@
         <phaseId>2</phaseId>
         <phaseId>3</phaseId>
       </gamePhaseRequirement>
-      <gameStoryRequirement />
+      <gameStoryRequirement>
+        <storyId>FALSE</storyId>
+      </gameStoryRequirement>
     </requirements>
   </suggestion>
   <suggestion id="3002" advisorId="" title="CardTitle_3002" description="">
@@ -24,7 +26,9 @@
         <phaseId>2</phaseId>
         <phaseId>3</phaseId>
       </gamePhaseRequirement>
-      <gameStoryRequirement />
+      <gameStoryRequirement>
+        <storyId>FALSE</storyId>
+      </gameStoryRequirement>
     </requirements>
   </suggestion>
   <suggestion id="3003" advisorId="" title="CardTitle_3003" description="">
@@ -38,7 +42,9 @@
         <phaseId>2</phaseId>
         <phaseId>3</phaseId>
       </gamePhaseRequirement>
-      <gameStoryRequirement />
+      <gameStoryRequirement>
+        <storyId>FALSE</storyId>
+      </gameStoryRequirement>
     </requirements>
   </suggestion>
   <suggestion id="3004" advisorId="" title="CardTitle_3004" description="Hospitals are starting to fill up fast">
@@ -50,7 +56,9 @@
       <gamePhaseRequirement>
         <phaseId>2</phaseId>
       </gamePhaseRequirement>
-      <gameStoryRequirement />
+      <gameStoryRequirement>
+        <storyId>FALSE</storyId>
+      </gameStoryRequirement>
     </requirements>
   </suggestion>
   <suggestion id="3005" advisorId="" title="CardTitle_3005" description="We've discovered that mint prevents infection">
@@ -63,7 +71,9 @@
         <phaseId>1</phaseId>
         <phaseId>2</phaseId>
       </gamePhaseRequirement>
-      <gameStoryRequirement />
+      <gameStoryRequirement>
+        <storyId>FALSE</storyId>
+      </gameStoryRequirement>
     </requirements>
   </suggestion>
   <suggestion id="3006" advisorId="" title="CardTitle_3006" description="A lab has discovered that chewing mint prevents infection">
@@ -76,7 +86,9 @@
         <phaseId>1</phaseId>
         <phaseId>2</phaseId>
       </gamePhaseRequirement>
-      <gameStoryRequirement />
+      <gameStoryRequirement>
+        <storyId>FALSE</storyId>
+      </gameStoryRequirement>
     </requirements>
   </suggestion>
   <suggestion id="3007" advisorId="" title="CardTitle_3007" description="If we don't hand out masks people are going to get sicker">
@@ -88,7 +100,9 @@
       <gamePhaseRequirement>
         <phaseId>1</phaseId>
       </gamePhaseRequirement>
-      <gameStoryRequirement />
+      <gameStoryRequirement>
+        <storyId>FALSE</storyId>
+      </gameStoryRequirement>
     </requirements>
   </suggestion>
   <suggestion id="3008" advisorId="CODE AL SUPERMERCATO" title="CardTitle_3008" description="We must help people to keep the security distance while waiting.">
@@ -100,7 +114,9 @@
       <gamePhaseRequirement>
         <phaseId>2</phaseId>
       </gamePhaseRequirement>
-      <gameStoryRequirement />
+      <gameStoryRequirement>
+        <storyId>FALSE</storyId>
+      </gameStoryRequirement>
     </requirements>
   </suggestion>
   <suggestion id="3009" advisorId="CODE AL SUPERMERCATO" title="CardTitle_3009" description="">
@@ -112,7 +128,9 @@
       <gamePhaseRequirement>
         <phaseId>2</phaseId>
       </gamePhaseRequirement>
-      <gameStoryRequirement />
+      <gameStoryRequirement>
+        <storyId>FALSE</storyId>
+      </gameStoryRequirement>
     </requirements>
   </suggestion>
   <suggestion id="3010" advisorId="CODE AL SUPERMERCATO" title="CardTitle_3010" description="">
@@ -124,7 +142,9 @@
       <gamePhaseRequirement>
         <phaseId>1</phaseId>
       </gamePhaseRequirement>
-      <gameStoryRequirement />
+      <gameStoryRequirement>
+        <storyId>FALSE</storyId>
+      </gameStoryRequirement>
     </requirements>
   </suggestion>
   <suggestion id="3011" advisorId="CODE AL SUPERMERCATO" title="CardTitle_3011" description="">
@@ -137,7 +157,9 @@
         <phaseId>2</phaseId>
         <phaseId>3</phaseId>
       </gamePhaseRequirement>
-      <gameStoryRequirement />
+      <gameStoryRequirement>
+        <storyId>FALSE</storyId>
+      </gameStoryRequirement>
     </requirements>
   </suggestion>
   <suggestion id="3012" advisorId="CODE AL SUPERMERCATO" title="CardTitle_3012" description="">
@@ -150,7 +172,9 @@
         <phaseId>1</phaseId>
         <phaseId>2</phaseId>
       </gamePhaseRequirement>
-      <gameStoryRequirement />
+      <gameStoryRequirement>
+        <storyId>FALSE</storyId>
+      </gameStoryRequirement>
     </requirements>
   </suggestion>
   <suggestion id="3013" advisorId="CODE AL SUPERMERCATO" title="CardTitle_3013" description="">
@@ -163,7 +187,9 @@
         <phaseId>1</phaseId>
         <phaseId>2</phaseId>
       </gamePhaseRequirement>
-      <gameStoryRequirement />
+      <gameStoryRequirement>
+        <storyId>FALSE</storyId>
+      </gameStoryRequirement>
     </requirements>
   </suggestion>
   <suggestion id="3014" advisorId="CODE AL SUPERMERCATO" title="CardTitle_3014" description="">
@@ -176,7 +202,9 @@
         <phaseId>1</phaseId>
         <phaseId>2</phaseId>
       </gamePhaseRequirement>
-      <gameStoryRequirement />
+      <gameStoryRequirement>
+        <storyId>FALSE</storyId>
+      </gameStoryRequirement>
     </requirements>
   </suggestion>
   <suggestion id="3015" advisorId="CODE AL SUPERMERCATO" title="CardTitle_3015" description="">
@@ -188,7 +216,9 @@
       <gamePhaseRequirement>
         <phaseId>2</phaseId>
       </gamePhaseRequirement>
-      <gameStoryRequirement />
+      <gameStoryRequirement>
+        <storyId>FALSE</storyId>
+      </gameStoryRequirement>
     </requirements>
   </suggestion>
   <suggestion id="3016" advisorId="CODE AL SUPERMERCATO" title="CardTitle_3016" description="">
@@ -201,7 +231,9 @@
         <phaseId>2</phaseId>
         <phaseId>3</phaseId>
       </gamePhaseRequirement>
-      <gameStoryRequirement />
+      <gameStoryRequirement>
+        <storyId>FALSE</storyId>
+      </gameStoryRequirement>
     </requirements>
   </suggestion>
   <suggestion id="3017" advisorId="CODE AL SUPERMERCATO" title="CardTitle_3017" description="">
@@ -211,7 +243,9 @@
     </suggestionOptions>
     <requirements>
       <gamePhaseRequirement />
-      <gameStoryRequirement />
+      <gameStoryRequirement>
+        <storyId>FALSE</storyId>
+      </gameStoryRequirement>
     </requirements>
   </suggestion>
 </group>

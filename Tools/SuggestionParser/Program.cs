@@ -216,9 +216,12 @@ using System.Xml;
                                 }
                             writer.WriteEndElement(); 
                             writer.WriteStartElement("gameStoryRequirement");  
-                                writer.WriteStartElement("storyId");  
-                                writer.WriteString(suggestion.gameStoryRequirement.storyId);
-                                writer.WriteEndElement();  
+                                if(suggestion.gameStoryRequirement.storyId != ""){
+                                    writer.WriteStartElement("storyId");  
+                                    writer.WriteString(suggestion.gameStoryRequirement.storyId);
+                                    writer.WriteEndElement();  
+                                }
+                                
                             writer.WriteEndElement();  
                         writer.WriteEndElement();
                         writer.WriteEndElement();  
@@ -261,7 +264,7 @@ using System.Xml;
                 aux.stopStoryId = lastCellRow < 25 ? "": ss[newPosition][25].ToString();
                 sug.suggestionOption.Add(aux);
             }
-            sug.gameStoryRequirement.storyId = ss[row][13].ToString();
+            sug.gameStoryRequirement.storyId = ss[row][13].ToString()=="FALSE"?"":ss[row][13].ToString();
             if(ss[row][15].ToString() == "TRUE") sug.gamePhaseRequirement.phaseId.Add("1");
             if(ss[row][16].ToString() == "TRUE") sug.gamePhaseRequirement.phaseId.Add("2");
             if(ss[row][17].ToString() == "TRUE") sug.gamePhaseRequirement.phaseId.Add("3");
