@@ -129,11 +129,6 @@ public class GameSession : ISavable
 		day++;
 	}
 
-	public void PickAdvisors()
-	{
-		advisors = AdvisorsManager.instance.PickAdvisors();
-	}
-
 	public bool IsCurrentPhaseFinished()
 	{
 		return gamePhase.IsFinished(this);

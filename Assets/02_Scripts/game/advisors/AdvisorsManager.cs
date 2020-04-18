@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using Messages;
 
 public class AdvisorsManager : MonoSingleton
 {
@@ -16,6 +17,8 @@ public class AdvisorsManager : MonoSingleton
 
 	private LocalPlayer localPlayer;
 	private IAdvisorSpawnPolicy advisorSpawnPolicy;
+	private AdvisorXmlModel selectedAdvisorXmlModel;
+	private AdvisorXmlModel previousSelectedAdvisorXmlModel;
 
 	protected override void OnMonoSingletonAwake()
 	{
@@ -23,11 +26,33 @@ public class AdvisorsManager : MonoSingleton
 		localPlayer = GameManager.instance.localPlayer;
 		advisorSpawnPolicy = new AdvisorRandomSpawnPolicy();
 		advisorSpawnPolicy.Initialize();
+		selectedAdvisorXmlModel = null;
+		previousSelectedAdvisorXmlModel = null;
+
+		EventMessageHandler advisorSelectedMessageHandler = new EventMessageHandler(this, OnAdvisorSelected);
+		EventMessageManager.instance.AddHandler(typeof(AdvisorSelectedEvent).Name, advisorSelectedMessageHandler);
+	}
+
+	protected override void OnMonoSingletonDestroyed()
+	{
+		EventMessageManager.instance.RemoveHandler(typeof(AdvisorSelectedEvent).Name, this);
+		base.OnMonoSingletonDestroyed();
 	}
 
 	public List<AdvisorXmlModel> PickAdvisors()
 	{
-		return advisorSpawnPolicy.GetAdvisors();
+		previousSelectedAdvisorXmlModel = selectedAdvisorXmlModel;
+		selectedAdvisorXmlModel = null;
+
+		List<AdvisorXmlModel> advisorsToAvoid = new List<AdvisorXmlModel>();
+		advisorsToAvoid.Add(previousSelectedAdvisorXmlModel);
+		return advisorSpawnPolicy.GetAdvisors(advisorsToAvoid);
+	}
+
+	private void OnAdvisorSelected(EventMessage eventMessage)
+	{
+		AdvisorSelectedEvent advisorSelectedEvent = eventMessage.eventObject as AdvisorSelectedEvent;
+		selectedAdvisorXmlModel = advisorSelectedEvent.advisorEntrySelected.advisorXmlModel;
 	}
 
 	public void ShowAdvisors(List<AdvisorXmlModel> advisors)
@@ -35,12 +60,10 @@ public class AdvisorsManager : MonoSingleton
 		advisorMenu.Show(advisors);
 	}
 
-	public void ShowAdvisorSuggestion(AdvisorXmlModel advisorXmlModel)
+	public void ShowAdvisorSuggestion()
 	{
-		int advisorId = advisorXmlModel.id;
-		List<SuggestionXmlModel> suggestionXmlModels = XmlModelManager.instance.FindModels<SuggestionXmlModel>((suggestionXmlModel) => suggestionXmlModel.advisorId == advisorId);
-
-		ShowNextAvailableSuggestion(suggestionXmlModels, advisorXmlModel);
+		List<SuggestionXmlModel> suggestionXmlModels = XmlModelManager.instance.FindModels<SuggestionXmlModel>((suggestionXmlModel) => suggestionXmlModel.advisorId == selectedAdvisorXmlModel.id);
+		ShowNextAvailableSuggestion(suggestionXmlModels, selectedAdvisorXmlModel);
 	}
 
 	private void ShowNextAvailableSuggestion(List<SuggestionXmlModel> suggestionXmlModels, AdvisorXmlModel advisorXmlModel)
