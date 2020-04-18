@@ -47,6 +47,11 @@ public class XmlModelManager : Singleton
 		}
 	}
 
+	public void UnregisterAllModels()
+	{
+		xmlModels.Clear();
+	}
+
 	public object CreateInstanceFromId(int id)
 	{
 		XmlModel xmlModel = FindModel(id);

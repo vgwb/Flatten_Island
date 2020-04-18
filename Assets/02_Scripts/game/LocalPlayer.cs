@@ -1,5 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections.Generic;
 
 public class LocalPlayer : Player
 {
@@ -41,6 +40,8 @@ public class LocalPlayer : Player
 	public void StartNewGameSession()
 	{
 		gameSession = new GameSession();
+		List<AdvisorXmlModel> initialAdvisors = AdvisorsManager.instance.PickAdvisors();
+		gameSession.Initialize(initialAdvisors);
 		gameSession.Start();
 	}
 
