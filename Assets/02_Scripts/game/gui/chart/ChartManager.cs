@@ -8,29 +8,6 @@ using ProtoTurtle.BitmapDrawing;
 
 public class ChartManager : MonoSingleton
 {
-	// From the editor
-	public const int VIEWPORT_WITDH = 2235;
-	public const int VIEWPORT_HEIGHT = 1242;
-
-	// Internal config. Reduced sprite for speed, as we're drawing bitmaps at low level
-	public const int WIDTH = (HEIGHT * VIEWPORT_WITDH) / VIEWPORT_HEIGHT;
-	public const int HEIGHT = 300;
-	public const int CAPACITY_LINE_Y = 30; // 10% down from the top, adjusted in the editor
-	public const int MAX_Y_RANGE = HEIGHT - CAPACITY_LINE_Y;
-	public const int OVERFLOW_MIN_Y = CAPACITY_LINE_Y -15; // Just to see the circle above
-	public const int LINE_THICKNESS = 3;
-	public const float TOTAL_ANIMATION_TIME_SEC = 1.5f;
-
-	// Sprite adjustments
-	public const int CIRCLE_OFFSET_X = 0; // to adjust the position
-	public const int CIRCLE_OFFSET_Y = 0; // to adjust the position
-	public const int PATIENTS_PANEL_OFFSET_X = -37; // to adjust the tip of the box
-	public const int PATIENTS_PANEL_OFFSET_Y = 13; // to adjust the tip of the box
-
-	// X axis daily expansion and margins
-	public const int CURVE_MIN_WIDTH = (int)(WIDTH * 0.33); // tune
-	public const int CURVE_MAX_WIDTH = (int)(WIDTH * 0.75); // tune
-	public const int DAY_WIDTH_INCREMENT = (CURVE_MAX_WIDTH - CURVE_MIN_WIDTH) / 20; // 5%
 
 	public Sprite patientsNormalImg;
 	public Sprite patientsOverflowImg;
@@ -40,9 +17,31 @@ public class ChartManager : MonoSingleton
 	public GameObject initialDot;
 	public GameObject finalDot;
 
+	// Measures, adjusted to viewport. Act like consts but they are potentially overriden
+	private int VIEWPORT_WITDH = 2235;
+	private int WIDTH;
+	private int CURVE_MIN_WIDTH;
+	private int CURVE_MAX_WIDTH;
+	private int DAY_WIDTH_INCREMENT;
+
+	private const int CHART_X_MARGIN = 125;
+	private const int VIEWPORT_HEIGHT = 1242;
+	private const int HEIGHT = 300;
+	private const int CAPACITY_LINE_Y = 30; // 10% down from the top, adjusted in the editor
+	private const int MAX_Y_RANGE = HEIGHT - CAPACITY_LINE_Y;
+	private const int OVERFLOW_MIN_Y = CAPACITY_LINE_Y -15; // Just to see the circle above
+	private const int LINE_THICKNESS = 3;
+	private const float TOTAL_ANIMATION_TIME_SEC = 1.5f;
+
+	// Sprite adjustments
+	private const int PATIENTS_PANEL_OFFSET_X = -37; // to adjust the tip of the box
+	private const int PATIENTS_PANEL_OFFSET_Y = 13; // to adjust the tip of the box
+
+	// Internal state
 	private int dayToDrawTo = -1; // The chart is being drawn up to day and day-1
     private float elapsedTime = 0.0f;
 	private bool animating = false;
+
 
 	public static ChartManager instance
 	{
@@ -56,6 +55,7 @@ public class ChartManager : MonoSingleton
 	{
 		base.OnMonoSingletonAwake();
 		dayToDrawTo = -1; // draw up to whatever day was stored, if any. Otherwise empty chart
+		AdjustToViewport();
 		UpdateFullChart(); // Could be done later, but it's safe
 	}
 
@@ -76,6 +76,24 @@ public class ChartManager : MonoSingleton
 				UpdateChart(elapsedTime);
 			}
 		}
+	}
+
+	private void AdjustToViewport()
+	{
+		GameObject uiMainCanvas = GameObject.Find("UIMainCanvas");
+		Vector2 vp = ViewportUtils.MeasureViewport(uiMainCanvas);
+
+		if (vp.x > (VIEWPORT_WITDH + CHART_X_MARGIN*2))
+		{
+			VIEWPORT_WITDH = (int)(vp.x - CHART_X_MARGIN*2);
+		}
+		WIDTH = (HEIGHT * VIEWPORT_WITDH) / VIEWPORT_HEIGHT;
+		CURVE_MIN_WIDTH = (int)(WIDTH * 0.33); // tune
+		CURVE_MAX_WIDTH = (int)(WIDTH * 0.75); // tune
+		DAY_WIDTH_INCREMENT = (CURVE_MAX_WIDTH - CURVE_MIN_WIDTH) / 20; // 5%
+
+	 	Debug.Log("VIEWPORT_WITDH: " + VIEWPORT_WITDH);
+	 	Debug.Log("WIDTH: " + WIDTH);
 	}
 
 	public void RestartChartAnimation()
@@ -216,8 +234,8 @@ public class ChartManager : MonoSingleton
 
 	private void PositionDot(GameObject dot, int x, int y) {
 		// Coordinates in the sprite space (like any dot in the chart sprite)
-		float x1 = CIRCLE_OFFSET_X + x;
-		float y1 = CIRCLE_OFFSET_Y + HEIGHT - y;
+		float x1 = x;
+		float y1 = HEIGHT - y;
 		dot.transform.localPosition = CoordinatesInViewport(x1, y1);
 	}
 
@@ -269,9 +287,12 @@ public class ChartManager : MonoSingleton
 
 	private Vector3 CoordinatesInViewport(float x, float y) {
 		float ratio = VIEWPORT_WITDH / (float)WIDTH; 
-		float x1 = x * ratio - (VIEWPORT_WITDH /2); // anchor is 0.5 , 0
+		// float x1 = x * ratio - VIEWPORT_WITDH/2;
+		// float x1 = x * ratio - CHART_X_MARGIN;
+		float x1 = x * ratio;
 		float y1 = y * ratio;
 		
+	 	Debug.Log("orig: " + x + " , " + y + " final: " + x1 + " , " + y1);
 		return new Vector3(x1, y1, 0);
 	}
 }
