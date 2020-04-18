@@ -178,7 +178,7 @@ using System.Xml;
             XmlWriterSettings settings = new XmlWriterSettings();
             settings.Indent = true;
             settings.OmitXmlDeclaration = true;
-            using (XmlWriter writer = XmlWriter.Create("../../Assets/09_Data/advisorsThree.xml", settings))  
+            using (XmlWriter writer = XmlWriter.Create("../../Assets/09_Data/suggestions.xml", settings))  
             {
                 writer.WriteStartElement("group");  
                 int suggestionIndex=0;
@@ -193,13 +193,15 @@ using System.Xml;
                             foreach(SuggestionOption suggestionOpt in suggestion.suggestionOption)
                             {
                                 writer.WriteStartElement("suggestionOption");
-                                writer.WriteAttributeString("id", suggestionIndex.ToString());
+                                writer.WriteAttributeString("id", suggestionOpt.idSuggestionOption);
                                 writer.WriteAttributeString("text", suggestionOpt.text);
                                 if(suggestionOpt.money!="") writer.WriteAttributeString("money", suggestionOpt.money);
                                 if(suggestionOpt.publicOp!="") writer.WriteAttributeString("publicOpinion", suggestionOpt.publicOp);
                                 if(suggestionOpt.growthRate!="") writer.WriteAttributeString("growthRate", suggestionOpt.growthRate);
                                 if(suggestionOpt.capacity!="") writer.WriteAttributeString("capacity", suggestionOpt.capacity);
                                 if(suggestionOpt.vacune!="") writer.WriteAttributeString("vacune", suggestionOpt.vacune);
+                                if(suggestionOpt.startStoryId!="") writer.WriteAttributeString("startStoryId", suggestionOpt.startStoryId);
+                                if(suggestionOpt.stopStoryId!="") writer.WriteAttributeString("stopStoryId", suggestionOpt.stopStoryId);
                                 writer.WriteEndElement();  
                                 suggestionIndex++;
                             }
@@ -236,7 +238,7 @@ using System.Xml;
                 SuggestionOption aux = new SuggestionOption();
                 int newPosition = row+i+2;
                 lastCellRow=(ss[newPosition].Count)-1;
-                aux.idSuggestionOption = i.ToString();
+                aux.idSuggestionOption = (i+1).ToString();
 
                 /**
                 * A-0 | B-1 | C-2 | D-3 | E-4 | F-5 | G-6 | H-7 | I-8 | J-9 | K-10 |
@@ -255,6 +257,8 @@ using System.Xml;
 
                 aux.vacune = lastCellRow < 23 ? "": ss[newPosition][23].ToString();
 
+                aux.startStoryId = lastCellRow < 24 ? "": ss[newPosition][24].ToString();
+                aux.stopStoryId = lastCellRow < 25 ? "": ss[newPosition][25].ToString();
                 sug.suggestionOption.Add(aux);
             }
             sug.gameStoryRequirement.storyId = ss[row][13].ToString();

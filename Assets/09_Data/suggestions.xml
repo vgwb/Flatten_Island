@@ -1,66 +1,251 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<group>
-	<suggestion id="3001" advisorId="2001" title="CardTitle_1" description="CardDescription_1">
-		<suggestionOptions>
-			<suggestionOption id="1" text="Card_OptA_1" money="-20" capacity="1000" />
-			<suggestionOption id="2" text="Card_OptB_1" money="-40" capacity="2000" />
-		</suggestionOptions>
-		<requirements>
-			<gamePhaseRequirement>
-				<phaseId>1</phaseId>
-			</gamePhaseRequirement>
-		</requirements>
-	</suggestion>
-	<suggestion id="3002" advisorId="2002" title="CardTitle_2" description="CardDescription_2">
-		<suggestionOptions>
-			<suggestionOption id="1" text="Card_OptA_2" money="30000" growthRate="4" />
-			<suggestionOption id="2" text="Card_OptB_2" money="-50"/>
-		</suggestionOptions>
-		<requirements>
-			<gamePhaseRequirement>
-				<phaseId>1</phaseId>
-				<phaseId>2</phaseId>
-			</gamePhaseRequirement>
-		</requirements>
-	</suggestion>
-	<suggestion id="3003" advisorId="2003" title="CardTitle_3" description="CardDescription_3" startStoryId="4001">
-		<suggestionOptions>
-			<suggestionOption id="1" text="Card_OptA_3" money="20000" growthRate="-3" />
-			<suggestionOption id="2" text="Card_OptB_3" publicOpinion="-10" growthRate="3" />
-		</suggestionOptions>
-		<requirements>
-			<gamePhaseRequirement>
-				<phaseId>2</phaseId>
-				<phaseId>3</phaseId>
-			</gamePhaseRequirement>
-		</requirements>
-	</suggestion>
-	<suggestion id="3004" advisorId="2004" title="CardTitle_4" description="CardDescription_4">
-		<suggestionOptions>
-			<suggestionOption id="1" text="Card_OptA_4" money="-200" vaccine="20" />
-			<suggestionOption id="2" text="Card_OptB_4" publicOpinion="10" growthRate="-2" />
-		</suggestionOptions>
-		<requirements>
-			<gamePhaseRequirement>
-				<phaseId>3</phaseId>
-			</gamePhaseRequirement>
-			<gameStoryRequirement>
-				<storyId>4001</storyId>
-			</gameStoryRequirement>
-		</requirements>
-	</suggestion>
-	<suggestion id="3005" advisorId="2005" title="CardTitle_5" description="CardDescription_5" stopStoryId="4001">
-		<suggestionOptions>
-			<suggestionOption id="1" text="Card_OptA_" money="10000" vaccine="8" />
-			<suggestionOption id="2" text="Card_OptB_5" publicOpinion="-5" growthRate="6" />
-		</suggestionOptions>
-		<requirements>
-			<gamePhaseRequirement>
-				<phaseId>3</phaseId>
-			</gamePhaseRequirement>
-			<gameStoryRequirement>
-				<storyId>4001</storyId>
-			</gameStoryRequirement>
-		</requirements>
-	</suggestion>
+﻿<group>
+  <suggestion id="3001" advisorId="" title="CardTitle_3001" description="">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3001" money="3000" publicOpinion="asdfasdf" />
+      <suggestionOption id="2" text="Card_OptB_3001" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>1</phaseId>
+        <phaseId>2</phaseId>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+      <gameStoryRequirement>
+        <storyId>FALSE</storyId>
+      </gameStoryRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3002" advisorId="" title="CardTitle_3002" description="">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3002" />
+      <suggestionOption id="2" text="Card_OptB_3002" publicOpinion="2" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>1</phaseId>
+        <phaseId>2</phaseId>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+      <gameStoryRequirement>
+        <storyId>FALSE</storyId>
+      </gameStoryRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3003" advisorId="" title="CardTitle_3003" description="">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3003" />
+      <suggestionOption id="2" text="Card_OptB_3003" publicOpinion="2" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>1</phaseId>
+        <phaseId>2</phaseId>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+      <gameStoryRequirement>
+        <storyId>FALSE</storyId>
+      </gameStoryRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3004" advisorId="" title="CardTitle_3004" description="Hospitals are starting to fill up fast">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3004" money="-2000" capacity="5000" />
+      <suggestionOption id="2" text="Card_OptB_3004" money="-10000" capacity="20000" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>2</phaseId>
+      </gamePhaseRequirement>
+      <gameStoryRequirement>
+        <storyId>FALSE</storyId>
+      </gameStoryRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3005" advisorId="" title="CardTitle_3005" description="We've discovered that mint prevents infection">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3005" money="-3000" growthRate="-2" />
+      <suggestionOption id="2" text="Card_OptB_3005" money="-1000" startStoryId="4001" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>1</phaseId>
+        <phaseId>2</phaseId>
+      </gamePhaseRequirement>
+      <gameStoryRequirement>
+        <storyId>FALSE</storyId>
+      </gameStoryRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3006" advisorId="" title="CardTitle_3006" description="A lab has discovered that chewing mint prevents infection">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3006" money="-5000" growthRate="-3" />
+      <suggestionOption id="2" text="Card_OptB_3006" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>1</phaseId>
+        <phaseId>2</phaseId>
+      </gamePhaseRequirement>
+      <gameStoryRequirement>
+        <storyId>FALSE</storyId>
+      </gameStoryRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3007" advisorId="" title="CardTitle_3007" description="If we don't hand out masks people are going to get sicker">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3007" money="-2000" growthRate="-5" />
+      <suggestionOption id="2" text="Card_OptB_3007" publicOpinion="-10" growthRate="-2" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>1</phaseId>
+      </gamePhaseRequirement>
+      <gameStoryRequirement>
+        <storyId>FALSE</storyId>
+      </gameStoryRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3008" advisorId="CODE AL SUPERMERCATO" title="CardTitle_3008" description="We must help people to keep the security distance while waiting.">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3008" money="-1000" publicOpinion="5" growthRate="-5" startStoryId="2" />
+      <suggestionOption id="2" text="Card_OptB_3008" money="1000" publicOpinion="-10" growthRate="-5" startStoryId="3" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>2</phaseId>
+      </gamePhaseRequirement>
+      <gameStoryRequirement>
+        <storyId>FALSE</storyId>
+      </gameStoryRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3009" advisorId="CODE AL SUPERMERCATO" title="CardTitle_3009" description="">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3009" money="-3000" capacity="3000" />
+      <suggestionOption id="2" text="Card_OptB_3009" money="-1000" capacity="1000" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>2</phaseId>
+      </gamePhaseRequirement>
+      <gameStoryRequirement>
+        <storyId>FALSE</storyId>
+      </gameStoryRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3010" advisorId="CODE AL SUPERMERCATO" title="CardTitle_3010" description="">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3010" money="-5000" growthRate="-10" startStoryId="4002" />
+      <suggestionOption id="2" text="Card_OptB_3010" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>1</phaseId>
+      </gamePhaseRequirement>
+      <gameStoryRequirement>
+        <storyId>FALSE</storyId>
+      </gameStoryRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3011" advisorId="CODE AL SUPERMERCATO" title="CardTitle_3011" description="">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3011" money="2000" growthRate="5" stopStoryId="4002" />
+      <suggestionOption id="2" text="Card_OptB_3011" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>2</phaseId>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+      <gameStoryRequirement>
+        <storyId>FALSE</storyId>
+      </gameStoryRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3012" advisorId="CODE AL SUPERMERCATO" title="CardTitle_3012" description="">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3012" publicOpinion="3" />
+      <suggestionOption id="2" text="Card_OptB_3012" capacity="3000" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>1</phaseId>
+        <phaseId>2</phaseId>
+      </gamePhaseRequirement>
+      <gameStoryRequirement>
+        <storyId>FALSE</storyId>
+      </gameStoryRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3013" advisorId="CODE AL SUPERMERCATO" title="CardTitle_3013" description="">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3013" publicOpinion="-2" growthRate="-2" startStoryId="4003" />
+      <suggestionOption id="2" text="Card_OptB_3013" publicOpinion="2" growthRate="2" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>1</phaseId>
+        <phaseId>2</phaseId>
+      </gamePhaseRequirement>
+      <gameStoryRequirement>
+        <storyId>FALSE</storyId>
+      </gameStoryRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3014" advisorId="CODE AL SUPERMERCATO" title="CardTitle_3014" description="">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3014" money="-1000" growthRate="-2" />
+      <suggestionOption id="2" text="Card_OptB_3014" publicOpinion="-2" growthRate="-2" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>1</phaseId>
+        <phaseId>2</phaseId>
+      </gamePhaseRequirement>
+      <gameStoryRequirement>
+        <storyId>FALSE</storyId>
+      </gameStoryRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3015" advisorId="CODE AL SUPERMERCATO" title="CardTitle_3015" description="">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3015" />
+      <suggestionOption id="2" text="Card_OptB_3015" money="-2000" capacity="2000" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>2</phaseId>
+      </gamePhaseRequirement>
+      <gameStoryRequirement>
+        <storyId>FALSE</storyId>
+      </gameStoryRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3016" advisorId="CODE AL SUPERMERCATO" title="CardTitle_3016" description="">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3016" />
+      <suggestionOption id="2" text="Card_OptB_3016" growthRate="1" vacune="3" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>2</phaseId>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+      <gameStoryRequirement>
+        <storyId>FALSE</storyId>
+      </gameStoryRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3017" advisorId="CODE AL SUPERMERCATO" title="CardTitle_3017" description="">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3017" />
+      <suggestionOption id="2" text="Card_OptB_3017" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement />
+      <gameStoryRequirement>
+        <storyId>FALSE</storyId>
+      </gameStoryRequirement>
+    </requirements>
+  </suggestion>
 </group>
