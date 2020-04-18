@@ -12,28 +12,18 @@ public class OptionParameterEntry : MonoBehaviour
 
 	public Text modifierValueText;
 	public Image modifierIcon;
-	public Color positiveValueColor;
-	public Color negativeValueColor;
 
 	public void SetParameter(int modifierValue, Sprite sprite)
 	{
-		modifierValueText.text = modifierValue.ToString();
 		modifierIcon.sprite = sprite;
 
 		if (modifierValue > 0)
 		{
-			SetTextColor(modifierValueText, positiveValueColor);
+			modifierValueText.text = "+" + modifierValue.ToString();
 		}
 		else
 		{
-			SetTextColor(modifierValueText, negativeValueColor);
+			modifierValueText.text = modifierValue.ToString();
 		}
 	}
-
-	private void SetTextColor(Text text, Color color)
-	{
-		text.color = color;
-	}
-
-
 }

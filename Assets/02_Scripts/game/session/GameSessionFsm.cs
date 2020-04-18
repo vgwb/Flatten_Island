@@ -14,7 +14,6 @@ public class GameSessionFsm : FiniteStateMachine
 
 	private GameSession gameSession;
 
-	private AdvisorXmlModel selectedAdvisor;
 	private SuggestionOptionXmlModel selectedSuggestionOption;
 
 	public GameSessionFsm(GameSession gameSession) : base()
@@ -91,7 +90,6 @@ public class GameSessionFsm : FiniteStateMachine
 	{
 		//TO DO, before quitting should record the high score
 		GameManager.instance.localPlayer.QuitGameSession();
-		GameManager.instance.SavePlayer();
 		ScenesFlowManager.instance.UnloadingMainScene();
 	}
 
@@ -147,15 +145,15 @@ public class GameSessionFsm : FiniteStateMachine
 		EventMessageHandler allAdvisorsExitCompletedMessageHandler = new EventMessageHandler(this, OnAllAdvisorsExitCompletedEvent);
 		EventMessageManager.instance.AddHandler(typeof(AllAdvisorsExitCompletedEvent).Name, allAdvisorsExitCompletedMessageHandler);
 
-		gameSession.PickAdvisors();
+		gameSession.advisors = AdvisorsManager.instance.PickAdvisors();
+		GameManager.instance.SavePlayer();
+
 		AdvisorsManager.instance.ShowAdvisors(gameSession.advisors);
 	}
 
 	private void OnAllAdvisorsExitCompletedEvent(EventMessage eventMessage)
 	{
 		AllAdvisorsExitCompletedEvent allAdvisorsExitCompletedEvent = eventMessage.eventObject as AllAdvisorsExitCompletedEvent;
-		selectedAdvisor = allAdvisorsExitCompletedEvent.selectedAdvisor;
-
 		TriggerState(SuggestionState);
 	}
 
@@ -169,7 +167,7 @@ public class GameSessionFsm : FiniteStateMachine
 		EventMessageHandler suggestionEntryExitCompletedMessageHandler = new EventMessageHandler(this, OnSuggestionExitCompletedEvent);
 		EventMessageManager.instance.AddHandler(typeof(SuggestionEntryExitCompletedEvent).Name, suggestionEntryExitCompletedMessageHandler);
 
-		AdvisorsManager.instance.ShowAdvisorSuggestion(selectedAdvisor);
+		AdvisorsManager.instance.ShowAdvisorSuggestion();
 	}
 
 	private void OnSuggestionExitCompletedEvent(EventMessage eventMessage)

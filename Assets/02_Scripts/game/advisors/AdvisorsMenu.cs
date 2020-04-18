@@ -62,6 +62,7 @@ public class AdvisorsMenu : MonoBehaviour
 		AdvisorEntry advisorEntryScript = advisorEntry.GetComponent<AdvisorEntry>();
 		advisorEntryScript.SetAdvisor(advisorXmlModel);
 		advisorEntry.gameObject.SetActive(true);
+		advisorEntry.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
 		return advisorEntryScript;
 	}
 

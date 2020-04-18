@@ -18,9 +18,7 @@ public class SpeechMenu : MonoBehaviour
 
 	public void ShowSpeechBubble(string localizationId)
 	{
-		string text = LocalizationManager.instance.GetText(localizationId);
-
-		speechBubble.SetText(text);
+		speechBubble.SetLocalizedText(localizationId);
 		speechBubble.gameObject.SetActive(true);
 		blockingBackgrounButton.gameObject.SetActive(true);
 	}

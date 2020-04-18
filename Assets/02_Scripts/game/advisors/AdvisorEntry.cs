@@ -29,7 +29,7 @@ public class AdvisorEntry : MonoBehaviour
 	{
 		this.advisorXmlModel = advisorXmlModel;
 
-		advisorName.text = LocalizationManager.instance.GetText(advisorXmlModel.name);
+		LocalizationManager.instance.SetLocalizedText(advisorName, advisorXmlModel.name);
 		if (!string.IsNullOrEmpty(advisorXmlModel.portraitSprite))
 		{
 			Sprite advisorSprite = Resources.Load<Sprite>(advisorXmlModel.portraitSprite);

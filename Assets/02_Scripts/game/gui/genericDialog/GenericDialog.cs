@@ -94,22 +94,22 @@ public class GenericDialog : MonoBehaviour
 		yesButton.gameObject.SetActive(false);
 		noButton.gameObject.SetActive(false);
 
-		titleText.text = LocalizationManager.instance.GetText(genericDialogXmlModel.title);
-		messageText.text = LocalizationManager.instance.GetText(genericDialogXmlModel.message);
+		LocalizationManager.instance.SetLocalizedText(titleText, genericDialogXmlModel.title);
+		LocalizationManager.instance.SetLocalizedText(messageText, genericDialogXmlModel.message);
 
 		if (genericDialogXmlModel.buttons == 1)
 		{
-			okButtonText.text = LocalizationManager.instance.GetText(OK_BUTTON_LOCALIZATION_ID);
+			LocalizationManager.instance.SetLocalizedText(okButtonText, OK_BUTTON_LOCALIZATION_ID);
 			okButton.gameObject.SetActive(true);
 			return;
 		}
 
 		if (genericDialogXmlModel.buttons == 2)
 		{
-			yesButtonText.text = LocalizationManager.instance.GetText(YES_BUTTON_LOCALIZATION_ID);
+			LocalizationManager.instance.SetLocalizedText(yesButtonText, YES_BUTTON_LOCALIZATION_ID);
 			yesButton.gameObject.SetActive(true);
 
-			noButtonText.text = LocalizationManager.instance.GetText(NO_BUTTON_LOCALIZATION_ID);
+			LocalizationManager.instance.SetLocalizedText(noButtonText, NO_BUTTON_LOCALIZATION_ID);
 			noButton.gameObject.SetActive(true);
 			return;
 		}
@@ -128,6 +128,7 @@ public class GenericDialog : MonoBehaviour
 		GenericDialog genericDialog = genericDialogObject.GetComponent<GenericDialog>();
 		genericDialog.SetDialog(genericDialogXmlModel);
 		genericDialogObject.gameObject.SetActive(true);
+		genericDialogObject.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
 		return genericDialog;
 	}
 

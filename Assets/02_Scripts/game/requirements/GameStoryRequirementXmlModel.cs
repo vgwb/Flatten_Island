@@ -17,9 +17,23 @@ public class GameStoryRequirementXmlModel : RequirementXmlModel
 		gameStoryIds = ParseIntsFromChildElement(element, "storyId");
 	}
 
-
 	public override bool IsSatisfied()
 	{
-		throw new System.NotImplementedException();
+		if (gameStoryIds.Count == 0)
+		{
+			return true;
+		}
+
+		GameSession gameSession = GameManager.instance.localPlayer.gameSession;
+
+		foreach (GameStoryXmlModel gameStoryXmlModel in gameSession.activeGameStories)
+		{
+			if (gameStoryIds.Contains(gameStoryXmlModel.id))
+			{
+				return true;
+			}
+		}
+
+		return false;
 	}
 }

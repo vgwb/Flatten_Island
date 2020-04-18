@@ -52,12 +52,17 @@ public class GamePhase : ISavable
 
 	public string GetName()
 	{
-		return LocalizationManager.instance.GetText(gamePhaseXmlModel.name);
+		return gamePhaseXmlModel.name;
 	}
 
 	public int GetNextPhaseId()
 	{
 		return gamePhaseXmlModel.nextPhaseId;
+	}
+
+	public int GetPhaseId()
+	{
+		return gamePhaseXmlModel.id;
 	}
 
 	public int GetStartDay()
