@@ -725,6 +725,7 @@ MonoBehaviour:
   moneySprite: {fileID: 21300000, guid: 967f0a58dec24b449a241e033adec1ca, type: 3}
   growRateSprite: {fileID: 21300000, guid: 030003a1c300a11468c5f2642adccc28, type: 3}
   vaccineSprite: {fileID: 21300000, guid: 9213a583c8a226941be18a1af209b923, type: 3}
+  patientsSprite: {fileID: 21300000, guid: d176d88c8080d7640a33f3db1a4fee1b, type: 3}
   dayValue: {fileID: 2732138163604515673}
 --- !u!1 &5640207497457172572
 GameObject:

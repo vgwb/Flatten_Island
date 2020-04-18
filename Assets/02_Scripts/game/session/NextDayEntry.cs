@@ -12,9 +12,43 @@ public class NextDayEntry : MonoBehaviour
 	public Sprite moneySprite;
 	public Sprite growRateSprite;
 	public Sprite vaccineSprite;
+	public Sprite patientsSprite;
 	public Text dayValue;
 
 	public void SetParameters(GameSessionXmlModel gameSessionXmlModel, int day)
+	{
+		ShowVaccineIncrement(gameSessionXmlModel);
+
+		ShowPatientsIncrement(day);
+
+		ShowMoneyIncrement(gameSessionXmlModel);
+
+		ShowGrowthRateIncrement(gameSessionXmlModel);
+
+		dayValue.text = day.ToString();
+	}
+
+	private void ShowVaccineIncrement(GameSessionXmlModel gameSessionXmlModel)
+	{
+		if (gameSessionXmlModel.nextDayVaccineIncrement != 0)
+		{
+			OptionParameterEntry optionParameterEntry = CreateOptionParameterEntry();
+			optionParameterEntry.SetParameter(gameSessionXmlModel.nextDayVaccineIncrement, vaccineSprite);
+			optionParameterEntry.gameObject.SetActive(true);
+		}
+	}
+
+	private void ShowPatientsIncrement(int day)
+	{
+		GameSession gameSession = GameManager.instance.localPlayer.gameSession;
+		int patientsIncrement = gameSession.patients[day] - gameSession.patients[day - 1];
+
+		OptionParameterEntry optionParameterEntry = CreateOptionParameterEntry();
+		optionParameterEntry.SetParameter(patientsIncrement, patientsSprite);
+		optionParameterEntry.gameObject.SetActive(true);
+	}
+
+	private void ShowMoneyIncrement(GameSessionXmlModel gameSessionXmlModel)
 	{
 		if (gameSessionXmlModel.nextDayMoneyIncrement != 0)
 		{
@@ -22,22 +56,16 @@ public class NextDayEntry : MonoBehaviour
 			optionParameterEntry.SetParameter(gameSessionXmlModel.nextDayMoneyIncrement, moneySprite);
 			optionParameterEntry.gameObject.SetActive(true);
 		}
+	}
 
+	private void ShowGrowthRateIncrement(GameSessionXmlModel gameSessionXmlModel)
+	{
 		if (gameSessionXmlModel.nextDayGrowthRateIncrement != 0)
 		{
 			OptionParameterEntry optionParameterEntry = CreateOptionParameterEntry();
 			optionParameterEntry.SetParameter(gameSessionXmlModel.nextDayGrowthRateIncrement, growRateSprite);
 			optionParameterEntry.gameObject.SetActive(true);
 		}
-
-		if (gameSessionXmlModel.nextDayVaccineIncrement != 0)
-		{
-			OptionParameterEntry optionParameterEntry = CreateOptionParameterEntry();
-			optionParameterEntry.SetParameter(gameSessionXmlModel.nextDayVaccineIncrement, vaccineSprite);
-			optionParameterEntry.gameObject.SetActive(true);
-		}
-
-		dayValue.text = day.ToString();
 	}
 
 	public void OnButtonSelected()
