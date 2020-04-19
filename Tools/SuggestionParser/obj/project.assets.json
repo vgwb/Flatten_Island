@@ -197,7 +197,8 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "Google.Apis.Sheets.v4 >= 1.45.0.1930"
+      "Google.Apis.Sheets.v4 >= 1.45.0.1930",
+      "Newtonsoft.Json >= 12.0.3"
     ]
   },
   "packageFolders": {
@@ -238,6 +239,10 @@
           "Google.Apis.Sheets.v4": {
             "target": "Package",
             "version": "[1.45.0.1930, )"
+          },
+          "Newtonsoft.Json": {
+            "target": "Package",
+            "version": "[12.0.3, )"
           }
         },
         "imports": [
