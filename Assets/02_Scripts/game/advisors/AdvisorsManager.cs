@@ -85,7 +85,7 @@ public class AdvisorsManager : MonoSingleton
 			selectedSuggestionXmlModel = suggestionXmlModels[0];
 		}
 
-		suggestionMenu.ShowSuggestion(suggestionXmlModels[0], advisorXmlModel);
+		suggestionMenu.ShowSuggestion(selectedSuggestionXmlModel, advisorXmlModel);
 	}
 
 	public void ShowAdvisorSuggestionResult(SuggestionOptionXmlModel suggestionOptionXmlModel)
