@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class GameSession : ISavable
 {
-	public static int INITIAL_PHASE_ID = 2;
+	public static int INITIAL_PHASE_ID = 1;
 	private const int MIN_GROWTH_RATE = -50;
 
 	public const int MAX_DAYS = 110; // TODO
