@@ -216,10 +216,10 @@ namespace SheetsQuickstart
 										writer.WriteStartElement("gameStoryRequirement");  
                                         writer.WriteStartElement("storyId");  
                                         writer.WriteString(suggestion.gameStoryRequirement.storyId);
-                                        writer.WriteEndElement();  
-                                }
-                                    
-                            writer.WriteEndElement();
+                                        writer.WriteEndElement();
+										writer.WriteEndElement();
+								}
+								writer.WriteEndElement();
                             writer.WriteEndElement();  
                         }
                     writer.WriteEndElement();  
