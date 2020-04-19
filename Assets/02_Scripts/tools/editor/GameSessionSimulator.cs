@@ -4,6 +4,8 @@ using System.IO;
 
 public class GameSessionSimulator
 {
+	public static string SIMULATION_FILE_PATH = "Assets/10_Sandbox/simulations/SimulationResults.csv";
+
 	private int simulationRuns;
 
 	private LocalPlayer localPlayer;
@@ -94,6 +96,7 @@ public class GameSessionSimulator
 		}
 
 		UnityEngine.Debug.Log(resultString.ToString());
+		WriteSimulationResultsToFile(resultString.ToString());
 	}
 
 	public List<AdvisorXmlModel> PickAdvisors()
@@ -130,10 +133,8 @@ public class GameSessionSimulator
 
 	private void WriteSimulationResultsToFile(string results)
 	{
-		string path = "Assets/SimulationResults.csv";
-
 		//Write some text to the test.txt file
-		StreamWriter writer = new StreamWriter(path, true);
+		StreamWriter writer = new StreamWriter(SIMULATION_FILE_PATH, true);
 		writer.WriteLine(results);
 		writer.Close();
 	}
