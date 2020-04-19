@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Text;
+using System.IO;
 
 public class GameSessionSimulator
 {
@@ -125,5 +126,15 @@ public class GameSessionSimulator
 		}
 
 		return selectedSuggestionXmlModel;
+	}
+
+	private void WriteSimulationResultsToFile(string results)
+	{
+		string path = "Assets/SimulationResults.csv";
+
+		//Write some text to the test.txt file
+		StreamWriter writer = new StreamWriter(path, true);
+		writer.WriteLine(results);
+		writer.Close();
 	}
 }
