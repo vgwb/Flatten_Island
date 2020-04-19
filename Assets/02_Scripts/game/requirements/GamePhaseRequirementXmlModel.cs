@@ -17,15 +17,14 @@ public class GamePhaseRequirementXmlModel : RequirementXmlModel
 		gamePhaseIds = ParseIntsFromChildElement(element, "phaseId");
 	}
 
-	public override bool IsSatisfied()
+	public override bool IsSatisfied(RequirementContext requirementContext)
 	{
 		if (gamePhaseIds.Count == 0)
 		{
 			return true;
 		}
 
-		GameSession gameSession = GameManager.instance.localPlayer.gameSession;
-
-		return gamePhaseIds.Contains(gameSession.gamePhase.GetPhaseId());
+		GameRequirementContext gameRequirementContext = requirementContext as GameRequirementContext;
+		return gamePhaseIds.Contains(gameRequirementContext.localPlayer.gameSession.gamePhase.GetPhaseId());
 	}
 }

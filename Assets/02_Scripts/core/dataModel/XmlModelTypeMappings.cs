@@ -20,6 +20,11 @@ public class XmlModelTypeMappings : Singleton
 		mappings.Add(RequirementGroupXmlModel.ELEMENT_NAME, typeof(RequirementGroupXmlModel));
 	}
 
+	public void RemoveAllMappings()
+	{
+		mappings.Clear();
+	}
+
 	public void AddMapping(string xmlName,Type xmlModelType)
 	{
 		if (!mappings.ContainsKey(xmlName))

@@ -17,14 +17,16 @@ public class GameStoryRequirementXmlModel : RequirementXmlModel
 		gameStoryIds = ParseIntsFromChildElement(element, "storyId");
 	}
 
-	public override bool IsSatisfied()
+	public override bool IsSatisfied(RequirementContext requirementContext)
 	{
 		if (gameStoryIds.Count == 0)
 		{
 			return true;
 		}
 
-		GameSession gameSession = GameManager.instance.localPlayer.gameSession;
+		GameRequirementContext gameRequirementContext = requirementContext as GameRequirementContext;
+
+		GameSession gameSession = gameRequirementContext.localPlayer.gameSession;
 
 		foreach (GameStoryXmlModel gameStoryXmlModel in gameSession.activeGameStories)
 		{

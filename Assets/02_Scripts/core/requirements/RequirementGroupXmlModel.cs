@@ -29,11 +29,11 @@ public class RequirementGroupXmlModel : RequirementXmlModel
 		}
 	}
 
-	public override bool IsSatisfied()
+	public override bool IsSatisfied(RequirementContext requirementContext)
 	{
 		for (int i = 0, n = requirementXmlModels.Count; i < n; i++)
 		{
-			if (!requirementXmlModels[i].IsSatisfied())
+			if (!requirementXmlModels[i].IsSatisfied(requirementContext))
 			{
 				return false;
 			}

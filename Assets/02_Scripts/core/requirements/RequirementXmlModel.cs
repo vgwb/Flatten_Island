@@ -12,5 +12,5 @@ public abstract class RequirementXmlModel : XmlModel
 		base.Initialize(element);
 	}
 
-	public abstract bool IsSatisfied();
+	public abstract bool IsSatisfied(RequirementContext requirementContext);
 }

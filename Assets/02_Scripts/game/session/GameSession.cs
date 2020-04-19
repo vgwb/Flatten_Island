@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 
 public class GameSession : ISavable
@@ -34,10 +35,10 @@ public class GameSession : ISavable
 		}
 	}
 
-	public void Start()
+	public void Initialize(List<AdvisorXmlModel> initialAdvisors)
 	{
 		patients = new int[MAX_DAYS];
-		advisors = AdvisorsManager.instance.PickAdvisors();
+		advisors = initialAdvisors;
 		activeGameStories = new List<GameStoryXmlModel>();
 		day = 1;
 		vaccineDevelopment = gameSessionXmlModel.initialVaccineDevelopment;
@@ -46,9 +47,11 @@ public class GameSession : ISavable
 		capacity = gameSessionXmlModel.initialCapacity;
 		money = gameSessionXmlModel.initialMoney;
 		publicOpinion = gameSessionXmlModel.initialPublicOpinion;
+	}
 
+	public void Start()
+	{
 		StartGamePhase(INITIAL_PHASE_ID);
-
 		StartFsm();
 	}
 
@@ -173,6 +176,7 @@ public class GameSession : ISavable
 	{
 		gamePhase = new GamePhase();
 		gamePhase.Start(gamePhaseId, day);
+		gamePhase.StartMusic();
 
 		Debug.Log("GameSession = Starting Game Phase:" + gamePhase.GetName());
 
