@@ -1,6 +1,6 @@
 {
 
-        "OptionMode":"1",
+        "OptionMode":"2",
         "outputPathFile":"..\\..\\..\\output\\suggestions.xml",
         "CSVConfigData":
         {
@@ -8,6 +8,7 @@
         },
         "GSConfigData":
         {
+            "credentialsPathFile":"..\\..\\..\\input\\credentials.json",
             "pathSheet":"1DQed7SgV8O3VBF77p-GUgeBMAqJML5ulqpCSGp1eZm8",
             "spreadSheedName":"FlattenIsland_Texts - ToParse",
             "cellToExclude":"Card ID (3001-3999)"

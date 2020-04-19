@@ -95,13 +95,15 @@ namespace SheetsQuickstart
     }
 
     public class GSConfigData{
+		public string credentialsPathFile;
         public string pathSheet;
         public string spreadSheedName;
         public string cellToExclude;
 
 
         public GSConfigData(){
-            this.pathSheet = "";
+			this.credentialsPathFile = "";
+			this.pathSheet = "";
             this.spreadSheedName = "";
             this.cellToExclude = "";
         }
@@ -356,7 +358,7 @@ namespace SheetsQuickstart
                 string[] Scopes = { SheetsService.Scope.SpreadsheetsReadonly };
                 UserCredential credential;
                 using (var stream =
-                    new FileStream("credentials.json", FileMode.Open, FileAccess.Read))
+                    new FileStream(dataConfig.gSConfigData.credentialsPathFile, FileMode.Open, FileAccess.Read))
                 {
                     // The file token.json stores the user's access and refresh tokens, and is created
                     // automatically when the authorization flow completes for the first time.
