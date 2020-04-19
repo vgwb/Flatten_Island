@@ -102,6 +102,7 @@ public class GameSession : ISavable
 	private void IncrementVaccineDevelopment(int increment)
 	{
 		vaccineDevelopment = Math.Min(VACCINE_PROGRESS_END_DEVELOPMENT, vaccineDevelopment + increment);
+		vaccineDevelopment = Math.Max(0, vaccineDevelopment);
 	}
 
 	private void TryStartStory(SuggestionOptionXmlModel suggestionOptionXmlModel)

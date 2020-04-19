@@ -83,6 +83,7 @@ public class AdvisorsManager : MonoSingleton
 		if (selectedSuggestionXmlModel == null)
 		{
 			selectedSuggestionXmlModel = suggestionXmlModels[0];
+			Debug.LogWarning("No available suggestion for Advisor:" + advisorXmlModel.name + " --> getting default suggestion:" + selectedSuggestionXmlModel.id);
 		}
 
 		suggestionMenu.ShowSuggestion(selectedSuggestionXmlModel, advisorXmlModel);
