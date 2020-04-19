@@ -306,7 +306,7 @@ namespace SheetsQuickstart
             }
     
             List<List<string>> readingCSV() {
-                string path = "/home/javi/unity/Flatten_Island/Assets/09_Data/FlattenIsland_Texts - ToParse.csv";
+                string path = dataConfig.cSVConfigData.pathFile;
                 List<List<string>> values= new List<List<string>>();
                 string[] readText = File.ReadAllLines(path);
                 foreach(string text in readText){
@@ -358,8 +358,8 @@ namespace SheetsQuickstart
                 });
 
                 // Define request parameters.
-                String spreadsheetId = "1YVL-tthuZ8z9H2RPdNUHwNxlavG_kkHTrULRkGMx4uI";
-                String range = "ToParse";
+                String spreadsheetId = dataConfig.gSConfigData.pathSheet;
+                String range = dataConfig.gSConfigData.spreadSheedName;
                 SpreadsheetsResource.ValuesResource.GetRequest request = service.Spreadsheets.Values.Get(spreadsheetId, range);
                 // SpreadsheetsResource.ValuesResource.GetRequest request = service.Spreadsheets.Values.G(spreadsheetId);
 
@@ -389,7 +389,7 @@ namespace SheetsQuickstart
                 int rowId=0;
                 for (int i=0;i<values.Count;i++)
                 {
-                    if(values[i][0].ToString() != "Card ID (3001-3999)" && values[i][0].ToString() != "")
+                    if(values[i][0].ToString() != dataConfig.gSConfigData.cellToExclude && values[i][0].ToString() != "")
                     {
                         SuggestionSheet suggest = new SuggestionSheet();
                         suggest=fillObjectFromGS(values, i);
