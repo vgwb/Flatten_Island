@@ -27,29 +27,39 @@ public class GameSessionSimulator
 
 	public void Run()
 	{
-		StringBuilder resultString = new StringBuilder();
+		StreamWriter writer = new StreamWriter(SIMULATION_FILE_PATH, false);
 
 		for (int i = 0; i < simulationRuns; i++)
 		{
-			localPlayer = new LocalPlayer();
-			localPlayer.Init();
-			localPlayer.gameSession = new GameSession();
-			List<AdvisorXmlModel> initialAdvisors = PickAdvisors();
-			localPlayer.gameSession.Initialize(initialAdvisors);
-			localPlayer.gameSession.gamePhase = new GamePhase();
-			localPlayer.gameSession.gamePhase.Start(GameSession.INITIAL_PHASE_ID, localPlayer.gameSession.day);
+			InitializePlayer();
 
 			bool gameOver = false;
 			bool runWin = false;
+
+			GameSimulationResult gameSimulationResult = new GameSimulationResult();
+			gameSimulationResult.run = i + 1;
 
 			while (!gameOver)
 			{
 				GameSession gameSession = localPlayer.gameSession;
 
+				GameSimulationResultRow gameSimulationResultRow = new GameSimulationResultRow();
+				gameSimulationResultRow.day = gameSession.day;
+				gameSimulationResultRow.phase = gameSession.gamePhase.GetPhaseId();
+				gameSimulationResultRow.capacity = gameSession.capacity;
+				gameSimulationResultRow.growthRate = gameSession.growthRate;
+				gameSimulationResultRow.patients = gameSession.patients[gameSession.day - 1];
+				gameSimulationResultRow.money = gameSession.money;
+				gameSimulationResultRow.publicOpinion = gameSession.publicOpinion;
+				gameSimulationResultRow.vaccine = gameSession.vaccineDevelopment;
+				gameSimulationResultRow.activeStoriesId = gameSession.activeGameStories.ToArray();
+
 				if (gameSession.HasPlayerWon())
 				{
 					gameOver = true;
 					runWin = true;
+
+					gameSimulationResult.AddRow(gameSimulationResultRow);
 					continue;
 				}
 
@@ -57,6 +67,8 @@ public class GameSessionSimulator
 				{
 					gameOver = true;
 					runWin = false;
+
+					gameSimulationResult.AddRow(gameSimulationResultRow);
 					continue;
 				}
 
@@ -65,38 +77,59 @@ public class GameSessionSimulator
 					int nextPhaseId = gameSession.gamePhase.GetNextPhaseId();
 					gameSession.gamePhase = new GamePhase();
 					gameSession.gamePhase.Start(nextPhaseId, gameSession.day);
+
+					gameSimulationResultRow.phase = nextPhaseId;
 				}
 
 				gameSession.advisors = PickAdvisors();
 				int randomAdvisorIndex = RandomGenerator.GetRandom(0, gameSession.advisors.Count);
 				selectedAdvisorXmlModel = gameSession.advisors[randomAdvisorIndex];
+				gameSimulationResultRow.chosenAdvisorId = selectedAdvisorXmlModel.id;
 
 				List<SuggestionXmlModel> suggestionXmlModels = XmlModelManager.instance.FindModels<SuggestionXmlModel>((suggestionXmlModel) => suggestionXmlModel.advisorId == selectedAdvisorXmlModel.id);
 				SuggestionXmlModel selectedSuggestionXmlModel = PickNextAvailableSuggestion(suggestionXmlModels, selectedAdvisorXmlModel);
 
+				gameSimulationResultRow.chosenSuggestionId = selectedSuggestionXmlModel.id;
+
 				int randomOptionIndex = RandomGenerator.GetRandom(0, selectedSuggestionXmlModel.suggestionOptionsList.Count);
 				SuggestionOptionXmlModel selectedSuggestionOptionXmlModel = selectedSuggestionXmlModel.suggestionOptionsList[randomOptionIndex];
 
+				gameSimulationResultRow.chosenOptionId = selectedSuggestionOptionXmlModel.id;
+				gameSimulationResultRow.startStoryId = selectedSuggestionOptionXmlModel.GetStartStoryId();
+				gameSimulationResultRow.stopStoryId = selectedSuggestionOptionXmlModel.GetStopStoryId();
+
 				gameSession.ApplySuggestionOption(selectedSuggestionOptionXmlModel);
 				gameSession.NextDay();
+
+				gameSimulationResult.AddRow(gameSimulationResultRow);
 			}
 
-			resultString.AppendLine("Simulation Over N." + i);
+
+			gameSimulationResult.days = localPlayer.gameSession.day;
 			if (runWin)
 			{
-				resultString.AppendLine("Result: WON");
+				gameSimulationResult.result = "WON";
 			}
 			else
 			{
-				resultString.AppendLine("Result: LOSE");
+				gameSimulationResult.result = "LOSE";
 			}
 
-			resultString.AppendLine(localPlayer.gameSession.StatusString());
-			resultString.AppendLine("");
+			gameSimulationResult.Write(writer);
 		}
 
-		UnityEngine.Debug.Log(resultString.ToString());
-		WriteSimulationResultsToFile(resultString.ToString());
+		writer.Close();
+	}
+
+	private void InitializePlayer()
+	{
+		localPlayer = new LocalPlayer();
+		localPlayer.Init();
+		localPlayer.gameSession = new GameSession();
+		List<AdvisorXmlModel> initialAdvisors = PickAdvisors();
+		localPlayer.gameSession.Initialize(initialAdvisors);
+		localPlayer.gameSession.gamePhase = new GamePhase();
+		localPlayer.gameSession.gamePhase.Start(GameSession.INITIAL_PHASE_ID, localPlayer.gameSession.day);
 	}
 
 	public List<AdvisorXmlModel> PickAdvisors()
@@ -129,13 +162,5 @@ public class GameSessionSimulator
 		}
 
 		return selectedSuggestionXmlModel;
-	}
-
-	private void WriteSimulationResultsToFile(string results)
-	{
-		//Write some text to the test.txt file
-		StreamWriter writer = new StreamWriter(SIMULATION_FILE_PATH, true);
-		writer.WriteLine(results);
-		writer.Close();
 	}
 }

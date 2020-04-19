@@ -262,25 +262,4 @@ public class GameSession : ISavable
 			}
 		}
 	}
-
-	public string StatusString()
-	{
-		StringBuilder stringBuilder = new StringBuilder();
-		stringBuilder.AppendLine("Days:" + day);
-		stringBuilder.AppendLine("GrowtRate:" + growthRate);
-		stringBuilder.AppendLine("Capacity:" + capacity);
-		stringBuilder.AppendLine("Money:" + money);
-		stringBuilder.AppendLine("Public Opinion:" + publicOpinion);
-		stringBuilder.AppendLine("Vaccine Progress:" + vaccineDevelopment);
-
-		if (day> 0)
-		{
-			stringBuilder.AppendLine("Patients:" + patients[day - 1]);
-		}
-		else
-		{
-			stringBuilder.AppendLine("Patients:" + patients[day]);
-		}
-		return stringBuilder.ToString();
-	}
 }

@@ -8,6 +8,8 @@ public class GameSessionSimulatorWindow : EditorWindow
 {
 	private const string DATA_FOLDER = "09_Data";
 
+	private string runsString = "10";
+
 	[MenuItem("Flatten Island/Game Session Simulator")]
 	static void CreateWindow()
 	{
@@ -58,7 +60,8 @@ public class GameSessionSimulatorWindow : EditorWindow
 		EditorGUILayout.Space();
 		EditorGUILayout.BeginHorizontal();
 		EditorGUILayout.LabelField("Simulation Runs:", GUILayout.Width(180f));
-		string runsString = EditorGUILayout.TextField("10", GUILayout.Width(50f));
+
+		runsString = EditorGUILayout.TextField(runsString, GUILayout.Width(50f));
 		EditorGUILayout.EndHorizontal();
 		EditorGUILayout.Space();
 		if (GUILayout.Button("Run Simulations", GUILayout.Width(150f)))
