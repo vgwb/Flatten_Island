@@ -226,15 +226,23 @@ namespace SheetsQuickstart
 
             SuggestionSheet fillObjectFromGS(IList<IList<Object>> ss, int row) {
                 int lastCellRow=0;
+                int lastCellSuggestionRow=(ss[(row)].Count)-1;
                 SuggestionSheet sug = new SuggestionSheet();
                 sug.idSuggestion=ss[row][0].ToString();
-                sug.advisorId=ss[row][12].ToString();
+                
+                sug.advisorId=
+                ss[row][2].ToString() == "PR"? "2001":
+                ss[row][2].ToString() == "Treasurer"? "2002":
+                ss[row][2].ToString() == "Lab Specialist"? "2003":
+                ss[row][2].ToString() == "Hospital Manager"? "2004":
+                ss[row][2].ToString() == "Commander"? "2005":""
+                ;
                 sug.title=ss[row][1].ToString();
                 sug.description=ss[(row+1)][1].ToString();
                 for(int i = 0; i < 2; i++){
                     SuggestionOption aux = new SuggestionOption();
                     int newPosition = row+i+2;
-                    lastCellRow=(ss[newPosition].Count)-1;
+                    int lastCellSuggestionOptionRow=(ss[(newPosition)].Count)-1;
                     aux.idSuggestionOption = (i+1).ToString();
 
                     /**
@@ -244,33 +252,41 @@ namespace SheetsQuickstart
                     */
                     aux.text=ss[newPosition][1].ToString() != "" ? ss[newPosition][1].ToString(): "";
 
-                    aux.money=lastCellRow < 19 ? "": ss[newPosition][19].ToString();
+                    aux.money=lastCellSuggestionOptionRow < 8 ? "": ss[newPosition][8].ToString();
 
-                    aux.publicOp = lastCellRow < 20 ? "": ss[newPosition][20].ToString();
+                    aux.publicOp = lastCellSuggestionOptionRow < 9 ? "": ss[newPosition][9].ToString();
 
-                    aux.growthRate = lastCellRow < 21 ? "": ss[newPosition][21].ToString();
+                    aux.growthRate = lastCellSuggestionOptionRow < 10 ? "": ss[newPosition][10].ToString();
 
-                    aux.capacity = lastCellRow < 22 ? "": ss[newPosition][22].ToString();
+                    aux.capacity = lastCellSuggestionOptionRow < 11 ? "": ss[newPosition][11].ToString();
 
-                    aux.vacune = lastCellRow < 23 ? "": ss[newPosition][23].ToString();
+                    aux.vacune = lastCellSuggestionOptionRow < 12 ? "": ss[newPosition][12].ToString();
 
-                    aux.startStoryId = lastCellRow < 24 ? "": ss[newPosition][24].ToString();
-                    aux.stopStoryId = lastCellRow < 25 ? "": ss[newPosition][25].ToString();
+                    aux.startStoryId = lastCellSuggestionOptionRow < 13 ? "": ss[newPosition][13].ToString();
+                    aux.stopStoryId = lastCellSuggestionOptionRow < 14 ? "": ss[newPosition][14].ToString();
                     sug.suggestionOption.Add(aux);
                 }
-                sug.gameStoryRequirement.storyId = ss[row][13].ToString()=="FALSE"?"":ss[row][13].ToString();
-                if(ss[row][15].ToString() == "TRUE") sug.gamePhaseRequirement.phaseId.Add("1");
-                if(ss[row][16].ToString() == "TRUE") sug.gamePhaseRequirement.phaseId.Add("2");
-                if(ss[row][17].ToString() == "TRUE") sug.gamePhaseRequirement.phaseId.Add("3");
-                if(ss[row][14].ToString() == "TRUE") sug.gamePhaseRequirement.phaseId.AddRange(new string[]{"1","2","3"});
+                Console.WriteLine("last cell row :"+lastCellSuggestionRow);
+                sug.gameStoryRequirement.storyId = lastCellSuggestionRow < 7?"":ss[row][7].ToString()==""?"":ss[row][7].ToString();
+                if(ss[row][4].ToString() == "TRUE") sug.gamePhaseRequirement.phaseId.Add("1");
+                if(ss[row][5].ToString() == "TRUE") sug.gamePhaseRequirement.phaseId.Add("2");
+                if(ss[row][6].ToString() == "TRUE") sug.gamePhaseRequirement.phaseId.Add("3");
+                if(ss[row][3].ToString() == "TRUE") sug.gamePhaseRequirement.phaseId.AddRange(new string[]{"1","2","3"});
                 return sug;
             }
 
             SuggestionSheet fillObjectFromCSV(List<List<string>> ss, int row) {
+                Console.WriteLine("row "+row+" | ");
                 int lastCellRow=0;
                 SuggestionSheet sug = new SuggestionSheet();
                 sug.idSuggestion=ss[row][0];
-                sug.advisorId=ss[row][12];
+                sug.advisorId=
+                ss[row][2] == "PR"? "2001":
+                ss[row][2] == "Treasurer"? "2002":
+                ss[row][2] == "Lab Specialist"? "2003":
+                ss[row][2] == "Hospital Manager"? "2004":
+                ss[row][2] == "Commander"? "2005":""
+                ;
                 sug.title=ss[row][1];
                 sug.description=ss[(row+1)][1];
                 for(int i = 0; i < 2; i++){
@@ -286,25 +302,25 @@ namespace SheetsQuickstart
                     */
                     aux.text=ss[newPosition][1] != "" ? ss[newPosition][1]: "";
 
-                    aux.money=lastCellRow < 19 ? "": ss[newPosition][19];
+                    aux.money=lastCellRow < 8 ? "": ss[newPosition][8];
 
-                    aux.publicOp = lastCellRow < 20 ? "": ss[newPosition][20];
+                    aux.publicOp = lastCellRow < 9 ? "": ss[newPosition][9];
 
-                    aux.growthRate = lastCellRow < 21 ? "": ss[newPosition][21];
+                    aux.growthRate = lastCellRow < 10 ? "": ss[newPosition][10];
 
-                    aux.capacity = lastCellRow < 22 ? "": ss[newPosition][22];
+                    aux.capacity = lastCellRow < 11 ? "": ss[newPosition][11];
 
-                    aux.vacune = lastCellRow < 23 ? "": ss[newPosition][23];
+                    aux.vacune = lastCellRow < 12 ? "": ss[newPosition][12];
 
-                    aux.startStoryId = lastCellRow < 24 ? "": ss[newPosition][24];
-                    aux.stopStoryId = lastCellRow < 25 ? "": ss[newPosition][25];
+                    aux.startStoryId = lastCellRow < 13 ? "": ss[newPosition][13];
+                    aux.stopStoryId = lastCellRow < 14 ? "": ss[newPosition][14];
                     sug.suggestionOption.Add(aux);
                 }
-                sug.gameStoryRequirement.storyId = ss[row][13]=="FALSE"?"":ss[row][13];
-                if(ss[row][15] == "TRUE") sug.gamePhaseRequirement.phaseId.Add("1");
-                if(ss[row][16] == "TRUE") sug.gamePhaseRequirement.phaseId.Add("2");
-                if(ss[row][17] == "TRUE") sug.gamePhaseRequirement.phaseId.Add("3");
-                if(ss[row][14] == "TRUE") sug.gamePhaseRequirement.phaseId.AddRange(new string[]{"1","2","3"});
+                sug.gameStoryRequirement.storyId = ss[row][7]==""?"":ss[row][7];
+                if(ss[row][4] == "TRUE") sug.gamePhaseRequirement.phaseId.Add("1");
+                if(ss[row][5] == "TRUE") sug.gamePhaseRequirement.phaseId.Add("2");
+                if(ss[row][6] == "TRUE") sug.gamePhaseRequirement.phaseId.Add("3");
+                if(ss[row][3] == "TRUE") sug.gamePhaseRequirement.phaseId.AddRange(new string[]{"1","2","3"});
                 return sug;
             }
     
@@ -322,7 +338,6 @@ namespace SheetsQuickstart
 
                 for (int i=0;i<values.Count;i++)
                 {   
-                    Console.WriteLine("column : "+i);
                     for(int j=0;j<values[i].Count;j++)
                     {
                         Console.Write("cellll "+j+" : "+values[i][j].ToString()+"; ");
@@ -335,7 +350,7 @@ namespace SheetsQuickstart
             }
 
             IList<IList<Object>> readingFromGoogleSheets(){
-                 string ApplicationName = "Google Sheets API .NET Quickstart";
+                string ApplicationName = "Google Sheets API .NET Quickstart";
                 string[] Scopes = { SheetsService.Scope.SpreadsheetsReadonly };
                 UserCredential credential;
                 using (var stream =
@@ -373,7 +388,7 @@ namespace SheetsQuickstart
             }
        
             List<SuggestionSheet> feedingnObjectFromSheetsValue(IList<IList<Object>> values){
-                            if (values != null && values.Count > 0)
+            if (values != null && values.Count > 0)
             {
                 suggestionList = new List<SuggestionSheet>(10);
                 
@@ -392,6 +407,7 @@ namespace SheetsQuickstart
                 int rowId=0;
                 for (int i=0;i<values.Count;i++)
                 {
+                    Console.WriteLine("columna :"+i);
                     if(values[i][0].ToString() != dataConfig.gSConfigData.cellToExclude && values[i][0].ToString() != "")
                     {
                         SuggestionSheet suggest = new SuggestionSheet();
