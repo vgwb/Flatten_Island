@@ -1839,7 +1839,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   phase1FinalDay: 14
   phase2FinalDay: 47
-  phase1GrowthDelta: 1
+  phase1GrowthDelta: 2
   phase2GrowthDelta: -1
   phase3GrowthDelta: 0
   phase1CapacityDelta: 500

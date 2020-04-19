@@ -11,7 +11,7 @@ public class GameSession : ISavable
 	public const int MAX_DAYS = 110; // TODO
 	public const int MAX_PATIENTS = 30000; // TODO
 
-	private const int VACCINE_PROGRESS_END_DEVELOPMENT = 90;
+	private const int VACCINE_PROGRESS_END_DEVELOPMENT = 100;
 
 	public int day { get; set; }
 	public int[] patients { get; set; }
