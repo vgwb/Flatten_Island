@@ -3,12 +3,12 @@
         "OptionMode":"1",
         "CSVConfigData":
         {
-            "pathFile":"/home/javi/unity/Flatten_Island/Assets/09_Data/FlattenIsland_Texts - ToParse.csv"
+            "pathFile":"..\\..\\..\\input\\suggestions.csv"
         },
         "GSConfigData":
         {
-            "pathSheet":"1YVL-tthuZ8z9H2RPdNUHwNxlavG_kkHTrULRkGMx4uI",
-            "spreadSheedName":"ToParse",
+            "pathSheet":"1DQed7SgV8O3VBF77p-GUgeBMAqJML5ulqpCSGp1eZm8",
+            "spreadSheedName":"FlattenIsland_Texts - ToParse",
             "cellToExclude":"Card ID (3001-3999)"
         }
 
