@@ -41,11 +41,11 @@ public class FutureProjector : MonoSingleton
 
 	public int ProjectWithMethod1(int day, int currentDay, int capacity, int growth, int patients)
 	{
-		int targetPatients = patients;
+		int targetPatients = patients + (patients * growth) / 100; // calculate today with current
 		int capacityOnDate = capacity;
 		int growthOnDate = growth;
 
-		// Calculate the predicted patients base on growth
+		// Calculate the predicted patients base on growth for future days
 		for (int d = currentDay + 1; d <= day; d++)
 		{
 			growthOnDate += GetPredictedGrowthDeltaForDay(d);

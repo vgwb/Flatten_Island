@@ -65,7 +65,9 @@ public class ChartManager : MonoSingleton
 
 	protected override void OnMonoSingletonUpdate()
 	{
-		if (firstDrawPending && GameManager.instance.localPlayer.gameSession != null)
+		if (firstDrawPending 
+			&& GameManager.instance.localPlayer.gameSession != null
+			&& GameManager.instance.localPlayer.gameSession.patients != null)
 		{
 			firstDrawPending = false;
 			dayToDrawTo = GameManager.instance.localPlayer.gameSession.day;
@@ -185,7 +187,7 @@ public class ChartManager : MonoSingleton
 	{
 		float animationProgress = elapsedTime / totalAnimationTime;
 		
-		int day = GetDayToDrawTo() + 1;
+		int day = GetDayToDrawTo();
 		float daysToDraw = MAX_DAYS * animationProgress;
 		for (int d = day; d < daysToDraw; d+=dashLineSpacing) 
 		{
@@ -224,7 +226,7 @@ public class ChartManager : MonoSingleton
 		int x = GetXForDay(day);
 		int y = GetYForPatients(FutureProjector.instance.GetPredictedPatients(day));
 
-		Color color = Color.grey;
+		Color color = Color.black;
 		if (y == OVERFLOW_MIN_Y)
 		{
 			animating = false; // Confirm behaviour
