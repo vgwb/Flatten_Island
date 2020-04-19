@@ -27,6 +27,8 @@ public class GameSession : ISavable
 	private GameSessionXmlModel gameSessionXmlModel;
 	private GameSessionFsm gameSessionFsm;
 
+	private ISuggestionSelectionPolicy suggestionSelectionPolicy;
+
 	public GameSession()
 	{
 		if (gameSessionXmlModel == null)
@@ -194,6 +196,19 @@ public class GameSession : ISavable
 		nextDayEntry.gameObject.SetActive(true);
 		nextDayEntry.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
 		return nextDayEntryScript;
+	}
+
+
+	public SuggestionXmlModel PickNextAvailableSuggestion(AdvisorXmlModel advisorXmlModel, LocalPlayer localPlayer)
+	{
+		if (suggestionSelectionPolicy == null)
+		{
+			suggestionSelectionPolicy = new SuggestionSelectionRandomPolicy();
+			suggestionSelectionPolicy.Initialize(localPlayer);
+			suggestionSelectionPolicy.Reset();
+		}
+
+		return suggestionSelectionPolicy.GetSuggestion(advisorXmlModel);
 	}
 
 	public GameData WriteSaveData()

@@ -87,7 +87,7 @@ public class GameSessionSimulator
 				gameSimulationResultRow.chosenAdvisorId = selectedAdvisorXmlModel.id;
 
 				List<SuggestionXmlModel> suggestionXmlModels = XmlModelManager.instance.FindModels<SuggestionXmlModel>((suggestionXmlModel) => suggestionXmlModel.advisorId == selectedAdvisorXmlModel.id);
-				SuggestionXmlModel selectedSuggestionXmlModel = PickNextAvailableSuggestion(suggestionXmlModels, selectedAdvisorXmlModel);
+				SuggestionXmlModel selectedSuggestionXmlModel = localPlayer.gameSession.PickNextAvailableSuggestion(selectedAdvisorXmlModel, localPlayer);
 
 				gameSimulationResultRow.chosenSuggestionId = selectedSuggestionXmlModel.id;
 
@@ -140,27 +140,5 @@ public class GameSessionSimulator
 		List<AdvisorXmlModel> advisorsToAvoid = new List<AdvisorXmlModel>();
 		advisorsToAvoid.Add(previousSelectedAdvisorXmlModel);
 		return advisorSpawnPolicy.GetAdvisors(advisorsToAvoid);
-	}
-
-	private SuggestionXmlModel PickNextAvailableSuggestion(List<SuggestionXmlModel> suggestionXmlModels, AdvisorXmlModel advisorXmlModel)
-	{
-		SuggestionXmlModel selectedSuggestionXmlModel = null;
-
-		//[TEMP] this should be a proper random
-		foreach (SuggestionXmlModel suggestionXmlModel in suggestionXmlModels)
-		{
-			if (suggestionXmlModel.IsAvailable(localPlayer))
-			{
-				selectedSuggestionXmlModel = suggestionXmlModel;
-			}
-		}
-
-		//[TEMP] it should never happen in the final game with the full set of suggestions
-		if (selectedSuggestionXmlModel == null)
-		{
-			selectedSuggestionXmlModel = suggestionXmlModels[0];
-		}
-
-		return selectedSuggestionXmlModel;
 	}
 }

@@ -62,31 +62,8 @@ public class AdvisorsManager : MonoSingleton
 
 	public void ShowAdvisorSuggestion()
 	{
-		List<SuggestionXmlModel> suggestionXmlModels = XmlModelManager.instance.FindModels<SuggestionXmlModel>((suggestionXmlModel) => suggestionXmlModel.advisorId == selectedAdvisorXmlModel.id);
-		ShowNextAvailableSuggestion(suggestionXmlModels, selectedAdvisorXmlModel);
-	}
-
-	private void ShowNextAvailableSuggestion(List<SuggestionXmlModel> suggestionXmlModels, AdvisorXmlModel advisorXmlModel)
-	{
-		SuggestionXmlModel selectedSuggestionXmlModel = null;
-
-		//[TEMP] this should be a proper random
-		foreach (SuggestionXmlModel suggestionXmlModel in suggestionXmlModels)
-		{
-			if (suggestionXmlModel.IsAvailable(localPlayer))
-			{
-				selectedSuggestionXmlModel = suggestionXmlModel;
-			}
-		}
-
-		//[TEMP] it should never happen in the final game with the full set of suggestions
-		if (selectedSuggestionXmlModel == null)
-		{
-			selectedSuggestionXmlModel = suggestionXmlModels[0];
-			Debug.LogWarning("No available suggestion for Advisor:" + advisorXmlModel.name + " --> getting default suggestion:" + selectedSuggestionXmlModel.id);
-		}
-
-		suggestionMenu.ShowSuggestion(selectedSuggestionXmlModel, advisorXmlModel);
+		SuggestionXmlModel selectedSuggestionXmlModel = localPlayer.gameSession.PickNextAvailableSuggestion(selectedAdvisorXmlModel, localPlayer);
+		suggestionMenu.ShowSuggestion(selectedSuggestionXmlModel, selectedAdvisorXmlModel);
 	}
 
 	public void ShowAdvisorSuggestionResult(SuggestionOptionXmlModel suggestionOptionXmlModel)
