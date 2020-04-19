@@ -11,8 +11,100 @@ YesText		Yes	Si	Si	Oui	نعم
 NoText		No	No	No	No	لا
 QuitGameDialogTitle		Quit Game	Salir del juego	Termina partita	Quitter le jeu	قم بإنهاء اللعبة
 QuitGameDialogMessage		Are you sure?	Estas seguro?	Sei sicuro?	Êtes-vous sûr?	هل أنت متأكد؟
-PressSecretary_Name		Mr Chisme				
-Treasurer_Name		Mrs Calderilla				
-LabScientist_Name		Dr Burbujas				
-HospitalDirector_Name		Dr Esponjoso				
-Commander_Name		Comm. Cosquillas				
+PressSecretary_Name		Mr. Goodnews				
+Treasurer_Name		Mrs. Payalot				
+LabScientist_Name		Prof. Antibody				
+HospitalDirector_Name		Dr.Deepbreath				
+Commander_Name		Agent R0				
+CardTitle_3101		CardTitle_3101				
+CardText_3101		Recommendation on Social Distancing				
+Card_OptA_3101		Only Official Channels				
+Card_OptB_3101		Special Campaign (TV)				
+CardTitle_3102		CardTitle_3102				
+CardText_3102		Recommendation on Social Distancing				
+Card_OptA_3102		Standard Campaign				
+Card_OptB_3102		Special Campaign (Game)				
+CardTitle_3103		CardTitle_3103				
+CardText_3103		Recommendations on Hygiene				
+Card_OptA_3103		Standard Campaign				
+Card_OptB_3103		Lottery with Soap				
+CardTitle_3104		CardTitle_3104				
+CardText_3104		Recommendations on Hygiene				
+Card_OptA_3104		Toilet Paper				
+Card_OptB_3104		Wash Hands				
+CardTitle_3105		CardTitle_3105				
+CardText_3105		Cancel "Tribute to volcano" parade				
+Card_OptA_3105		No, it's never been cancelled				
+Card_OptB_3105		Yes better avoid any risk				
+CardTitle_3106		CardTitle_3106				
+CardText_3106		Pandemic Tax				
+Card_OptA_3106		Better not				
+Card_OptB_3106		Ok				
+CardTitle_3107		CardTitle_3107				
+CardText_3107		Close Borders to Tourists				
+Card_OptA_3107		Better not				
+Card_OptB_3107		Yes but we have to Refund				
+CardTitle_3108		CardTitle_3108				
+CardText_3108		Health Staff salariy increase				
+Card_OptA_3108		Just a little				
+Card_OptB_3108		Ok let's make them happy				
+CardTitle_3109		CardTitle_3109				
+CardText_3109		Let a company mine the volcano				
+Card_OptA_3109		Never, it's sacred				
+Card_OptB_3109		We need money, bye bye tourists				
+CardTitle_3110		CardTitle_3110				
+CardText_3110		Quarantined people cannot work				
+Card_OptA_3110		That's their problem				
+Card_OptB_3110		Give subsidies				
+CardTitle_3111		CardTitle_3111				
+CardText_3111		Shut down shools				
+Card_OptA_3111		Not yet				
+Card_OptB_3111		Ok, even if people won't like it				
+CardTitle_3112		CardTitle_3112				
+CardText_3112		Lockdown				
+Card_OptA_3112		Not yet				
+Card_OptB_3112		Ok, even if people won't like it				
+CardTitle_3113		CardTitle_3113				
+CardText_3113		Task force to track cases				
+Card_OptA_3113		Ok, but a limited team				
+Card_OptB_3113		Ok, all-in!				
+CardTitle_3114		CardTitle_3114				
+CardText_3114		Use hotels for Quarantine				
+Card_OptA_3114		No, quarantine at home				
+Card_OptB_3114		Expensive but money well spent				
+CardTitle_3115		CardTitle_3115				
+CardText_3115		Distribute free gloves and masks				
+Card_OptA_3115		Only masks				
+Card_OptB_3115		Ok both				
+CardTitle_3116		CardTitle_3116				
+CardText_3116		Hospitals are starting to fill up fast				
+Card_OptA_3116		Extra beds should make it				
+Card_OptB_3116		Field hospitals! Pricey, but top-notch!				
+CardTitle_3117		CardTitle_3117				
+CardText_3117		Newer machineries to attend more patients				
+Card_OptA_3117		No, too expensive!				
+Card_OptB_3117		Okey				
+CardTitle_3118		CardTitle_3118				
+CardText_3118		We'll run out of beds in hospitals soon				
+Card_OptA_3118		Adapt hotels to attend patients with symptoms				
+Card_OptB_3118		Let's build a new hospital				
+CardTitle_3119		CardTitle_3119				
+CardText_3119		The pressure on the health system will keep growing				
+Card_OptA_3119		Let's use military doctors				
+Card_OptB_3119		Let's hire students and retired ones				
+CardTitle_3120		CardTitle_3120				
+CardText_3120		Experimental treatments				
+Card_OptA_3120		Let's stop reaserach! All staff in hospitals				
+Card_OptB_3120		Let's keep trying				
+CardTitle_3121		CardTitle_3121				
+CardText_3121		Let's invest early in the vaccine to gain time				
+Card_OptA_3121		Not yet				
+Card_OptB_3121		Ok, the sooner the better				
+CardTitle_3122		CardTitle_3122				
+CardText_3122		Let's grow the research team				
+Card_OptA_3122		Let's invest slowly				
+Card_OptB_3122		Let's invest heavily				
+CardTitle_3123		CardTitle_3123				
+CardText_3123		Let's join forces with an international team				
+Card_OptA_3123		No, better work on our own				
+Card_OptB_3123		OK, even if it will increase costs				
