@@ -1,14 +1,11 @@
 ﻿<group>
   <suggestion id="3001" advisorId="2002" title="CardTitle_3001" description="CardText_3001">
     <suggestionOptions>
-      <suggestionOption id="1" text="Card_OptA_3001" money="3000" publicOpinion="10" startStoryId="4001" stopStoryId="4002" />
+      <suggestionOption id="1" text="Card_OptA_3001" money="3000" publicOpinion="10" startStoryId="4001" />
       <suggestionOption id="2" text="Card_OptB_3001" />
     </suggestionOptions>
     <requirements>
       <gamePhaseRequirement>
-        <phaseId>2</phaseId>
-        <phaseId>3</phaseId>
-        <phaseId>1</phaseId>
         <phaseId>2</phaseId>
         <phaseId>3</phaseId>
       </gamePhaseRequirement>
@@ -16,14 +13,11 @@
   </suggestion>
   <suggestion id="3002" advisorId="2002" title="CardTitle_3002" description="CardText_3002">
     <suggestionOptions>
-      <suggestionOption id="1" text="Card_OptA_3002" vaccine="4" startStoryId="4002" stopStoryId="4001" />
+      <suggestionOption id="1" text="Card_OptA_3002" vaccine="4" startStoryId="4002" />
       <suggestionOption id="2" text="Card_OptB_3002" publicOpinion="4" />
     </suggestionOptions>
     <requirements>
       <gamePhaseRequirement>
-        <phaseId>2</phaseId>
-        <phaseId>3</phaseId>
-        <phaseId>1</phaseId>
         <phaseId>2</phaseId>
         <phaseId>3</phaseId>
       </gamePhaseRequirement>
@@ -36,9 +30,6 @@
     </suggestionOptions>
     <requirements>
       <gamePhaseRequirement>
-        <phaseId>2</phaseId>
-        <phaseId>3</phaseId>
-        <phaseId>1</phaseId>
         <phaseId>2</phaseId>
         <phaseId>3</phaseId>
       </gamePhaseRequirement>

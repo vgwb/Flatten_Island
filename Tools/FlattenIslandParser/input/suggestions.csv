@@ -1,13 +1,13 @@
 Card ID (3001-3999),Localization Id,Advisor (2001-2999),Phase0 (Tuto),Phase1,Phase2,Phase3,Story Id (4001-4999),Money,PublicOp,GrowthRate,Capacity,Vaccine,Start Story Id,Stop Story Id
-3001,CardTitle_3001,Treasurer,TRUE,FALSE,TRUE,TRUE,,,,,,,,
+3001,CardTitle_3001,Treasurer,FALSE,FALSE,TRUE,TRUE,,,,,,,,
 ,CardText_3001,,,,,,,,,,,,,
-,Card_OptA_3001,,,,,,,3000,10,,,,4001,4002
+,Card_OptA_3001,,,,,,,3000,10,,,,4001,
 ,Card_OptB_3001,,,,,,,,,,,,,
-3002,CardTitle_3002,Treasurer,TRUE,FALSE,TRUE,TRUE,,,,,,,,
+3002,CardTitle_3002,Treasurer,FALSE,FALSE,TRUE,TRUE,,,,,,,,
 ,CardText_3002,,,,,,,,,,,,,
-,Card_OptA_3002,,,,,,,,,,,4,4002,4001
+,Card_OptA_3002,,,,,,,,,,,4,4002,
 ,Card_OptB_3002,,,,,,,,4,,,,,
-3003,CardTitle_3003,PR,TRUE,FALSE,TRUE,TRUE,,,,,,,,
+3003,CardTitle_3003,PR,FALSE,FALSE,TRUE,TRUE,,,,,,,,
 ,CardText_3003,,,,,,,,,,,,,
 ,Card_OptA_3003,,,,,,,,,-2,,,,
 ,Card_OptB_3003,,,,,,,,-2,,,,,
