@@ -1,6 +1,7 @@
 {
 
         "OptionMode":"1",
+        "outputPathFile":"..\\..\\..\\output\\suggestions.xml",
         "CSVConfigData":
         {
             "pathFile":"..\\..\\..\\input\\suggestions.csv"

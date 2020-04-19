@@ -109,12 +109,14 @@ namespace SheetsQuickstart
     public class ConfigData{
         public string CSVData;
         public string OptionMode;
+		public string outputPathFile;
 
         public CSVConfigData cSVConfigData;
 
         public GSConfigData gSConfigData;
         public ConfigData(){
             this.OptionMode = "";
+			this.outputPathFile = "";
             this.cSVConfigData = new CSVConfigData();
             this.gSConfigData = new GSConfigData();
         }
@@ -172,7 +174,7 @@ namespace SheetsQuickstart
                 XmlWriterSettings settings = new XmlWriterSettings();
                 settings.Indent = true;
                 settings.OmitXmlDeclaration = true;
-                using (XmlWriter writer = XmlWriter.Create("../../../output/suggestions.xml", settings))  
+                using (XmlWriter writer = XmlWriter.Create(dataConfig.outputPathFile, settings))  
                 {
                     writer.WriteStartElement("group");  
                     int suggestionIndex=0;
