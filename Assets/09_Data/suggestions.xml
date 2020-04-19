@@ -1,5 +1,5 @@
 ﻿<group>
-  <suggestion id="3001" advisorId="" title="CardTitle_3001" description="">
+  <suggestion id="3001" advisorId="PublicOpinion" title="CardTitle_3001" description="CardText_3001">
     <suggestionOptions>
       <suggestionOption id="1" text="Card_OptA_3001" money="3000" publicOpinion="asdfasdf" />
       <suggestionOption id="2" text="Card_OptB_3001" />
@@ -13,10 +13,10 @@
       <gameStoryRequirement />
     </requirements>
   </suggestion>
-  <suggestion id="3002" advisorId="" title="CardTitle_3002" description="">
+  <suggestion id="3002" advisorId="Vaccine" title="CardTitle_3002" description="CardText_3002">
     <suggestionOptions>
       <suggestionOption id="1" text="Card_OptA_3002" />
-      <suggestionOption id="2" text="Card_OptB_3002" growthRate="2" />
+      <suggestionOption id="2" text="Card_OptB_3002" publicOpinion="2" />
     </suggestionOptions>
     <requirements>
       <gamePhaseRequirement>
@@ -27,7 +27,7 @@
       <gameStoryRequirement />
     </requirements>
   </suggestion>
-  <suggestion id="3003" advisorId="" title="CardTitle_3003" description="">
+  <suggestion id="3003" advisorId="GrowthRate" title="CardTitle_3003" description="CardText_3003">
     <suggestionOptions>
       <suggestionOption id="1" text="Card_OptA_3003" />
       <suggestionOption id="2" text="Card_OptB_3003" publicOpinion="2" />
@@ -41,10 +41,10 @@
       <gameStoryRequirement />
     </requirements>
   </suggestion>
-  <suggestion id="3004" advisorId="" title="CardTitle_3004" description="Hospitals are starting to fill up fast">
+  <suggestion id="3004" advisorId="Capacity" title="CardTitle_3004" description="CardText_3004">
     <suggestionOptions>
       <suggestionOption id="1" text="Card_OptA_3004" money="-2000" capacity="5000" />
-      <suggestionOption id="2" text="Card_OptB_3004" publicOpinion="-10000" vacune="20000" />
+      <suggestionOption id="2" text="Card_OptB_3004" money="-10000" capacity="20000" />
     </suggestionOptions>
     <requirements>
       <gamePhaseRequirement>
@@ -53,9 +53,9 @@
       <gameStoryRequirement />
     </requirements>
   </suggestion>
-  <suggestion id="3005" advisorId="" title="CardTitle_3005" description="We've discovered that mint prevents infection">
+  <suggestion id="3005" advisorId="GrowthRate" title="CardTitle_3005" description="CardText_3005">
     <suggestionOptions>
-      <suggestionOption id="1" text="Card_OptA_3005" publicOpinion="-3000" capacity="-2" />
+      <suggestionOption id="1" text="Card_OptA_3005" money="-3000" growthRate="-2" />
       <suggestionOption id="2" text="Card_OptB_3005" money="-1000" startStoryId="4001" />
     </suggestionOptions>
     <requirements>
@@ -66,7 +66,7 @@
       <gameStoryRequirement />
     </requirements>
   </suggestion>
-  <suggestion id="3006" advisorId="" title="CardTitle_3006" description="A lab has discovered that chewing mint prevents infection">
+  <suggestion id="3006" advisorId="GrowthRate" title="CardTitle_3006" description="CardText_3006">
     <suggestionOptions>
       <suggestionOption id="1" text="Card_OptA_3006" money="-5000" growthRate="-3" />
       <suggestionOption id="2" text="Card_OptB_3006" />
@@ -79,7 +79,7 @@
       <gameStoryRequirement />
     </requirements>
   </suggestion>
-  <suggestion id="3007" advisorId="" title="CardTitle_3007" description="If we don't hand out masks people are going to get sicker">
+  <suggestion id="3007" advisorId="GrowthRate" title="CardTitle_3007" description="CardText_3007">
     <suggestionOptions>
       <suggestionOption id="1" text="Card_OptA_3007" money="-2000" growthRate="-5" />
       <suggestionOption id="2" text="Card_OptB_3007" publicOpinion="-10" growthRate="-2" />
@@ -91,10 +91,10 @@
       <gameStoryRequirement />
     </requirements>
   </suggestion>
-  <suggestion id="3008" advisorId="CODE AL SUPERMERCATO" title="CardTitle_3008" description="We must help people to keep the security distance while waiting.">
+  <suggestion id="3008" advisorId="GrowthRate" title="CardTitle_3008" description="CardText_3008">
     <suggestionOptions>
       <suggestionOption id="1" text="Card_OptA_3008" money="-1000" publicOpinion="5" growthRate="-5" startStoryId="2" />
-      <suggestionOption id="2" text="Card_OptB_3008" publicOpinion="1000" growthRate="-10" capacity="-5" stopStoryId="3" />
+      <suggestionOption id="2" text="Card_OptB_3008" money="1000" publicOpinion="-10" growthRate="-5" startStoryId="3" />
     </suggestionOptions>
     <requirements>
       <gamePhaseRequirement>
@@ -103,10 +103,10 @@
       <gameStoryRequirement />
     </requirements>
   </suggestion>
-  <suggestion id="3009" advisorId="CODE AL SUPERMERCATO" title="CardTitle_3009" description="">
+  <suggestion id="3009" advisorId="Capacity" title="CardTitle_3009" description="CardText_3009">
     <suggestionOptions>
       <suggestionOption id="1" text="Card_OptA_3009" money="-3000" capacity="3000" />
-      <suggestionOption id="2" text="Card_OptB_3009" publicOpinion="-1000" vacune="1000" />
+      <suggestionOption id="2" text="Card_OptB_3009" money="-1000" capacity="1000" />
     </suggestionOptions>
     <requirements>
       <gamePhaseRequirement>
@@ -115,7 +115,7 @@
       <gameStoryRequirement />
     </requirements>
   </suggestion>
-  <suggestion id="3010" advisorId="CODE AL SUPERMERCATO" title="CardTitle_3010" description="">
+  <suggestion id="3010" advisorId="GrowthRate" title="CardTitle_3010" description="CardText_3010">
     <suggestionOptions>
       <suggestionOption id="1" text="Card_OptA_3010" money="-5000" growthRate="-10" startStoryId="4002" />
       <suggestionOption id="2" text="Card_OptB_3010" />
@@ -127,7 +127,7 @@
       <gameStoryRequirement />
     </requirements>
   </suggestion>
-  <suggestion id="3011" advisorId="CODE AL SUPERMERCATO" title="CardTitle_3011" description="">
+  <suggestion id="3011" advisorId="GrowthRate" title="CardTitle_3011" description="CardText_3011">
     <suggestionOptions>
       <suggestionOption id="1" text="Card_OptA_3011" money="2000" growthRate="5" stopStoryId="4002" />
       <suggestionOption id="2" text="Card_OptB_3011" />
@@ -140,10 +140,10 @@
       <gameStoryRequirement />
     </requirements>
   </suggestion>
-  <suggestion id="3012" advisorId="CODE AL SUPERMERCATO" title="CardTitle_3012" description="">
+  <suggestion id="3012" advisorId="GrowthRate" title="CardTitle_3012" description="CardText_3012">
     <suggestionOptions>
       <suggestionOption id="1" text="Card_OptA_3012" publicOpinion="3" />
-      <suggestionOption id="2" text="Card_OptB_3012" vacune="3000" />
+      <suggestionOption id="2" text="Card_OptB_3012" capacity="3000" />
     </suggestionOptions>
     <requirements>
       <gamePhaseRequirement>
@@ -153,10 +153,10 @@
       <gameStoryRequirement />
     </requirements>
   </suggestion>
-  <suggestion id="3013" advisorId="CODE AL SUPERMERCATO" title="CardTitle_3013" description="">
+  <suggestion id="3013" advisorId="GrowthRate" title="CardTitle_3013" description="CardText_3013">
     <suggestionOptions>
       <suggestionOption id="1" text="Card_OptA_3013" publicOpinion="-2" growthRate="-2" startStoryId="4003" />
-      <suggestionOption id="2" text="Card_OptB_3013" growthRate="2" capacity="2" />
+      <suggestionOption id="2" text="Card_OptB_3013" publicOpinion="2" growthRate="2" />
     </suggestionOptions>
     <requirements>
       <gamePhaseRequirement>
@@ -166,10 +166,10 @@
       <gameStoryRequirement />
     </requirements>
   </suggestion>
-  <suggestion id="3014" advisorId="CODE AL SUPERMERCATO" title="CardTitle_3014" description="">
+  <suggestion id="3014" advisorId="GrowthRate" title="CardTitle_3014" description="CardText_3014">
     <suggestionOptions>
       <suggestionOption id="1" text="Card_OptA_3014" money="-1000" growthRate="-2" />
-      <suggestionOption id="2" text="Card_OptB_3014" growthRate="-2" capacity="-2" />
+      <suggestionOption id="2" text="Card_OptB_3014" publicOpinion="-2" growthRate="-2" />
     </suggestionOptions>
     <requirements>
       <gamePhaseRequirement>
@@ -179,10 +179,10 @@
       <gameStoryRequirement />
     </requirements>
   </suggestion>
-  <suggestion id="3015" advisorId="CODE AL SUPERMERCATO" title="CardTitle_3015" description="">
+  <suggestion id="3015" advisorId="GrowthRate" title="CardTitle_3015" description="CardText_3015">
     <suggestionOptions>
       <suggestionOption id="1" text="Card_OptA_3015" />
-      <suggestionOption id="2" text="Card_OptB_3015" publicOpinion="-2000" vacune="2000" />
+      <suggestionOption id="2" text="Card_OptB_3015" money="-2000" capacity="2000" />
     </suggestionOptions>
     <requirements>
       <gamePhaseRequirement>
@@ -191,10 +191,10 @@
       <gameStoryRequirement />
     </requirements>
   </suggestion>
-  <suggestion id="3016" advisorId="CODE AL SUPERMERCATO" title="CardTitle_3016" description="">
+  <suggestion id="3016" advisorId="GrowthRate" title="CardTitle_3016" description="CardText_3016">
     <suggestionOptions>
       <suggestionOption id="1" text="Card_OptA_3016" />
-      <suggestionOption id="2" text="Card_OptB_3016" capacity="1" startStoryId="3" />
+      <suggestionOption id="2" text="Card_OptB_3016" growthRate="1" vacune="3" />
     </suggestionOptions>
     <requirements>
       <gamePhaseRequirement>
@@ -204,7 +204,7 @@
       <gameStoryRequirement />
     </requirements>
   </suggestion>
-  <suggestion id="3017" advisorId="CODE AL SUPERMERCATO" title="CardTitle_3017" description="">
+  <suggestion id="3017" advisorId="GrowthRate" title="CardTitle_3017" description="CardText_3017">
     <suggestionOptions>
       <suggestionOption id="1" text="Card_OptA_3017" />
       <suggestionOption id="2" text="Card_OptB_3017" />

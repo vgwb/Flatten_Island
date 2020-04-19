@@ -143,13 +143,16 @@ namespace SheetsQuickstart
             if value of opt is 2, reading from googlesheet
             **/
             string opt=dataConfig.OptionMode;
+            Console.WriteLine("opt: "+opt);
             if (opt == "1")
-            {    
+            {
+                Console.WriteLine("entramos en csv\n\n");    
                 List<List<string>> valuesCSV= new List<List<string>>();
                 valuesCSV = readingCSV();
                 feedingnObjectFromCSVValue(valuesCSV);
 
             }else if(opt == "2"){
+                Console.WriteLine("entramos en GS\n\n");
                 IList<IList<Object>> valuesSheet =  readingFromGoogleSheets();
                 feedingnObjectFromSheetsValue(valuesSheet);
             }else{
@@ -225,9 +228,9 @@ namespace SheetsQuickstart
                 int lastCellRow=0;
                 SuggestionSheet sug = new SuggestionSheet();
                 sug.idSuggestion=ss[row][0].ToString();
-                sug.advisorId=ss[row][6].ToString();
+                sug.advisorId=ss[row][12].ToString();
                 sug.title=ss[row][1].ToString();
-                sug.description=ss[(row+1)][2].ToString();
+                sug.description=ss[(row+1)][1].ToString();
                 for(int i = 0; i < 2; i++){
                     SuggestionOption aux = new SuggestionOption();
                     int newPosition = row+i+2;
@@ -267,9 +270,9 @@ namespace SheetsQuickstart
                 int lastCellRow=0;
                 SuggestionSheet sug = new SuggestionSheet();
                 sug.idSuggestion=ss[row][0];
-                sug.advisorId=ss[row][6];
+                sug.advisorId=ss[row][12];
                 sug.title=ss[row][1];
-                sug.description=ss[(row+1)][2];
+                sug.description=ss[(row+1)][1];
                 for(int i = 0; i < 2; i++){
                     SuggestionOption aux = new SuggestionOption();
                     int newPosition = row+i+2;
@@ -410,23 +413,11 @@ namespace SheetsQuickstart
                 return null;
             }
             }
+            
             List<SuggestionSheet> feedingnObjectFromCSVValue(List<List<string>> values){
             if (values != null && values.Count > 0)
             {
                 suggestionList = new List<SuggestionSheet>(10);
-                
-                for (int i=0;i<values.Count;i++)
-                {   
-                    Console.WriteLine("column : "+i);
-                    for(int j=0;j<values[i].Count;j++)
-                    {
-                        Console.Write("cell "+j+" : "+values[i][j].ToString()+"; ");
-
-                    }
-                    Console.WriteLine("\n-----------------------------------------");
-                    
-                }
-
                 int rowId=0;
                 for (int i=0;i<values.Count;i++)
                 {
