@@ -129,7 +129,7 @@ namespace SheetsQuickstart
 
         static void Main(string[] args)
         {
-            string configPath = "config.json";
+            string configPath = "..\\..\\..\\input\\config.json";
 
             string configFileData = File.ReadAllText(configPath);
             
@@ -306,7 +306,7 @@ namespace SheetsQuickstart
             }
     
             List<List<string>> readingCSV() {
-                string path = "suggestions.csv";
+                string path = "..\\..\\..\\input\\suggestions.csv";
                 List<List<string>> values= new List<List<string>>();
                 string[] readText = File.ReadAllLines(path);
                 foreach(string text in readText){
