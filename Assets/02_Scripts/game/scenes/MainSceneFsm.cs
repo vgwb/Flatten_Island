@@ -60,6 +60,7 @@ public class MainSceneFsm : FiniteStateMachine
 		{
 			localPlayer.ResumeGameSession();
 		}
+		ChartManager.instance.FirstDraw();
 	}
 
 	private void Play_Update()
