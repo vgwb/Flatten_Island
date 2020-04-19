@@ -46,7 +46,6 @@ public class ChartManager : MonoSingleton
 	private int dayToDrawTo = -1; // The chart is being drawn up to day and day-1
     private float elapsedTime = 0.0f;
 	private bool animating = false;
-	private bool firstDrawPending = true;
 
 
 	public static ChartManager instance
@@ -63,17 +62,16 @@ public class ChartManager : MonoSingleton
 		AdjustToViewport();
 	}
 
+	public void FirstDraw()
+	{
+		dayToDrawTo = GameManager.instance.localPlayer.gameSession.day;
+		UpdateFullChart();
+	}
+
 	protected override void OnMonoSingletonUpdate()
 	{
-		if (firstDrawPending && GameManager.instance.localPlayer.gameSession != null)
+		if (animating)
 		{
-			firstDrawPending = false;
-			dayToDrawTo = GameManager.instance.localPlayer.gameSession.day;
-			UpdateFullChart(); // First draw, without a day increase, from the stored state
-		}
-		else if (animating)
-		{
-			// Note: Due to the order, the chart is animated before the day increase, but values are of day+1
 			dayToDrawTo = GameManager.instance.localPlayer.gameSession.day + 1;
 
 			elapsedTime += Time.deltaTime;
@@ -185,7 +183,7 @@ public class ChartManager : MonoSingleton
 	{
 		float animationProgress = elapsedTime / totalAnimationTime;
 		
-		int day = GetDayToDrawTo() + 1;
+		int day = GetDayToDrawTo();
 		float daysToDraw = MAX_DAYS * animationProgress;
 		for (int d = day; d < daysToDraw; d+=dashLineSpacing) 
 		{
@@ -224,7 +222,7 @@ public class ChartManager : MonoSingleton
 		int x = GetXForDay(day);
 		int y = GetYForPatients(FutureProjector.instance.GetPredictedPatients(day));
 
-		Color color = Color.grey;
+		Color color = Color.black;
 		if (y == OVERFLOW_MIN_Y)
 		{
 			animating = false; // Confirm behaviour
