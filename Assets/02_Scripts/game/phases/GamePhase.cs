@@ -13,8 +13,6 @@ public class GamePhase : ISavable
 	{
 		gamePhaseXmlModel = XmlModelManager.instance.FindModel<GamePhaseXmlModel>(gamePhaseId);
 		this.startDay = startDay;
-
-		StartMusic();
 	}
 
 	public void Resume()
@@ -22,7 +20,7 @@ public class GamePhase : ISavable
 		StartMusic();
 	}
 
-	private void StartMusic()
+	public void StartMusic()
 	{
 		if (!string.IsNullOrEmpty(gamePhaseXmlModel.musicAudioClip))
 		{
@@ -52,12 +50,17 @@ public class GamePhase : ISavable
 
 	public string GetName()
 	{
-		return LocalizationManager.instance.GetText(gamePhaseXmlModel.name);
+		return gamePhaseXmlModel.name;
 	}
 
 	public int GetNextPhaseId()
 	{
 		return gamePhaseXmlModel.nextPhaseId;
+	}
+
+	public int GetPhaseId()
+	{
+		return gamePhaseXmlModel.id;
 	}
 
 	public int GetStartDay()

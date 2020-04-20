@@ -6,6 +6,8 @@ public class Hud : MonoSingleton
 {
 	public HudChef hudChef;
 
+	public VaccineBar vaccineBar;
+
 	public Text growthValue;
 	public Text moneyValue;
 	public Text dayValue;
@@ -31,17 +33,11 @@ public class Hud : MonoSingleton
 
 	public void Setup()
 	{
-		//ActivateGroup(healthGroup, true);
+		UpdateDayValues();
 	}
 
 	public void Unsetup()
 	{
-		//ActivateGroup(healthGroup, false);
-	}
-
-	private void ActivateGroup(GameObject group, bool active)
-	{
-		group.SetActive(active);
 	}
 
 	public void DestroyHud()
@@ -58,6 +54,7 @@ public class Hud : MonoSingleton
 		patientsValue.text = session.patients[session.day - 1].ToString();
 		capacityValue.text = session.capacity.ToString();
 		publicOpinionValue.text = session.publicOpinion + "%";
+		vaccineBar.UpdateBar(session.vaccineDevelopment / 100f);
 	}
 
 	public void UpdateSuggestionOptions()
@@ -68,5 +65,6 @@ public class Hud : MonoSingleton
 		patientsValue.text = session.patients[session.day].ToString();
 		capacityValue.text = session.capacity.ToString();
 		publicOpinionValue.text = session.publicOpinion + "%";
+		vaccineBar.UpdateBar(session.vaccineDevelopment/100f);
 	}
 }

@@ -8,6 +8,10 @@ public class GameSessionXmlModel : XmlModel
 	public int initialMoney;
 	public int initialPublicOpinion;
 	public int initialVaccineDevelopment;
+
+	public int nextDayMoneyIncrement;
+	public int nextDayVaccineIncrement;
+	public int nextDayGrowthRateIncrement;
 	
 	override public void Initialize(XElement element)
 	{
@@ -19,5 +23,9 @@ public class GameSessionXmlModel : XmlModel
 		initialMoney = ParseIntAttribute(element, "initialMoney");
 		initialPublicOpinion = ParseIntAttribute(element, "initialPublicOpinion");
 		initialVaccineDevelopment = ParseIntAttribute(element, "initialVaccineDevelopment");
+
+		nextDayMoneyIncrement = ParseIntAttribute(element, "nextDayMoneyIncrement");
+		nextDayVaccineIncrement = ParseIntAttribute(element, "nextDayVaccineIncrement");
+		nextDayGrowthRateIncrement = ParseIntAttribute(element, "nextDayGrowthRateIncrement");
 	}
 }

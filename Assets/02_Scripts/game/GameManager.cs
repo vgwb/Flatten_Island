@@ -43,10 +43,11 @@ public class GameManager : MonoSingleton
 		AudioManager.instance.SetChannelVolume(EAudioChannelType.Sfx, sfxChannelVolume);
 
 		LocalizationManager.instance.Init();
-		SetLanguage();
-		Debug.Log("Current Language:" + LocalizationManager.instance.GetCurrentLanguage());
 
 		LoadPlayer();
+
+		SetLanguage();
+		Debug.Log("Current Language:" + localPlayer.GetLanguageId());
 	}
 
 	protected override void OnMonoSingletonUpdate()
@@ -76,7 +77,7 @@ public class GameManager : MonoSingleton
 
 	private void SetLanguage()
 	{
-		if (!LocalizationManager.instance.HasCurrentLanguage())
+		if (!localPlayer.HasLanguageId())
 		{
 			string languageCode = platform.GetCurrentLanguage();
 			if (languageCode != null)
@@ -84,12 +85,12 @@ public class GameManager : MonoSingleton
 				LocalizationXmlModel localizationXmlModel = LocalizationManager.instance.FindLocalizationXmlModel(languageCode);
 				if (localizationXmlModel != null)
 				{
-					LocalizationManager.instance.SetLanguage(localizationXmlModel.languageId);
+					localPlayer.SetLanguageId(localizationXmlModel.languageId);
 				}
 			}
 			else
 			{
-				LocalizationManager.instance.SetDefaultLanguage();
+				localPlayer.SetLanguageId(LocalizationManager.DEFAULT_LANGUAGE_ID);
 			}
 		}
 	}

@@ -9,6 +9,7 @@ public class MenuScene : MonoSingleton
 	public CinematicMenu introCinematicMenu;
 	public GameObject menuCanvas;
 	public GameObject cinematicCanvas;
+	public AudioClip menuMusic;
 
 	public static MenuScene instance
 	{
@@ -45,7 +46,7 @@ public class MenuScene : MonoSingleton
 		PlayCinematicCompletedEvent playCinematicCompletedEvent = eventMessage.eventObject as PlayCinematicCompletedEvent;
 		if (playCinematicCompletedEvent.cinematicMenu == introCinematicMenu)
 		{
-			GameManager.instance.localPlayer.skipIntro = true;
+			GameManager.instance.localPlayer.playerSettings.skipIntro = true;
 			GameManager.instance.SavePlayer();
 			sceneFsm.TriggerState(MenuSceneFsm.MenuState);
 		}
@@ -54,7 +55,8 @@ public class MenuScene : MonoSingleton
 	public void OnPlayClick()
     {
 		Debug.Log("OnPlayClick()");
-		ScenesFlowManager.instance.UnloadingMenuScene(); // PABLO: what if we had 2 navigations?
+
+		sceneFsm.TriggerState(MenuSceneFsm.UninitState);
 	}
 
 	public void SetupScene()
@@ -66,7 +68,9 @@ public class MenuScene : MonoSingleton
 
 	private void OnLoadingPanelExitCompleted()
 	{
-		if (GameManager.instance.localPlayer.skipIntro)
+		AudioManager.instance.PlayMusic(menuMusic);
+
+		if (GameManager.instance.localPlayer.playerSettings.skipIntro)
 		{
 			sceneFsm.TriggerState(MenuSceneFsm.MenuState);
 		}

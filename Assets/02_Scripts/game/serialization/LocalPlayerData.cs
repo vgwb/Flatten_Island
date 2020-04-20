@@ -4,7 +4,5 @@
 public class LocalPlayerData : GameData
 {
 	public GameSessionData gameSessionData;
-
-	public bool skipIntro;
-
+	public PlayerSettingsData playerSettingsData;
 }

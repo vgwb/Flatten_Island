@@ -9,6 +9,9 @@ public class SuggestionOptionXmlModel : XmlModel
 	public int growthRateModifier;
 	public int vaccineModifier;
 
+	private int startStoryId;
+	private int stopStoryId;
+
 	override public void Initialize(XElement element)
 	{
 		base.Initialize(element);
@@ -19,5 +22,27 @@ public class SuggestionOptionXmlModel : XmlModel
 		publicOpinionModifier = ParseIntAttribute(element, "publicOpinion");
 		growthRateModifier = ParseIntAttribute(element, "growthRate");
 		vaccineModifier = ParseIntAttribute(element, "vaccine");
+		startStoryId = ParseIntAttribute(element, "startStoryId");
+		stopStoryId = ParseIntAttribute(element, "stopStoryId");
+	}
+
+	public bool HasStartStoryId()
+	{
+		return startStoryId > 0;
+	}
+
+	public bool HasStopStoryId()
+	{
+		return stopStoryId > 0;
+	}
+
+	public int GetStartStoryId()
+	{
+		return startStoryId;
+	}
+
+	public int GetStopStoryId()
+	{
+		return stopStoryId;
 	}
 }

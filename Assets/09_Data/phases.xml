@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group>
-	<gamePhase id="1" name="Tutorial_Phase" description="Phase1_Description" nextPhaseId="2" musicAudioClip="Audio/music/Tutorial">
+	<gamePhase id="0" name="Tutorial_Phase" description="Phase1_Description" nextPhaseId="1" musicAudioClip="Audio/music/Tutorial">
 		<endConditions>
 			<gamePhaseDurationCondition days="5"/>
 		</endConditions>
 	</gamePhase>
-	<gamePhase id="2" name="FirstCases_Phase" description="Phase2_Description" nextPhaseId="3" musicAudioClip="Audio/music/FirstCases">
+	<gamePhase id="1" name="FirstCases_Phase" description="Phase2_Description" nextPhaseId="2" musicAudioClip="Audio/music/FirstCases">
 		<endConditions>
 			<gamePhaseDurationCondition days="14"/>
 			<gamePhaseGrowthCondition maxGrowthRate="30"/>
 		</endConditions>
 	</gamePhase>
-	<gamePhase id="3" name="Emergency_Phase" description="Phase3_Description" nextPhaseId="4" musicAudioClip="Audio/music/Emergency">
+	<gamePhase id="2" name="Emergency_Phase" description="Phase3_Description" nextPhaseId="3" musicAudioClip="Audio/music/Emergency">
 		<endConditions>
 			<gamePhaseGrowthCondition minGrowthRate="-5"/>
 		</endConditions>
 	</gamePhase>
-	<gamePhase id="4" name="PullingCurveDown_Phase" description="Phase4_Description" musicAudioClip="Audio/music/PullingCurveDown">
+	<gamePhase id="3" name="PullingCurveDown_Phase" description="Phase4_Description" musicAudioClip="Audio/music/PullingCurveDown">
 	</gamePhase>
 </group>

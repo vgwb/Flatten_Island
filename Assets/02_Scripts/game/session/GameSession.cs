@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 
 public class GameSession : ISavable
 {
-	public static int INITIAL_PHASE_ID = 2;
+	public static int INITIAL_PHASE_ID = 1;
 	private const int MIN_GROWTH_RATE = -50;
 
 	public const int MAX_DAYS = 110; // TODO
 	public const int MAX_PATIENTS = 30000; // TODO
+
+	private const int VACCINE_PROGRESS_END_DEVELOPMENT = 100;
 
 	public int day { get; set; }
 	public int[] patients { get; set; }
@@ -19,19 +22,26 @@ public class GameSession : ISavable
 	public int publicOpinion { get; set; }
 	public List<AdvisorXmlModel> advisors;
 	public GamePhase gamePhase;
+	public List<GameStoryXmlModel> activeGameStories;
 
 	private GameSessionXmlModel gameSessionXmlModel;
 	private GameSessionFsm gameSessionFsm;
 
-	public void Start()
+	private ISuggestionSelectionPolicy suggestionSelectionPolicy;
+
+	public GameSession()
 	{
 		if (gameSessionXmlModel == null)
 		{
 			gameSessionXmlModel = XmlModelManager.instance.FindModel<GameSessionXmlModel>();
 		}
+	}
 
+	public void Initialize(List<AdvisorXmlModel> initialAdvisors)
+	{
 		patients = new int[MAX_DAYS];
-		advisors = AdvisorsManager.instance.PickAdvisors();
+		advisors = initialAdvisors;
+		activeGameStories = new List<GameStoryXmlModel>();
 		day = 1;
 		vaccineDevelopment = gameSessionXmlModel.initialVaccineDevelopment;
 		patients[0] = gameSessionXmlModel.initialPatients;
@@ -39,9 +49,11 @@ public class GameSession : ISavable
 		capacity = gameSessionXmlModel.initialCapacity;
 		money = gameSessionXmlModel.initialMoney;
 		publicOpinion = gameSessionXmlModel.initialPublicOpinion;
+	}
 
+	public void Start()
+	{
 		StartGamePhase(INITIAL_PHASE_ID);
-
 		StartFsm();
 	}
 
@@ -82,18 +94,49 @@ public class GameSession : ISavable
 		capacity += selectedSuggestionOptionXmlModel.capacityModifier;
 		int patientsIncrease = (patients[day - 1] * growthRate) / 100;
 		patients[day] = patients[day - 1] + patientsIncrease;
+		IncrementVaccineDevelopment(selectedSuggestionOptionXmlModel.vaccineModifier);
+
+		TryStartStory(selectedSuggestionOptionXmlModel);
+
+		TryStopStory(selectedSuggestionOptionXmlModel);
+	}
+
+	private void IncrementVaccineDevelopment(int increment)
+	{
+		vaccineDevelopment = Math.Min(VACCINE_PROGRESS_END_DEVELOPMENT, vaccineDevelopment + increment);
+		vaccineDevelopment = Math.Max(0, vaccineDevelopment);
+	}
+
+	private void TryStartStory(SuggestionOptionXmlModel suggestionOptionXmlModel)
+	{
+		if (suggestionOptionXmlModel.HasStartStoryId())
+		{
+			GameStoryXmlModel gameStoryXmlModel = XmlModelManager.instance.FindModel<GameStoryXmlModel>(suggestionOptionXmlModel.GetStartStoryId());
+			if (gameStoryXmlModel != null && !activeGameStories.Contains(gameStoryXmlModel))
+			{
+				activeGameStories.Add(gameStoryXmlModel);
+			}
+		}
+	}
+
+	private void TryStopStory(SuggestionOptionXmlModel suggestionOptionXmlModel)
+	{
+		if (suggestionOptionXmlModel.HasStopStoryId())
+		{
+			GameStoryXmlModel gameStoryXmlModel = XmlModelManager.instance.FindModel<GameStoryXmlModel>(suggestionOptionXmlModel.GetStopStoryId());
+			if (gameStoryXmlModel != null && activeGameStories.Contains(gameStoryXmlModel))
+			{
+				activeGameStories.Remove(gameStoryXmlModel);
+			}
+		}
 	}
 
 	public void NextDay()
 	{
-		money += patients[day] * 3 - capacity * 2;
-		vaccineDevelopment++;
+		money += gameSessionXmlModel.nextDayMoneyIncrement;
+		IncrementVaccineDevelopment(gameSessionXmlModel.nextDayVaccineIncrement);
+		growthRate += gameSessionXmlModel.nextDayGrowthRateIncrement;
 		day++;
-	}
-
-	public void PickAdvisors()
-	{
-		advisors = AdvisorsManager.instance.PickAdvisors();
 	}
 
 	public bool IsCurrentPhaseFinished()
@@ -103,7 +146,7 @@ public class GameSession : ISavable
 
 	public bool HasPlayerWon()
 	{
-		return vaccineDevelopment >= 100f;
+		return vaccineDevelopment >= VACCINE_PROGRESS_END_DEVELOPMENT;
 	}
 
 	public bool HasPlayerLose()
@@ -136,6 +179,7 @@ public class GameSession : ISavable
 	{
 		gamePhase = new GamePhase();
 		gamePhase.Start(gamePhaseId, day);
+		gamePhase.StartMusic();
 
 		Debug.Log("GameSession = Starting Game Phase:" + gamePhase.GetName());
 
@@ -148,8 +192,23 @@ public class GameSession : ISavable
 		GameObject nextDayEntry = GameObjectFactory.instance.InstantiateGameObject(NextDayEntry.PREFAB, parentTransform, false);
 		nextDayEntry.gameObject.transform.SetParent(parentTransform, true);
 		NextDayEntry nextDayEntryScript = nextDayEntry.GetComponent<NextDayEntry>();
+		nextDayEntryScript.SetParameters(gameSessionXmlModel, day);
 		nextDayEntry.gameObject.SetActive(true);
+		nextDayEntry.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
 		return nextDayEntryScript;
+	}
+
+
+	public SuggestionXmlModel PickNextAvailableSuggestion(AdvisorXmlModel advisorXmlModel, LocalPlayer localPlayer)
+	{
+		if (suggestionSelectionPolicy == null)
+		{
+			suggestionSelectionPolicy = new SuggestionSelectionRandomPolicy();
+			suggestionSelectionPolicy.Initialize(localPlayer);
+			suggestionSelectionPolicy.Reset();
+		}
+
+		return suggestionSelectionPolicy.GetSuggestion(advisorXmlModel);
 	}
 
 	public GameData WriteSaveData()
@@ -171,6 +230,12 @@ public class GameSession : ISavable
 
 		GamePhaseData gamePhaseData = gamePhase.WriteSaveData() as GamePhaseData;
 		gameSessionData.gamePhaseData = gamePhaseData;
+
+		gameSessionData.activeGameStoryIds = new int[activeGameStories.Count];
+		for (int i = 0; i < activeGameStories.Count; i++)
+		{
+			gameSessionData.activeGameStoryIds[i] = activeGameStories[i].id;
+		}
 
 		return gameSessionData;
 	}
@@ -198,5 +263,19 @@ public class GameSession : ISavable
 
 		gamePhase = new GamePhase();
 		gamePhase.ReadSaveData(gameSessionData.gamePhaseData);
+
+		activeGameStories = new List<GameStoryXmlModel>();
+
+		if (gameSessionData.activeGameStoryIds != null)
+		{
+			for (int i = 0; i < gameSessionData.activeGameStoryIds.Length; i++)
+			{
+				GameStoryXmlModel gameStoryXmlModel = XmlModelManager.instance.FindModel<GameStoryXmlModel>(gameSessionData.activeGameStoryIds[i]);
+				if (gameStoryXmlModel != null)
+				{
+					activeGameStories.Add(gameStoryXmlModel);
+				}
+			}
+		}
 	}
 }
