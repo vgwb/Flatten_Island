@@ -26,7 +26,7 @@ public class MusicUIController : MonoBehaviour
             PauseButton.SetActive(false);
 
         }
-        else if (!IsPause)
+        else (!IsPause)
         {
             Time.timeScale = 0;
             playButton.SetActive(false);
