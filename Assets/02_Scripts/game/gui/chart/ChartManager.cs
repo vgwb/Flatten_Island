@@ -16,10 +16,13 @@ public class ChartManager : MonoSingleton
 	public GameObject evolutionChart;
 	public GameObject initialDot;
 	public GameObject finalDot;
+	public Color normalColor;
+	public Color overFlowColor;
 
 	// Public options
 	public float totalAnimationTime;
 	public int dashLineSpacing;
+	public int dashLineDotWidth;
 
 	// Measures, adjusted to viewport. Act like consts but they are potentially overriden
 	private int VIEWPORT_WITDH = 2235;
@@ -29,11 +32,10 @@ public class ChartManager : MonoSingleton
 	private float DAY_WIDTH_INCREMENT;
 
 	private const int CHART_X_MARGIN = 125;
-	private const int VIEWPORT_HEIGHT = 1242;
+	private const int VIEWPORT_HEIGHT = 1442;
 	private const int HEIGHT = 300;
-	private const int CAPACITY_LINE_Y = 30; // 10% down from the top, adjusted in the editor
+	private const int CAPACITY_LINE_Y = 67; // 324 from the top in the editor
 	private const int MAX_Y_RANGE = HEIGHT - CAPACITY_LINE_Y;
-	private const int OVERFLOW_MIN_Y = CAPACITY_LINE_Y -15; // Just to see the circle above
 	private const int LINE_THICKNESS = 3;
 	private const int MAX_DAYS = 100;
 	private const float EPSILON = 0.05f;
@@ -222,13 +224,8 @@ public class ChartManager : MonoSingleton
 		int x = GetXForDay(day);
 		int y = GetYForPatients(FutureProjector.instance.GetPredictedPatients(day));
 
-		Color color = Color.black;
-		if (y == OVERFLOW_MIN_Y)
-		{
-			animating = false; // Confirm behaviour
-			color = Color.red;
-		}
-		tex.DrawFilledCircle(x, y, 2, color);
+		Color color = (y < CAPACITY_LINE_Y) ? overFlowColor : normalColor;
+		tex.DrawFilledCircle(x, y, dashLineDotWidth, color);
 	}
 
 	private void PositionBeginAndEndDots(float elapsedTime)
@@ -273,8 +270,7 @@ public class ChartManager : MonoSingleton
 		
 		float currentCapacity = (float)GameManager.instance.localPlayer.gameSession.capacity;
 		float capacityUsage = patients / currentCapacity;
-		int y = HEIGHT - (int)(capacityUsage * MAX_Y_RANGE);
-		return (y < CAPACITY_LINE_Y) ? OVERFLOW_MIN_Y : y; // Avoid drawing too out of bounds
+		return HEIGHT - (int)(capacityUsage * MAX_Y_RANGE);
 	}
 
 	public int GetDayToDrawTo()
