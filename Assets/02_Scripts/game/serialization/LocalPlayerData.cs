@@ -5,4 +5,5 @@ public class LocalPlayerData : GameData
 {
 	public GameSessionData gameSessionData;
 	public PlayerSettingsData playerSettingsData;
+	public HighScoreData highScoreData;
 }

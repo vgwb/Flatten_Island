@@ -81,6 +81,8 @@ public class GameSessionFsm : FiniteStateMachine
 
 	private void Winning_Enter()
 	{
+		GameManager.instance.TryUpdateHighScore();
+
 		EventMessageHandler winningDialogExitCompletedMessageHandler = new EventMessageHandler(this, OnWinningDialogExit);
 		EventMessageManager.instance.AddHandler(typeof(GenericDialogExitCompletedEvent).Name, winningDialogExitCompletedMessageHandler);
 		GenericDialog.Show(5003, MainScene.instance.uiWorldCanvas.transform);
@@ -100,6 +102,8 @@ public class GameSessionFsm : FiniteStateMachine
 
 	private void Losing_Enter()
 	{
+		GameManager.instance.TryUpdateHighScore();
+
 		EventMessageHandler losingDialogExitCompletedMessageHandler = new EventMessageHandler(this, OnLosingDialogExit);
 		EventMessageManager.instance.AddHandler(typeof(GenericDialogExitCompletedEvent).Name, losingDialogExitCompletedMessageHandler);
 		GenericDialog.Show(5004, MainScene.instance.uiWorldCanvas.transform);
