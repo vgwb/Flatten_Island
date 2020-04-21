@@ -75,6 +75,21 @@ public class GameManager : MonoSingleton
 		return localPlayer.HasSession();
 	}
 
+	public bool TryUpdateHighScore()
+	{
+		bool newDayHighScore = localPlayer.TryUpdateDayHighScore();
+		bool newGrowthRateHighScore = localPlayer.TryUpdateGrowthRateHighScore();
+		bool newPublicOpinionHighScore = localPlayer.TryUpdatePublicOpinionHighScore();
+
+		if (newDayHighScore || newGrowthRateHighScore || newPublicOpinionHighScore )
+		{
+			SavePlayer();
+			return true;
+		}
+
+		return false;
+	}
+
 	private void SetLanguage()
 	{
 		if (!localPlayer.HasLanguageId())

@@ -4,6 +4,7 @@ public class LocalPlayer : Player
 {
 	public GameSession gameSession;
 	public PlayerSettings playerSettings;
+	public HighScore highScore;
 
 	public LocalPlayer()
 	{
@@ -14,6 +15,7 @@ public class LocalPlayer : Player
 	{
 		gameSession = null;
 		playerSettings = new PlayerSettings();
+		highScore = new HighScore();
 	}
 
 	public bool HasSession()
@@ -56,6 +58,22 @@ public class LocalPlayer : Player
 		gameSession = null;
 	}
 
+	public bool TryUpdateDayHighScore()
+	{
+		return highScore.TryUpdateDayHighScore(gameSession.day);
+	}
+
+	public bool TryUpdateGrowthRateHighScore()
+	{
+		return highScore.TryUpdateGrowthRateHighScore(gameSession.growthRate);
+	}
+
+	public bool TryUpdatePublicOpinionHighScore()
+	{
+		return highScore.TryUpdatePublicOpinionHighScore(gameSession.publicOpinion);
+	}
+
+
 	public override GameData WriteSaveData()
 	{
 		LocalPlayerData localPlayerData = new LocalPlayerData();
@@ -72,6 +90,9 @@ public class LocalPlayer : Player
 		{
 			localPlayerData.gameSessionData = null;
 		}
+
+		HighScoreData highScoreData = highScore.WriteSaveData() as HighScoreData;
+		localPlayerData.highScoreData = highScoreData;
 
 		return localPlayerData;
 	}
@@ -97,6 +118,15 @@ public class LocalPlayer : Player
 		else
 		{
 			playerSettings = new PlayerSettings();
+		}
+
+		if (localPlayerData.highScoreData != null)
+		{
+			highScore.ReadSaveData(localPlayerData.highScoreData);
+		}
+		else
+		{
+			highScore = new HighScore();
 		}
 	}
 }
