@@ -6,7 +6,6 @@ public class GameManager : MonoSingleton
 	public Camera mainCamera { get { return Camera.main; } }
 
 	public Platform platform;
-	public SuggestionFactory suggestionFactory;
 	public LocalPlayer localPlayer;
 	public float musicChannelVolume = 0.2f;
 	public float sfxChannelVolume = 1.0f;
@@ -33,8 +32,6 @@ public class GameManager : MonoSingleton
 		saveGameStorage = new LocalSaveGameStorage();
 
 		gameSerializer = new JsonGameSerializer();
-
-		suggestionFactory = new SuggestionFactory();
 
 		PlatformCreator platformCreator = new PlatformCreator();
 		platform = platformCreator.CreatePlatform();
