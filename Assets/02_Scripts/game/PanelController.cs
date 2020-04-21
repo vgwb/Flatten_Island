@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SuggestionPanelController : MonoBehaviour
+public class PanelController : MonoBehaviour
 {
    
     [SerializeField]
-	private GameObject CreditsPanel, WatchIntroPanel, ShowPanelSettings;
+	private GameObject CreditsPanel;
+	[SerializeField]
+	private GameObject WatchIntroPanel;
+	[SerializeField]
+	private GameObject ShowPanelSettings;
     public static bool isPanelShow;
     private bool isPanelHide = true;
 
