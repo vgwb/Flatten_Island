@@ -84,6 +84,18 @@ public class AudioManager : MonoSingleton
 		return audioSource;
 	}
 
+	public void MuteChannel(EAudioChannelType audioChannelType, bool muted)
+	{
+		AudioChannel audioChannel;
+		if (!channels.TryGetValue(audioChannelType, out audioChannel))
+		{
+			Debug.LogError("AudioManager.MuteChannel - audioChannel:" + audioChannelType + " not set!");
+			return;
+		}
+
+		audioChannel.SetMute(muted);
+	}
+
 	public void StopMusic()
 	{
 		StopAudio(musicAudioSource, EAudioChannelType.Music);
