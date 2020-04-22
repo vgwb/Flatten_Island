@@ -2508,7 +2508,7 @@ GameObject:
   - component: {fileID: 7005519240188427029}
   - component: {fileID: 1196054612867440634}
   m_Layer: 5
-  m_Name: MenuSettingsManager 1
+  m_Name: MenuSettingsManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

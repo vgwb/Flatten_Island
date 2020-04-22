@@ -790,8 +790,8 @@ RectTransform:
   - {fileID: 3991835050947315898}
   - {fileID: 3991835049784429315}
   - {fileID: 2541533490326837229}
-  - {fileID: 3991835050432516691}
   - {fileID: 623014447}
+  - {fileID: 1650089876}
   m_Father: {fileID: 7099749}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1012,7 +1012,7 @@ RectTransform:
   m_Children:
   - {fileID: 582078680}
   m_Father: {fileID: 540062794}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2269,6 +2269,56 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speechText: {fileID: 1542119162}
   speechBubble: {fileID: 1657826788}
+--- !u!1 &1650089875
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1650089876}
+  - component: {fileID: 1650089877}
+  m_Layer: 5
+  m_Name: HighScoreText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1650089876
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1650089875}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 3991835050432516691}
+  m_Father: {fileID: 540062794}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1650089877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1650089875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41ad728d5abf73f478a723231fc8d292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highScoreText: {fileID: 3991835050432516690}
 --- !u!1 &1657826786
 GameObject:
   m_ObjectHideFlags: 0
@@ -4114,7 +4164,7 @@ GameObject:
   - component: {fileID: 3991835050432516693}
   - component: {fileID: 3991835050432516690}
   m_Layer: 5
-  m_Name: HighScoreMessage
+  m_Name: HighScoreMessageTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4165,8 +4215,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 540062794}
-  m_RootOrder: 5
+  m_Father: {fileID: 1650089876}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5970,5 +6020,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7005519239019936953, guid: b75a5e961bc7eaa469bcec410c477dcd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8725028082915275163, guid: b75a5e961bc7eaa469bcec410c477dcd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b75a5e961bc7eaa469bcec410c477dcd, type: 3}
