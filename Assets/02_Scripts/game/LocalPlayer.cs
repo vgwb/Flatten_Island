@@ -61,7 +61,6 @@ public class LocalPlayer : Player
 	public bool TryUpdateDayHighScore()
 	{
 		return highScore.TryUpdateDayHighScore(gameSession.day);
-		HighScoreText.DisplayHighScoreText();
 	}
 
 	public bool TryUpdateGrowthRateHighScore()
