@@ -91,6 +91,13 @@ public class ScenesFlowFsm : FiniteStateMachine
 	{
 		if (scenesFlowManager.unloadingAsyncOperation!= null && scenesFlowManager.unloadingAsyncOperation.isDone)
 		{
+#if CHEAT_DEBUG
+			if (CheatManager.instance.forceIntro)
+			{
+				TriggerState(LoadingMenuSceneState);
+				return;
+			}
+#endif
 			if (GameManager.instance.HasPendingGameSession())
 			{
 				TriggerState(LoadingMainSceneState);

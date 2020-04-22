@@ -70,6 +70,14 @@ public class MenuScene : MonoSingleton
 	{
 		AudioManager.instance.PlayMusic(menuMusic);
 
+#if CHEAT_DEBUG
+		if (CheatManager.instance.forceIntro)
+		{
+			sceneFsm.TriggerState(MenuSceneFsm.IntroState);
+			return;
+		}
+#endif
+
 		if (GameManager.instance.localPlayer.playerSettings.skipIntro)
 		{
 			sceneFsm.TriggerState(MenuSceneFsm.MenuState);

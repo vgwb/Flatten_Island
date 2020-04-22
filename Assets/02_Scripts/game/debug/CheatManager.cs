@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 public class CheatManager : MonoSingleton
 {
 	public bool showSuggestionParameters;
+	public bool forceIntro;
 
 	public static CheatManager instance
 	{
