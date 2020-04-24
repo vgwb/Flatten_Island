@@ -218,6 +218,7 @@ GameObject:
   - component: {fileID: 2793110276852847649}
   - component: {fileID: 8276738433703015086}
   - component: {fileID: 7042006118170580171}
+  - component: {fileID: 5987303881798538488}
   m_Layer: 5
   m_Name: RecordText
   m_TagString: Untagged
@@ -307,6 +308,19 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 14
   m_TargetDisplay: 0
+--- !u!114 &5987303881798538488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380355953326343085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab4284b9935c8154d9d6fd04dac8864a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localizationId: RecordText
 --- !u!1 &1057941266233252569
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,6 +434,7 @@ GameObject:
   - component: {fileID: 7948748686237644413}
   - component: {fileID: 1279973017435555103}
   - component: {fileID: 1229127165913386791}
+  - component: {fileID: 3983829473360095406}
   m_Layer: 5
   m_Name: NewText
   m_TagString: Untagged
@@ -509,6 +524,19 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 14
   m_TargetDisplay: 0
+--- !u!114 &3983829473360095406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2135256214238468622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab4284b9935c8154d9d6fd04dac8864a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localizationId: NewText
 --- !u!1 &2610044916466084724
 GameObject:
   m_ObjectHideFlags: 0
@@ -761,6 +789,7 @@ GameObject:
   - component: {fileID: 7246647612814331788}
   - component: {fileID: 277948580049207018}
   - component: {fileID: 2723280986691479034}
+  - component: {fileID: 6683289257898021656}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -829,6 +858,19 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: OK
+--- !u!114 &6683289257898021656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3437735372486249902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab4284b9935c8154d9d6fd04dac8864a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localizationId: OkText
 --- !u!1 &4372358299322434604
 GameObject:
   m_ObjectHideFlags: 0
