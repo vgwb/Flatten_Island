@@ -9,9 +9,6 @@ using ProtoTurtle.BitmapDrawing;
 public class ChartManager : MonoSingleton
 {
 
-	public Sprite patientsNormalImg;
-	public Sprite patientsOverflowImg;
-	public GameObject patientsPanel;
 	public GameObject growthPanel;
 	public GameObject evolutionChart;
 	public GameObject initialDot;
@@ -39,10 +36,6 @@ public class ChartManager : MonoSingleton
 	private const int LINE_THICKNESS = 3;
 	private const int MAX_DAYS = 100;
 	private const float EPSILON = 0.05f;
-
-	// Sprite adjustments
-	private const int PATIENTS_PANEL_OFFSET_X = -37; // to adjust the tip of the box
-	private const int PATIENTS_PANEL_OFFSET_Y = 13; // to adjust the tip of the box
 
 	// Internal state
 	private int dayToDrawTo = -1; // The chart is being drawn up to day and day-1
@@ -123,27 +116,18 @@ public class ChartManager : MonoSingleton
 
 	private void HidePatientsIndicator()
 	{
-		patientsPanel.transform.localPosition = new Vector3(10000, 10000, 0f); // Push out
+ 		PatientsPanelSelector.instance.HidePanels();
 	}
 
 	private void ShowPatientsIndicator()
 	{
 		int day = GetDayToDrawTo();
-		int patients = GetPatients(day-1);
-		bool isOverflow = patients > GetCurrentCapacity();
+		float x = GetXForDay(day-1);
+		float y = HEIGHT - GetYForPatients(GetPatients(day-1));
 
-		Image patientsPanelImage = patientsPanel.gameObject.GetComponent<Image>();
-		patientsPanelImage.sprite = isOverflow ? patientsOverflowImg : patientsNormalImg;
-
-		patientsPanel.transform.localPosition = CalculatePatientsPanelPosition(day, patients);
-	}
-
-	private Vector3 CalculatePatientsPanelPosition(int day, int patients) {
-		// Coordinates in the sprite space (like any dot in the chart sprite)
-		float x = PATIENTS_PANEL_OFFSET_X + GetXForDay(day-1);
-		float y = PATIENTS_PANEL_OFFSET_Y + HEIGHT - GetYForPatients(patients);
-
-		return CoordinatesInViewport(x, y);
+ 		PatientsPanelSelector.instance.HidePanels();
+		GameObject patientsPanel = PatientsPanelSelector.instance.SelectPanel();
+		patientsPanel.transform.localPosition = CoordinatesInViewport(x, y);
 	}
 
 	private Sprite CreateChartSprite(float elapsedTime)
