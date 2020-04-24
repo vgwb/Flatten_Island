@@ -12,7 +12,16 @@ public class GameOverEntry : MonoBehaviour
 	public Text messageText;
 	public Text okButtonText;
 
+	private Canvas titleCanvas;
+	private Canvas messageCanvas;
+
 	public GameOverXmlModel gameOverXmlModel;
+
+	private void Awake()
+	{
+		titleCanvas = titleText.GetComponent<Canvas>();
+		messageCanvas = messageText.GetComponent<Canvas>();
+	}
 
 	public void SetParameters(bool hasPlayerWon)
 	{
@@ -33,6 +42,17 @@ public class GameOverEntry : MonoBehaviour
 			LocalizationManager.instance.SetLocalizedText(messageText, gameOverXmlModel.loseDescription);
 			LocalizationManager.instance.SetLocalizedText(okButtonText, gameOverXmlModel.loseButton);
 		}
+	}
+
+	public void RefreshCanvas()
+	{
+		gameObject.SetActive(true);
+		gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
+
+		//I don't know if there is a bug in Unity, maybe it's related to setting the localScale,
+		//but text message were not displayed. I had to force the canvas to refresh
+		titleCanvas.sortingOrder = titleCanvas.sortingOrder;
+		messageCanvas.sortingOrder = messageCanvas.sortingOrder;
 	}
 
 	public void OnButtonSelected()

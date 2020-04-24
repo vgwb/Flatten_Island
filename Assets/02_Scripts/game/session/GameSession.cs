@@ -228,8 +228,7 @@ public class GameSession : ISavable
 		gameOverEntry.gameObject.transform.SetParent(parentTransform, true);
 		GameOverEntry gameOverEntryScript = gameOverEntry.GetComponent<GameOverEntry>();
 		gameOverEntryScript.SetParameters(hasPlayerWon);
-		gameOverEntry.gameObject.SetActive(true);
-		gameOverEntry.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
+		gameOverEntryScript.RefreshCanvas();
 		return gameOverEntryScript;
 	}
 
