@@ -211,6 +211,28 @@ public class GameSession : ISavable
 		return suggestionSelectionPolicy.GetSuggestion(advisorXmlModel);
 	}
 
+	public GameOverEntry ShowWonDialog()
+	{
+		return ShowGameOverEntry(true);
+	}
+
+	public GameOverEntry ShowLoseDialog()
+	{
+		return ShowGameOverEntry(false);
+	}
+
+	private GameOverEntry ShowGameOverEntry(bool hasPlayerWon)
+	{
+		Transform parentTransform = MainScene.instance.suggestionMenu.transform;
+		GameObject gameOverEntry = GameObjectFactory.instance.InstantiateGameObject(GameOverEntry.PREFAB, parentTransform, false);
+		gameOverEntry.gameObject.transform.SetParent(parentTransform, true);
+		GameOverEntry gameOverEntryScript = gameOverEntry.GetComponent<GameOverEntry>();
+		gameOverEntryScript.SetParameters(hasPlayerWon);
+		gameOverEntry.gameObject.SetActive(true);
+		gameOverEntry.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
+		return gameOverEntryScript;
+	}
+
 	public GameData WriteSaveData()
 	{
 		GameSessionData gameSessionData = new GameSessionData();

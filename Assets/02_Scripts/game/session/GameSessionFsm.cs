@@ -28,6 +28,7 @@ public class GameSessionFsm : FiniteStateMachine
 		EventMessageManager.instance.RemoveHandler(typeof(SuggestionEntryExitCompletedEvent).Name, this);
 		EventMessageManager.instance.RemoveHandler(typeof(SuggestionResultEntryExitCompletedEvent).Name, this);
 		EventMessageManager.instance.RemoveHandler(typeof(NextDayEntryExitCompletedEvent).Name, this);
+		EventMessageManager.instance.RemoveHandler(typeof(GameOverEntryExitCompletedEvent).Name, this);
 	}
 
 	protected override void Initialize()
@@ -84,20 +85,19 @@ public class GameSessionFsm : FiniteStateMachine
 		GameManager.instance.TryUpdateHighScore();
 
 		EventMessageHandler winningDialogExitCompletedMessageHandler = new EventMessageHandler(this, OnWinningDialogExit);
-		EventMessageManager.instance.AddHandler(typeof(GenericDialogExitCompletedEvent).Name, winningDialogExitCompletedMessageHandler);
-		GenericDialog.Show(5003, MainScene.instance.uiWorldCanvas.transform);
+		EventMessageManager.instance.AddHandler(typeof(GameOverEntryExitCompletedEvent).Name, winningDialogExitCompletedMessageHandler);
+		gameSession.ShowWonDialog();
 	}
 
 	private void OnWinningDialogExit(EventMessage eventMessage)
 	{
-		//TO DO, before quitting should record the high score
 		GameManager.instance.localPlayer.QuitGameSession();
 		ScenesFlowManager.instance.UnloadingMainScene();
 	}
 
 	private void Winning_Exit()
 	{
-		EventMessageManager.instance.RemoveHandler(typeof(GenericDialogExitCompletedEvent).Name, this);
+		EventMessageManager.instance.RemoveHandler(typeof(GameOverEntryExitCompletedEvent).Name, this);
 	}
 
 	private void Losing_Enter()
@@ -105,13 +105,12 @@ public class GameSessionFsm : FiniteStateMachine
 		GameManager.instance.TryUpdateHighScore();
 
 		EventMessageHandler losingDialogExitCompletedMessageHandler = new EventMessageHandler(this, OnLosingDialogExit);
-		EventMessageManager.instance.AddHandler(typeof(GenericDialogExitCompletedEvent).Name, losingDialogExitCompletedMessageHandler);
-		GenericDialog.Show(5004, MainScene.instance.uiWorldCanvas.transform);
+		EventMessageManager.instance.AddHandler(typeof(GameOverEntryExitCompletedEvent).Name, losingDialogExitCompletedMessageHandler);
+		gameSession.ShowLoseDialog();
 	}
 
 	private void OnLosingDialogExit(EventMessage eventMessage)
 	{
-		//TO DO, before quitting should record the high score if there is one
 		GameManager.instance.localPlayer.QuitGameSession();
 		GameManager.instance.SavePlayer();
 		ScenesFlowManager.instance.UnloadingMainScene();

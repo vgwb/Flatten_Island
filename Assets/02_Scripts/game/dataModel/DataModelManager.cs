@@ -37,6 +37,7 @@ public class DataModelManager : MonoSingleton
 		XmlModelTypeMappings.instance.AddMapping("suggestion", typeof(SuggestionXmlModel));
 		XmlModelTypeMappings.instance.AddMapping("gameSession", typeof(GameSessionXmlModel));
 		XmlModelTypeMappings.instance.AddMapping("genericDialog", typeof(GenericDialogXmlModel));
+		XmlModelTypeMappings.instance.AddMapping("gameOver", typeof(GameOverXmlModel));
 
 		XmlModelTypeMappings.instance.AddMapping("gamePhaseRequirement", typeof(GamePhaseRequirementXmlModel));
 		XmlModelTypeMappings.instance.AddMapping("gameStoryRequirement", typeof(GameStoryRequirementXmlModel));
