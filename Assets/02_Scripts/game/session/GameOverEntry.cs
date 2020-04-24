@@ -11,6 +11,9 @@ public class GameOverEntry : MonoBehaviour
 	public Text titleText;
 	public Text messageText;
 	public Text okButtonText;
+	public GameObject winTitleGroup;
+	public GameObject loseTitleGroup;
+	public GameObject newHighScoreGroup;
 
 	private Canvas titleCanvas;
 	private Canvas messageCanvas;
@@ -30,11 +33,15 @@ public class GameOverEntry : MonoBehaviour
 			gameOverXmlModel = XmlModelManager.instance.FindModel<GameOverXmlModel>();
 		}
 
+		winTitleGroup.SetActive(hasPlayerWon);
+		loseTitleGroup.SetActive(!hasPlayerWon);
+
 		if (hasPlayerWon)
 		{
 			LocalizationManager.instance.SetLocalizedText(titleText, gameOverXmlModel.winTitle);
 			LocalizationManager.instance.SetLocalizedText(messageText, gameOverXmlModel.winDescription);
 			LocalizationManager.instance.SetLocalizedText(okButtonText, gameOverXmlModel.winButton);
+			newHighScoreGroup.SetActive(GameManager.instance.HasNewDayHighScore());
 		}
 		else
 		{

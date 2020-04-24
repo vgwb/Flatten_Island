@@ -10,6 +10,8 @@ public class GameManager : MonoSingleton
 	public float musicChannelVolume = 0.2f;
 	public float sfxChannelVolume = 1.0f;
 
+	private bool newDayHighScore = false;
+
 	public ISaveGameSerializer gameSerializer
 	{
 		get; private set;
@@ -74,7 +76,8 @@ public class GameManager : MonoSingleton
 
 	public bool TryUpdateHighScore()
 	{
-		bool newDayHighScore = localPlayer.TryUpdateDayHighScore();
+
+		newDayHighScore = localPlayer.TryUpdateDayHighScore();
 		bool newGrowthRateHighScore = localPlayer.TryUpdateGrowthRateHighScore();
 		bool newPublicOpinionHighScore = localPlayer.TryUpdatePublicOpinionHighScore();
 
@@ -85,6 +88,11 @@ public class GameManager : MonoSingleton
 		}
 
 		return false;
+	}
+
+	public bool HasNewDayHighScore()
+	{
+		return newDayHighScore;
 	}
 
 	private void SetLanguage()

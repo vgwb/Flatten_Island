@@ -842,7 +842,7 @@ GameObject:
   - component: {fileID: 6103274845596447637}
   - component: {fileID: 5751511572277727687}
   m_Layer: 5
-  m_Name: NewRecordBackground
+  m_Name: NewHighScoreGroup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1133,6 +1133,9 @@ MonoBehaviour:
   titleText: {fileID: 3269219003989705046}
   messageText: {fileID: 223510993579138124}
   okButtonText: {fileID: 2723280986691479034}
+  winTitleGroup: {fileID: 5648690084575851880}
+  loseTitleGroup: {fileID: 7078186608897112594}
+  newHighScoreGroup: {fileID: 4372358299322434604}
 --- !u!1 &5640207497457172572
 GameObject:
   m_ObjectHideFlags: 0
