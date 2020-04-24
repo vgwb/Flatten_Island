@@ -1160,6 +1160,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89750535021232b4bba53fc57e66902f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &693129516 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5273919133721191212, guid: b75a5e961bc7eaa469bcec410c477dcd,
+    type: 3}
+  m_PrefabInstance: {fileID: 4791211664482036984}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &731556002
 GameObject:
   m_ObjectHideFlags: 0
@@ -2541,6 +2547,12 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &1725905169 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1283015572656993793, guid: b75a5e961bc7eaa469bcec410c477dcd,
+    type: 3}
+  m_PrefabInstance: {fileID: 4791211664482036984}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1748917033
 GameObject:
   m_ObjectHideFlags: 0
@@ -6025,6 +6037,38 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7742519606519407083, guid: b75a5e961bc7eaa469bcec410c477dcd,
+        type: 3}
+      propertyPath: buttonIconOn
+      value: 
+      objectReference: {fileID: 693129516}
+    - target: {fileID: 7742519606519407083, guid: b75a5e961bc7eaa469bcec410c477dcd,
+        type: 3}
+      propertyPath: buttonIconOff
+      value: 
+      objectReference: {fileID: 1725905169}
+    - target: {fileID: 7005519239468948951, guid: b75a5e961bc7eaa469bcec410c477dcd,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4791211664482036985}
+    - target: {fileID: 7005519239468948951, guid: b75a5e961bc7eaa469bcec410c477dcd,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MusicOnOff
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8725028082915275163, guid: b75a5e961bc7eaa469bcec410c477dcd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b75a5e961bc7eaa469bcec410c477dcd, type: 3}
+--- !u!114 &4791211664482036985 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7742519606519407083, guid: b75a5e961bc7eaa469bcec410c477dcd,
+    type: 3}
+  m_PrefabInstance: {fileID: 4791211664482036984}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20200b32bf75cd94cbb9ba1f27f0c3db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

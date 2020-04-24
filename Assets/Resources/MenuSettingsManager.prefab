@@ -441,7 +441,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7005519239468948950}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -646,8 +646,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: Pause
+      - m_Target: {fileID: 1096992189377233905}
+        m_MethodName: SfxOnOff
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1190,6 +1190,7 @@ GameObject:
   - component: {fileID: 8683979426293716296}
   - component: {fileID: 1950498511732550639}
   - component: {fileID: 1426397506686376592}
+  - component: {fileID: 1096992189377233905}
   m_Layer: 5
   m_Name: SFXSettings
   m_TagString: Untagged
@@ -1255,6 +1256,20 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!114 &1096992189377233905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4291552252961013552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20200b32bf75cd94cbb9ba1f27f0c3db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonIconOn: {fileID: 1445918007091834555}
+  buttonIconOff: {fileID: 441810292475220731}
 --- !u!1 &4333138462307111245
 GameObject:
   m_ObjectHideFlags: 0
@@ -1301,6 +1316,7 @@ GameObject:
   - component: {fileID: 4946029350872941634}
   - component: {fileID: 890998706719920748}
   - component: {fileID: 2532640436281825201}
+  - component: {fileID: 7742519606519407083}
   m_Layer: 5
   m_Name: MusicSsttings
   m_TagString: Untagged
@@ -1366,6 +1382,20 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!114 &7742519606519407083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5256513347355698854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20200b32bf75cd94cbb9ba1f27f0c3db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonIconOn: {fileID: 5273919133721191212}
+  buttonIconOff: {fileID: 1283015572656993793}
 --- !u!1 &5273919133721191212
 GameObject:
   m_ObjectHideFlags: 0
@@ -1396,7 +1426,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7005519239468948950}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1993,8 +2023,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4259436836927340565}
   - {fileID: 465999274991609473}
+  - {fileID: 4259436836927340565}
   m_Father: {fileID: 4946029350872941634}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2051,8 +2081,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: Pause
+      - m_Target: {fileID: 7742519606519407083}
+        m_MethodName: MusicOnOff
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
