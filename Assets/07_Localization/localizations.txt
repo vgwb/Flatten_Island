@@ -11,6 +11,10 @@ YesText		Yes	Si	Si	Oui	نعم
 NoText		No	No	No	No	لا
 QuitGameDialogTitle		Quit Game	Salir del juego	Termina partita	Quitter le jeu	قم بإنهاء اللعبة
 QuitGameDialogMessage		Are you sure?	Estas seguro?	Sei sicuro?	Êtes-vous sûr?	هل أنت متأكد؟
+Win_Title		You Win!	Ganaste!	Hai vinto!		
+Win_Description		Your scientists found a cure for the virus!				
+Lose_Title		You Lose!				
+Lose_Description		The virus infected everybody on the island and you have been Fired!				
 PressSecretary_Name		Mr. Goodnews				
 Treasurer_Name		Mrs. Payalot				
 LabScientist_Name		Prof. Antibody				
