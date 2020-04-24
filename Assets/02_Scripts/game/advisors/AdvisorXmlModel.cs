@@ -3,6 +3,7 @@
 public class AdvisorXmlModel : XmlModel
 {
 	public string portraitSprite;
+	public string portraitFullSprite;
 	public string iconSprite;
 	public string portraitBackgroundSprite;
 	public string bubbleSprite;
@@ -13,6 +14,7 @@ public class AdvisorXmlModel : XmlModel
 	{
 		base.Initialize(element);
 		portraitSprite = ParseStringAttribute(element, "portraitSprite");
+		portraitFullSprite = ParseStringAttribute(element, "portraitFullSprite");
 		iconSprite = ParseStringAttribute(element, "iconSprite");
 		portraitBackgroundSprite = ParseStringAttribute(element, "portraitBackgroundSprite");
 		bubbleSprite = ParseStringAttribute(element, "bubbleSprite");

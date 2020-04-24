@@ -32,9 +32,9 @@ public class SuggestionResultEntry : MonoBehaviour
 	{
 		this.suggestionOptionXmlModel = suggestionOptionXmlModel;
 
-		if (!string.IsNullOrEmpty(advisorXmlModel.portraitSprite))
+		if (!string.IsNullOrEmpty(advisorXmlModel.portraitFullSprite))
 		{
-			Sprite advisorSprite = Resources.Load<Sprite>(advisorXmlModel.portraitSprite);
+			Sprite advisorSprite = Resources.Load<Sprite>(advisorXmlModel.portraitFullSprite);
 			advisorPortrait.overrideSprite = advisorSprite;
 		}
 
