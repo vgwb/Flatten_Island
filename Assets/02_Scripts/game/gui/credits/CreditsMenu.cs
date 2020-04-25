@@ -5,10 +5,20 @@ using System.Collections;
 public class CreditsMenu : MonoBehaviour
 {
 	public CreditsMenuChef creditsMenuChef;
-	public GameObject fadeImage;
+	public GameObject scrollingPanel;
+	private Vector3? scrollingPanelInitialPosition;
 
 	public void PlayCredits()
 	{
+		if (!scrollingPanelInitialPosition.HasValue)
+		{
+			scrollingPanelInitialPosition = scrollingPanel.transform.position;
+		}
+		else
+		{
+			scrollingPanel.transform.position = scrollingPanelInitialPosition.Value;
+		}
+
 		creditsMenuChef.Cook(creditsMenuChef.playCreditsRecipe, OnPlayCreditsCompleted);
 	}
 

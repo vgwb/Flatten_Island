@@ -24,6 +24,7 @@ SFXMenuText		SFX	SFX	SFX
 TutorialMenuText		Tutorial	Tutoriale	Tutoriale		
 CreditsMenuText		Credits	Credits	Credits		
 WatchIntroMenuText		Watch Intro	MIra la Intro	Guarda la Intro		
+CreditsTitle		CREDITS				
 PressSecretary_Name		Mr. Goodnews				
 Treasurer_Name		Mrs. Payalot				
 LabScientist_Name		Prof. Antibody				
