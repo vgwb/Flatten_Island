@@ -1,29 +1,28 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
+﻿using System;
+using UnityEngine;
 using Messages;
 
-public class UITextLocalizer : MonoBehaviour
+public class UILocalizedText : MonoBehaviour
 {
-	public string localizationId;
-
-	private Text text;
-
-	private void Awake()
-	{
-		text = GetComponent<Text>();
-	}
-
 	private void OnEnable()
 	{
 		EventMessageHandler languageChangedMessageHandler = new EventMessageHandler(this, OnLanguageChangedEvent);
 		EventMessageManager.instance.AddHandler(typeof(LanguageChangedEvent).Name, languageChangedMessageHandler);
+		OnEnabled();
+	}
 
-		RefreshText();
+	protected virtual void OnEnabled()
+	{
 	}
 
 	private void OnDisable()
 	{
+		OnDisabled();
 		EventMessageManager.instance.RemoveHandler(typeof(LanguageChangedEvent).Name, this);
+	}
+
+	protected virtual void OnDisabled()
+	{
 	}
 
 	private void OnLanguageChangedEvent(EventMessage eventMessage)
@@ -31,8 +30,7 @@ public class UITextLocalizer : MonoBehaviour
 		RefreshText();
 	}
 
-	private void RefreshText()
+	protected virtual void RefreshText()
 	{
-		LocalizationManager.instance.SetLocalizedText(text, localizationId);
 	}
 }
