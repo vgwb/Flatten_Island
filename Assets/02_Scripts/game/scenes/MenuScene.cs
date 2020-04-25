@@ -13,6 +13,8 @@ public class MenuScene : MonoSingleton
 	public CinematicMenu introCinematicMenu;
 	public GameObject menuCanvas;
 	public GameObject cinematicCanvas;
+	public GameObject creditsCanvas;
+	public CreditsMenu creditsMenu;
 	public AudioClip menuMusic;
 	public HighScoreText highScoreText;
 
@@ -116,6 +118,24 @@ public class MenuScene : MonoSingleton
 
 			sceneFsm.TriggerState(MenuSceneFsm.MenuState);
 		}
+	}
+
+	public void ShowCredits()
+	{
+		sceneFsm.TriggerState(MenuSceneFsm.CreditsState);
+	}
+
+	public void WatchCredits()
+	{
+		EventMessageManager.instance.RemoveHandler(typeof(PlayCreditsCompletedEvent).Name, this);
+		EventMessageHandler playCreditsCompletedMessageHandler = new EventMessageHandler(this, OnWatchCreditsCompleted);
+		EventMessageManager.instance.AddHandler(typeof(PlayCreditsCompletedEvent).Name, playCreditsCompletedMessageHandler);
+		ShowCredits();
+	}
+
+	private void OnWatchCreditsCompleted(EventMessage eventMessage)
+	{
+		sceneFsm.TriggerState(MenuSceneFsm.MenuState);
 	}
 
 	public void SetupScene()

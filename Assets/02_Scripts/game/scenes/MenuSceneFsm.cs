@@ -5,6 +5,7 @@ public class MenuSceneFsm : FiniteStateMachine
 	public static readonly string InitState = "Init";
 	public static readonly string ReadyState = "Ready";
 	public static readonly string IntroState = "Intro";
+	public static readonly string CreditsState = "Credits";
 	public static readonly string MenuState = "Menu";
 	public static readonly string UninitState = "Uninit";
 
@@ -21,6 +22,7 @@ public class MenuSceneFsm : FiniteStateMachine
 		AddState(InitState, null, Init_Update, Init_Exit);
 		AddState(ReadyState, Ready_Enter, Ready_Update, null);
 		AddState(IntroState, Intro_Enter, Intro_Update, Intro_Exit);
+		AddState(CreditsState, Credits_Enter, Credits_Update, Credits_Exit);
 		AddState(MenuState, Menu_Enter, Menu_Update, Menu_Exit);
 		AddState(UninitState, Uninit_Enter, null, null);
 	}
@@ -62,6 +64,21 @@ public class MenuSceneFsm : FiniteStateMachine
 	private void Intro_Exit()
 	{
 		menuScene.cinematicCanvas.SetActive(false);
+	}
+
+	private void Credits_Enter()
+	{
+		menuScene.creditsCanvas.SetActive(true);
+		menuScene.creditsMenu.PlayCredits();
+	}
+
+	private void Credits_Update()
+	{
+	}
+
+	private void Credits_Exit()
+	{
+		menuScene.creditsCanvas.SetActive(false);
 	}
 
 	private void Menu_Enter()

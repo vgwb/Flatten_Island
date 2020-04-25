@@ -1,16 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
-using Messages;
 
 public class SettingsMenu : MonoBehaviour
 {
 	public GridLayoutGroup settingsGrid;
-
-	[SerializeField]
-	private GameObject CreditsPanel;
-
 
 	public void OnButtonShowMenuClick()
 	{
@@ -26,17 +19,5 @@ public class SettingsMenu : MonoBehaviour
 	public bool IsGridShown()
 	{
 		return settingsGrid.gameObject.activeInHierarchy;
-	}
-
-	public void OpenShowCreditsPanel()
-	{
-		CreditsPanel.SetActive (true);
-
-	}
-
-	public void CloseShowCreditsPanel()
-	{
-		CreditsPanel.SetActive (false);
-
 	}
 }
