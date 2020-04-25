@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SettingsMenu : MonoBehaviour
 {
-   
-    [SerializeField]
+	public GridLayoutGroup settingsGrid;
+
+	[SerializeField]
 	private GameObject CreditsPanel;
 	[SerializeField]
 	private GameObject WatchIntroPanel;
@@ -14,7 +16,19 @@ public class SettingsMenu : MonoBehaviour
     public static bool isPanelShow;
     private bool isPanelHide = true;
 
- 	public void ShowPanelSettingsMenu() {
+
+	public void OnButtonShowMenuClick()
+	{
+		ShowGrid(!settingsGrid.gameObject.activeInHierarchy);
+	}
+
+	private void ShowGrid(bool visible)
+	{
+		settingsGrid.gameObject.SetActive(visible);
+	}
+
+
+	public void ShowPanelSettingsMenu() {
 
         if (Time.timeScale == 1)
         {
