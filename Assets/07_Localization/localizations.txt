@@ -18,6 +18,8 @@ Lose_Description		The virus infected everybody on the island and you have been F
 DaysText		days				
 NewText		NEW				
 RecordText		RECORD				
+YourRecordText		Your Record: %d Days				
+StartNewGameText		START NEW GAME				
 PressSecretary_Name		Mr. Goodnews				
 Treasurer_Name		Mrs. Payalot				
 LabScientist_Name		Prof. Antibody				
