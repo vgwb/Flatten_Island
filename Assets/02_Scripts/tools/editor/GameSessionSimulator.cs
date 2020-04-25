@@ -89,6 +89,14 @@ public class GameSessionSimulator
 				List<SuggestionXmlModel> suggestionXmlModels = XmlModelManager.instance.FindModels<SuggestionXmlModel>((suggestionXmlModel) => suggestionXmlModel.advisorId == selectedAdvisorXmlModel.id);
 				SuggestionXmlModel selectedSuggestionXmlModel = localPlayer.gameSession.PickNextAvailableSuggestion(selectedAdvisorXmlModel, localPlayer);
 
+				if (selectedSuggestionXmlModel == null)
+				{
+					gameSimulationResult.AddRow(gameSimulationResultRow);
+					gameSimulationResult.AddError("No suggestion available for advisor " + selectedAdvisorXmlModel.name);
+					gameOver = true;
+					break;
+				}
+
 				gameSimulationResultRow.chosenSuggestionId = selectedSuggestionXmlModel.id;
 
 				int randomOptionIndex = RandomGenerator.GetRandom(0, selectedSuggestionXmlModel.suggestionOptionsList.Count);

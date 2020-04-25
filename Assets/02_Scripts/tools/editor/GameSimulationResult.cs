@@ -8,16 +8,24 @@ public class GameSimulationResult
 	public string result;
 	public int days;
 
+	private string error;
+
 	private List<GameSimulationResultRow> gameSimulationResultRows;
 
 	public GameSimulationResult()
 	{
 		gameSimulationResultRows = new List<GameSimulationResultRow>();
+		error = null;
 	}
 
 	public void AddRow(GameSimulationResultRow gameSimulationResultRow)
 	{
 		gameSimulationResultRows.Add(gameSimulationResultRow);
+	}
+
+	public void AddError(string error)
+	{
+		this.error = error;
 	}
 
 	public void Write(StreamWriter writer)
@@ -31,5 +39,13 @@ public class GameSimulationResult
 		}
 
 		writer.WriteLine("");
+
+		if (error != null)
+		{
+			writer.WriteLine("-------------------------- ERROR OCCURRED DURING SIMULATION ------------------------");
+			writer.WriteLine(error);
+			writer.WriteLine("");
+			writer.WriteLine("");
+		}
 	}
 }
