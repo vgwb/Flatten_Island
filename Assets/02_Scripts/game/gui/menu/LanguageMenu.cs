@@ -7,22 +7,6 @@ public class LanguageMenu : MonoBehaviour
 {
 	public GridLayoutGroup languagesGrid;
 
-	private void OnEnable()
-	{
-		EventMessageHandler languageSelectedMessageHandler = new EventMessageHandler(this, OnLanguageSelectedEvent);
-		EventMessageManager.instance.AddHandler(typeof(LanguageSelectedEvent).Name, languageSelectedMessageHandler);
-	}
-
-	private void OnDisable()
-	{
-		EventMessageManager.instance.RemoveHandler(typeof(LanguageSelectedEvent).Name, this);
-	}
-
-	private void OnLanguageSelectedEvent(EventMessage eventMessage)
-	{
-		ShowGrid(false);
-	}
-
 	public bool IsGridShown()
 	{
 		return languagesGrid.gameObject.activeInHierarchy;
