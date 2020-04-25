@@ -1,12 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Donation : MonoBehaviour
 {
+	public string url;
+
     public void CallForDonation()
     {
-        
-        Application.OpenURL("https://vgwb.org/contact/");
-    }
+		if (!string.IsNullOrEmpty(url))
+		{
+			Application.OpenURL(url);
+		}
+	}
 }
