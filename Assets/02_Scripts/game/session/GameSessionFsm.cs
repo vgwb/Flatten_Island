@@ -102,8 +102,6 @@ public class GameSessionFsm : FiniteStateMachine
 
 	private void Losing_Enter()
 	{
-		GameManager.instance.TryUpdateHighScore();
-
 		EventMessageHandler losingDialogExitCompletedMessageHandler = new EventMessageHandler(this, OnLosingDialogExit);
 		EventMessageManager.instance.AddHandler(typeof(GameOverEntryExitCompletedEvent).Name, losingDialogExitCompletedMessageHandler);
 		gameSession.ShowLoseDialog();
