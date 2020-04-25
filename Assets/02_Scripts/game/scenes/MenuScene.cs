@@ -10,6 +10,7 @@ public class MenuScene : MonoSingleton
 	public GameObject menuCanvas;
 	public GameObject cinematicCanvas;
 	public AudioClip menuMusic;
+	public HighScoreText highScoreText;
 
 	public static MenuScene instance
 	{
@@ -63,7 +64,23 @@ public class MenuScene : MonoSingleton
 	{
 		menuCanvas.SetActive(false);
 		cinematicCanvas.SetActive(false);
+		TryDisplayHighScoreText();
 		InitScene.instance.loadingPanel.Exit(OnLoadingPanelExitCompleted);
+	}
+
+	private void TryDisplayHighScoreText()
+	{
+		HighScore highScore = GameManager.instance.localPlayer.highScore;
+
+		if (highScore != null && highScore.HasDayHighScore())
+		{
+			highScoreText.gameObject.SetActive(true);
+			highScoreText.DisplayDayHighScore(highScore.day);
+		}
+		else
+		{
+			highScoreText.gameObject.SetActive(false);
+		}
 	}
 
 	private void OnLoadingPanelExitCompleted()

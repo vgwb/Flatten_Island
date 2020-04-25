@@ -5,12 +5,12 @@ using UnityEngine.UI;
 
 public class HighScoreText : MonoBehaviour
 {
-
     public Text highScoreText;
+	public string localizationId;
 
-	public void DisplayHighScoreText(){
-
-		highScoreText.text = GameManager.instance.localPlayer.highScore.day.ToString();			
-
+	public void DisplayDayHighScore(int day)
+	{
+		LocalizationManager.instance.SetLocalizedText(highScoreText, localizationId);
+		highScoreText.text = LocalizationManager.instance.ReplaceIntInText(highScoreText.text, day);
 	}
 }
