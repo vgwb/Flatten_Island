@@ -12,15 +12,21 @@ public class CreditsMenu : MonoBehaviour
 		creditsMenuChef.Cook(creditsMenuChef.playCreditsRecipe, OnPlayCreditsCompleted);
 	}
 
+	public void OnExitButtonClick()
+	{
+		SendPlayCreditsCompletedEvent();
+	}
+
 	private void OnPlayCreditsCompleted()
+	{
+		SendPlayCreditsCompletedEvent();
+	}
+
+	private void SendPlayCreditsCompletedEvent()
 	{
 		PlayCreditsCompletedEvent playCreditsCompletedEvent = PlayCreditsCompletedEvent.CreateInstance(this);
 		EventMessage playCreditsCompletedEventMessage = new EventMessage(this, playCreditsCompletedEvent);
 		playCreditsCompletedEventMessage.SetMessageType(MessageType.BROADCAST);
 		EventMessageManager.instance.QueueMessage(playCreditsCompletedEventMessage);
-	}
-
-	private void OnDisable()
-	{
 	}
 }
