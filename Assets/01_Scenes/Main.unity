@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4366757, g: 0.48427194, b: 0.5645252, a: 1}
+  m_IndirectSpecularColor: {r: 0.43667555, g: 0.4842717, b: 0.56452394, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2426,6 +2426,7 @@ MonoBehaviour:
   phase1CapacityDelta: 500
   phase2CapacityDelta: 500
   phase3CapacityDelta: 0
+  capacityInterpolationDays: 15
 --- !u!1 &1065009009
 GameObject:
   m_ObjectHideFlags: 0
@@ -3246,7 +3247,7 @@ MonoBehaviour:
   normalColor: {r: 0, g: 0, b: 0, a: 1}
   overFlowColor: {r: 0, g: 0, b: 0, a: 1}
   totalAnimationTime: 1.2
-  dashLineSpacing: 2
+  dashLineSpacing: 15
   dashLineDotWidth: 2
 --- !u!1 &1457375273
 GameObject:

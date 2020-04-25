@@ -18,7 +18,7 @@ public class ChartManager : MonoSingleton
 
 	// Public options
 	public float totalAnimationTime;
-	public int dashLineSpacing;
+	public float dashLineSpacing;
 	public int dashLineDotWidth;
 
 	// Measures, adjusted to viewport. Act like consts but they are potentially overriden
@@ -34,7 +34,6 @@ public class ChartManager : MonoSingleton
 	private const int CAPACITY_LINE_Y = 67; // 324 from the top in the editor
 	private const int MAX_Y_RANGE = HEIGHT - CAPACITY_LINE_Y;
 	private const int LINE_THICKNESS = 3;
-	private const int MAX_DAYS = 100;
 	private const float EPSILON = 0.05f;
 
 	// Internal state
@@ -92,7 +91,7 @@ public class ChartManager : MonoSingleton
 		WIDTH = (HEIGHT * VIEWPORT_WITDH) / VIEWPORT_HEIGHT;
 		CURVE_MIN_WIDTH = (int)(WIDTH * 0.11); // tune, so show a minimum line and separate indicators
 		CURVE_MAX_WIDTH = (int)(WIDTH * 0.85); // tune, to leave space for the patients indicator
-		DAY_WIDTH_INCREMENT = (CURVE_MAX_WIDTH - CURVE_MIN_WIDTH) / (float)MAX_DAYS;
+		DAY_WIDTH_INCREMENT = (CURVE_MAX_WIDTH - CURVE_MIN_WIDTH) / (float)GetMaxDays();
 	}
 
 	public void RestartChartAnimation()
@@ -181,17 +180,29 @@ public class ChartManager : MonoSingleton
 		float animationProgress = elapsedTime / totalAnimationTime;
 		
 		int day = GetDayToDrawTo();
-		float daysToDraw = MAX_DAYS * animationProgress;
-		for (int d = day; d < daysToDraw; d+=dashLineSpacing) 
+		float daysToDraw = GetMaxDays() * animationProgress;
+		if (day >= daysToDraw) return;
+
+		/* Draw first point always, from there start moving a vector where a dot is drawn
+		   every given distance and some magnitude might be left for the next vector, so we
+		   avoid drawing dots per segment and cause a weird effect */
+		Vector2 prevPoint = GetPredictionPoint(day);
+		Vector2 nextPoint = new Vector2(); 
+		float magnitudeRemaining = 0f; // part of the last vector that hasn't been drawn
+		DrawPredictionPoint(tex, prevPoint); 
+		for (int d = day+1; d < daysToDraw; d++) 
 		{
-			DrawPredictionDay(tex, d);
+			nextPoint = GetPredictionPoint(d);
+			magnitudeRemaining = ContinuePredictionCurve(tex, d, prevPoint, nextPoint, magnitudeRemaining);
+			// Debug.Log("DrawPredictionCurve d: " + d + " nextPoint: " + nextPoint + " prevPoint: " + prevPoint + " magnitudeRemaining: " + magnitudeRemaining);
+			prevPoint = nextPoint;
 		}
 	}
 
 	private float GetSegmentsAnimationTime()
 	{
 		int day = GetDayToDrawTo();
-		return (totalAnimationTime * day) / (float)MAX_DAYS;
+		return (totalAnimationTime * day) / (float)GetMaxDays();
 	}
 
 	private void DrawOneDay(Texture2D tex, int day)
@@ -214,13 +225,40 @@ public class ChartManager : MonoSingleton
 		DrawSegment(tex, x1, y1, xp, yp);
 	}
 
-	private void DrawPredictionDay(Texture2D tex, int day)
+	private float ContinuePredictionCurve(Texture2D tex, int day, Vector2 prevPoint, Vector2 nextPoint, float magnitudeRemaining)
+	{
+		// We go from prevPoint to next point carrying magnitudeRemaining.
+		// We might draw from 0 to N points depending on the distance, and return another magnitudeRemaining
+		float distance = Vector2.Distance(prevPoint, nextPoint);
+		float totalMagnitude = magnitudeRemaining + distance;
+		float magnitudeToSpend = totalMagnitude;
+		float pointInterpolation = dashLineSpacing - magnitudeRemaining;
+
+		while(magnitudeToSpend > dashLineSpacing)
+		{
+			float t = pointInterpolation / distance;
+			magnitudeToSpend -= dashLineSpacing;
+			pointInterpolation += dashLineSpacing;
+
+			Vector2 toDraw = Vector2.Lerp(prevPoint, nextPoint, t);
+			// Debug.Log("day: " + day + " magnitudeToSpend: " + magnitudeToSpend + " t: " + t + " toDraw: " + toDraw);
+			DrawPredictionPoint(tex, toDraw);
+		}
+
+		return magnitudeToSpend;
+	}
+
+	private void DrawPredictionPoint(Texture2D tex, Vector2 position)
+	{
+		Color color = (position.y < CAPACITY_LINE_Y) ? overFlowColor : normalColor;
+		tex.DrawFilledCircle((int)position.x, (int)position.y, dashLineDotWidth, color);
+	}
+
+	private Vector2 GetPredictionPoint(int day)
 	{
 		int x = GetXForDay(day);
 		int y = GetYForPatients(FutureProjector.instance.GetPredictedPatients(day, sessionCopy));
-
-		Color color = (y < CAPACITY_LINE_Y) ? overFlowColor : normalColor;
-		tex.DrawFilledCircle(x, y, dashLineDotWidth, color);
+		return new Vector2(x, y);
 	}
 
 	private void PositionBeginAndEndDots(float elapsedTime)
@@ -312,5 +350,10 @@ public class ChartManager : MonoSingleton
 	public static void DrawSegment(Texture2D tex, int x1, int y1, int x2, int y2)
 	{
 		tex.DrawThickLine(x1, y1, x2, y2, Color.black, LINE_THICKNESS);
+	}
+
+	private int GetMaxDays()
+	{
+		return Math.Max(GetDayToDrawTo(), GameSession.MAX_DAYS);
 	}
 }
