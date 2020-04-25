@@ -75,12 +75,12 @@ public class MenuSceneFsm : FiniteStateMachine
 
 	private void Menu_Exit()
 	{
-		AudioManager.instance.StopMusic();
 		menuScene.menuCanvas.SetActive(false);
 	}
 
 	private void Uninit_Enter()
 	{
+		AudioManager.instance.StopMusic();
 		ScenesFlowManager.instance.UnloadingMenuScene(); // PABLO: what if we had 2 navigations?
 	}
 }

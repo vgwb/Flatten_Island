@@ -64,15 +64,29 @@ public class MenuScene : MonoSingleton
 		{
 			GameManager.instance.localPlayer.playerSettings.skipIntro = true;
 			GameManager.instance.SavePlayer();
-			sceneFsm.TriggerState(MenuSceneFsm.MenuState);
+
+			sceneFsm.TriggerState(MenuSceneFsm.UninitState);
 		}
 	}
 
 	public void OnPlayClick()
     {
-		Debug.Log("OnPlayClick()");
+#if CHEAT_DEBUG
+		if (CheatManager.instance.forceIntro)
+		{
+			sceneFsm.TriggerState(MenuSceneFsm.IntroState);
+			return;
+		}
+#endif
 
-		sceneFsm.TriggerState(MenuSceneFsm.UninitState);
+		if (GameManager.instance.localPlayer.playerSettings.skipIntro)
+		{
+			sceneFsm.TriggerState(MenuSceneFsm.UninitState);
+		}
+		else
+		{
+			sceneFsm.TriggerState(MenuSceneFsm.IntroState);
+		}
 	}
 
 	public void SetupScene()
@@ -101,23 +115,7 @@ public class MenuScene : MonoSingleton
 	private void OnLoadingPanelExitCompleted()
 	{
 		AudioManager.instance.PlayMusic(menuMusic);
-
-#if CHEAT_DEBUG
-		if (CheatManager.instance.forceIntro)
-		{
-			sceneFsm.TriggerState(MenuSceneFsm.IntroState);
-			return;
-		}
-#endif
-
-		if (GameManager.instance.localPlayer.playerSettings.skipIntro)
-		{
-			sceneFsm.TriggerState(MenuSceneFsm.MenuState);
-		}
-		else
-		{
-			sceneFsm.TriggerState(MenuSceneFsm.IntroState);
-		}
+		sceneFsm.TriggerState(MenuSceneFsm.MenuState);
 	}
 
 	public void DestroyScene()
