@@ -18,11 +18,11 @@ Lose_Description		The virus infected everybody on the island and you have been F
 DaysText		days				
 NewText		NEW				
 RecordText		RECORD				
-YourRecordText		Your Record: %d Days				
-StartNewGameText		START NEW GAME				
-CallToActionTitleText		CALL TO ACTION				
-CallToActionMessageText		You can help people				
-DonateText		DONATE				
+YourRecordText		Your Record: %d Days	Tu Record: %d Dias	Il tuo record: %d Giorni		
+StartNewGameText		START NEW GAME	NUEVA PARTIDA	NUOVA PARTITA		
+CallToActionTitleText		CALL TO ACTION	LLAMADA	CHIAMATA ALLE ARMI		
+CallToActionMessageText		You can help people	Ayda las personas	Aiuta le persone		
+DonateText		DONATE	DONA AHORA	DONA ADESSO		
 PressSecretary_Name		Mr. Goodnews				
 Treasurer_Name		Mrs. Payalot				
 LabScientist_Name		Prof. Antibody				
