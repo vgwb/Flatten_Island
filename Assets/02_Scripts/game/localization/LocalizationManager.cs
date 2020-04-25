@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using Messages;
 
 public class LocalizationManager : MonoSingleton
 {
@@ -36,6 +37,45 @@ public class LocalizationManager : MonoSingleton
 	{
 		localizationXmlModels = XmlModelManager.instance.FindModels<LocalizationXmlModel>();
 		nonLatinFont = Resources.GetBuiltinResource<Font>("Arial.ttf");
+
+		EventMessageHandler languageSelectedMessageHandler = new EventMessageHandler(this, OnLanguageSelectedEvent);
+		EventMessageManager.instance.AddHandler(typeof(LanguageSelectedEvent).Name, languageSelectedMessageHandler);
+	}
+
+	protected override void OnMonoSingletonDestroyed()
+	{
+		EventMessageManager.instance.RemoveHandler(typeof(LanguageSelectedEvent).Name, this);
+
+		base.OnMonoSingletonDestroyed();
+	}
+
+	private void OnLanguageSelectedEvent(EventMessage eventMessage)
+	{
+		LanguageSelectedEvent languageSelectedEvent = eventMessage.eventObject as LanguageSelectedEvent;
+
+		LocalizationXmlModel currentLanguageXmlModel = instance.GetCurrentLanguage();
+
+		if (languageSelectedEvent.languageXmlModel.id != currentLanguageXmlModel.id)
+		{
+			GameManager.instance.localPlayer.SetLanguageId(languageSelectedEvent.languageXmlModel.languageId);
+			GameManager.instance.SavePlayer();
+
+			SendLanguageChangedEvent();
+		}
+	}
+
+	private void SendLanguageChangedEvent()
+	{
+		LanguageChangedEvent languageChangedEvent = LanguageChangedEvent.CreateInstance(GetCurrentLanguage());
+		EventMessage languageChangedEventMessage = new EventMessage(this, languageChangedEvent);
+		languageChangedEventMessage.SetMessageType(MessageType.BROADCAST);
+		EventMessageManager.instance.QueueMessage(languageChangedEventMessage);
+	}
+
+	public LocalizationXmlModel GetCurrentLanguage()
+	{
+		LocalPlayer localPlayer = GameManager.instance.localPlayer;
+		return FindLocalizationXmlModelWithLanguageId(localPlayer.GetLanguageId());
 	}
 
 	public void SetLocalizedText(Text textField, string localizationId)
@@ -245,7 +285,7 @@ public class LocalizationManager : MonoSingleton
 		return null;
 	}
 
-	private LocalizationXmlModel FindLocalizationXmlModelWithLanguageId(string languageId)
+	public LocalizationXmlModel FindLocalizationXmlModelWithLanguageId(string languageId)
 	{
 		return localizationXmlModels.Find((localizationXmlModel) => localizationXmlModel.languageId == languageId);
 	}
