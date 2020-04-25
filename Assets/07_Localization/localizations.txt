@@ -23,6 +23,11 @@ StartNewGameText		START NEW GAME	NUEVA PARTIDA	NUOVA PARTITA
 CallToActionTitleText		CALL TO ACTION	LLAMADA	CHIAMATA ALLE ARMI		
 CallToActionMessageText		You can help people	Ayda las personas	Aiuta le persone		
 DonateText		DONATE	DONA AHORA	DONA ADESSO		
+MusicMenuText		Music	Musica	Musica		
+SFXMenuText		SFX	SFX	SFX		
+TutorialMenuText		Tutorial	Tutoriale	Tutoriale		
+CreditsMenuText		Credits	Credits	Credits		
+WatchIntroMenuText		Watch Intro	MIra la Intro	Guarda la Intro		
 PressSecretary_Name		Mr. Goodnews				
 Treasurer_Name		Mrs. Payalot				
 LabScientist_Name		Prof. Antibody				
