@@ -56,6 +56,11 @@ public class LocalizationManager : MonoSingleton
 		textField.text = localizedText;
 	}
 
+	public string ReplaceIntInText(string text, int value)
+	{
+		return text.Replace("%d", value.ToString());
+	}
+
 	private string GetText(string localizationId)
 	{
 		if (localizationId == null)
