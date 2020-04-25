@@ -34,7 +34,6 @@ public class ChartManager : MonoSingleton
 	private const int CAPACITY_LINE_Y = 67; // 324 from the top in the editor
 	private const int MAX_Y_RANGE = HEIGHT - CAPACITY_LINE_Y;
 	private const int LINE_THICKNESS = 3;
-	private const int MAX_DAYS = 100;
 	private const float EPSILON = 0.05f;
 
 	// Internal state
@@ -92,7 +91,7 @@ public class ChartManager : MonoSingleton
 		WIDTH = (HEIGHT * VIEWPORT_WITDH) / VIEWPORT_HEIGHT;
 		CURVE_MIN_WIDTH = (int)(WIDTH * 0.11); // tune, so show a minimum line and separate indicators
 		CURVE_MAX_WIDTH = (int)(WIDTH * 0.85); // tune, to leave space for the patients indicator
-		DAY_WIDTH_INCREMENT = (CURVE_MAX_WIDTH - CURVE_MIN_WIDTH) / (float)MAX_DAYS;
+		DAY_WIDTH_INCREMENT = (CURVE_MAX_WIDTH - CURVE_MIN_WIDTH) / (float)GameSession.MAX_DAYS;
 	}
 
 	public void RestartChartAnimation()
@@ -181,7 +180,7 @@ public class ChartManager : MonoSingleton
 		float animationProgress = elapsedTime / totalAnimationTime;
 		
 		int day = GetDayToDrawTo();
-		float daysToDraw = MAX_DAYS * animationProgress;
+		float daysToDraw = GameSession.MAX_DAYS * animationProgress;
 		for (int d = day; d < daysToDraw; d+=dashLineSpacing) 
 		{
 			DrawPredictionDay(tex, d);
@@ -191,7 +190,7 @@ public class ChartManager : MonoSingleton
 	private float GetSegmentsAnimationTime()
 	{
 		int day = GetDayToDrawTo();
-		return (totalAnimationTime * day) / (float)MAX_DAYS;
+		return (totalAnimationTime * day) / (float)GameSession.MAX_DAYS;
 	}
 
 	private void DrawOneDay(Texture2D tex, int day)
