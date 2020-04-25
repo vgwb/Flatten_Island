@@ -37,6 +37,7 @@ public class GameOverEntry : MonoBehaviour
 
 		winTitleGroup.SetActive(hasPlayerWon);
 		loseTitleGroup.SetActive(!hasPlayerWon);
+		daysText.gameObject.SetActive(hasPlayerWon);
 
 		if (hasPlayerWon)
 		{
