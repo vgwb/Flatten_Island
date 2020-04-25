@@ -76,7 +76,7 @@ public class FutureProjector : MonoSingleton
 		if (day < phase2FinalDay) expectedDeltaInFuture = phase2CapacityDelta;
 
 		// interpolate past growth with expected growth during the following capacityInterpolationDays days
-		int remainingDays = GameSession.MAX_DAYS - currentDay;
+		int remainingDays = GetMaxDays(currentDay) - currentDay;
 		int interpolatingDays = Math.Min(remainingDays, capacityInterpolationDays);
 
 		if (day < currentDay + interpolatingDays)
@@ -95,5 +95,10 @@ public class FutureProjector : MonoSingleton
 		if (day < phase1FinalDay) return phase1CapacityDelta;
 		if (day < phase2FinalDay) return phase2CapacityDelta;
 		return phase3CapacityDelta;
+	}
+
+	private int GetMaxDays(int currentDay)
+	{
+		return Math.Max(currentDay, GameSession.MAX_DAYS);
 	}
 }

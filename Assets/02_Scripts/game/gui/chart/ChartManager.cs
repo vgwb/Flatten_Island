@@ -91,7 +91,7 @@ public class ChartManager : MonoSingleton
 		WIDTH = (HEIGHT * VIEWPORT_WITDH) / VIEWPORT_HEIGHT;
 		CURVE_MIN_WIDTH = (int)(WIDTH * 0.11); // tune, so show a minimum line and separate indicators
 		CURVE_MAX_WIDTH = (int)(WIDTH * 0.85); // tune, to leave space for the patients indicator
-		DAY_WIDTH_INCREMENT = (CURVE_MAX_WIDTH - CURVE_MIN_WIDTH) / (float)GameSession.MAX_DAYS;
+		DAY_WIDTH_INCREMENT = (CURVE_MAX_WIDTH - CURVE_MIN_WIDTH) / (float)GetMaxDays();
 	}
 
 	public void RestartChartAnimation()
@@ -180,7 +180,7 @@ public class ChartManager : MonoSingleton
 		float animationProgress = elapsedTime / totalAnimationTime;
 		
 		int day = GetDayToDrawTo();
-		float daysToDraw = GameSession.MAX_DAYS * animationProgress;
+		float daysToDraw = GetMaxDays() * animationProgress;
 		if (day >= daysToDraw) return;
 
 		/* Draw first point always, from there start moving a vector where a dot is drawn
@@ -202,7 +202,7 @@ public class ChartManager : MonoSingleton
 	private float GetSegmentsAnimationTime()
 	{
 		int day = GetDayToDrawTo();
-		return (totalAnimationTime * day) / (float)GameSession.MAX_DAYS;
+		return (totalAnimationTime * day) / (float)GetMaxDays();
 	}
 
 	private void DrawOneDay(Texture2D tex, int day)
@@ -350,5 +350,10 @@ public class ChartManager : MonoSingleton
 	public static void DrawSegment(Texture2D tex, int x1, int y1, int x2, int y2)
 	{
 		tex.DrawThickLine(x1, y1, x2, y2, Color.black, LINE_THICKNESS);
+	}
+
+	private int GetMaxDays()
+	{
+		return Math.Max(GetDayToDrawTo(), GameSession.MAX_DAYS);
 	}
 }
