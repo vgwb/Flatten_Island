@@ -11,6 +11,11 @@
 		publicOpinion = int.MinValue;
 	}
 
+	public bool HasDayHighScore()
+	{
+		return day < int.MaxValue;
+	}
+
 	public bool TryUpdateDayHighScore(int day)
 	{
 		if (this.day > day)
