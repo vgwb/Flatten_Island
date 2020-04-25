@@ -24,18 +24,17 @@ public class FutureProjector : MonoSingleton
 		}
 	}
 
-	public int GetPredictedPatients(int day)
+	public int GetPredictedPatients(int day, GameSession session)
 	{
-		if (GameManager.instance.localPlayer.gameSession == null) return 0;
+		if (session == null) return 0;
 
-		int currentDay = GameManager.instance.localPlayer.gameSession.day;
-		int capacity = GameManager.instance.localPlayer.gameSession.capacity;
-		int growth = GameManager.instance.localPlayer.gameSession.growthRate;
-		int patients = GameManager.instance.localPlayer.gameSession.patients[currentDay - 1];
+		int currentDay = session.day;
+		int capacity = session.capacity;
+		int growth = session.growthRate;
+		int patients = session.patients[currentDay - 1];
 					
 		int predictedPatients = ProjectWithMethod1(day, currentDay, capacity, growth, patients);
 		
-		// Debug.Log("GetPredictedPatients: " + day + ": " + currentDay + " currentDay, " + patients + " current patients " + predictedPatients + " predictedPatients");
 		return predictedPatients;
 	}
 
@@ -51,7 +50,6 @@ public class FutureProjector : MonoSingleton
 			growthOnDate += GetPredictedGrowthDeltaForDay(d);
 			capacityOnDate += GetPredictedCapacityDeltaForDay(d);
 			targetPatients += (targetPatients * growthOnDate) / 100;
-			// Debug.Log("Prediction: " + d + ": " + growthOnDate + "%, " + capacityOnDate + " beds, " + targetPatients + " patients");
 		}
 
 		// Normalise those patients to the current capacity based on the predicted capacity

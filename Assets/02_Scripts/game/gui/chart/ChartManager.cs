@@ -38,9 +38,10 @@ public class ChartManager : MonoSingleton
 	private const float EPSILON = 0.05f;
 
 	// Internal state
-	private int dayToDrawTo = -1; // The chart is being drawn up to day and day-1
-    private float elapsedTime = 0.0f;
 	private bool animating = false;
+	private int dayToDrawTo = -1; // The chart is being drawn up to day and day-1
+	private GameSession sessionCopy = null;
+    private float elapsedTime = 0.0f;
 
 
 	public static ChartManager instance
@@ -59,7 +60,7 @@ public class ChartManager : MonoSingleton
 
 	public void FirstDraw()
 	{
-		dayToDrawTo = GameManager.instance.localPlayer.gameSession.day;
+		FreezeDrawingData(GameManager.instance.localPlayer.gameSession.day);
 		UpdateFullChart();
 	}
 
@@ -67,8 +68,6 @@ public class ChartManager : MonoSingleton
 	{
 		if (animating)
 		{
-			dayToDrawTo = GameManager.instance.localPlayer.gameSession.day + 1;
-
 			elapsedTime += Time.deltaTime;
 			if (elapsedTime > totalAnimationTime)
 			{
@@ -100,7 +99,19 @@ public class ChartManager : MonoSingleton
 	{
 		animating = true;
 		elapsedTime = 0.0f; // restarts the animation
+		FreezeDrawingData(GameManager.instance.localPlayer.gameSession.day + 1);
 		HidePatientsIndicator();
+	}
+
+	private void FreezeDrawingData(int dayToDrawTo)
+	{
+		this.dayToDrawTo = dayToDrawTo;
+		this.sessionCopy = new GameSession {
+			day = GameManager.instance.localPlayer.gameSession.day,
+			patients = (int[])GameManager.instance.localPlayer.gameSession.patients.Clone(),
+			growthRate = GameManager.instance.localPlayer.gameSession.growthRate,
+			capacity = GameManager.instance.localPlayer.gameSession.capacity
+		};
 	}
 
 	public void UpdateFullChart()
@@ -206,7 +217,7 @@ public class ChartManager : MonoSingleton
 	private void DrawPredictionDay(Texture2D tex, int day)
 	{
 		int x = GetXForDay(day);
-		int y = GetYForPatients(FutureProjector.instance.GetPredictedPatients(day));
+		int y = GetYForPatients(FutureProjector.instance.GetPredictedPatients(day, sessionCopy));
 
 		Color color = (y < CAPACITY_LINE_Y) ? overFlowColor : normalColor;
 		tex.DrawFilledCircle(x, y, dashLineDotWidth, color);
@@ -250,33 +261,33 @@ public class ChartManager : MonoSingleton
 
 	private int GetYForPatients(int patients)
 	{
-		if (GameManager.instance.localPlayer.gameSession == null) return HEIGHT;
+		if (sessionCopy == null) return HEIGHT;
 		
-		float currentCapacity = (float)GameManager.instance.localPlayer.gameSession.capacity;
+		float currentCapacity = (float)sessionCopy.capacity;
 		float capacityUsage = patients / currentCapacity;
 		return HEIGHT - (int)(capacityUsage * MAX_Y_RANGE);
 	}
 
 	public int GetDayToDrawTo()
 	{
-		if (GameManager.instance.localPlayer.gameSession == null) return 1;
+		if (sessionCopy == null) return 1;
 		
-		return (dayToDrawTo > -1) ? dayToDrawTo : GameManager.instance.localPlayer.gameSession.day;
+		return (dayToDrawTo > -1) ? dayToDrawTo : sessionCopy.day;
 	}
 
 	private int GetPatients(int day)
 	{
-		if (GameManager.instance.localPlayer.gameSession == null) return 0;
+		if (sessionCopy == null) return 0;
 		
-		int[] patients = GameManager.instance.localPlayer.gameSession.patients;
+		int[] patients = sessionCopy.patients;
 		return (day < 2) ? patients[1] : patients[day];
 	}
 
 	private int GetCurrentCapacity()
 	{
-		if (GameManager.instance.localPlayer.gameSession == null) return 1000; // anything big
+		if (sessionCopy == null) return 1000; // anything big
 		
-		return GameManager.instance.localPlayer.gameSession.capacity;
+		return sessionCopy.capacity;
 	}
 
 	private Vector3 CoordinatesInViewport(float x, float y) {
