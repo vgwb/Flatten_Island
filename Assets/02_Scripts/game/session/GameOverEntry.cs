@@ -11,6 +11,8 @@ public class GameOverEntry : MonoBehaviour
 	public Text titleText;
 	public Text messageText;
 	public Text okButtonText;
+	public Text daysText;
+	public string daysLocalizationId;
 	public GameObject winTitleGroup;
 	public GameObject loseTitleGroup;
 	public GameObject newHighScoreGroup;
@@ -42,6 +44,8 @@ public class GameOverEntry : MonoBehaviour
 			LocalizationManager.instance.SetLocalizedText(messageText, gameOverXmlModel.winDescription);
 			LocalizationManager.instance.SetLocalizedText(okButtonText, gameOverXmlModel.winButton);
 			newHighScoreGroup.SetActive(GameManager.instance.HasNewDayHighScore());
+			LocalizationManager.instance.SetLocalizedText(daysText, daysLocalizationId);
+			daysText.text = GameManager.instance.localPlayer.gameSession.day + " " + daysText.text;
 		}
 		else
 		{
