@@ -62,6 +62,9 @@ public class GameManager : MonoSingleton
 			localPlayer = new LocalPlayer();
 			localPlayer.Init();
 		}
+
+		AudioManager.instance.MuteChannel(EAudioChannelType.Music, !localPlayer.playerSettings.musicOn);
+		AudioManager.instance.MuteChannel(EAudioChannelType.Sfx, !localPlayer.playerSettings.sfxOn);
 	}
 
 	public void SavePlayer()
