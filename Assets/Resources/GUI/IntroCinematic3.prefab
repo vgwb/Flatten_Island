@@ -1175,7 +1175,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1746750195226965105
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1610,6 +1610,7 @@ GameObject:
   - component: {fileID: 4425294888448037756}
   - component: {fileID: 423642325869998440}
   - component: {fileID: 1884160260830053901}
+  - component: {fileID: 1623846755147539350}
   m_Layer: 5
   m_Name: Description
   m_TagString: Untagged
@@ -1664,19 +1665,20 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: f4f0f56469569464e8e858aa8a368f7a, type: 3}
-    m_FontSize: 100
+    m_FontSize: 120
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 100
+    m_MaxSize: 120
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "And the winner is ... you!\nCongratulations, you will rule the island with
-    the help of a few advisors.\n\nLet\xB4s meet them ...\n"
+  m_Text: 'Intro 3
+
+'
 --- !u!223 &1884160260830053901
 Canvas:
   m_ObjectHideFlags: 0
@@ -1698,6 +1700,19 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 2
   m_TargetDisplay: 0
+--- !u!114 &1623846755147539350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8334651527332859502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab4284b9935c8154d9d6fd04dac8864a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localizationId: Intro_Text3
 --- !u!1 &8531389490528504795
 GameObject:
   m_ObjectHideFlags: 0

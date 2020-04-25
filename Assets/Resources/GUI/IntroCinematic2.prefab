@@ -806,7 +806,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &224778809758052633
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1419,6 +1419,7 @@ GameObject:
   - component: {fileID: 5547274904406484379}
   - component: {fileID: 4927902662554524700}
   - component: {fileID: 6530930740315527829}
+  - component: {fileID: 1064787252552026714}
   m_Layer: 5
   m_Name: Description
   m_TagString: Untagged
@@ -1473,19 +1474,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: f4f0f56469569464e8e858aa8a368f7a, type: 3}
-    m_FontSize: 100
+    m_FontSize: 120
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 100
+    m_MaxSize: 120
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Here the governor is selected with a lottery among all citizens.\n\nYou
-    arrived just in time:\nthe draw is today. \n"
+  m_Text: Intro 2
 --- !u!223 &6530930740315527829
 Canvas:
   m_ObjectHideFlags: 0
@@ -1507,3 +1507,16 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 2
   m_TargetDisplay: 0
+--- !u!114 &1064787252552026714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8830145143247030430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab4284b9935c8154d9d6fd04dac8864a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localizationId: Intro_Text2
