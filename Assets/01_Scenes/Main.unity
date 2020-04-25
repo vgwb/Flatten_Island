@@ -3247,7 +3247,7 @@ MonoBehaviour:
   normalColor: {r: 0, g: 0, b: 0, a: 1}
   overFlowColor: {r: 0, g: 0, b: 0, a: 1}
   totalAnimationTime: 1.2
-  dashLineSpacing: 2
+  dashLineSpacing: 15
   dashLineDotWidth: 2
 --- !u!1 &1457375273
 GameObject:
