@@ -494,7 +494,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   showSuggestionParameters: 1
-  forceIntro: 0
+  forceIntro: 1
 --- !u!1 &878487301
 GameObject:
   m_ObjectHideFlags: 0
