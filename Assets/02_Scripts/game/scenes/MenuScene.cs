@@ -6,11 +6,16 @@ public class MenuScene : MonoSingleton
 {
     public const string NAME = "Menu";
 	public GameObject playButton;
+	public SettingsMenu settingsMenu;
+	public LanguageMenu languageMenu;
+	public GameObject blockingBackground;
+
 	public CinematicMenu introCinematicMenu;
 	public GameObject menuCanvas;
 	public GameObject cinematicCanvas;
 	public AudioClip menuMusic;
 	public HighScoreText highScoreText;
+
 
 	public static MenuScene instance
 	{
@@ -34,6 +39,16 @@ public class MenuScene : MonoSingleton
 		{
 			sceneFsm.Update();
 		}
+	}
+
+	public void UpdateBlockingBackground()
+	{
+		bool isSettingsGridShown = settingsMenu.IsGridShown();
+		bool isLanguageGridShown = languageMenu.IsGridShown();
+
+		bool isBlockingBackgroundActive = isSettingsGridShown || isLanguageGridShown;
+
+		blockingBackground.SetActive(isBlockingBackgroundActive);
 	}
 
 	void Start()

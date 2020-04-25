@@ -25,8 +25,13 @@ public class SettingsMenu : MonoBehaviour
 	private void ShowGrid(bool visible)
 	{
 		settingsGrid.gameObject.SetActive(visible);
+		MenuScene.instance.UpdateBlockingBackground();
 	}
 
+	public bool IsGridShown()
+	{
+		return settingsGrid.gameObject.activeInHierarchy;
+	}
 
 	public void ShowPanelSettingsMenu() {
 

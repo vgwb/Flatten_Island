@@ -23,6 +23,11 @@ public class LanguageMenu : MonoBehaviour
 		ShowGrid(false);
 	}
 
+	public bool IsGridShown()
+	{
+		return languagesGrid.gameObject.activeInHierarchy;
+	}
+
 	public void OnButtonShowMenuClick()
 	{
 		ShowGrid(!languagesGrid.gameObject.activeInHierarchy);
@@ -31,6 +36,7 @@ public class LanguageMenu : MonoBehaviour
 	private void ShowGrid(bool visible)
 	{
 		languagesGrid.gameObject.SetActive(visible);
+		MenuScene.instance.UpdateBlockingBackground();
 	}
 
 }
