@@ -51,12 +51,6 @@ public class MenuScene : MonoSingleton
 		blockingBackground.SetActive(isBlockingBackgroundActive);
 	}
 
-	void Start()
-    {
-		EventMessageHandler playCinematicCompletedMessageHandler = new EventMessageHandler(this, OnPlayCinematicCompleted);
-		EventMessageManager.instance.AddHandler(typeof(PlayCinematicCompletedEvent).Name, playCinematicCompletedMessageHandler);
-	}
-
 	private void OnPlayCinematicCompleted(EventMessage eventMessage)
 	{
 		PlayCinematicCompletedEvent playCinematicCompletedEvent = eventMessage.eventObject as PlayCinematicCompletedEvent;
@@ -74,7 +68,8 @@ public class MenuScene : MonoSingleton
 #if CHEAT_DEBUG
 		if (CheatManager.instance.forceIntro)
 		{
-			sceneFsm.TriggerState(MenuSceneFsm.IntroState);
+			RegisterPlayCinematicIntroEvent();
+			ShowIntro();
 			return;
 		}
 #endif
@@ -85,7 +80,41 @@ public class MenuScene : MonoSingleton
 		}
 		else
 		{
-			sceneFsm.TriggerState(MenuSceneFsm.IntroState);
+			RegisterPlayCinematicIntroEvent();
+			ShowIntro();
+		}
+	}
+
+	private void RegisterPlayCinematicIntroEvent()
+	{
+		EventMessageManager.instance.RemoveHandler(typeof(PlayCinematicCompletedEvent).Name, this);
+		EventMessageHandler playCinematicCompletedMessageHandler = new EventMessageHandler(this, OnPlayCinematicCompleted);
+		EventMessageManager.instance.AddHandler(typeof(PlayCinematicCompletedEvent).Name, playCinematicCompletedMessageHandler);
+	}
+
+	public void ShowIntro()
+	{
+		sceneFsm.TriggerState(MenuSceneFsm.IntroState);
+	}
+
+	public void WatchCinematic()
+	{
+		EventMessageManager.instance.RemoveHandler(typeof(PlayCinematicCompletedEvent).Name, this);
+		EventMessageHandler playCinematicCompletedMessageHandler = new EventMessageHandler(this, OnWatchCinematicCompleted);
+		EventMessageManager.instance.AddHandler(typeof(PlayCinematicCompletedEvent).Name, playCinematicCompletedMessageHandler);
+		ShowIntro();
+
+	}
+
+	private void OnWatchCinematicCompleted(EventMessage eventMessage)
+	{
+		PlayCinematicCompletedEvent playCinematicCompletedEvent = eventMessage.eventObject as PlayCinematicCompletedEvent;
+		if (playCinematicCompletedEvent.cinematicMenu == introCinematicMenu)
+		{
+			GameManager.instance.localPlayer.playerSettings.skipIntro = true;
+			GameManager.instance.SavePlayer();
+
+			sceneFsm.TriggerState(MenuSceneFsm.MenuState);
 		}
 	}
 

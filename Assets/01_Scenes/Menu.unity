@@ -997,6 +997,7 @@ GameObject:
   - component: {fileID: 549157037}
   - component: {fileID: 549157036}
   - component: {fileID: 549157035}
+  - component: {fileID: 549157039}
   - component: {fileID: 549157038}
   - component: {fileID: 549157034}
   m_Layer: 5
@@ -1083,7 +1084,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 549157039}
         m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
@@ -1150,6 +1151,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 12
   m_TargetDisplay: 0
+--- !u!114 &549157039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 549157032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f82a1592bb8c9346a8604c4fdf48517, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &570100444
 GameObject:
   m_ObjectHideFlags: 0
@@ -1163,7 +1176,7 @@ GameObject:
   - component: {fileID: 570100446}
   - component: {fileID: 570100448}
   m_Layer: 5
-  m_Name: Text
+  m_Name: WatchIntroText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7810,8 +7823,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settingsGrid: {fileID: 1729332478}
   CreditsPanel: {fileID: 2541533489537982744}
-  WatchIntroPanel: {fileID: 8299593615300498800}
-  ShowPanelSettings: {fileID: 0}
 --- !u!114 &6080458907496565509
 MonoBehaviour:
   m_ObjectHideFlags: 0
