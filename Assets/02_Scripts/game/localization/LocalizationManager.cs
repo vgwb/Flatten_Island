@@ -34,7 +34,7 @@ public class LocalizationManager : MonoSingleton
 
 	public void Init()
 	{
-		localizationXmlModels = XmlModelManager.instance.FindModels<LocalizationXmlModel>();
+		localizationXmlModels = XmlModelManager.instance.FindModels<LocalizationXmlModel>((localizationXmlModel) => localizationXmlModel.supported == true);
 		nonLatinFont = Resources.GetBuiltinResource<Font>("Arial.ttf");
 	}
 
