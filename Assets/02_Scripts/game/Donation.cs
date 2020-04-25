@@ -9,6 +9,4 @@ public class Donation : MonoBehaviour
         
         Application.OpenURL("https://vgwb.org/contact/");
     }
-
-   
 }
