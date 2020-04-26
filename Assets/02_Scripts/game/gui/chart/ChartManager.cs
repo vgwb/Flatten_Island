@@ -140,11 +140,19 @@ public class ChartManager : MonoSingleton
 		patientsPanel.transform.localPosition = CoordinatesInViewport(x, y);
 	}
 
+	private void PositionGrowthPanel()
+	{
+		float x = GetXForDay(-1);
+		float y = HEIGHT - GetYForPatients(GetPatients(-1));
+		growthPanel.transform.localPosition = CoordinatesInViewport(x, y);
+	}
+
 	private Sprite CreateChartSprite(float elapsedTime)
 	{
 		Texture2D tex = GetTransparentTexture();
 		DrawDaySegments(tex, elapsedTime);
 		PositionBeginAndEndDots(elapsedTime);
+		PositionGrowthPanel();
 		if (elapsedTime > GetSegmentsAnimationTime())
 		{
 			ShowPatientsIndicator();
