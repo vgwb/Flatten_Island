@@ -45,7 +45,11 @@ public class GameManager : MonoSingleton
 
 		LoadPlayer();
 
-		SetLanguage();
+		// begin Hack for first submission
+		//SetLanguage();
+		ForceDefaultLanguage();
+		//end hack
+
 		Debug.Log("Current Language:" + localPlayer.GetLanguageId());
 	}
 
@@ -116,5 +120,10 @@ public class GameManager : MonoSingleton
 				localPlayer.SetLanguageId(LocalizationManager.DEFAULT_LANGUAGE_ID);
 			}
 		}
+	}
+
+	private void ForceDefaultLanguage()
+	{
+		localPlayer.SetLanguageId(LocalizationManager.DEFAULT_LANGUAGE_ID);
 	}
 }
