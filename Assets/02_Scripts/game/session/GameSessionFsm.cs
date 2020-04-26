@@ -201,7 +201,7 @@ public class GameSessionFsm : FiniteStateMachine
 	{
 		gameSession.ApplySuggestionOption(selectedSuggestionOption);
 		Hud.instance.UpdateSuggestionOptions();
-		ChartManager.instance.RestartChartAnimation();
+		ChartManager.instance.RestartCurrentDayChartAnimation();
 		Hud.instance.UpdateDayValues();
 	}
 

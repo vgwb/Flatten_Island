@@ -102,6 +102,14 @@ public class ChartManager : MonoSingleton
 		HidePatientsIndicator();
 	}
 
+	public void RestartCurrentDayChartAnimation()
+	{
+		animating = true;
+		elapsedTime = 0.0f; // restarts the animation
+		FreezeDrawingData(GameManager.instance.localPlayer.gameSession.day);
+		HidePatientsIndicator();
+	}
+
 	private void FreezeDrawingData(int dayToDrawTo)
 	{
 		this.dayToDrawTo = dayToDrawTo;
