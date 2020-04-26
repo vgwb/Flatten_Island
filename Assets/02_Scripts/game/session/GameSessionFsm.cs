@@ -35,7 +35,7 @@ public class GameSessionFsm : FiniteStateMachine
 	{
 		base.Initialize();
 		AddState(DayStartState, DayStart_Enter, DayStart_Update, null);
-		AddState(ChangeGamePhaseState, ChangeGamePhase_Enter, null, ChangeGamePhase_Exit);
+		AddState(ChangeGamePhaseState, ChangeGamePhase_Enter, ChangeGamePhase_Update, ChangeGamePhase_Exit);
 		AddState(AdvisorsState, Advisors_Enter, null, Advisors_Exit);
 		AddState(SuggestionState, Suggestion_Enter, null, Suggestion_Exit);
 		AddState(SuggestionResultState, SuggestionResult_Enter, null, SuggestionResult_Exit);
@@ -124,14 +124,9 @@ public class GameSessionFsm : FiniteStateMachine
 		int nextPhaseId = gameSession.gamePhase.GetNextPhaseId();
 		gameSession.gamePhase.Stop();
 		gameSession.StartGamePhase(nextPhaseId);
-
-		//just to test the flow
-		EventMessageHandler changeGamePhaseDialogExitCompletedMessageHandler = new EventMessageHandler(this, OnChangePhaseEntryExit);
-		EventMessageManager.instance.AddHandler(typeof(GenericDialogExitCompletedEvent).Name, changeGamePhaseDialogExitCompletedMessageHandler);
-		GenericDialog.Show(5002, MainScene.instance.uiWorldCanvas.transform);
 	}
 
-	private void OnChangePhaseEntryExit(EventMessage eventMessage)
+	private void ChangeGamePhase_Update()
 	{
 		TriggerState(AdvisorsState);
 	}

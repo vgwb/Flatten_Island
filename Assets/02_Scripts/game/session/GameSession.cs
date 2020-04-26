@@ -182,8 +182,6 @@ public class GameSession : ISavable
 		gamePhase.StartMusic();
 
 		Debug.Log("GameSession = Starting Game Phase:" + gamePhase.GetName());
-
-		//To Do: Show Game Phase Start Dialog or Intro Sequence
 	}
 
 	public NextDayEntry ShowNextDayEntry()
