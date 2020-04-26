@@ -1432,7 +1432,7 @@ GameObject:
   m_Component:
   - component: {fileID: 480464337521401337}
   - component: {fileID: 339029458740384250}
-  - component: {fileID: 6745884641290663681}
+  - component: {fileID: 7415379236327486326}
   m_Layer: 5
   m_Name: Layout
   m_TagString: Untagged
@@ -1481,14 +1481,25 @@ Animation:
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
---- !u!222 &6745884641290663681
-CanvasRenderer:
+--- !u!114 &7415379236327486326
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5640207497457172572}
-  m_CullTransparentMesh: 0
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d96f7a41ed3c54da0bc53e640210ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasList:
+  - {fileID: 1762266847191865504}
+  - {fileID: 403320733212788706}
+  - {fileID: 4718384218875324964}
+  - {fileID: 4014294764218036961}
+  useTimer: 1
+  timer: 0.3
 --- !u!1 &5884064166384302299
 GameObject:
   m_ObjectHideFlags: 0

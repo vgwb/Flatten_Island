@@ -63,8 +63,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: f4f0f56469569464e8e858aa8a368f7a, type: 3}
     m_FontSize: 100
@@ -94,6 +92,7 @@ GameObject:
   - component: {fileID: 8888789998179977268}
   - component: {fileID: 2635269283400128702}
   - component: {fileID: 8935724625618239414}
+  - component: {fileID: 2040283223771083455}
   m_Layer: 5
   m_Name: OptionParameterEntry
   m_TagString: Untagged
@@ -162,8 +161,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 1e21ac3b4f8260d439554027183d3773, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -194,6 +191,23 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 2
   m_TargetDisplay: 0
+--- !u!114 &2040283223771083455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6845589441006955620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d96f7a41ed3c54da0bc53e640210ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasList:
+  - {fileID: 8935724625618239414}
+  - {fileID: 6192590374991558296}
+  useTimer: 1
+  timer: 0.3
 --- !u!1 &7325362958507195727
 GameObject:
   m_ObjectHideFlags: 0
@@ -258,8 +272,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 899b45e9ff951e9429338a8eb6e7df5b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0

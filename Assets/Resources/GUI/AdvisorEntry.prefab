@@ -1817,6 +1817,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2943923213528235427}
   - component: {fileID: 5727214482391623302}
+  - component: {fileID: 7675035454476560217}
   m_Layer: 5
   m_Name: Layout
   m_TagString: Untagged
@@ -1865,6 +1866,26 @@ Animation:
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &7675035454476560217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8590593617845970194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d96f7a41ed3c54da0bc53e640210ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasList:
+  - {fileID: 3875233653497073605}
+  - {fileID: 7284079242079736737}
+  - {fileID: 3658602574221078969}
+  - {fileID: 4414584302680265436}
+  - {fileID: 1818014587191995225}
+  useTimer: 0
+  timer: 0
 --- !u!1 &8632690189946436032
 GameObject:
   m_ObjectHideFlags: 0
