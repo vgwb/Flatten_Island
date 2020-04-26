@@ -215,7 +215,8 @@ public class GameSessionFsm : FiniteStateMachine
 		EventMessageHandler nextDayDialogExitCompletedMessageHandler = new EventMessageHandler(this, OnNextDayDialogExitCompleted);
 		EventMessageManager.instance.AddHandler(typeof(NextDayEntryExitCompletedEvent).Name, nextDayDialogExitCompletedMessageHandler);
 
-		gameSession.ShowNextDayEntry();
+		NextDayEntry nextDayEntry = gameSession.ShowNextDayEntry();
+		nextDayEntry.PlayEnterRecipe();
 	}
 
 	private void OnNextDayDialogExitCompleted(EventMessage eventMessage)

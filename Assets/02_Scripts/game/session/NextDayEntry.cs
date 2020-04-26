@@ -14,6 +14,7 @@ public class NextDayEntry : MonoBehaviour
 	public Sprite vaccineSprite;
 	public Sprite patientsSprite;
 	public Text dayValue;
+	public Text nextDayValue;
 
 	public void SetParameters(GameSessionXmlModel gameSessionXmlModel, int day)
 	{
@@ -26,6 +27,8 @@ public class NextDayEntry : MonoBehaviour
 		ShowGrowthRateIncrement(gameSessionXmlModel);
 
 		dayValue.text = day.ToString();
+
+		nextDayValue.text = (day + 1).ToString();
 	}
 
 	private void ShowVaccineIncrement(GameSessionXmlModel gameSessionXmlModel)
