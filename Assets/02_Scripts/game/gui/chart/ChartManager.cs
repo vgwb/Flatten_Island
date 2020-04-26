@@ -29,9 +29,9 @@ public class ChartManager : MonoSingleton
 	private float DAY_WIDTH_INCREMENT;
 
 	private const int CHART_X_MARGIN = 125;
-	private const int VIEWPORT_HEIGHT = 1442;
+	private const int VIEWPORT_HEIGHT = 1800;
 	private const int HEIGHT = 300;
-	private const int CAPACITY_LINE_Y = 67; // 324 from the top in the editor
+	private const int CAPACITY_LINE_Y = 133; // 800/1800 in 300 from the top in the editor
 	private const int MAX_Y_RANGE = HEIGHT - CAPACITY_LINE_Y;
 	private const int LINE_THICKNESS = 3;
 	private const float EPSILON = 0.05f;
@@ -140,11 +140,19 @@ public class ChartManager : MonoSingleton
 		patientsPanel.transform.localPosition = CoordinatesInViewport(x, y);
 	}
 
+	private void PositionGrowthPanel()
+	{
+		float x = GetXForDay(-1);
+		float y = HEIGHT - GetYForPatients(GetPatients(-1));
+		growthPanel.transform.localPosition = CoordinatesInViewport(x, y);
+	}
+
 	private Sprite CreateChartSprite(float elapsedTime)
 	{
 		Texture2D tex = GetTransparentTexture();
 		DrawDaySegments(tex, elapsedTime);
 		PositionBeginAndEndDots(elapsedTime);
+		PositionGrowthPanel();
 		if (elapsedTime > GetSegmentsAnimationTime())
 		{
 			ShowPatientsIndicator();
