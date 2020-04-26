@@ -46,6 +46,24 @@ public class ScenesFlowFsm : FiniteStateMachine
 
 	private void OnInitScene_OnEnter()
 	{
+#if CHEAT_DEBUG
+		if (CheatManager.instance.skipLogo)
+		{
+			if (GameManager.instance.HasPendingGameSession())
+			{
+				TriggerState(LoadingMainSceneState);
+			}
+			else
+			{
+				TriggerState(LoadingMenuSceneState);
+			}
+		}
+		else
+		{
+			TriggerState(LoadingLogoSceneState);
+		}
+		return;
+#endif
 		TriggerState(LoadingLogoSceneState);
 	}
 

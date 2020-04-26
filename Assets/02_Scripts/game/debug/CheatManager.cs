@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-public class CheatManager : MonoSingleton
+﻿public class CheatManager : MonoSingleton
 {
 	public bool showSuggestionParameters;
 	public bool forceIntro;
+	public bool skipLogo;
 
 	public static CheatManager instance
 	{
