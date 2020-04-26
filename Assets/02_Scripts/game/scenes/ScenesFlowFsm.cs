@@ -167,13 +167,11 @@ public class ScenesFlowFsm : FiniteStateMachine
 
 	private void MainScene_OnEnter()
 	{
-		//MonoGameApplication.instance.monoGameApplicationChef.Cook(MonoGameApplication.instance.monoGameApplicationChef.startGameplayMusicRecipe);
 		MainScene.instance.Init();
 	}
 
 	private void UnloadingMainScene_OnEnter()
 	{
-		//MonoGameApplication.instance.monoGameApplicationChef.Cook(MonoGameApplication.instance.monoGameApplicationChef.fadeOutGameplayMusicRecipe);
 		Hud.instance.Unsetup();
 		InitScene.instance.loadingPanel.Enter(OnUnloadingMainSceneLoadingPanelCompleted);
 	}

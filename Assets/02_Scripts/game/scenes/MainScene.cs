@@ -40,6 +40,7 @@ public class MainScene : MonoSingleton
 
 	public void SetupScene()
 	{
+		Hud.instance.Setup();
 		InitScene.instance.loadingPanel.Exit(OnLoadingPanelExitCompleted);
 	}
 
@@ -50,6 +51,6 @@ public class MainScene : MonoSingleton
 
 	private void OnLoadingPanelExitCompleted()
 	{
-		Hud.instance.Setup();
+		sceneFsm.TriggerState(MainSceneFsm.PlayState);
 	}
 }
