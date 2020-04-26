@@ -17,6 +17,7 @@ public class PatientsPanelSelector : MonoSingleton
 	public GameObject patientsAboveRight;
 
 	public int initialPeriod;
+	public int peakGrowthThreshold;
 
 	public static PatientsPanelSelector instance
 	{
@@ -53,9 +54,9 @@ public class PatientsPanelSelector : MonoSingleton
 			Debug.Log("returning IsInitialPeriod -> patientsStraight");
 			return patientsStraight;
 		}
-		if (IsAtPeak(currentDay, peakDay, growth))
+		if (IsCloseToAPeak(growth))
 		{
-			Debug.Log("returning IsAtPeak -> patientsAbove");
+			Debug.Log("returning IsCloseToAPeak -> patientsAbove");
 			return patientsAbove;
 		}
 		if (!HasPassedPeak(currentDay, peakDay))
@@ -84,7 +85,12 @@ public class PatientsPanelSelector : MonoSingleton
 		return currentDay < initialPeriod;
 	}
 
-	private bool IsAtPeak(int currentDay, int peakDay, int growth)
+	private bool IsCloseToAPeak(int growth)
+	{
+		return growth < peakGrowthThreshold;
+	}
+
+	private bool IsAtThePeak(int currentDay, int peakDay, int growth)
 	{
 		return peakDay == currentDay-1 && growth < 0;
 	}
