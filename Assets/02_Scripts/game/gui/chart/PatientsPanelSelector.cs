@@ -87,7 +87,7 @@ public class PatientsPanelSelector : MonoSingleton
 
 	private bool IsCloseToAPeak(int growth)
 	{
-		return growth < peakGrowthThreshold;
+		return Math.Abs(growth) < peakGrowthThreshold;
 	}
 
 	private bool IsAtThePeak(int currentDay, int peakDay, int growth)
