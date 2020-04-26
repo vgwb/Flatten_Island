@@ -8,7 +8,7 @@ using ProtoTurtle.BitmapDrawing;
 
 public class PatientsPanelSelector : MonoSingleton
 {
-	private Vector3 invisiblePosition;
+	private static Vector3 invisiblePosition = new Vector3(10000f,10000f,0f);
 
 	public GameObject patientsOverflow;
 	public GameObject patientsStraight;
@@ -30,7 +30,6 @@ public class PatientsPanelSelector : MonoSingleton
 	protected override void OnMonoSingletonAwake()
 	{
 		base.OnMonoSingletonAwake();
-		invisiblePosition = new Vector3(10000f,10000f,0f);
 	}
 
 	public GameObject SelectPanel()

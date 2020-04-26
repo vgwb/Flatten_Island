@@ -8,8 +8,11 @@ using ProtoTurtle.BitmapDrawing;
 
 public class ChartManager : MonoSingleton
 {
+	private static Vector3 invisiblePosition = new Vector3(10000f,10000f,0f);
 
 	public GameObject growthPanel;
+	public GameObject capacityText;
+	public GameObject growthText;
 	public GameObject evolutionChart;
 	public GameObject initialDot;
 	public GameObject finalDot;
@@ -21,6 +24,8 @@ public class ChartManager : MonoSingleton
 	public float totalAnimationTime;
 	public float dashLineSpacing;
 	public int dashLineDotWidth;
+	public float warningThreshold;
+	public float blinkingInterval;
 
 	// Measures, adjusted to viewport. Act like consts but they are potentially overriden
 	private int VIEWPORT_WITDH = 2235;
@@ -42,6 +47,8 @@ public class ChartManager : MonoSingleton
 	private int dayToDrawTo = -1; // The chart is being drawn up to day and day-1
 	private GameSession sessionCopy = null;
     private float elapsedTime = 0.0f;
+	private Vector3 capacityLastPosition;
+	private Vector3 growthLastPosition;
 
 
 	public static ChartManager instance
@@ -56,6 +63,8 @@ public class ChartManager : MonoSingleton
 	{
 		base.OnMonoSingletonAwake();
 		AdjustToViewport();
+		capacityLastPosition = capacityText.transform.localPosition;
+		growthLastPosition = growthText.transform.localPosition;
 	}
 
 	public void FirstDraw()
@@ -66,9 +75,9 @@ public class ChartManager : MonoSingleton
 
 	protected override void OnMonoSingletonUpdate()
 	{
+		elapsedTime += Time.deltaTime;
 		if (animating)
 		{
-			elapsedTime += Time.deltaTime;
 			if (elapsedTime > totalAnimationTime)
 			{
 				UpdateFullChart();
@@ -77,6 +86,10 @@ public class ChartManager : MonoSingleton
 			{
 				UpdateChart(elapsedTime);
 			}
+		}
+		else if (IsInWarningZone())
+		{
+			BlinkIndicators(elapsedTime);
 		}
 	}
 
@@ -140,6 +153,30 @@ public class ChartManager : MonoSingleton
 	private void HidePatientsIndicator()
 	{
  		PatientsPanelSelector.instance.HidePanels();
+	}
+
+	private bool IsInWarningZone()
+	{
+		float currentCapacity = (float)sessionCopy.capacity;
+		int patients = GetPatients(GetDayToDrawTo()-1);
+		float capacityUsage = patients / currentCapacity;
+		bool isInWarningzone = capacityUsage > warningThreshold;
+		return isInWarningzone;
+	}
+
+	private void BlinkIndicators(float elapsedTime)
+	{
+		bool visible = (int)Math.Round(elapsedTime / blinkingInterval) % 2 == 0;
+		if (!visible)
+		{
+			growthText.transform.localPosition = invisiblePosition;
+			capacityText.transform.localPosition = invisiblePosition;
+		}
+		else
+		{
+			growthText.transform.localPosition = growthLastPosition;
+			capacityText.transform.localPosition = capacityLastPosition;
+		}
 	}
 
 	private void ShowPatientsIndicator()
@@ -295,13 +332,13 @@ public class ChartManager : MonoSingleton
 		}
 		else
 		{
-			HideDot(finalDot);
+			Hide(finalDot);
 		}
 	}
 
-	private void HideDot(GameObject dot)
+	private void Hide(GameObject obj)
 	{		
-		PositionDot(dot, -10000, -10000);
+		obj.transform.localPosition = invisiblePosition;
 	}
 
 	private void PositionDot(GameObject dot, int x, int y) {
