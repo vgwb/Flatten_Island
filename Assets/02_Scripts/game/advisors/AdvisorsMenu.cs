@@ -41,11 +41,11 @@ public class AdvisorsMenu : MonoBehaviour
 			currentAdvisorEntries.Clear();
 		}
 
-		foreach (AdvisorXmlModel advisorXmlModel in advisorXmlModels)
+		for (int i = 0; i < advisorXmlModels.Count; i++)
 		{
-			AdvisorEntry advisorEntry = CreateAdvisorEntry(advisorXmlModel);
+			AdvisorEntry advisorEntry = CreateAdvisorEntry(advisorXmlModels[i]);
 			currentAdvisorEntries.Add(advisorEntry);
-			advisorEntry.PlayEnterRecipe();
+			advisorEntry.PlayEnterRecipe(i);
 		}
 	}
 

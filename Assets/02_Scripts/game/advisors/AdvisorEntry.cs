@@ -94,9 +94,14 @@ public class AdvisorEntry : MonoBehaviour
 		EventMessageManager.instance.QueueMessage(enterCompletedEventMessage);
 	}
 
-	public void PlayEnterRecipe()
+	public void PlayEnterRecipe(int advisorIndex)
 	{
-		advisorEntryChef.Cook(advisorEntryChef.onEnterRecipe, OnEnterRecipeCompleted);
+		switch (advisorIndex)
+		{
+			case 0: advisorEntryChef.Cook(advisorEntryChef.onEnterFirstRecipe, OnEnterRecipeCompleted); break;
+			case 1: advisorEntryChef.Cook(advisorEntryChef.onEnterSecondRecipe, OnEnterRecipeCompleted); break;
+			case 2: advisorEntryChef.Cook(advisorEntryChef.onEnterThirdRecipe, OnEnterRecipeCompleted); break;
+		}
 	}
 
 	private void OnEnterRecipeCompleted()
