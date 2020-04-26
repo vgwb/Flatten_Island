@@ -836,6 +836,7 @@ GameObject:
   - component: {fileID: 5581308545895770112}
   - component: {fileID: 5581308545895770113}
   - component: {fileID: 5581308545895770142}
+  - component: {fileID: 835937495538400884}
   m_Layer: 5
   m_Name: ButtonOptionB
   m_TagString: Untagged
@@ -968,6 +969,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 835937495538400884}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!223 &5581308545895770113
 Canvas:
   m_ObjectHideFlags: 0
@@ -1006,6 +1018,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &835937495538400884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5581308545895770140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 090063f0335c0e8469ec164e6c35166f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: 8d60a9df404c3554085b7c508a857fc5, type: 3}
 --- !u!1 &5581308545998044165
 GameObject:
   m_ObjectHideFlags: 0
@@ -1531,6 +1556,7 @@ GameObject:
   - component: {fileID: 5581308547076949067}
   - component: {fileID: 5581308547076949064}
   - component: {fileID: 5581308547076949065}
+  - component: {fileID: 6662972533712398008}
   m_Layer: 5
   m_Name: ButtonOptionA
   m_TagString: Untagged
@@ -1663,6 +1689,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6662972533712398008}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!223 &5581308547076949064
 Canvas:
   m_ObjectHideFlags: 0
@@ -1701,6 +1738,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &6662972533712398008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5581308547076949063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 090063f0335c0e8469ec164e6c35166f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: 261040d8e4ce1ed449a67506d2109ca0, type: 3}
 --- !u!1 &6887812356765667799
 GameObject:
   m_ObjectHideFlags: 0
