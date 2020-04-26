@@ -91,7 +91,7 @@ public class GameSession : ISavable
 		growthRate = Math.Max(MIN_GROWTH_RATE, growthRate + selectedSuggestionOptionXmlModel.growthRateModifier);
 		publicOpinion = Math.Min(100, publicOpinion + selectedSuggestionOptionXmlModel.publicOpinionModifier);
 		publicOpinion = Math.Max(0, publicOpinion);
-		capacity += selectedSuggestionOptionXmlModel.capacityModifier;
+		capacity = Math.Max(0, capacity + selectedSuggestionOptionXmlModel.capacityModifier);
 		int patientsIncrease = (patients[day - 1] * growthRate) / 100;
 		patients[day] = patients[day - 1] + patientsIncrease;
 		IncrementVaccineDevelopment(selectedSuggestionOptionXmlModel.vaccineModifier);
