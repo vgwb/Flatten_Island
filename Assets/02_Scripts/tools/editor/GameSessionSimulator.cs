@@ -107,6 +107,7 @@ public class GameSessionSimulator
 				gameSimulationResultRow.stopStoryId = selectedSuggestionOptionXmlModel.GetStopStoryId();
 
 				gameSession.ApplySuggestionOption(selectedSuggestionOptionXmlModel);
+				gameSession.UpdateNextDayValues();
 				gameSession.NextDay();
 
 				gameSimulationResult.AddRow(gameSimulationResultRow);

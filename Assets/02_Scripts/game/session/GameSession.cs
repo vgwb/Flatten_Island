@@ -92,8 +92,6 @@ public class GameSession : ISavable
 		publicOpinion = Math.Min(100, publicOpinion + selectedSuggestionOptionXmlModel.publicOpinionModifier);
 		publicOpinion = Math.Max(0, publicOpinion);
 		capacity = Math.Max(0, capacity + selectedSuggestionOptionXmlModel.capacityModifier);
-		int patientsIncrease = (patients[day - 1] * growthRate) / 100;
-		patients[day] = patients[day - 1] + patientsIncrease;
 		IncrementVaccineDevelopment(selectedSuggestionOptionXmlModel.vaccineModifier);
 
 		TryStartStory(selectedSuggestionOptionXmlModel);
@@ -131,11 +129,17 @@ public class GameSession : ISavable
 		}
 	}
 
-	public void NextDay()
+	public void UpdateNextDayValues()
 	{
 		money += gameSessionXmlModel.nextDayMoneyIncrement;
 		IncrementVaccineDevelopment(gameSessionXmlModel.nextDayVaccineIncrement);
 		growthRate += gameSessionXmlModel.nextDayGrowthRateIncrement;
+		int patientsIncrease = (patients[day - 1] * growthRate) / 100;
+		patients[day] = patients[day - 1] + patientsIncrease;
+	}
+
+	public void NextDay()
+	{
 		day++;
 	}
 
