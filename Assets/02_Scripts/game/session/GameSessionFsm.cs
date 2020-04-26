@@ -202,6 +202,7 @@ public class GameSessionFsm : FiniteStateMachine
 		gameSession.ApplySuggestionOption(selectedSuggestionOption);
 		Hud.instance.UpdateSuggestionOptions();
 		ChartManager.instance.RestartChartAnimation();
+		Hud.instance.UpdateDayValues();
 	}
 
 	private void UpdateResult_Update()
@@ -214,6 +215,8 @@ public class GameSessionFsm : FiniteStateMachine
 	{
 		EventMessageHandler nextDayDialogExitCompletedMessageHandler = new EventMessageHandler(this, OnNextDayDialogExitCompleted);
 		EventMessageManager.instance.AddHandler(typeof(NextDayEntryExitCompletedEvent).Name, nextDayDialogExitCompletedMessageHandler);
+
+		gameSession.UpdateNextDayValues();
 
 		NextDayEntry nextDayEntry = gameSession.ShowNextDayEntry();
 		nextDayEntry.PlayEnterRecipe();
@@ -228,6 +231,8 @@ public class GameSessionFsm : FiniteStateMachine
 	private void NextDayConfirmation_Exit()
 	{
 		EventMessageManager.instance.RemoveHandler(typeof(NextDayEntryExitCompletedEvent).Name, this);
+		ChartManager.instance.RestartChartAnimation();
+
 		gameSession.NextDay();
 	}
 }
