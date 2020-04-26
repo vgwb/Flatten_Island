@@ -1,10 +1,15 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class AudioManager : MonoSingleton
 {
 	public AudioSource oneShotAudioSource;
 	public AudioSource musicAudioSource;
+	public AudioClip defaultButtonClickAudioClip;
+
+	private GameObject lastSelectedGameObject = null;
 
 	public Dictionary<EAudioChannelType, AudioChannel> channels;
 
@@ -13,6 +18,39 @@ public class AudioManager : MonoSingleton
 		get
 		{
 			return GetInstance<AudioManager>();
+		}
+	}
+
+	protected override void OnMonoSingletonUpdate()
+	{
+		base.OnMonoSingletonUpdate();
+		TryAddDefaultButtonSfx();
+	}
+
+	private void TryAddDefaultButtonSfx()
+	{
+		if (EventSystem.current != null)
+		{
+			GameObject currentSelectedGameObject = EventSystem.current.currentSelectedGameObject;
+			if (currentSelectedGameObject != null)
+			{
+				if (currentSelectedGameObject != lastSelectedGameObject)
+				{
+					lastSelectedGameObject = currentSelectedGameObject;
+
+					Button buttonComponent = currentSelectedGameObject.GetComponent<Button>();
+					if (buttonComponent != null)
+					{
+						PlayAudioClip playAudioClip = buttonComponent.GetComponent<PlayAudioClip>();
+						if (playAudioClip == null)
+						{
+							playAudioClip = buttonComponent.gameObject.AddComponent<PlayAudioClip>();
+							playAudioClip.audioClip = defaultButtonClickAudioClip;
+							buttonComponent.onClick.AddListener(playAudioClip.Play);
+						}
+					}
+				}
+			}
 		}
 	}
 

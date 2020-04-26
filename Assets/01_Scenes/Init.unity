@@ -587,6 +587,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   oneShotAudioSource: {fileID: 129881554}
   musicAudioSource: {fileID: 1749832947}
+  defaultButtonClickAudioClip: {fileID: 8300000, guid: 2a022f1b4d53cfc408504d8502110327,
+    type: 3}
 --- !u!81 &1193525901
 AudioListener:
   m_ObjectHideFlags: 0
