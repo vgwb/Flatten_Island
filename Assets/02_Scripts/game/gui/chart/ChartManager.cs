@@ -15,6 +15,7 @@ public class ChartManager : MonoSingleton
 	public GameObject finalDot;
 	public Color normalColor;
 	public Color overFlowColor;
+	public AudioClip redrawChartSfx;
 
 	// Public options
 	public float totalAnimationTime;
@@ -100,6 +101,8 @@ public class ChartManager : MonoSingleton
 		elapsedTime = 0.0f; // restarts the animation
 		FreezeDrawingData(GameManager.instance.localPlayer.gameSession.day + 1);
 		HidePatientsIndicator();
+
+		AudioManager.instance.PlayOneShot(redrawChartSfx, EAudioChannelType.Sfx);
 	}
 
 	public void RestartCurrentDayChartAnimation()
@@ -108,6 +111,8 @@ public class ChartManager : MonoSingleton
 		elapsedTime = 0.0f; // restarts the animation
 		FreezeDrawingData(GameManager.instance.localPlayer.gameSession.day);
 		HidePatientsIndicator();
+
+		AudioManager.instance.PlayOneShot(redrawChartSfx, EAudioChannelType.Sfx);
 	}
 
 	private void FreezeDrawingData(int dayToDrawTo)
