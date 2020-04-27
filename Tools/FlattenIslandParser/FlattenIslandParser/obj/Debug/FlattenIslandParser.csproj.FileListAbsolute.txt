@@ -44,4 +44,3 @@ C:\Dev\Flatten_Island\Tools\FlattenIslandParser\FlattenIslandParser\bin\Debug\Go
 C:\Dev\Flatten_Island\Tools\FlattenIslandParser\FlattenIslandParser\bin\Debug\Google.Apis.Sheets.v4.xml
 C:\Dev\Flatten_Island\Tools\FlattenIslandParser\FlattenIslandParser\bin\Debug\Newtonsoft.Json.xml
 C:\Dev\Flatten_Island\Tools\FlattenIslandParser\FlattenIslandParser\obj\Debug\FlattenIslandParser.csproj.CopyComplete
-C:\Dev\Flatten_Island\Tools\FlattenIslandParser\FlattenIslandParser\obj\Debug\FlattenIslandParser.csprojAssemblyReference.cache
