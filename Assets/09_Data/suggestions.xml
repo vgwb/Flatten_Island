@@ -6,6 +6,8 @@
     </suggestionOptions>
     <requirements>
       <gamePhaseRequirement>
+        <phaseId>1</phaseId>
+        <phaseId>2</phaseId>
         <phaseId>3</phaseId>
       </gamePhaseRequirement>
     </requirements>
@@ -17,6 +19,8 @@
     </suggestionOptions>
     <requirements>
       <gamePhaseRequirement>
+        <phaseId>1</phaseId>
+        <phaseId>2</phaseId>
         <phaseId>3</phaseId>
       </gamePhaseRequirement>
     </requirements>
@@ -28,6 +32,8 @@
     </suggestionOptions>
     <requirements>
       <gamePhaseRequirement>
+        <phaseId>1</phaseId>
+        <phaseId>2</phaseId>
         <phaseId>3</phaseId>
       </gamePhaseRequirement>
     </requirements>
@@ -39,6 +45,8 @@
     </suggestionOptions>
     <requirements>
       <gamePhaseRequirement>
+        <phaseId>1</phaseId>
+        <phaseId>2</phaseId>
         <phaseId>3</phaseId>
       </gamePhaseRequirement>
     </requirements>
@@ -50,6 +58,8 @@
     </suggestionOptions>
     <requirements>
       <gamePhaseRequirement>
+        <phaseId>1</phaseId>
+        <phaseId>2</phaseId>
         <phaseId>3</phaseId>
       </gamePhaseRequirement>
     </requirements>
@@ -1679,6 +1689,831 @@
     <requirements>
       <gamePhaseRequirement>
         <phaseId>2</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3601" advisorId="2001" title="CardTitle_3601" description="CardText_3601">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3601" money="-4000" publicOpinion="12" />
+      <suggestionOption id="2" text="Card_OptB_3601" publicOpinion="12" vaccine="-4" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3602" advisorId="2001" title="CardTitle_3602" description="CardText_3602">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3602" money="-2000" publicOpinion="15" growthRate="3" />
+      <suggestionOption id="2" text="Card_OptB_3602" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3603" advisorId="2001" title="CardTitle_3603" description="CardText_3603">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3603" publicOpinion="3" vaccine="-1" />
+      <suggestionOption id="2" text="Card_OptB_3603" money="-2000" publicOpinion="3" capacity="300" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3604" advisorId="2001" title="CardTitle_3604" description="CardText_3604">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3604" money="-1000" publicOpinion="3" />
+      <suggestionOption id="2" text="Card_OptB_3604" money="-5000" publicOpinion="15" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3605" advisorId="2001" title="CardTitle_3605" description="CardText_3605">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3605" publicOpinion="6" growthRate="2" />
+      <suggestionOption id="2" text="Card_OptB_3605" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3606" advisorId="2001" title="CardTitle_3606" description="CardText_3606">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3606" publicOpinion="6" capacity="-600" />
+      <suggestionOption id="2" text="Card_OptB_3606" money="-1000" publicOpinion="12" capacity="-600" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3607" advisorId="2001" title="CardTitle_3607" description="CardText_3607">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3607" money="-3000" publicOpinion="15" vaccine="-2" />
+      <suggestionOption id="2" text="Card_OptB_3607" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3608" advisorId="2001" title="CardTitle_3608" description="CardText_3608">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3608" money="-2000" publicOpinion="6" />
+      <suggestionOption id="2" text="Card_OptB_3608" money="-5000" publicOpinion="6" capacity="900" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3609" advisorId="2001" title="CardTitle_3609" description="CardText_3609">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3609" publicOpinion="9" growthRate="3" />
+      <suggestionOption id="2" text="Card_OptB_3609" money="-4000" publicOpinion="9" growthRate="-1" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3610" advisorId="2001" title="CardTitle_3610" description="CardText_3610">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3610" publicOpinion="9" capacity="-900" />
+      <suggestionOption id="2" text="Card_OptB_3610" publicOpinion="9" vaccine="-3" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3611" advisorId="2001" title="CardTitle_3611" description="CardText_3611">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3611" publicOpinion="15" capacity="-1500" />
+      <suggestionOption id="2" text="Card_OptB_3611" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3612" advisorId="2001" title="CardTitle_3612" description="CardText_3612">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3612" money="-3000" publicOpinion="9" />
+      <suggestionOption id="2" text="Card_OptB_3612" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3613" advisorId="2001" title="CardTitle_3613" description="CardText_3613">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3613" money="-1000" publicOpinion="12" growthRate="3" />
+      <suggestionOption id="2" text="Card_OptB_3613" publicOpinion="3" growthRate="1" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3614" advisorId="2001" title="CardTitle_3614" description="CardText_3614">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3614" publicOpinion="12" capacity="-1200" />
+      <suggestionOption id="2" text="Card_OptB_3614" publicOpinion="3" capacity="-300" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3615" advisorId="2001" title="CardTitle_3615" description="CardText_3615">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3615" publicOpinion="15" vaccine="-5" />
+      <suggestionOption id="2" text="Card_OptB_3615" publicOpinion="6" vaccine="-2" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3616" advisorId="2002" title="CardTitle_3616" description="CardText_3616">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3616" money="1000" publicOpinion="-3" />
+      <suggestionOption id="2" text="Card_OptB_3616" money="5000" publicOpinion="-15" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3617" advisorId="2002" title="CardTitle_3617" description="CardText_3617">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3617" money="5000" publicOpinion="-9" capacity="-600" />
+      <suggestionOption id="2" text="Card_OptB_3617" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3618" advisorId="2002" title="CardTitle_3618" description="CardText_3618">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3618" money="5000" publicOpinion="-6" growthRate="3" />
+      <suggestionOption id="2" text="Card_OptB_3618" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3619" advisorId="2002" title="CardTitle_3619" description="CardText_3619">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3619" money="1000" vaccine="-1" />
+      <suggestionOption id="2" text="Card_OptB_3619" money="3000" publicOpinion="-3" vaccine="-2" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3620" advisorId="2002" title="CardTitle_3620" description="CardText_3620">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3620" money="2000" publicOpinion="-6" />
+      <suggestionOption id="2" text="Card_OptB_3620" money="2000" publicOpinion="-3" capacity="-300" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3621" advisorId="2002" title="CardTitle_3621" description="CardText_3621">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3621" money="2000" growthRate="2" />
+      <suggestionOption id="2" text="Card_OptB_3621" money="2000" capacity="-600" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3622" advisorId="2002" title="CardTitle_3622" description="CardText_3622">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3622" money="4000" publicOpinion="-3" vaccine="-3" />
+      <suggestionOption id="2" text="Card_OptB_3622" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3623" advisorId="2002" title="CardTitle_3623" description="CardText_3623">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3623" money="2000" vaccine="-2" />
+      <suggestionOption id="2" text="Card_OptB_3623" money="5000" vaccine="-5" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3624" advisorId="2002" title="CardTitle_3624" description="CardText_3624">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3624" money="1000" publicOpinion="-3" />
+      <suggestionOption id="2" text="Card_OptB_3624" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3625" advisorId="2002" title="CardTitle_3625" description="CardText_3625">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3625" money="3000" growthRate="3" />
+      <suggestionOption id="2" text="Card_OptB_3625" money="1000" growthRate="1" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3626" advisorId="2002" title="CardTitle_3626" description="CardText_3626">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3626" money="3000" capacity="-900" />
+      <suggestionOption id="2" text="Card_OptB_3626" money="1000" capacity="-300" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3627" advisorId="2002" title="CardTitle_3627" description="CardText_3627">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3627" money="3000" vaccine="-3" />
+      <suggestionOption id="2" text="Card_OptB_3627" money="3000" publicOpinion="-9" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3628" advisorId="2002" title="CardTitle_3628" description="CardText_3628">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3628" money="4000" publicOpinion="-12" />
+      <suggestionOption id="2" text="Card_OptB_3628" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3629" advisorId="2002" title="CardTitle_3629" description="CardText_3629">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3629" money="4000" publicOpinion="-3" growthRate="3" />
+      <suggestionOption id="2" text="Card_OptB_3629" money="5000" capacity="-1500" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3630" advisorId="2002" title="CardTitle_3630" description="CardText_3630">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3630" money="4000" capacity="-1200" />
+      <suggestionOption id="2" text="Card_OptB_3630" money="4000" vaccine="-4" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3631" advisorId="2004" title="CardTitle_3631" description="CardText_3631">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3631" money="-1000" capacity="300" />
+      <suggestionOption id="2" text="Card_OptB_3631" money="-5000" capacity="1500" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3632" advisorId="2004" title="CardTitle_3632" description="CardText_3632">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3632" publicOpinion="-3" capacity="300" />
+      <suggestionOption id="2" text="Card_OptB_3632" money="1000" capacity="300" vaccine="-2" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3633" advisorId="2004" title="CardTitle_3633" description="CardText_3633">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3633" publicOpinion="-6" capacity="600" />
+      <suggestionOption id="2" text="Card_OptB_3633" publicOpinion="-15" capacity="1500" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3634" advisorId="2004" title="CardTitle_3634" description="CardText_3634">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3634" money="-3000" growthRate="-1" capacity="600" />
+      <suggestionOption id="2" text="Card_OptB_3634" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3635" advisorId="2004" title="CardTitle_3635" description="CardText_3635">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3635" money="-2000" capacity="600" />
+      <suggestionOption id="2" text="Card_OptB_3635" growthRate="2" capacity="600" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3636" advisorId="2004" title="CardTitle_3636" description="CardText_3636">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3636" money="-5000" capacity="1500" />
+      <suggestionOption id="2" text="Card_OptB_3636" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3637" advisorId="2004" title="CardTitle_3637" description="CardText_3637">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3637" publicOpinion="-6" growthRate="3" capacity="1500" />
+      <suggestionOption id="2" text="Card_OptB_3637" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3638" advisorId="2004" title="CardTitle_3638" description="CardText_3638">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3638" capacity="600" vaccine="-2" />
+      <suggestionOption id="2" text="Card_OptB_3638" capacity="1500" vaccine="-5" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3639" advisorId="2004" title="CardTitle_3639" description="CardText_3639">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3639" money="-3000" capacity="900" />
+      <suggestionOption id="2" text="Card_OptB_3639" growthRate="3" capacity="900" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3640" advisorId="2004" title="CardTitle_3640" description="CardText_3640">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3640" publicOpinion="-9" capacity="900" />
+      <suggestionOption id="2" text="Card_OptB_3640" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3641" advisorId="2004" title="CardTitle_3641" description="CardText_3641">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3641" money="-3000" publicOpinion="-6" capacity="1500" />
+      <suggestionOption id="2" text="Card_OptB_3641" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3642" advisorId="2004" title="CardTitle_3642" description="CardText_3642">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3642" capacity="900" vaccine="-3" />
+      <suggestionOption id="2" text="Card_OptB_3642" money="-3000" capacity="900" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3643" advisorId="2004" title="CardTitle_3643" description="CardText_3643">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3643" money="-1000" publicOpinion="-3" capacity="600" />
+      <suggestionOption id="2" text="Card_OptB_3643" money="-2000" publicOpinion="-6" capacity="1200" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3644" advisorId="2004" title="CardTitle_3644" description="CardText_3644">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3644" money="-4000" capacity="1200" />
+      <suggestionOption id="2" text="Card_OptB_3644" publicOpinion="-12" capacity="1200" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3645" advisorId="2004" title="CardTitle_3645" description="CardText_3645">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3645" growthRate="1" capacity="300" />
+      <suggestionOption id="2" text="Card_OptB_3645" money="-1000" growthRate="3" capacity="1200" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3646" advisorId="2003" title="CardTitle_3646" description="CardText_3646">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3646" money="-1000" vaccine="1" />
+      <suggestionOption id="2" text="Card_OptB_3646" money="-5000" vaccine="5" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3647" advisorId="2003" title="CardTitle_3647" description="CardText_3647">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3647" money="-3000" vaccine="3" />
+      <suggestionOption id="2" text="Card_OptB_3647" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3648" advisorId="2003" title="CardTitle_3648" description="CardText_3648">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3648" money="-1000" capacity="1" />
+      <suggestionOption id="2" text="Card_OptB_3648" money="-1000" publicOpinion="-3" vaccine="2" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3649" advisorId="2003" title="CardTitle_3649" description="CardText_3649">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3649" publicOpinion="-15" vaccine="5" />
+      <suggestionOption id="2" text="Card_OptB_3649" capacity="-1500" vaccine="5" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3650" advisorId="2003" title="CardTitle_3650" description="CardText_3650">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3650" money="-2000" vaccine="2" />
+      <suggestionOption id="2" text="Card_OptB_3650" growthRate="2" vaccine="2" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3651" advisorId="2003" title="CardTitle_3651" description="CardText_3651">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3651" money="-2000" growthRate="3" vaccine="5" />
+      <suggestionOption id="2" text="Card_OptB_3651" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3652" advisorId="2003" title="CardTitle_3652" description="CardText_3652">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3652" money="-5000" growthRate="-1" vaccine="4" />
+      <suggestionOption id="2" text="Card_OptB_3652" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3653" advisorId="2003" title="CardTitle_3653" description="CardText_3653">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3653" capacity="-600" vaccine="2" />
+      <suggestionOption id="2" text="Card_OptB_3653" money="-1000" publicOpinion="-3" vaccine="2" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3654" advisorId="2003" title="CardTitle_3654" description="CardText_3654">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3654" money="-3000" publicOpinion="-6" vaccine="5" />
+      <suggestionOption id="2" text="Card_OptB_3654" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3655" advisorId="2003" title="CardTitle_3655" description="CardText_3655">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3655" publicOpinion="-9" vaccine="3" />
+      <suggestionOption id="2" text="Card_OptB_3655" money="-3000" vaccine="3" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3656" advisorId="2003" title="CardTitle_3656" description="CardText_3656">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3656" growthRate="3" vaccine="3" />
+      <suggestionOption id="2" text="Card_OptB_3656" growthRate="1" vaccine="1" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3657" advisorId="2003" title="CardTitle_3657" description="CardText_3657">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3657" capacity="-900" vaccine="3" />
+      <suggestionOption id="2" text="Card_OptB_3657" capacity="-300" vaccine="1" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3658" advisorId="2003" title="CardTitle_3658" description="CardText_3658">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3658" money="-4000" vaccine="4" />
+      <suggestionOption id="2" text="Card_OptB_3658" money="-2000" publicOpinion="-6" vaccine="4" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3659" advisorId="2003" title="CardTitle_3659" description="CardText_3659">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3659" publicOpinion="-12" vaccine="4" />
+      <suggestionOption id="2" text="Card_OptB_3659" publicOpinion="-6" vaccine="2" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3660" advisorId="2003" title="CardTitle_3660" description="CardText_3660">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3660" money="-1000" growthRate="3" vaccine="4" />
+      <suggestionOption id="2" text="Card_OptB_3660" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3661" advisorId="2005" title="CardTitle_3661" description="CardText_3661">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3661" money="-1000" growthRate="-1" />
+      <suggestionOption id="2" text="Card_OptB_3661" money="-3000" growthRate="-3" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3662" advisorId="2005" title="CardTitle_3662" description="CardText_3662">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3662" publicOpinion="-3" growthRate="-1" />
+      <suggestionOption id="2" text="Card_OptB_3662" publicOpinion="-9" growthRate="-3" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3663" advisorId="2005" title="CardTitle_3663" description="CardText_3663">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3663" growthRate="-1" capacity="-300" />
+      <suggestionOption id="2" text="Card_OptB_3663" growthRate="-3" capacity="-900" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3664" advisorId="2005" title="CardTitle_3664" description="CardText_3664">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3664" growthRate="-1" vaccine="-1" />
+      <suggestionOption id="2" text="Card_OptB_3664" growthRate="-3" vaccine="-3" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3665" advisorId="2005" title="CardTitle_3665" description="CardText_3665">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3665" money="-2000" growthRate="-2" />
+      <suggestionOption id="2" text="Card_OptB_3665" growthRate="-2" capacity="-600" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3666" advisorId="2005" title="CardTitle_3666" description="CardText_3666">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3666" publicOpinion="-6" growthRate="-2" />
+      <suggestionOption id="2" text="Card_OptB_3666" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3667" advisorId="2005" title="CardTitle_3667" description="CardText_3667">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3667" money="-1000" growthRate="-1" />
+      <suggestionOption id="2" text="Card_OptB_3667" money="-2000" publicOpinion="-3" growthRate="-3" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3668" advisorId="2005" title="CardTitle_3668" description="CardText_3668">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3668" growthRate="-2" vaccine="-2" />
+      <suggestionOption id="2" text="Card_OptB_3668" money="-1000" publicOpinion="-3" growthRate="-2" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3669" advisorId="2005" title="CardTitle_3669" description="CardText_3669">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3669" money="-2000" publicOpinion="-3" growthRate="-3" />
+      <suggestionOption id="2" text="Card_OptB_3669" money="-5000" growthRate="-3" vaccine="2" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3670" advisorId="2005" title="CardTitle_3670" description="CardText_3670">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3670" publicOpinion="-9" growthRate="-2" vaccine="1" />
+      <suggestionOption id="2" text="Card_OptB_3670" money="-4000" growthRate="-2" vaccine="2" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3671" advisorId="2005" title="CardTitle_3671" description="CardText_3671">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3671" money="-2000" growthRate="-1" capacity="300" />
+      <suggestionOption id="2" text="Card_OptB_3671" money="-2000" growthRate="-1" vaccine="1" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3672" advisorId="2005" title="CardTitle_3672" description="CardText_3672">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3672" money="-2000" growthRate="-1" vaccine="-1" />
+      <suggestionOption id="2" text="Card_OptB_3672" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3673" advisorId="2005" title="CardTitle_3673" description="CardText_3673">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3673" money="-2000" growthRate="-1" capacity="300" />
+      <suggestionOption id="2" text="Card_OptB_3673" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3674" advisorId="2005" title="CardTitle_3674" description="CardText_3674">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3674" money="-1000" publicOpinion="-3" growthRate="-2" />
+      <suggestionOption id="2" text="Card_OptB_3674" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
+      </gamePhaseRequirement>
+    </requirements>
+  </suggestion>
+  <suggestion id="3675" advisorId="2005" title="CardTitle_3675" description="CardText_3675">
+    <suggestionOptions>
+      <suggestionOption id="1" text="Card_OptA_3675" publicOpinion="-12" growthRate="-3" vaccine="1" />
+      <suggestionOption id="2" text="Card_OptB_3675" />
+    </suggestionOptions>
+    <requirements>
+      <gamePhaseRequirement>
+        <phaseId>3</phaseId>
       </gamePhaseRequirement>
     </requirements>
   </suggestion>
