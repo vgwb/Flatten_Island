@@ -6,9 +6,7 @@
     </suggestionOptions>
     <requirements>
       <gamePhaseRequirement>
-        <phaseId>1</phaseId>
-        <phaseId>2</phaseId>
-        <phaseId>3</phaseId>
+        <phaseId>0</phaseId>
       </gamePhaseRequirement>
     </requirements>
   </suggestion>
@@ -19,9 +17,7 @@
     </suggestionOptions>
     <requirements>
       <gamePhaseRequirement>
-        <phaseId>1</phaseId>
-        <phaseId>2</phaseId>
-        <phaseId>3</phaseId>
+        <phaseId>0</phaseId>
       </gamePhaseRequirement>
     </requirements>
   </suggestion>
@@ -32,9 +28,7 @@
     </suggestionOptions>
     <requirements>
       <gamePhaseRequirement>
-        <phaseId>1</phaseId>
-        <phaseId>2</phaseId>
-        <phaseId>3</phaseId>
+        <phaseId>0</phaseId>
       </gamePhaseRequirement>
     </requirements>
   </suggestion>
@@ -45,9 +39,7 @@
     </suggestionOptions>
     <requirements>
       <gamePhaseRequirement>
-        <phaseId>1</phaseId>
-        <phaseId>2</phaseId>
-        <phaseId>3</phaseId>
+        <phaseId>0</phaseId>
       </gamePhaseRequirement>
     </requirements>
   </suggestion>
@@ -58,9 +50,7 @@
     </suggestionOptions>
     <requirements>
       <gamePhaseRequirement>
-        <phaseId>1</phaseId>
-        <phaseId>2</phaseId>
-        <phaseId>3</phaseId>
+        <phaseId>0</phaseId>
       </gamePhaseRequirement>
     </requirements>
   </suggestion>
