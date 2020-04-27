@@ -121,6 +121,12 @@ public class GameSessionFsm : FiniteStateMachine
 
 	private void ChangeGamePhase_Enter()
 	{
+		if (gameSession.gamePhase.GetPhaseId() == GameSession.TUTORIAL_GAME_PHASE_ID)
+		{
+			GameManager.instance.localPlayer.playerSettings.showTutorial = false;
+			GameManager.instance.SavePlayer();
+		}
+
 		int nextPhaseId = gameSession.gamePhase.GetNextPhaseId();
 		gameSession.gamePhase.Stop();
 		gameSession.StartGamePhase(nextPhaseId);
@@ -141,7 +147,11 @@ public class GameSessionFsm : FiniteStateMachine
 		EventMessageHandler allAdvisorsExitCompletedMessageHandler = new EventMessageHandler(this, OnAllAdvisorsExitCompletedEvent);
 		EventMessageManager.instance.AddHandler(typeof(AllAdvisorsExitCompletedEvent).Name, allAdvisorsExitCompletedMessageHandler);
 
-		gameSession.advisors = AdvisorsManager.instance.PickAdvisors();
+		if (!gameSession.HasAdvisors())
+		{
+			gameSession.advisors = AdvisorsManager.instance.PickAdvisors();
+		}
+
 		GameManager.instance.SavePlayer();
 
 		AdvisorsManager.instance.ShowAdvisors(gameSession.advisors);
@@ -155,6 +165,7 @@ public class GameSessionFsm : FiniteStateMachine
 
 	private void Advisors_Exit()
 	{
+		gameSession.DiscardAdvisors();
 		EventMessageManager.instance.RemoveHandler(typeof(AllAdvisorsExitCompletedEvent).Name, this);
 	}
 

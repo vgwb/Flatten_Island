@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class GamePhase : IGamePhase
+public class TutorialGamePhase : IGamePhase
 {
 	private GamePhaseXmlModel gamePhaseXmlModel;
 
@@ -12,7 +12,7 @@ public class GamePhase : IGamePhase
 
 	public void Start(int gamePhaseId, int startDay)
 	{
-		advisorSpawnPolicy = new AdvisorRandomSpawnPolicy();
+		advisorSpawnPolicy = new TutorialAdvisorSpawnPolicy();
 		advisorSpawnPolicy.Initialize();
 
 		gamePhaseXmlModel = XmlModelManager.instance.FindModel<GamePhaseXmlModel>(gamePhaseId);
@@ -62,6 +62,11 @@ public class GamePhase : IGamePhase
 		return gamePhaseXmlModel.nextPhaseId;
 	}
 
+	public IAdvisorSpawnPolicy GetAdvisorSpawnPolicy()
+	{
+		return advisorSpawnPolicy;
+	}
+
 	public int GetPhaseId()
 	{
 		return gamePhaseXmlModel.id;
@@ -70,11 +75,6 @@ public class GamePhase : IGamePhase
 	public int GetStartDay()
 	{
 		return startDay;
-	}
-
-	public IAdvisorSpawnPolicy GetAdvisorSpawnPolicy()
-	{
-		return advisorSpawnPolicy;
 	}
 
 	public bool IsFinished(GameSession gameSession)

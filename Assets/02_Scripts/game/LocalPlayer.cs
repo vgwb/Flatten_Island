@@ -42,9 +42,23 @@ public class LocalPlayer : Player
 	public void StartNewGameSession()
 	{
 		gameSession = new GameSession();
-		List<AdvisorXmlModel> initialAdvisors = AdvisorsManager.instance.PickAdvisors();
-		gameSession.Initialize(initialAdvisors);
-		gameSession.Start();
+
+		int gamePhaseId = GetInitialGamePhaseId();
+
+		gameSession.Initialize();
+		gameSession.Start(gamePhaseId);
+	}
+
+	private int GetInitialGamePhaseId()
+	{
+		if (playerSettings.showTutorial)
+		{
+			return GameSession.TUTORIAL_GAME_PHASE_ID;
+		}
+		else
+		{
+			return GameSession.INITIAL_PHASE_ID;
+		}
 	}
 
 	public void ResumeGameSession()

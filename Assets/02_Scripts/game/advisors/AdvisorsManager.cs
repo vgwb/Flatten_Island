@@ -16,7 +16,6 @@ public class AdvisorsManager : MonoSingleton
 	public SuggestionMenu suggestionMenu;
 
 	private LocalPlayer localPlayer;
-	private IAdvisorSpawnPolicy advisorSpawnPolicy;
 	private AdvisorXmlModel selectedAdvisorXmlModel;
 	private AdvisorXmlModel previousSelectedAdvisorXmlModel;
 
@@ -24,8 +23,6 @@ public class AdvisorsManager : MonoSingleton
 	{
 		base.OnMonoSingletonAwake();
 		localPlayer = GameManager.instance.localPlayer;
-		advisorSpawnPolicy = new AdvisorRandomSpawnPolicy();
-		advisorSpawnPolicy.Initialize();
 		selectedAdvisorXmlModel = null;
 		previousSelectedAdvisorXmlModel = null;
 
@@ -46,7 +43,7 @@ public class AdvisorsManager : MonoSingleton
 
 		List<AdvisorXmlModel> advisorsToAvoid = new List<AdvisorXmlModel>();
 		advisorsToAvoid.Add(previousSelectedAdvisorXmlModel);
-		return advisorSpawnPolicy.GetAdvisors(advisorsToAvoid);
+		return localPlayer.gameSession.gamePhase.GetAdvisorSpawnPolicy().GetAdvisors(advisorsToAvoid);
 	}
 
 	private void OnAdvisorSelected(EventMessage eventMessage)
