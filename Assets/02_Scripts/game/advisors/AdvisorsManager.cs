@@ -73,6 +73,11 @@ public class AdvisorsManager : MonoSingleton
 		tutorialMenu.Show(advisor);
 	}
 
+	public void HideAdvisorTutorialPortrait()
+	{
+		tutorialMenu.HideAdvisorPortrait();
+	}
+
 	public void ShowAdvisorSuggestion()
 	{
 		SuggestionXmlModel selectedSuggestionXmlModel = localPlayer.gameSession.PickNextAvailableSuggestion(selectedAdvisorXmlModel, localPlayer);

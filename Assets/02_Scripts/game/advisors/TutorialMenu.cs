@@ -7,9 +7,11 @@ using Messages;
 public class TutorialMenu : MonoBehaviour
 {
 	private AdvisorPresentationDialog advisorPresentationDialog;
+	public Image advisorPortrait;
 
 	private void OnEnable()
 	{
+
 		EventMessageHandler advisorPresentationExitCompletedMessageHandler = new EventMessageHandler(this, OnAdvisorPresentionExitCompleted);
 		EventMessageManager.instance.AddHandler(typeof(AdvisorPresentationExitCompletedEvent).Name, advisorPresentationExitCompletedMessageHandler);
 	}
@@ -36,6 +38,27 @@ public class TutorialMenu : MonoBehaviour
 
 	public void Show(AdvisorXmlModel advisorXmlModel)
 	{
+		TryShowAdvisorPortrait(advisorXmlModel);
+
 		advisorPresentationDialog = AdvisorPresentationDialog.Show(advisorXmlModel, gameObject.transform);
+	}
+
+	private void TryShowAdvisorPortrait(AdvisorXmlModel advisorXmlModel)
+	{
+		if (!string.IsNullOrEmpty(advisorXmlModel.portraitFullSprite))
+		{
+			Sprite advisorSprite = Resources.Load<Sprite>(advisorXmlModel.portraitFullSprite);
+			advisorPortrait.overrideSprite = advisorSprite;
+			advisorPortrait.gameObject.SetActive(true);
+		}
+		else
+		{
+			advisorPortrait.gameObject.SetActive(false);
+		}
+	}
+
+	public void HideAdvisorPortrait()
+	{
+		advisorPortrait.gameObject.SetActive(false);
 	}
 }

@@ -21,6 +21,8 @@ public class TutorialGamePhase : IGamePhase
 
 	public void Resume()
 	{
+		advisorSpawnPolicy = new TutorialAdvisorSpawnPolicy();
+		advisorSpawnPolicy.Initialize();
 		StartMusic();
 	}
 
@@ -35,6 +37,7 @@ public class TutorialGamePhase : IGamePhase
 
 	public void Stop()
 	{
+		AdvisorsManager.instance.HideAdvisorTutorialPortrait();
 		StopMusic();
 	}
 
