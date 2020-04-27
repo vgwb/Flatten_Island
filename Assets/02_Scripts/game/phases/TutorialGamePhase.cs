@@ -77,6 +77,18 @@ public class TutorialGamePhase : IGamePhase
 		return startDay;
 	}
 
+	public void Advisor_Enter(GameSession gameSession)
+	{
+		if (!gameSession.HasAdvisors())
+		{
+			gameSession.advisors = AdvisorsManager.instance.PickAdvisors();
+		}
+
+		GameManager.instance.SavePlayer();
+
+		AdvisorsManager.instance.ShowAdvisorPresentation(gameSession.advisors[0]);
+	}
+
 	public bool IsFinished(GameSession gameSession)
 	{
 		if (gamePhaseXmlModel.endConditions == null)

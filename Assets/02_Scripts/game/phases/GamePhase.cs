@@ -52,6 +52,18 @@ public class GamePhase : IGamePhase
 		}
 	}
 
+	public void Advisor_Enter(GameSession gameSession)
+	{
+		if (!gameSession.HasAdvisors())
+		{
+			gameSession.advisors = AdvisorsManager.instance.PickAdvisors();
+		}
+
+		GameManager.instance.SavePlayer();
+
+		AdvisorsManager.instance.ShowAdvisors(gameSession.advisors);
+	}
+
 	public string GetName()
 	{
 		return gamePhaseXmlModel.name;

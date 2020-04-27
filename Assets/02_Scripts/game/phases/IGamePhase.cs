@@ -18,4 +18,5 @@
 	int GetStartDay();
 
 	bool IsFinished(GameSession gameSession);
+	void Advisor_Enter(GameSession gameSession);
 }

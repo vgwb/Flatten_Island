@@ -14,6 +14,7 @@ public class AdvisorsManager : MonoSingleton
 
 	public AdvisorsMenu advisorMenu;
 	public SuggestionMenu suggestionMenu;
+	public TutorialMenu tutorialMenu;
 
 	private LocalPlayer localPlayer;
 	private AdvisorXmlModel selectedAdvisorXmlModel;
@@ -28,11 +29,15 @@ public class AdvisorsManager : MonoSingleton
 
 		EventMessageHandler advisorSelectedMessageHandler = new EventMessageHandler(this, OnAdvisorSelected);
 		EventMessageManager.instance.AddHandler(typeof(AdvisorSelectedEvent).Name, advisorSelectedMessageHandler);
+
+		EventMessageHandler advisorPresentationExitCompletedMessageHandler = new EventMessageHandler(this, OnAdvisorPresentionExitCompleted);
+		EventMessageManager.instance.AddHandler(typeof(AdvisorPresentationExitCompletedEvent).Name, advisorPresentationExitCompletedMessageHandler);
 	}
 
 	protected override void OnMonoSingletonDestroyed()
 	{
 		EventMessageManager.instance.RemoveHandler(typeof(AdvisorSelectedEvent).Name, this);
+		EventMessageManager.instance.RemoveHandler(typeof(AdvisorPresentationExitCompletedEvent).Name, this);
 		base.OnMonoSingletonDestroyed();
 	}
 
@@ -52,9 +57,20 @@ public class AdvisorsManager : MonoSingleton
 		selectedAdvisorXmlModel = advisorSelectedEvent.advisorEntrySelected.advisorXmlModel;
 	}
 
+	private void OnAdvisorPresentionExitCompleted(EventMessage eventMessage)
+	{
+		AdvisorPresentationExitCompletedEvent advisorPresentationExitCompleted = eventMessage.eventObject as AdvisorPresentationExitCompletedEvent;
+		selectedAdvisorXmlModel = advisorPresentationExitCompleted.advisorPresentation.advisorXmlModel;
+	}
+
 	public void ShowAdvisors(List<AdvisorXmlModel> advisors)
 	{
 		advisorMenu.Show(advisors);
+	}
+
+	public void ShowAdvisorPresentation(AdvisorXmlModel advisor)
+	{
+		tutorialMenu.Show(advisor);
 	}
 
 	public void ShowAdvisorSuggestion()

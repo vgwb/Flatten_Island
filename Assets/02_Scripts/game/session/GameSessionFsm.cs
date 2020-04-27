@@ -147,14 +147,7 @@ public class GameSessionFsm : FiniteStateMachine
 		EventMessageHandler allAdvisorsExitCompletedMessageHandler = new EventMessageHandler(this, OnAllAdvisorsExitCompletedEvent);
 		EventMessageManager.instance.AddHandler(typeof(AllAdvisorsExitCompletedEvent).Name, allAdvisorsExitCompletedMessageHandler);
 
-		if (!gameSession.HasAdvisors())
-		{
-			gameSession.advisors = AdvisorsManager.instance.PickAdvisors();
-		}
-
-		GameManager.instance.SavePlayer();
-
-		AdvisorsManager.instance.ShowAdvisors(gameSession.advisors);
+		gameSession.gamePhase.Advisor_Enter(gameSession);
 	}
 
 	private void OnAllAdvisorsExitCompletedEvent(EventMessage eventMessage)
