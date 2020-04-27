@@ -64,51 +64,62 @@ namespace SheetsQuickstart
     * will be sent to the xml file.
     * Includes suggestionOption and gamePhaseRequirement object
     **/
-    public class SuggestionSheet {
-    public List<SuggestionOption> suggestionOption;
-    public GamePhaseRequirement gamePhaseRequirement;
-    public GameStoryRequirement gameStoryRequirement;
-    public string idSuggestion; // column A
-    public string advisorId; // column M
-    public string title; // column B, first cell of the pattern
-    public string description;
-    public SuggestionSheet() {
-        this.suggestionOption = new List<SuggestionOption>(2);
-        this.gamePhaseRequirement = new GamePhaseRequirement();
-        this.gameStoryRequirement = new GameStoryRequirement();
-        this.idSuggestion="";
-        this.advisorId="";
-        this.title="";
-        this.description="";
+    public class SuggestionSheet
+	{
+		public List<SuggestionOption> suggestionOption;
+		public GamePhaseRequirement gamePhaseRequirement;
+		public GameStoryRequirement gameStoryRequirement;
+		public string idSuggestion; // column A
+		public string advisorId; // column M
+		public string title; // column B, first cell of the pattern
+		public string description;
+
+		public SuggestionSheet()
+		{
+			this.suggestionOption = new List<SuggestionOption>(2);
+			this.gamePhaseRequirement = new GamePhaseRequirement();
+			this.gameStoryRequirement = new GameStoryRequirement();
+			this.idSuggestion="";
+			this.advisorId="";
+			this.title="";
+			this.description="";
     }
 
-    public string getId(){
+    public string getId()
+	{
         return this.idSuggestion;
     }
 }
 
-    public class CSVConfigData{
+    public class CSVConfigData
+	{
         public string pathFile;
-        public CSVConfigData(){
+
+		public CSVConfigData()
+		{
             this.pathFile = "";
         }
     }
 
-    public class GSConfigData{
+    public class GSConfigData
+	{
 		public string credentialsPathFile;
         public string pathSheet;
         public string spreadSheedName;
         public string cellToExclude;
 
 
-        public GSConfigData(){
+        public GSConfigData()
+		{
 			this.credentialsPathFile = "";
 			this.pathSheet = "";
             this.spreadSheedName = "";
             this.cellToExclude = "";
         }
     } 
-    public class ConfigData{
+
+    public class ConfigData
+	{
         public string CSVData;
         public string OptionMode;
 		public string outputPathFile;
@@ -152,27 +163,27 @@ namespace SheetsQuickstart
             {
                 Console.WriteLine("entramos en csv\n\n");    
                 List<List<string>> valuesCSV= new List<List<string>>();
-                valuesCSV = readingCSV();
-                feedingnObjectFromCSVValue(valuesCSV);
+                valuesCSV = ReadingCSV();
+                FeedingnObjectFromCSVValue(valuesCSV);
 
             }else if(opt == "2"){
                 Console.WriteLine("entramos en GS\n\n");
-                IList<IList<Object>> valuesSheet =  readingFromGoogleSheets();
-                feedingnObjectFromSheetsValue(valuesSheet);
+                IList<IList<Object>> valuesSheet =  ReadingFromGoogleSheets();
+                FeedingnObjectFromSheetsValue(valuesSheet);
             }else{
                 Console.WriteLine("varialbe opt should have values :");
                 Console.WriteLine("1 - reading from CSV file");
                 Console.WriteLine("2 - reading from googlesheet");
             }
 
-            crateXmlFile(suggestionList);
+            createXmlFile(suggestionList);
             
             /***************************************************************/
             /**METHODS
             List of methods used in the project
             **/
 
-            void crateXmlFile(List<SuggestionSheet> suggestions) {
+            void createXmlFile(List<SuggestionSheet> suggestions) {
                 XmlWriterSettings settings = new XmlWriterSettings();
                 settings.Indent = true;
                 settings.OmitXmlDeclaration = true;
@@ -181,68 +192,75 @@ namespace SheetsQuickstart
                     writer.WriteStartElement("group");  
                     int suggestionIndex=0;
                     foreach(SuggestionSheet suggestion in suggestions)
+					{
+                        writer.WriteStartElement("suggestion");  
+                        writer.WriteAttributeString("id", suggestion.idSuggestion);
+                        writer.WriteAttributeString("advisorId", suggestion.advisorId);
+                        writer.WriteAttributeString("title", suggestion.title);        
+                        writer.WriteAttributeString("description", suggestion.description);        
+                        writer.WriteStartElement("suggestionOptions");
+
+						foreach (SuggestionOption suggestionOpt in suggestion.suggestionOption)
+						{
+                            writer.WriteStartElement("suggestionOption");
+                            writer.WriteAttributeString("id", suggestionOpt.idSuggestionOption);
+                            writer.WriteAttributeString("text", suggestionOpt.text);
+                            if(suggestionOpt.money!="") writer.WriteAttributeString("money", suggestionOpt.money);
+                            if(suggestionOpt.publicOp!="") writer.WriteAttributeString("publicOpinion", suggestionOpt.publicOp);
+                            if(suggestionOpt.growthRate!="") writer.WriteAttributeString("growthRate", suggestionOpt.growthRate);
+                            if(suggestionOpt.capacity!="") writer.WriteAttributeString("capacity", suggestionOpt.capacity);
+                            if(suggestionOpt.vacune!="") writer.WriteAttributeString("vaccine", suggestionOpt.vacune);
+                            if(suggestionOpt.startStoryId!="") writer.WriteAttributeString("startStoryId", suggestionOpt.startStoryId);
+                            if(suggestionOpt.stopStoryId!="") writer.WriteAttributeString("stopStoryId", suggestionOpt.stopStoryId);
+                            writer.WriteEndElement();  
+                            suggestionIndex++;
+						}
+
+                        writer.WriteEndElement();  
+                        writer.WriteStartElement("requirements");
+						writer.WriteStartElement("gamePhaseRequirement");
+
+						foreach (string idPhase in suggestion.gamePhaseRequirement.phaseId)
                         {
-                            writer.WriteStartElement("suggestion");  
-                            writer.WriteAttributeString("id", suggestion.idSuggestion);
-                            writer.WriteAttributeString("advisorId", suggestion.advisorId);
-                            writer.WriteAttributeString("title", suggestion.title);        
-                            writer.WriteAttributeString("description", suggestion.description);        
-                            writer.WriteStartElement("suggestionOptions");
-                                foreach(SuggestionOption suggestionOpt in suggestion.suggestionOption)
-                                {
-                                    writer.WriteStartElement("suggestionOption");
-                                    writer.WriteAttributeString("id", suggestionOpt.idSuggestionOption);
-                                    writer.WriteAttributeString("text", suggestionOpt.text);
-                                    if(suggestionOpt.money!="") writer.WriteAttributeString("money", suggestionOpt.money);
-                                    if(suggestionOpt.publicOp!="") writer.WriteAttributeString("publicOpinion", suggestionOpt.publicOp);
-                                    if(suggestionOpt.growthRate!="") writer.WriteAttributeString("growthRate", suggestionOpt.growthRate);
-                                    if(suggestionOpt.capacity!="") writer.WriteAttributeString("capacity", suggestionOpt.capacity);
-                                    if(suggestionOpt.vacune!="") writer.WriteAttributeString("vaccine", suggestionOpt.vacune);
-                                    if(suggestionOpt.startStoryId!="") writer.WriteAttributeString("startStoryId", suggestionOpt.startStoryId);
-                                    if(suggestionOpt.stopStoryId!="") writer.WriteAttributeString("stopStoryId", suggestionOpt.stopStoryId);
-                                    writer.WriteEndElement();  
-                                    suggestionIndex++;
-                                }
-                            writer.WriteEndElement();  
-                            writer.WriteStartElement("requirements");  
-                                writer.WriteStartElement("gamePhaseRequirement");  
-                                    foreach(string idPhase in suggestion.gamePhaseRequirement.phaseId)
-                                    {
-                                        writer.WriteStartElement("phaseId");
-                                        writer.WriteString(idPhase);
-                                        writer.WriteEndElement(); 
-                                    }
-                                writer.WriteEndElement();
-								if (suggestion.gameStoryRequirement.storyId != "")
-								{
-										writer.WriteStartElement("gameStoryRequirement");  
-                                        writer.WriteStartElement("storyId");  
-                                        writer.WriteString(suggestion.gameStoryRequirement.storyId);
-                                        writer.WriteEndElement();
-										writer.WriteEndElement();
-								}
-								writer.WriteEndElement();
-                            writer.WriteEndElement();  
+                            writer.WriteStartElement("phaseId");
+                            writer.WriteString(idPhase);
+                            writer.WriteEndElement(); 
                         }
-                    writer.WriteEndElement();  
+
+						writer.WriteEndElement();
+
+						if (suggestion.gameStoryRequirement.storyId != "")
+						{
+							writer.WriteStartElement("gameStoryRequirement");  
+                            writer.WriteStartElement("storyId");  
+                            writer.WriteString(suggestion.gameStoryRequirement.storyId);
+                            writer.WriteEndElement();
+							writer.WriteEndElement();
+						}
+
+						writer.WriteEndElement();
+                        writer.WriteEndElement();  
+                    }
+
+					writer.WriteEndElement();  
                 }
             }
 
-            SuggestionSheet fillObjectFromGS(IList<IList<Object>> ss, int row) {
-                int lastCellRow=0;
+            SuggestionSheet fillObjectFromGS(IList<IList<Object>> ss, int row)
+			{
                 int lastCellSuggestionRow=(ss[(row)].Count)-1;
-                SuggestionSheet sug = new SuggestionSheet();
-                sug.idSuggestion=ss[row][0].ToString();
+                SuggestionSheet suggestionSheet = new SuggestionSheet();
+                suggestionSheet.idSuggestion=ss[row][0].ToString();
                 
-                sug.advisorId=
+                suggestionSheet.advisorId=
                 ss[row][2].ToString() == "PR"? "2001":
                 ss[row][2].ToString() == "Treasurer"? "2002":
                 ss[row][2].ToString() == "Lab Specialist"? "2003":
                 ss[row][2].ToString() == "Hospital Manager"? "2004":
                 ss[row][2].ToString() == "Commander"? "2005":""
                 ;
-                sug.title=ss[row][1].ToString();
-                sug.description=ss[(row+1)][1].ToString();
+                suggestionSheet.title=ss[row][1].ToString();
+                suggestionSheet.description=ss[(row+1)][1].ToString();
                 for(int i = 0; i < 2; i++){
                     SuggestionOption aux = new SuggestionOption();
                     int newPosition = row+i+2;
@@ -268,32 +286,37 @@ namespace SheetsQuickstart
 
                     aux.startStoryId = lastCellSuggestionOptionRow < 13 ? "": ss[newPosition][13].ToString();
                     aux.stopStoryId = lastCellSuggestionOptionRow < 14 ? "": ss[newPosition][14].ToString();
-                    sug.suggestionOption.Add(aux);
+                    suggestionSheet.suggestionOption.Add(aux);
                 }
                 Console.WriteLine("last cell row :"+lastCellSuggestionRow);
-                sug.gameStoryRequirement.storyId = lastCellSuggestionRow < 7?"":ss[row][7].ToString()==""?"":ss[row][7].ToString();
-                if(ss[row][4].ToString() == "TRUE") sug.gamePhaseRequirement.phaseId.Add("1");
-                if(ss[row][5].ToString() == "TRUE") sug.gamePhaseRequirement.phaseId.Add("2");
-                if(ss[row][6].ToString() == "TRUE") sug.gamePhaseRequirement.phaseId.Add("3");
-                if(ss[row][3].ToString() == "TRUE") sug.gamePhaseRequirement.phaseId.AddRange(new string[]{"1","2","3"});
-                return sug;
+                suggestionSheet.gameStoryRequirement.storyId = lastCellSuggestionRow < 7?"":ss[row][7].ToString()==""?"":ss[row][7].ToString();
+                if(ss[row][4].ToString() == "TRUE") suggestionSheet.gamePhaseRequirement.phaseId.Add("1");
+                if(ss[row][5].ToString() == "TRUE") suggestionSheet.gamePhaseRequirement.phaseId.Add("2");
+                if(ss[row][6].ToString() == "TRUE") suggestionSheet.gamePhaseRequirement.phaseId.Add("3");
+                if(ss[row][3].ToString() == "TRUE") suggestionSheet.gamePhaseRequirement.phaseId.AddRange(new string[]{"1","2","3"});
+                return suggestionSheet;
             }
 
-            SuggestionSheet fillObjectFromCSV(List<List<string>> ss, int row) {
-                Console.WriteLine("row "+row+" | ");
+            SuggestionSheet FillObjectFromCSV(List<List<string>> ss, int row)
+			{
+
+				Console.WriteLine("row "+row+" | ");
                 int lastCellRow=0;
-                SuggestionSheet sug = new SuggestionSheet();
-                sug.idSuggestion=ss[row][0];
-                sug.advisorId=
-                ss[row][2] == "PR"? "2001":
-                ss[row][2] == "Treasurer"? "2002":
-                ss[row][2] == "Lab Specialist"? "2003":
-                ss[row][2] == "Hospital Manager"? "2004":
-                ss[row][2] == "Commander"? "2005":""
-                ;
-                sug.title=ss[row][1];
-                sug.description=ss[(row+1)][1];
-                for(int i = 0; i < 2; i++){
+                SuggestionSheet suggestionSheet = new SuggestionSheet();
+                suggestionSheet.idSuggestion=ss[row][0];
+
+				suggestionSheet.advisorId =
+                	ss[row][2] == "PR"? "2001":
+					ss[row][2] == "Treasurer"? "2002":
+					ss[row][2] == "Lab Specialist"? "2003":
+					ss[row][2] == "Hospital Manager"? "2004":
+					ss[row][2] == "Commander"? "2005":"";
+
+                suggestionSheet.title=ss[row][1];
+                suggestionSheet.description=ss[(row+1)][1];
+
+				for (int i = 0; i < 2; i++)
+				{
                     SuggestionOption aux = new SuggestionOption();
                     int newPosition = row+i+2;
                     lastCellRow=(ss[newPosition].Count)-1;
@@ -318,26 +341,33 @@ namespace SheetsQuickstart
 
                     aux.startStoryId = lastCellRow < 13 ? "": ss[newPosition][13];
                     aux.stopStoryId = lastCellRow < 14 ? "": ss[newPosition][14];
-                    sug.suggestionOption.Add(aux);
+                    suggestionSheet.suggestionOption.Add(aux);
                 }
-                sug.gameStoryRequirement.storyId = ss[row][7]==""?"":ss[row][7];
-                if(ss[row][4] == "TRUE") sug.gamePhaseRequirement.phaseId.Add("1");
-                if(ss[row][5] == "TRUE") sug.gamePhaseRequirement.phaseId.Add("2");
-                if(ss[row][6] == "TRUE") sug.gamePhaseRequirement.phaseId.Add("3");
-                if(ss[row][3] == "TRUE") sug.gamePhaseRequirement.phaseId.AddRange(new string[]{"1","2","3"});
-                return sug;
+
+                suggestionSheet.gameStoryRequirement.storyId = ss[row][7]==""?"":ss[row][7];
+
+				if (ss[row][3] == "TRUE") suggestionSheet.gamePhaseRequirement.phaseId.Add("0");
+				if (ss[row][4] == "TRUE") suggestionSheet.gamePhaseRequirement.phaseId.Add("1");
+                if(ss[row][5] == "TRUE") suggestionSheet.gamePhaseRequirement.phaseId.Add("2");
+                if(ss[row][6] == "TRUE") suggestionSheet.gamePhaseRequirement.phaseId.Add("3");
+
+				return suggestionSheet;
             }
     
-            List<List<string>> readingCSV() {
+            List<List<string>> ReadingCSV()
+			{
                 string path = dataConfig.cSVConfigData.pathFile;
                 List<List<string>> values= new List<List<string>>();
                 string[] readText = File.ReadAllLines(path);
-                foreach(string text in readText){
+                foreach(string text in readText)
+				{
                     List<string> row = new List<string>();
-                    foreach (string value in text.Split(',')){
+                    foreach (string value in text.Split(','))
+					{
                         row.Add(value);
                     }
-                    values.Add(row);
+
+					values.Add(row);
                 }
 
                 for (int i=0;i<values.Count;i++)
@@ -353,7 +383,8 @@ namespace SheetsQuickstart
                 return values;
             }
 
-            IList<IList<Object>> readingFromGoogleSheets(){
+            IList<IList<Object>> ReadingFromGoogleSheets()
+			{
                 string ApplicationName = "Google Sheets API .NET Quickstart";
                 string[] Scopes = { SheetsService.Scope.SpreadsheetsReadonly };
                 UserCredential credential;
@@ -391,50 +422,50 @@ namespace SheetsQuickstart
                 return response.Values;
             }
        
-            List<SuggestionSheet> feedingnObjectFromSheetsValue(IList<IList<Object>> values){
-            if (values != null && values.Count > 0)
-            {
-                suggestionList = new List<SuggestionSheet>(10);
+            List<SuggestionSheet> FeedingnObjectFromSheetsValue(IList<IList<Object>> values)
+			{
+				if (values != null && values.Count > 0)
+				{
+					suggestionList = new List<SuggestionSheet>(10);
                 
-                for (int i=0;i<values.Count;i++)
-                {   
-                    Console.WriteLine("column : "+i);
-                    for(int j=0;j<values[i].Count;j++)
-                    {
-                        Console.Write("cell "+j+" : "+values[i][j].ToString()+"; ");
+					for (int i=0;i<values.Count;i++)
+					{   
+						Console.WriteLine("column : "+i);
+						for(int j=0;j<values[i].Count;j++)
+						{
+							Console.Write("cell "+j+" : "+values[i][j].ToString()+"; ");
 
-                    }
-                    Console.WriteLine("\n-----------------------------------------");
-                    
-                }
+						}
+						Console.WriteLine("\n-----------------------------------------");
+					}
 
-                int rowId=0;
-                for (int i=0;i<values.Count;i++)
-                {
-                    Console.WriteLine("columna :"+i);
-                    if(values[i][0].ToString() != dataConfig.gSConfigData.cellToExclude && values[i][0].ToString() != "")
-                    {
-                        SuggestionSheet suggest = new SuggestionSheet();
-                        suggest=fillObjectFromGS(values, i);
-                        suggestionList.Add(suggest);
-                    }
-                    else
-                    {
+					int rowId=0;
+					for (int i=0;i<values.Count;i++)
+					{
+						Console.WriteLine("columna :"+i);
+						if(values[i][0].ToString() != dataConfig.gSConfigData.cellToExclude && values[i][0].ToString() != "")
+						{
+							SuggestionSheet suggest = new SuggestionSheet();
+							suggest=fillObjectFromGS(values, i);
+							suggestionList.Add(suggest);
+						}
+						else
+						{
 
-                    }
-                    rowId++;
-                }  
-                return suggestionList;
-            }
-            else
-            {
-                Console.WriteLine("No data found.");
-                Console.Read();
-                return null;
-            }
+						}
+						rowId++;
+					}  
+					return suggestionList;
+				}
+				else
+				{
+					Console.WriteLine("No data found.");
+					Console.Read();
+					return null;
+				}
             }
             
-            List<SuggestionSheet> feedingnObjectFromCSVValue(List<List<string>> values){
+            List<SuggestionSheet> FeedingnObjectFromCSVValue(List<List<string>> values){
             if (values != null && values.Count > 0)
             {
                 suggestionList = new List<SuggestionSheet>(10);
@@ -444,14 +475,11 @@ namespace SheetsQuickstart
                     if(values[i][0].ToString() != "Card ID (3001-3999)" && values[i][0].ToString() != "")
                     {
                         SuggestionSheet suggest = new SuggestionSheet();
-                        suggest=fillObjectFromCSV(values, i);
+                        suggest=FillObjectFromCSV(values, i);
                         suggestionList.Add(suggest);
                     }
-                    else
-                    {
 
-                    }
-                    rowId++;
+					rowId++;
                 }  
                 return suggestionList;
             }
