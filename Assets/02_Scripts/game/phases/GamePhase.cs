@@ -58,6 +58,12 @@ public class GamePhase : IGamePhase
 		}
 	}
 
+	public void DayStart_Enter()
+	{
+		Hud.instance.UpdateDayValues();
+		GameManager.instance.SavePlayer();
+	}
+
 	public void Advisor_Enter()
 	{
 		if (!gameSession.HasAdvisors())
@@ -70,12 +76,30 @@ public class GamePhase : IGamePhase
 		AdvisorsManager.instance.ShowAdvisors(gameSession.advisors);
 	}
 
+	public void UpdateResult_Enter()
+	{
+		Hud.instance.UpdateSuggestionOptions();
+		ChartManager.instance.RestartCurrentDayChartAnimation();
+		Hud.instance.UpdateDayValues();
+	}
+
+	public void UpdateResult_Update(GameSessionFsm gameSessionFsm)
+	{
+		gameSessionFsm.TriggerState(GameSessionFsm.NextDayConfirmationState);
+	}
+
 	public void NextDayConfirmation_Enter()
 	{
 		gameSession.UpdateNextDayValues();
 
 		NextDayEntry nextDayEntry = gameSession.ShowNextDayEntry();
 		nextDayEntry.PlayEnterRecipe();
+	}
+
+	public void NextDayConfirmation_Exit()
+	{
+		ChartManager.instance.RestartChartAnimation();
+		gameSession.NextDay();
 	}
 
 	public string GetName()

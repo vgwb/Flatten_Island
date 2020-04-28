@@ -40,33 +40,6 @@ public class TutorialAdvisorSpawnPolicy : IAdvisorSpawnPolicy
 
 		AdvisorXmlModel commanderAdvisor = XmlModelManager.instance.FindModel<AdvisorXmlModel>(COMMANDER_ADVISOR_ID);
 		advisorsQueue.Enqueue(commanderAdvisor);
-
-		RemoveAlradyShownAdvisors();
-	}
-
-	private void RemoveAlradyShownAdvisors()
-	{
-		LocalPlayer localPlayer = GameManager.instance.localPlayer;
-		if (localPlayer.gameSession.HasAdvisors())
-		{
-			for (int i = 1; i <= localPlayer.gameSession.day; i++)
-			{
-				if (advisorsQueue.Count > 0)
-				{
-					advisorsQueue.Dequeue();
-				}
-			}
-		}
-		else
-		{
-			for (int i = 1; i < localPlayer.gameSession.day; i++)
-			{
-				if (advisorsQueue.Count > 0)
-				{
-					advisorsQueue.Dequeue();
-				}
-			}
-		}
 	}
 
 	public List<AdvisorXmlModel> GetAdvisors()

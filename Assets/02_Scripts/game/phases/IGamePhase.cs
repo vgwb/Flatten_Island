@@ -18,6 +18,11 @@
 	int GetStartDay();
 
 	bool IsFinished();
+
+	void DayStart_Enter();
 	void Advisor_Enter();
+	void UpdateResult_Enter();
+	void UpdateResult_Update(GameSessionFsm gameSessionFsm);
 	void NextDayConfirmation_Enter();
+	void NextDayConfirmation_Exit();
 }

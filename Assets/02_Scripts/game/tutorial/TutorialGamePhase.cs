@@ -3,6 +3,8 @@ using Messages;
 
 public class TutorialGamePhase : IGamePhase
 {
+	private const int LAST_ADVISOR_ID = 2005;
+
 	private GamePhaseXmlModel gamePhaseXmlModel;
 
 	private int startDay;
@@ -11,6 +13,8 @@ public class TutorialGamePhase : IGamePhase
 
 	private IAdvisorSpawnPolicy advisorSpawnPolicy;
 	private GameSession gameSession;
+
+	private AdvisorXmlModel currentAdvisor;
 
 	public void Start(GameSession gameSession, int gamePhaseId, int startDay)
 	{
@@ -114,6 +118,11 @@ public class TutorialGamePhase : IGamePhase
 		return startDay;
 	}
 
+	public void DayStart_Enter()
+	{
+		currentAdvisor = null;
+	}
+
 	public void Advisor_Enter()
 	{
 		if (!gameSession.HasAdvisors())
@@ -121,9 +130,26 @@ public class TutorialGamePhase : IGamePhase
 			gameSession.advisors = AdvisorsManager.instance.PickAdvisors();
 		}
 
-		GameManager.instance.SavePlayer();
+		currentAdvisor = gameSession.advisors[0];
 
-		TutorialMenu.instance.ShowAdvisorPresentation(gameSession.advisors[0]);
+		TutorialMenu.instance.ShowAdvisorPresentation(currentAdvisor);
+	}
+
+	public void UpdateResult_Enter()
+	{
+		Hud.instance.UpdateSuggestionOptions();
+	}
+
+	public void UpdateResult_Update(GameSessionFsm gameSessionFsm)
+	{
+		if (currentAdvisor.id == LAST_ADVISOR_ID)
+		{
+			gameSessionFsm.TriggerState(GameSessionFsm.NextDayConfirmationState);
+		}
+		else
+		{
+			gameSessionFsm.TriggerState(GameSessionFsm.DayStartState);
+		}
 	}
 
 	public void NextDayConfirmation_Enter()
@@ -131,6 +157,12 @@ public class TutorialGamePhase : IGamePhase
 		gameSession.UpdateNextDayValues();
 
 		TutorialMenu.instance.ShowNextDayTipDialog();
+	}
+
+	public void NextDayConfirmation_Exit()
+	{
+		ChartManager.instance.RestartChartAnimation();
+		gameSession.NextDay();
 	}
 
 	public bool IsFinished()

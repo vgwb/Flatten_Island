@@ -204,15 +204,13 @@ public class GameSessionFsm : FiniteStateMachine
 	private void UpdateResult_Enter()
 	{
 		gameSession.ApplySuggestionOption(selectedSuggestionOption);
-		Hud.instance.UpdateSuggestionOptions();
-		ChartManager.instance.RestartCurrentDayChartAnimation();
-		Hud.instance.UpdateDayValues();
+
+		gameSession.gamePhase.UpdateResult_Enter();
 	}
 
 	private void UpdateResult_Update()
 	{
-		//should wait here for the chart animation to finish
-		TriggerState(NextDayConfirmationState);
+		gameSession.gamePhase.UpdateResult_Update(this);
 	}
 
 	private void NextDayConfirmation_Enter()
@@ -232,8 +230,6 @@ public class GameSessionFsm : FiniteStateMachine
 	private void NextDayConfirmation_Exit()
 	{
 		EventMessageManager.instance.RemoveHandler(typeof(NextDayEntryExitCompletedEvent).Name, this);
-		ChartManager.instance.RestartChartAnimation();
-
-		gameSession.NextDay();
+		gameSession.gamePhase.NextDayConfirmation_Exit();
 	}
 }
