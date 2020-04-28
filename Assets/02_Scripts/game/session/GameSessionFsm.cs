@@ -121,15 +121,7 @@ public class GameSessionFsm : FiniteStateMachine
 
 	private void ChangeGamePhase_Enter()
 	{
-		if (gameSession.gamePhase.GetPhaseId() == GameSession.TUTORIAL_GAME_PHASE_ID)
-		{
-			GameManager.instance.localPlayer.playerSettings.showTutorial = false;
-			GameManager.instance.SavePlayer();
-		}
-
-		int nextPhaseId = gameSession.gamePhase.GetNextPhaseId();
-		gameSession.gamePhase.Stop();
-		gameSession.StartGamePhase(nextPhaseId);
+		gameSession.gamePhase.ChangeGamePhase_Enter();
 	}
 
 	private void ChangeGamePhase_Update()

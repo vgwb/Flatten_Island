@@ -64,6 +64,13 @@ public class GamePhase : IGamePhase
 		GameManager.instance.SavePlayer();
 	}
 
+	public void ChangeGamePhase_Enter()
+	{
+		int nextPhaseId = gameSession.gamePhase.GetNextPhaseId();
+		gameSession.gamePhase.Stop();
+		gameSession.StartGamePhase(nextPhaseId);
+	}
+
 	public void Advisor_Enter()
 	{
 		if (!gameSession.HasAdvisors())

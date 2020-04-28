@@ -123,6 +123,16 @@ public class TutorialGamePhase : IGamePhase
 		currentAdvisor = null;
 	}
 
+	public void ChangeGamePhase_Enter()
+	{
+		GameManager.instance.localPlayer.playerSettings.showTutorial = false;
+		GameManager.instance.SavePlayer();
+
+		int nextPhaseId = gameSession.gamePhase.GetNextPhaseId();
+		gameSession.gamePhase.Stop();
+		gameSession.StartGamePhase(nextPhaseId);
+	}
+
 	public void Advisor_Enter()
 	{
 		if (!gameSession.HasAdvisors())
