@@ -46,11 +46,11 @@ public class TutorialGamePhase : IGamePhase
 
 	public void ShowHudElements(bool shown)
 	{
-		MainScene.instance.ShowEvolutionChart(shown);
-		Hud.instance.ShowDayPanel(shown);
-		Hud.instance.ShowMoneyPanel(shown);
-		Hud.instance.ShowVaccineBar(shown);
-		Hud.instance.ShowPublicOpinionPanel(shown);
+		TutorialMenu.instance.ShowEvolutionChart(shown);
+		TutorialMenu.instance.ShowDayPanel(shown);
+		TutorialMenu.instance.ShowMoneyPanel(shown);
+		TutorialMenu.instance.ShowVaccineBar(shown);
+		TutorialMenu.instance.ShowPublicOpinionPanel(shown);
 	}
 
 	public void StartMusic()
@@ -103,7 +103,7 @@ public class TutorialGamePhase : IGamePhase
 
 		if (tutorialDialogExitCompletedEvent.tutorialDialog.advisorXmlModel == null)
 		{
-			Hud.instance.ShowDayPanel(true);
+			TutorialMenu.instance.ShowDayPanel(true);
 			NextDayEntry nextDayEntry = gameSession.ShowNextDayEntry();
 			nextDayEntry.PlayEnterRecipe();
 		}

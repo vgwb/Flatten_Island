@@ -901,11 +901,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: VaccinePanel
       objectReference: {fileID: 0}
-    - target: {fileID: 7139861222093278413, guid: d6a60272fdb0b5244bf24aa05dc60987,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6a60272fdb0b5244bf24aa05dc60987, type: 3}
 --- !u!224 &143805344 stripped
@@ -1031,6 +1026,7 @@ GameObject:
   - component: {fileID: 232702322}
   - component: {fileID: 232702324}
   - component: {fileID: 232702323}
+  - component: {fileID: 232702325}
   m_Layer: 5
   m_Name: PublicOpinionPanel
   m_TagString: Untagged
@@ -1094,6 +1090,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 232702321}
   m_CullTransparentMesh: 0
+--- !u!223 &232702325
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 232702321}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1 &249646381
 GameObject:
   m_ObjectHideFlags: 0
@@ -1350,6 +1367,7 @@ GameObject:
   - component: {fileID: 554770243}
   - component: {fileID: 554770245}
   - component: {fileID: 554770244}
+  - component: {fileID: 554770246}
   m_Layer: 5
   m_Name: CapacityPanel
   m_TagString: Untagged
@@ -1412,6 +1430,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 554770242}
   m_CullTransparentMesh: 0
+--- !u!223 &554770246
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 554770242}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1 &614687938
 GameObject:
   m_ObjectHideFlags: 0
@@ -2078,9 +2117,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiWorldCanvas: {fileID: 4727782014539924482}
   suggestionMenu: {fileID: 1642954196}
-  evolutionChart: {fileID: 23463065}
-  chartCapacityPanel: {fileID: 554770242}
-  chartGrowthPanel: {fileID: 1859792847}
 --- !u!4 &832730269
 Transform:
   m_ObjectHideFlags: 0
@@ -3643,6 +3679,7 @@ GameObject:
   - component: {fileID: 1642366696}
   - component: {fileID: 1642366698}
   - component: {fileID: 1642366697}
+  - component: {fileID: 1642366699}
   m_Layer: 5
   m_Name: MoneyPanel
   m_TagString: Untagged
@@ -3705,6 +3742,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1642366695}
   m_CullTransparentMesh: 0
+--- !u!223 &1642366699
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1642366695}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1 &1642954194
 GameObject:
   m_ObjectHideFlags: 0
@@ -3764,6 +3822,7 @@ GameObject:
   - component: {fileID: 1651401221}
   - component: {fileID: 1651401223}
   - component: {fileID: 1651401222}
+  - component: {fileID: 1651401224}
   m_Layer: 5
   m_Name: DayPanel
   m_TagString: Untagged
@@ -3826,6 +3885,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1651401220}
   m_CullTransparentMesh: 0
+--- !u!223 &1651401224
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1651401220}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1 &1658765948
 GameObject:
   m_ObjectHideFlags: 0
@@ -4617,6 +4697,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   advisorPortrait: {fileID: 929144442}
   tutorialNextDayTextLocalizationId: Tutorial_NextDay_Text
+  evolutionChart: {fileID: 23463065}
+  chartCapacityPanel: {fileID: 554770242}
+  chartGrowthPanel: {fileID: 1859792847}
+  patientsPanelStraight: {fileID: 249646381}
+  blinkingRate: 0.4
+  blinkingDuration: 2.5
 --- !u!1 &2037710694
 GameObject:
   m_ObjectHideFlags: 0

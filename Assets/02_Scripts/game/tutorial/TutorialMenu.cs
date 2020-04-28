@@ -9,6 +9,14 @@ public class TutorialMenu : MonoSingleton
 	public Image advisorPortrait;
 	public string tutorialNextDayTextLocalizationId = "Tutorial_NextDay_Text";
 
+	public GameObject evolutionChart;
+	public GameObject chartCapacityPanel;
+	public GameObject chartGrowthPanel;
+	public GameObject patientsPanelStraight;
+
+	public float blinkingRate = 0.4f;
+	public float blinkingDuration = 2.5f;
+
 	private TutorialDialog tutorialDialog;
 
 	public static TutorialMenu instance
@@ -62,21 +70,23 @@ public class TutorialMenu : MonoSingleton
 		switch (advisorXmlModel.id)
 		{
 			case FlattenIslandGameConstants.PR_ADVISOR_ID:
-				Hud.instance.ShowPublicOpinionPanel(true);
+				ShowPublicOpinionPanel(true);
 				break;
 			case FlattenIslandGameConstants.TREASURER_ADVISOR_ID:
-				Hud.instance.ShowMoneyPanel(true);
+				ShowMoneyPanel(true);
 				break;
 			case FlattenIslandGameConstants.LAB_SCIENTIST_ADVISOR_ID:
-				Hud.instance.ShowVaccineBar(true);
+				ShowVaccineBar(true);
 				break;
 			case FlattenIslandGameConstants.HOSPITAL_DOCTOR_ADVISOR_ID:
-				MainScene.instance.ShowEvolutionChart(true);
-				MainScene.instance.ShowChartGrowthPanel(false);
+				ShowEvolutionChart(true);
+				ShowChartCapacityPanel(true);
+				ShowChartGrowthPanel(false);
 				PatientsPanelSelector.instance.HidePanels();
 				break;
 			case FlattenIslandGameConstants.COMMANDER_ADVISOR_ID:
-				MainScene.instance.ShowChartGrowthPanel(true);
+				ShowChartGrowthPanel(true);
+				ShowPatientsStraightPanel(true);
 				ChartManager.instance.RestartCurrentDayChartAnimation();
 				break;
 		}
@@ -104,5 +114,69 @@ public class TutorialMenu : MonoSingleton
 	public void HideAdvisorPortrait()
 	{
 		advisorPortrait.gameObject.SetActive(false);
+	}
+
+	public void ShowEvolutionChart(bool shown)
+	{
+		evolutionChart.SetActive(shown);
+	}
+
+	public void ShowChartGrowthPanel(bool shown)
+	{
+		chartGrowthPanel.SetActive(shown);
+		EnableBlinkCanvasEffect(chartGrowthPanel, shown);
+	}
+
+	public void ShowChartCapacityPanel(bool shown)
+	{
+		chartCapacityPanel.SetActive(shown);
+		EnableBlinkCanvasEffect(chartCapacityPanel, shown);
+	}
+
+	public void ShowPatientsStraightPanel(bool shown)
+	{
+		patientsPanelStraight.SetActive(shown);
+		EnableBlinkCanvasEffect(patientsPanelStraight, shown);
+	}
+
+	public void ShowVaccineBar(bool shown)
+	{
+		Hud.instance.vaccineBar.gameObject.SetActive(shown);
+		EnableBlinkCanvasEffect(Hud.instance.vaccineBar.gameObject, shown);
+	}
+
+	public void ShowDayPanel(bool shown)
+	{
+		Hud.instance.dayPanel.gameObject.SetActive(shown);
+		EnableBlinkCanvasEffect(Hud.instance.dayPanel.gameObject, shown);
+	}
+
+	public void ShowMoneyPanel(bool shown)
+	{
+		Hud.instance.moneyPanel.gameObject.SetActive(shown);
+		EnableBlinkCanvasEffect(Hud.instance.moneyPanel.gameObject, shown);
+	}
+
+	public void ShowPublicOpinionPanel(bool shown)
+	{
+		Hud.instance.publicOpinionPanel.gameObject.SetActive(shown);
+		EnableBlinkCanvasEffect(Hud.instance.publicOpinionPanel.gameObject, shown);
+	}
+
+	private void EnableBlinkCanvasEffect(GameObject gameObject, bool enabled)
+	{
+		Canvas gameObjectCanvas = gameObject.GetComponent<Canvas>();
+		if (gameObjectCanvas != null)
+		{
+			UIBlinkCanvas uiBlinkCanvas = gameObjectCanvas.GetComponent<UIBlinkCanvas>();
+			if (uiBlinkCanvas == null)
+			{
+				uiBlinkCanvas = gameObject.AddComponent<UIBlinkCanvas>();
+				uiBlinkCanvas.blinkingRate = blinkingRate;
+				uiBlinkCanvas.blinkingDuration = blinkingDuration;
+			}
+
+			uiBlinkCanvas.enabled = enabled;
+		}
 	}
 }
