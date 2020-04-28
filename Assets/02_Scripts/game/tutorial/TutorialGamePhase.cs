@@ -103,6 +103,7 @@ public class TutorialGamePhase : IGamePhase
 
 		if (tutorialDialogExitCompletedEvent.tutorialDialog.advisorXmlModel == null)
 		{
+			Hud.instance.ShowDayPanel(true);
 			NextDayEntry nextDayEntry = gameSession.ShowNextDayEntry();
 			nextDayEntry.PlayEnterRecipe();
 		}
@@ -180,7 +181,6 @@ public class TutorialGamePhase : IGamePhase
 
 	public void NextDayConfirmation_Enter()
 	{
-		Hud.instance.ShowDayPanel(true);
 		gameSession.UpdateNextDayValues();
 
 		TutorialMenu.instance.ShowNextDayTipDialog();
