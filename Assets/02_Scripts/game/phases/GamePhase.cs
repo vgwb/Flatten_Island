@@ -27,6 +27,9 @@ public class GamePhase : IGamePhase
 	{
 		this.gameSession = gameSession;
 
+		advisorSpawnPolicy = new AdvisorRandomSpawnPolicy();
+		advisorSpawnPolicy.Initialize();
+
 		StartMusic();
 	}
 
