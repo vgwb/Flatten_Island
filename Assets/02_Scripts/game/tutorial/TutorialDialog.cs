@@ -30,7 +30,6 @@ public class TutorialDialog : MonoBehaviour
 
 	private void OnExitRecipeCompleted()
 	{
-		Debug.Log("Tutorial Dialog: " + advisorXmlModel.name + " Exit Recipe completed");
 		SendExitCompletedEvent();
 	}
 
@@ -44,12 +43,7 @@ public class TutorialDialog : MonoBehaviour
 
 	private void PlayEnterRecipe()
 	{
-		tutorialDialogChef.Cook(tutorialDialogChef.onEnterRecipe, OnEnterRecipeCompleted);
-	}
-
-	private void OnEnterRecipeCompleted()
-	{
-		Debug.Log("Tutorial Dialog" + advisorXmlModel.name + " Enter Recipe completed");
+		tutorialDialogChef.Cook(tutorialDialogChef.onEnterRecipe);
 	}
 
 	public static TutorialDialog ShowAdvisorPresentation(AdvisorXmlModel advisorXmlModel, Transform parent)

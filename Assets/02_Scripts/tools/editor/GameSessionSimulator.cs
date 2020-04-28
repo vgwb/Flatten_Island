@@ -85,7 +85,7 @@ public class GameSessionSimulator
 						gameSession.gamePhase = new GamePhase();
 					}
 
-					gameSession.gamePhase.Start(nextPhaseId, gameSession.day);
+					gameSession.gamePhase.Start(gameSession, nextPhaseId, gameSession.day);
 
 					gameSimulationResultRow.phase = nextPhaseId;
 				}
@@ -147,7 +147,7 @@ public class GameSessionSimulator
 		localPlayer.gameSession = new GameSession();
 		localPlayer.gameSession.Initialize();
 		localPlayer.gameSession.gamePhase = new TutorialGamePhase();
-		localPlayer.gameSession.gamePhase.Start(GameSession.TUTORIAL_GAME_PHASE_ID, localPlayer.gameSession.day);
+		localPlayer.gameSession.gamePhase.Start(localPlayer.gameSession, GameSession.TUTORIAL_GAME_PHASE_ID, localPlayer.gameSession.day);
 		localPlayer.gameSession.advisors = localPlayer.gameSession.gamePhase.GetAdvisorSpawnPolicy().GetAdvisors();
 	}
 

@@ -10,8 +10,12 @@ public class GamePhase : IGamePhase
 
 	private IAdvisorSpawnPolicy advisorSpawnPolicy;
 
-	public void Start(int gamePhaseId, int startDay)
+	private GameSession gameSession;
+
+	public void Start(GameSession gameSession, int gamePhaseId, int startDay)
 	{
+		this.gameSession = gameSession; 
+
 		advisorSpawnPolicy = new AdvisorRandomSpawnPolicy();
 		advisorSpawnPolicy.Initialize();
 
@@ -19,8 +23,10 @@ public class GamePhase : IGamePhase
 		this.startDay = startDay;
 	}
 
-	public void Resume()
+	public void Resume(GameSession gameSession)
 	{
+		this.gameSession = gameSession;
+
 		StartMusic();
 	}
 
@@ -52,7 +58,7 @@ public class GamePhase : IGamePhase
 		}
 	}
 
-	public void Advisor_Enter(GameSession gameSession)
+	public void Advisor_Enter()
 	{
 		if (!gameSession.HasAdvisors())
 		{
@@ -62,6 +68,14 @@ public class GamePhase : IGamePhase
 		GameManager.instance.SavePlayer();
 
 		AdvisorsManager.instance.ShowAdvisors(gameSession.advisors);
+	}
+
+	public void NextDayConfirmation_Enter()
+	{
+		gameSession.UpdateNextDayValues();
+
+		NextDayEntry nextDayEntry = gameSession.ShowNextDayEntry();
+		nextDayEntry.PlayEnterRecipe();
 	}
 
 	public string GetName()
@@ -89,7 +103,7 @@ public class GamePhase : IGamePhase
 		return advisorSpawnPolicy;
 	}
 
-	public bool IsFinished(GameSession gameSession)
+	public bool IsFinished()
 	{
 		if (gamePhaseXmlModel.endConditions == null)
 		{

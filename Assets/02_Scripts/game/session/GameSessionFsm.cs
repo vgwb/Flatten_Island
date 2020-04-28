@@ -147,7 +147,7 @@ public class GameSessionFsm : FiniteStateMachine
 		EventMessageHandler allAdvisorsExitCompletedMessageHandler = new EventMessageHandler(this, OnAllAdvisorsExitCompletedEvent);
 		EventMessageManager.instance.AddHandler(typeof(AllAdvisorsExitCompletedEvent).Name, allAdvisorsExitCompletedMessageHandler);
 
-		gameSession.gamePhase.Advisor_Enter(gameSession);
+		gameSession.gamePhase.Advisor_Enter();
 	}
 
 	private void OnAllAdvisorsExitCompletedEvent(EventMessage eventMessage)
@@ -220,10 +220,7 @@ public class GameSessionFsm : FiniteStateMachine
 		EventMessageHandler nextDayDialogExitCompletedMessageHandler = new EventMessageHandler(this, OnNextDayDialogExitCompleted);
 		EventMessageManager.instance.AddHandler(typeof(NextDayEntryExitCompletedEvent).Name, nextDayDialogExitCompletedMessageHandler);
 
-		gameSession.UpdateNextDayValues();
-
-		NextDayEntry nextDayEntry = gameSession.ShowNextDayEntry();
-		nextDayEntry.PlayEnterRecipe();
+		gameSession.gamePhase.NextDayConfirmation_Enter();
 	}
 
 	private void OnNextDayDialogExitCompleted(EventMessage eventMessage)

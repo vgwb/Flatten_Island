@@ -80,7 +80,7 @@ public class GameSession : ISavable
 	public void Resume()
 	{
 		StartFsm();
-		gamePhase.Resume();
+		gamePhase.Resume(this);
 	}
 
 	public void UpdateFsm()
@@ -158,7 +158,7 @@ public class GameSession : ISavable
 
 	public bool IsCurrentPhaseFinished()
 	{
-		return gamePhase.IsFinished(this);
+		return gamePhase.IsFinished();
 	}
 
 	public bool HasPlayerWon()
@@ -205,7 +205,7 @@ public class GameSession : ISavable
 
 		gamePhaseId = nextGamePhaseId;
 
-		gamePhase.Start(gamePhaseId, day);
+		gamePhase.Start(this, gamePhaseId, day);
 		gamePhase.StartMusic();
 
 		Debug.Log("GameSession = Starting Game Phase:" + gamePhase.GetName());

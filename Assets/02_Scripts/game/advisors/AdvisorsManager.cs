@@ -14,7 +14,6 @@ public class AdvisorsManager : MonoSingleton
 
 	public AdvisorsMenu advisorMenu;
 	public SuggestionMenu suggestionMenu;
-	public TutorialMenu tutorialMenu;
 
 	private LocalPlayer localPlayer;
 	private AdvisorXmlModel selectedAdvisorXmlModel;
@@ -66,16 +65,6 @@ public class AdvisorsManager : MonoSingleton
 	public void ShowAdvisors(List<AdvisorXmlModel> advisors)
 	{
 		advisorMenu.Show(advisors);
-	}
-
-	public void ShowAdvisorPresentation(AdvisorXmlModel advisor)
-	{
-		tutorialMenu.Show(advisor);
-	}
-
-	public void HideAdvisorTutorialPortrait()
-	{
-		tutorialMenu.HideAdvisorPortrait();
 	}
 
 	public void ShowAdvisorSuggestion()

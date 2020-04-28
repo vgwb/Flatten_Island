@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Messages;
 
 public class TutorialGamePhase : IGamePhase
 {
@@ -9,9 +10,14 @@ public class TutorialGamePhase : IGamePhase
 	private AudioSource musicAudioSource;
 
 	private IAdvisorSpawnPolicy advisorSpawnPolicy;
+	private GameSession gameSession;
 
-	public void Start(int gamePhaseId, int startDay)
+	public void Start(GameSession gameSession, int gamePhaseId, int startDay)
 	{
+		this.gameSession = gameSession;
+
+		RegisterEventSubscribers();
+
 		advisorSpawnPolicy = new TutorialAdvisorSpawnPolicy();
 		advisorSpawnPolicy.Initialize();
 
@@ -19,8 +25,12 @@ public class TutorialGamePhase : IGamePhase
 		this.startDay = startDay;
 	}
 
-	public void Resume()
+	public void Resume(GameSession gameSession)
 	{
+		this.gameSession = gameSession;
+
+		RegisterEventSubscribers();
+
 		advisorSpawnPolicy = new TutorialAdvisorSpawnPolicy();
 		advisorSpawnPolicy.Initialize();
 		StartMusic();
@@ -37,7 +47,9 @@ public class TutorialGamePhase : IGamePhase
 
 	public void Stop()
 	{
-		AdvisorsManager.instance.HideAdvisorTutorialPortrait();
+		UnregisterEventSubscribers();
+
+		TutorialMenu.instance.HideAdvisorPortrait();
 		StopMusic();
 	}
 
@@ -52,6 +64,28 @@ public class TutorialGamePhase : IGamePhase
 		{
 			AudioManager.instance.StopMusic(musicAudioSource);
 			musicAudioSource = null;
+		}
+	}
+
+	private void RegisterEventSubscribers()
+	{
+		EventMessageHandler tutorialDialogExitCompletedMessageHandler = new EventMessageHandler(this, OnTutorialDialogExitCompleted);
+		EventMessageManager.instance.AddHandler(typeof(TutorialDialogExitCompletedEvent).Name, tutorialDialogExitCompletedMessageHandler);
+	}
+
+	private void UnregisterEventSubscribers()
+	{
+		EventMessageManager.instance.RemoveHandler(typeof(TutorialDialogExitCompletedEvent).Name, this);
+	}
+
+	public void OnTutorialDialogExitCompleted(EventMessage eventMessage)
+	{
+		TutorialDialogExitCompletedEvent tutorialDialogExitCompletedEvent = eventMessage.eventObject as TutorialDialogExitCompletedEvent;
+
+		if (tutorialDialogExitCompletedEvent.tutorialDialog.advisorXmlModel == null)
+		{
+			NextDayEntry nextDayEntry = gameSession.ShowNextDayEntry();
+			nextDayEntry.PlayEnterRecipe();
 		}
 	}
 
@@ -80,7 +114,7 @@ public class TutorialGamePhase : IGamePhase
 		return startDay;
 	}
 
-	public void Advisor_Enter(GameSession gameSession)
+	public void Advisor_Enter()
 	{
 		if (!gameSession.HasAdvisors())
 		{
@@ -89,10 +123,17 @@ public class TutorialGamePhase : IGamePhase
 
 		GameManager.instance.SavePlayer();
 
-		AdvisorsManager.instance.ShowAdvisorPresentation(gameSession.advisors[0]);
+		TutorialMenu.instance.ShowAdvisorPresentation(gameSession.advisors[0]);
 	}
 
-	public bool IsFinished(GameSession gameSession)
+	public void NextDayConfirmation_Enter()
+	{
+		gameSession.UpdateNextDayValues();
+
+		TutorialMenu.instance.ShowNextDayTipDialog();
+	}
+
+	public bool IsFinished()
 	{
 		if (gamePhaseXmlModel.endConditions == null)
 		{

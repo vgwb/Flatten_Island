@@ -1,8 +1,8 @@
 ﻿public interface IGamePhase : ISavable
 {
-	void Start(int gamePhaseId, int startDay);
+	void Start(GameSession gameSession, int gamePhaseId, int startDay);
 	void Stop();
-	void Resume();
+	void Resume(GameSession gameSession);
 	void Dispose();
 
 	void StartMusic();
@@ -17,6 +17,7 @@
 
 	int GetStartDay();
 
-	bool IsFinished(GameSession gameSession);
-	void Advisor_Enter(GameSession gameSession);
+	bool IsFinished();
+	void Advisor_Enter();
+	void NextDayConfirmation_Enter();
 }

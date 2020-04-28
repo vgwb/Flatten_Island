@@ -4,16 +4,25 @@ using UnityEngine;
 using UnityEngine.UI;
 using Messages;
 
-public class TutorialMenu : MonoBehaviour
+public class TutorialMenu : MonoSingleton
 {
-	private TutorialDialog advisorPresentationDialog;
 	public Image advisorPortrait;
+	public string tutorialNextDayTextLocalizationId = "Tutorial_NextDay_Text";
+
+	private TutorialDialog tutorialDialog;
+
+	public static TutorialMenu instance
+	{
+		get
+		{
+			return GetInstance<TutorialMenu>();
+		}
+	}
 
 	private void OnEnable()
 	{
-
-		EventMessageHandler advisorPresentationExitCompletedMessageHandler = new EventMessageHandler(this, OnAdvisorPresentionExitCompleted);
-		EventMessageManager.instance.AddHandler(typeof(TutorialDialogExitCompletedEvent).Name, advisorPresentationExitCompletedMessageHandler);
+		EventMessageHandler tutorialDialogExitCompletedMessageHandler = new EventMessageHandler(this, OnTutorialDialogExitCompleted);
+		EventMessageManager.instance.AddHandler(typeof(TutorialDialogExitCompletedEvent).Name, tutorialDialogExitCompletedMessageHandler);
 	}
 
 	private void OnDisable()
@@ -21,26 +30,34 @@ public class TutorialMenu : MonoBehaviour
 		EventMessageManager.instance.RemoveHandler(typeof(TutorialDialogExitCompletedEvent).Name, this);
 	}
 
-	public void OnAdvisorPresentionExitCompleted(EventMessage eventMessage)
+	public void OnTutorialDialogExitCompleted(EventMessage eventMessage)
 	{
-		TutorialDialogExitCompletedEvent advisorPresentationExitCompletedEvent = eventMessage.eventObject as TutorialDialogExitCompletedEvent;
+		TutorialDialogExitCompletedEvent tutorialDialogExitCompletedEvent = eventMessage.eventObject as TutorialDialogExitCompletedEvent;
 
-		if (advisorPresentationDialog.advisorXmlModel == advisorPresentationExitCompletedEvent.tutorialDialog.advisorXmlModel)
+		if (tutorialDialogExitCompletedEvent.tutorialDialog.advisorXmlModel != null)
 		{
-			AllAdvisorsExitCompletedEvent allAdvisorsExitCompletedEvent = AllAdvisorsExitCompletedEvent.CreateInstance(advisorPresentationDialog.advisorXmlModel);
-			EventMessage allAdvisorsExitCompletedEventMessage = new EventMessage(this, allAdvisorsExitCompletedEvent);
-			allAdvisorsExitCompletedEventMessage.SetMessageType(MessageType.BROADCAST);
-			EventMessageManager.instance.QueueMessage(allAdvisorsExitCompletedEventMessage);
+			if (tutorialDialog.advisorXmlModel == tutorialDialogExitCompletedEvent.tutorialDialog.advisorXmlModel)
+			{
+				AllAdvisorsExitCompletedEvent allAdvisorsExitCompletedEvent = AllAdvisorsExitCompletedEvent.CreateInstance(tutorialDialog.advisorXmlModel);
+				EventMessage allAdvisorsExitCompletedEventMessage = new EventMessage(this, allAdvisorsExitCompletedEvent);
+				allAdvisorsExitCompletedEventMessage.SetMessageType(MessageType.BROADCAST);
+				EventMessageManager.instance.QueueMessage(allAdvisorsExitCompletedEventMessage);
 
-			advisorPresentationDialog.Release();
+				tutorialDialog.Release();
+			}
 		}
 	}
 
-	public void Show(AdvisorXmlModel advisorXmlModel)
+	public void ShowAdvisorPresentation(AdvisorXmlModel advisorXmlModel)
 	{
 		TryShowAdvisorPortrait(advisorXmlModel);
 
-		advisorPresentationDialog = TutorialDialog.ShowAdvisorPresentation(advisorXmlModel, gameObject.transform);
+		tutorialDialog = TutorialDialog.ShowAdvisorPresentation(advisorXmlModel, gameObject.transform);
+	}
+
+	public void ShowNextDayTipDialog()
+	{
+		tutorialDialog = TutorialDialog.ShowTutorialTip(tutorialNextDayTextLocalizationId, gameObject.transform);
 	}
 
 	private void TryShowAdvisorPortrait(AdvisorXmlModel advisorXmlModel)
