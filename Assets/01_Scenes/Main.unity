@@ -901,6 +901,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: VaccinePanel
       objectReference: {fileID: 0}
+    - target: {fileID: 7139861222093278413, guid: d6a60272fdb0b5244bf24aa05dc60987,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6a60272fdb0b5244bf24aa05dc60987, type: 3}
 --- !u!224 &143805344 stripped
@@ -2073,6 +2078,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiWorldCanvas: {fileID: 4727782014539924482}
   suggestionMenu: {fileID: 1642954196}
+  evolutionChart: {fileID: 23463065}
+  chartCapacityPanel: {fileID: 554770242}
+  chartGrowthPanel: {fileID: 1859792847}
 --- !u!4 &832730269
 Transform:
   m_ObjectHideFlags: 0
@@ -3401,6 +3409,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hudChef: {fileID: 1348542144}
   vaccineBar: {fileID: 143805345}
+  dayPanel: {fileID: 1651401220}
+  moneyPanel: {fileID: 1642366695}
+  publicOpinionPanel: {fileID: 232702321}
   growthValue: {fileID: 59786005}
   moneyValue: {fileID: 1969586655}
   dayValue: {fileID: 745158953}

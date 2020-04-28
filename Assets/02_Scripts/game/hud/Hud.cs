@@ -7,6 +7,9 @@ public class Hud : MonoSingleton
 	public HudChef hudChef;
 
 	public VaccineBar vaccineBar;
+	public GameObject dayPanel;
+	public GameObject moneyPanel;
+	public GameObject publicOpinionPanel;
 
 	public Text growthValue;
 	public Text moneyValue;
@@ -81,4 +84,25 @@ public class Hud : MonoSingleton
 		publicOpinionValue.text = session.publicOpinion + "%";
 		vaccineBar.UpdateBar(session.vaccineDevelopment/100f);
 	}
+
+	public void ShowVaccineBar(bool shown)
+	{
+		vaccineBar.gameObject.SetActive(shown);
+	}
+
+	public void ShowDayPanel(bool shown)
+	{
+		dayPanel.gameObject.SetActive(shown);
+	}
+
+	public void ShowMoneyPanel(bool shown)
+	{
+		moneyPanel.gameObject.SetActive(shown);
+	}
+
+	public void ShowPublicOpinionPanel(bool shown)
+	{
+		publicOpinionPanel.gameObject.SetActive(shown);
+	}
+
 }

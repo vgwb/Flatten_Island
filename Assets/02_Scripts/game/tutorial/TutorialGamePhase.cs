@@ -27,6 +27,8 @@ public class TutorialGamePhase : IGamePhase
 
 		gamePhaseXmlModel = XmlModelManager.instance.FindModel<GamePhaseXmlModel>(gamePhaseId);
 		this.startDay = startDay;
+
+		ShowHudElements(false);
 	}
 
 	public void Resume(GameSession gameSession)
@@ -38,6 +40,17 @@ public class TutorialGamePhase : IGamePhase
 		advisorSpawnPolicy = new TutorialAdvisorSpawnPolicy();
 		advisorSpawnPolicy.Initialize();
 		StartMusic();
+
+		ShowHudElements(false);
+	}
+
+	public void ShowHudElements(bool shown)
+	{
+		MainScene.instance.ShowEvolutionChart(shown);
+		Hud.instance.ShowDayPanel(shown);
+		Hud.instance.ShowMoneyPanel(shown);
+		Hud.instance.ShowVaccineBar(shown);
+		Hud.instance.ShowPublicOpinionPanel(shown);
 	}
 
 	public void StartMusic()
@@ -51,6 +64,8 @@ public class TutorialGamePhase : IGamePhase
 
 	public void Stop()
 	{
+		ShowHudElements(true);
+
 		UnregisterEventSubscribers();
 
 		TutorialMenu.instance.HideAdvisorPortrait();
@@ -148,6 +163,7 @@ public class TutorialGamePhase : IGamePhase
 	public void UpdateResult_Enter()
 	{
 		Hud.instance.UpdateSuggestionOptions();
+		Hud.instance.UpdateDayValues();
 	}
 
 	public void UpdateResult_Update(GameSessionFsm gameSessionFsm)
@@ -164,6 +180,7 @@ public class TutorialGamePhase : IGamePhase
 
 	public void NextDayConfirmation_Enter()
 	{
+		Hud.instance.ShowDayPanel(true);
 		gameSession.UpdateNextDayValues();
 
 		TutorialMenu.instance.ShowNextDayTipDialog();
