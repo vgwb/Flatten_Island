@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
-using Messages;
 
-public class GamePhase : ISavable
+public class GamePhase : IGamePhase
 {
 	private GamePhaseXmlModel gamePhaseXmlModel;
 
@@ -9,14 +8,28 @@ public class GamePhase : ISavable
 
 	private AudioSource musicAudioSource;
 
-	public void Start(int gamePhaseId, int startDay)
+	private IAdvisorSpawnPolicy advisorSpawnPolicy;
+
+	private GameSession gameSession;
+
+	public void Start(GameSession gameSession, int gamePhaseId, int startDay)
 	{
+		this.gameSession = gameSession; 
+
+		advisorSpawnPolicy = new AdvisorRandomSpawnPolicy();
+		advisorSpawnPolicy.Initialize();
+
 		gamePhaseXmlModel = XmlModelManager.instance.FindModel<GamePhaseXmlModel>(gamePhaseId);
 		this.startDay = startDay;
 	}
 
-	public void Resume()
+	public void Resume(GameSession gameSession)
 	{
+		this.gameSession = gameSession;
+
+		advisorSpawnPolicy = new AdvisorRandomSpawnPolicy();
+		advisorSpawnPolicy.Initialize();
+
 		StartMusic();
 	}
 
@@ -39,13 +52,64 @@ public class GamePhase : ISavable
 		StopMusic();
 	}
 
-	private void StopMusic()
+	public void StopMusic()
 	{
 		if (musicAudioSource != null)
 		{
 			AudioManager.instance.StopMusic(musicAudioSource);
 			musicAudioSource = null;
 		}
+	}
+
+	public void DayStart_Enter()
+	{
+		Hud.instance.UpdateDayValues();
+		GameManager.instance.SavePlayer();
+	}
+
+	public void ChangeGamePhase_Enter()
+	{
+		int nextPhaseId = gameSession.gamePhase.GetNextPhaseId();
+		gameSession.gamePhase.Stop();
+		gameSession.StartGamePhase(nextPhaseId);
+	}
+
+	public void Advisor_Enter()
+	{
+		if (!gameSession.HasAdvisors())
+		{
+			gameSession.advisors = AdvisorsManager.instance.PickAdvisors();
+		}
+
+		GameManager.instance.SavePlayer();
+
+		AdvisorsManager.instance.ShowAdvisors(gameSession.advisors);
+	}
+
+	public void UpdateResult_Enter()
+	{
+		Hud.instance.UpdateSuggestionOptions();
+		ChartManager.instance.RestartCurrentDayChartAnimation();
+		Hud.instance.UpdateDayValues();
+	}
+
+	public void UpdateResult_Update(GameSessionFsm gameSessionFsm)
+	{
+		gameSessionFsm.TriggerState(GameSessionFsm.NextDayConfirmationState);
+	}
+
+	public void NextDayConfirmation_Enter()
+	{
+		gameSession.UpdateNextDayValues();
+
+		NextDayEntry nextDayEntry = gameSession.ShowNextDayEntry();
+		nextDayEntry.PlayEnterRecipe();
+	}
+
+	public void NextDayConfirmation_Exit()
+	{
+		ChartManager.instance.RestartChartAnimation();
+		gameSession.NextDay();
 	}
 
 	public string GetName()
@@ -68,7 +132,12 @@ public class GamePhase : ISavable
 		return startDay;
 	}
 
-	public bool IsFinished(GameSession gameSession)
+	public IAdvisorSpawnPolicy GetAdvisorSpawnPolicy()
+	{
+		return advisorSpawnPolicy;
+	}
+
+	public bool IsFinished()
 	{
 		if (gamePhaseXmlModel.endConditions == null)
 		{

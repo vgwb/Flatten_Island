@@ -19,7 +19,7 @@ public class GamePhaseDurationConditionXmlModel : GamePhaseEndConditionXmlModel
 
 	public override bool IsSatisfied(GameSession gameSession)
 	{
-		GamePhase gamePhase = gameSession.gamePhase;
+		IGamePhase gamePhase = gameSession.gamePhase;
 		return (gameSession.day - gamePhase.GetStartDay() >= days);
 	}
 }

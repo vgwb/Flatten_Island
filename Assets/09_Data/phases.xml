@@ -2,7 +2,7 @@
 <group>
 	<gamePhase id="0" name="Tutorial_Phase" description="Phase1_Description" nextPhaseId="1" musicAudioClip="Audio/music/Tutorial">
 		<endConditions>
-			<gamePhaseDurationCondition days="5"/>
+			<gamePhaseDurationCondition days="1"/>
 		</endConditions>
 	</gamePhase>
 	<gamePhase id="1" name="FirstCases_Phase" description="Phase2_Description" nextPhaseId="2" musicAudioClip="Audio/music/FirstCases">

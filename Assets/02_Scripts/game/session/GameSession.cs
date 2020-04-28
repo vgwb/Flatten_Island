@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class GameSession : ISavable
 {
+	public static int TUTORIAL_GAME_PHASE_ID = 0;
 	public static int INITIAL_PHASE_ID = 1;
 	private const int MIN_GROWTH_RATE = -50;
 
@@ -13,15 +14,16 @@ public class GameSession : ISavable
 
 	private const int VACCINE_PROGRESS_END_DEVELOPMENT = 100;
 
-	public int day { get; set; }
-	public int[] patients { get; set; }
-	public int vaccineDevelopment { get; set; }
-	public int growthRate { get; set; }
-	public int capacity { get; set; }
-	public int money { get; set; }
-	public int publicOpinion { get; set; }
+	public int day;
+	public int[] patients;
+	public int vaccineDevelopment;
+	public int growthRate;
+	public int capacity;
+	public int money;
+	public int publicOpinion;
 	public List<AdvisorXmlModel> advisors;
-	public GamePhase gamePhase;
+	public IGamePhase gamePhase;
+	public int gamePhaseId;
 	public List<GameStoryXmlModel> activeGameStories;
 
 	private GameSessionXmlModel gameSessionXmlModel;
@@ -37,12 +39,12 @@ public class GameSession : ISavable
 		}
 	}
 
-	public void Initialize(List<AdvisorXmlModel> initialAdvisors)
+	public void Initialize()
 	{
 		patients = new int[MAX_DAYS];
-		advisors = initialAdvisors;
 		activeGameStories = new List<GameStoryXmlModel>();
 		day = 1;
+		advisors = new List<AdvisorXmlModel>();
 		vaccineDevelopment = gameSessionXmlModel.initialVaccineDevelopment;
 		patients[0] = gameSessionXmlModel.initialPatients;
 		growthRate = gameSessionXmlModel.initialGrowthRate;
@@ -51,9 +53,10 @@ public class GameSession : ISavable
 		publicOpinion = gameSessionXmlModel.initialPublicOpinion;
 	}
 
-	public void Start()
+	public void Start(int initialGamePhaseId)
 	{
-		StartGamePhase(INITIAL_PHASE_ID);
+		gamePhaseId = initialGamePhaseId;
+		StartGamePhase(initialGamePhaseId);
 		StartFsm();
 	}
 
@@ -77,12 +80,22 @@ public class GameSession : ISavable
 	public void Resume()
 	{
 		StartFsm();
-		gamePhase.Resume();
+		gamePhase.Resume(this);
 	}
 
 	public void UpdateFsm()
 	{
 		gameSessionFsm.Update();
+	}
+
+	public bool HasAdvisors()
+	{
+		return advisors.Count > 0;
+	}
+
+	public void DiscardAdvisors()
+	{
+		advisors.Clear();
 	}
 
 	public void ApplySuggestionOption(SuggestionOptionXmlModel selectedSuggestionOptionXmlModel)
@@ -145,7 +158,7 @@ public class GameSession : ISavable
 
 	public bool IsCurrentPhaseFinished()
 	{
-		return gamePhase.IsFinished(this);
+		return gamePhase.IsFinished();
 	}
 
 	public bool HasPlayerWon()
@@ -179,10 +192,20 @@ public class GameSession : ISavable
 	}
 
 
-	public void StartGamePhase(int gamePhaseId)
+	public void StartGamePhase(int nextGamePhaseId)
 	{
-		gamePhase = new GamePhase();
-		gamePhase.Start(gamePhaseId, day);
+		if (nextGamePhaseId == TUTORIAL_GAME_PHASE_ID)
+		{
+			gamePhase = new TutorialGamePhase();
+		}
+		else
+		{
+			gamePhase = new GamePhase();
+		}
+
+		gamePhaseId = nextGamePhaseId;
+
+		gamePhase.Start(this, gamePhaseId, day);
 		gamePhase.StartMusic();
 
 		Debug.Log("GameSession = Starting Game Phase:" + gamePhase.GetName());
@@ -251,6 +274,7 @@ public class GameSession : ISavable
 			gameSessionData.advisorIds[i] = advisors[i].id;
 		}
 
+		gameSessionData.gamePhaseId = gamePhaseId;
 		GamePhaseData gamePhaseData = gamePhase.WriteSaveData() as GamePhaseData;
 		gameSessionData.gamePhaseData = gamePhaseData;
 
@@ -284,7 +308,16 @@ public class GameSession : ISavable
 			}
 		}
 
-		gamePhase = new GamePhase();
+		gamePhaseId = gameSessionData.gamePhaseId;
+		if (gamePhaseId == TUTORIAL_GAME_PHASE_ID)
+		{
+			gamePhase = new TutorialGamePhase();
+		}
+		else
+		{
+			gamePhase = new GamePhase();
+		}
+
 		gamePhase.ReadSaveData(gameSessionData.gamePhaseData);
 
 		activeGameStories = new List<GameStoryXmlModel>();

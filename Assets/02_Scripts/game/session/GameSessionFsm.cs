@@ -53,8 +53,7 @@ public class GameSessionFsm : FiniteStateMachine
 
 	private void DayStart_Enter()
 	{
-		Hud.instance.UpdateDayValues();
-		GameManager.instance.SavePlayer();
+		gameSession.gamePhase.DayStart_Enter();
 	}
 
 	private void DayStart_Update()
@@ -121,9 +120,7 @@ public class GameSessionFsm : FiniteStateMachine
 
 	private void ChangeGamePhase_Enter()
 	{
-		int nextPhaseId = gameSession.gamePhase.GetNextPhaseId();
-		gameSession.gamePhase.Stop();
-		gameSession.StartGamePhase(nextPhaseId);
+		gameSession.gamePhase.ChangeGamePhase_Enter();
 	}
 
 	private void ChangeGamePhase_Update()
@@ -141,10 +138,7 @@ public class GameSessionFsm : FiniteStateMachine
 		EventMessageHandler allAdvisorsExitCompletedMessageHandler = new EventMessageHandler(this, OnAllAdvisorsExitCompletedEvent);
 		EventMessageManager.instance.AddHandler(typeof(AllAdvisorsExitCompletedEvent).Name, allAdvisorsExitCompletedMessageHandler);
 
-		gameSession.advisors = AdvisorsManager.instance.PickAdvisors();
-		GameManager.instance.SavePlayer();
-
-		AdvisorsManager.instance.ShowAdvisors(gameSession.advisors);
+		gameSession.gamePhase.Advisor_Enter();
 	}
 
 	private void OnAllAdvisorsExitCompletedEvent(EventMessage eventMessage)
@@ -155,6 +149,7 @@ public class GameSessionFsm : FiniteStateMachine
 
 	private void Advisors_Exit()
 	{
+		gameSession.DiscardAdvisors();
 		EventMessageManager.instance.RemoveHandler(typeof(AllAdvisorsExitCompletedEvent).Name, this);
 	}
 
@@ -200,15 +195,13 @@ public class GameSessionFsm : FiniteStateMachine
 	private void UpdateResult_Enter()
 	{
 		gameSession.ApplySuggestionOption(selectedSuggestionOption);
-		Hud.instance.UpdateSuggestionOptions();
-		ChartManager.instance.RestartCurrentDayChartAnimation();
-		Hud.instance.UpdateDayValues();
+
+		gameSession.gamePhase.UpdateResult_Enter();
 	}
 
 	private void UpdateResult_Update()
 	{
-		//should wait here for the chart animation to finish
-		TriggerState(NextDayConfirmationState);
+		gameSession.gamePhase.UpdateResult_Update(this);
 	}
 
 	private void NextDayConfirmation_Enter()
@@ -216,10 +209,7 @@ public class GameSessionFsm : FiniteStateMachine
 		EventMessageHandler nextDayDialogExitCompletedMessageHandler = new EventMessageHandler(this, OnNextDayDialogExitCompleted);
 		EventMessageManager.instance.AddHandler(typeof(NextDayEntryExitCompletedEvent).Name, nextDayDialogExitCompletedMessageHandler);
 
-		gameSession.UpdateNextDayValues();
-
-		NextDayEntry nextDayEntry = gameSession.ShowNextDayEntry();
-		nextDayEntry.PlayEnterRecipe();
+		gameSession.gamePhase.NextDayConfirmation_Enter();
 	}
 
 	private void OnNextDayDialogExitCompleted(EventMessage eventMessage)
@@ -231,8 +221,6 @@ public class GameSessionFsm : FiniteStateMachine
 	private void NextDayConfirmation_Exit()
 	{
 		EventMessageManager.instance.RemoveHandler(typeof(NextDayEntryExitCompletedEvent).Name, this);
-		ChartManager.instance.RestartChartAnimation();
-
-		gameSession.NextDay();
+		gameSession.gamePhase.NextDayConfirmation_Exit();
 	}
 }

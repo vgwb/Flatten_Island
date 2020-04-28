@@ -1,8 +1,8 @@
 ﻿<group>
-  <suggestion id="3001" advisorId="2002" title="CardTitle_3001" description="CardText_3001">
+  <suggestion id="3001" advisorId="2001" title="CardTitle_3001" description="CardText_3001">
     <suggestionOptions>
-      <suggestionOption id="1" text="Card_OptA_3001" money="-1000" />
-      <suggestionOption id="2" text="Card_OptB_3001" money="-1000" />
+      <suggestionOption id="1" text="Card_OptA_3001" publicOpinion="-3" />
+      <suggestionOption id="2" text="Card_OptB_3001" publicOpinion="2" />
     </suggestionOptions>
     <requirements>
       <gamePhaseRequirement>
@@ -10,10 +10,10 @@
       </gamePhaseRequirement>
     </requirements>
   </suggestion>
-  <suggestion id="3002" advisorId="2005" title="CardTitle_3002" description="CardText_3002">
+  <suggestion id="3002" advisorId="2002" title="CardTitle_3002" description="CardText_3002">
     <suggestionOptions>
       <suggestionOption id="1" text="Card_OptA_3002" money="-1000" />
-      <suggestionOption id="2" text="Card_OptB_3002" money="-1000" />
+      <suggestionOption id="2" text="Card_OptB_3002" money="1000" />
     </suggestionOptions>
     <requirements>
       <gamePhaseRequirement>
@@ -21,10 +21,10 @@
       </gamePhaseRequirement>
     </requirements>
   </suggestion>
-  <suggestion id="3003" advisorId="2001" title="CardTitle_3003" description="CardText_3003">
+  <suggestion id="3003" advisorId="2003" title="CardTitle_3003" description="CardText_3003">
     <suggestionOptions>
-      <suggestionOption id="1" text="Card_OptA_3003" money="-1000" />
-      <suggestionOption id="2" text="Card_OptB_3003" money="-1000" />
+      <suggestionOption id="1" text="Card_OptA_3003" vaccine="2" />
+      <suggestionOption id="2" text="Card_OptB_3003" vaccine="-1" />
     </suggestionOptions>
     <requirements>
       <gamePhaseRequirement>
@@ -34,8 +34,8 @@
   </suggestion>
   <suggestion id="3004" advisorId="2004" title="CardTitle_3004" description="CardText_3004">
     <suggestionOptions>
-      <suggestionOption id="1" text="Card_OptA_3004" money="-1000" />
-      <suggestionOption id="2" text="Card_OptB_3004" money="-1000" />
+      <suggestionOption id="1" text="Card_OptA_3004" capacity="500" />
+      <suggestionOption id="2" text="Card_OptB_3004" capacity="1000" />
     </suggestionOptions>
     <requirements>
       <gamePhaseRequirement>
@@ -43,10 +43,10 @@
       </gamePhaseRequirement>
     </requirements>
   </suggestion>
-  <suggestion id="3005" advisorId="2003" title="CardTitle_3005" description="CardText_3005">
+  <suggestion id="3005" advisorId="2005" title="CardTitle_3005" description="CardText_3005">
     <suggestionOptions>
-      <suggestionOption id="1" text="Card_OptA_3005" money="-1000" />
-      <suggestionOption id="2" text="Card_OptB_3005" money="-1000" />
+      <suggestionOption id="1" text="Card_OptA_3005" growthRate="2" />
+      <suggestionOption id="2" text="Card_OptB_3005" growthRate="3" />
     </suggestionOptions>
     <requirements>
       <gamePhaseRequirement>

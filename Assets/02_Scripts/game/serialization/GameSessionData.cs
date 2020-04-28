@@ -13,5 +13,6 @@ public class GameSessionData : GameData
 	public int[] advisorIds;
 	public int[] activeGameStoryIds;
 
+	public int gamePhaseId;
 	public GamePhaseData gamePhaseData;
 }

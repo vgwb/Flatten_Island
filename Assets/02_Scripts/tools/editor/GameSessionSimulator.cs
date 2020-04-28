@@ -75,8 +75,17 @@ public class GameSessionSimulator
 				if (gameSession.IsCurrentPhaseFinished())
 				{
 					int nextPhaseId = gameSession.gamePhase.GetNextPhaseId();
-					gameSession.gamePhase = new GamePhase();
-					gameSession.gamePhase.Start(nextPhaseId, gameSession.day);
+
+					if (nextPhaseId == GameSession.TUTORIAL_GAME_PHASE_ID)
+					{
+						gameSession.gamePhase = new TutorialGamePhase();
+					}
+					else
+					{
+						gameSession.gamePhase = new GamePhase();
+					}
+
+					gameSession.gamePhase.Start(gameSession, nextPhaseId, gameSession.day);
 
 					gameSimulationResultRow.phase = nextPhaseId;
 				}
@@ -85,6 +94,7 @@ public class GameSessionSimulator
 				int randomAdvisorIndex = RandomGenerator.GetRandom(0, gameSession.advisors.Count);
 				selectedAdvisorXmlModel = gameSession.advisors[randomAdvisorIndex];
 				gameSimulationResultRow.chosenAdvisorId = selectedAdvisorXmlModel.id;
+				gameSession.DiscardAdvisors();
 
 				List<SuggestionXmlModel> suggestionXmlModels = XmlModelManager.instance.FindModels<SuggestionXmlModel>((suggestionXmlModel) => suggestionXmlModel.advisorId == selectedAdvisorXmlModel.id);
 				SuggestionXmlModel selectedSuggestionXmlModel = localPlayer.gameSession.PickNextAvailableSuggestion(selectedAdvisorXmlModel, localPlayer);
@@ -135,10 +145,10 @@ public class GameSessionSimulator
 		localPlayer = new LocalPlayer();
 		localPlayer.Init();
 		localPlayer.gameSession = new GameSession();
-		List<AdvisorXmlModel> initialAdvisors = PickAdvisors();
-		localPlayer.gameSession.Initialize(initialAdvisors);
-		localPlayer.gameSession.gamePhase = new GamePhase();
-		localPlayer.gameSession.gamePhase.Start(GameSession.INITIAL_PHASE_ID, localPlayer.gameSession.day);
+		localPlayer.gameSession.Initialize();
+		localPlayer.gameSession.gamePhase = new TutorialGamePhase();
+		localPlayer.gameSession.gamePhase.Start(localPlayer.gameSession, GameSession.TUTORIAL_GAME_PHASE_ID, localPlayer.gameSession.day);
+		localPlayer.gameSession.advisors = localPlayer.gameSession.gamePhase.GetAdvisorSpawnPolicy().GetAdvisors();
 	}
 
 	public List<AdvisorXmlModel> PickAdvisors()

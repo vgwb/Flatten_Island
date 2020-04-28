@@ -1,7 +1,7 @@
 String Identifier	String Description (Comments)	English	Spanish	Italian	French	Arabic
-Intro_Text1	First text for the Intro Sequence	Welcome to Flatten Island, Home of the most bizzare people in the world! Don´t worry about the volcano behind the island, it´s not dangerous!				
-Intro_Text2		Here the governor is selected with a lottery among all citizens. You arrived just in time: the draw is today.  				
-Intro_Text3		And the winner is ... you! Congratulations, you will rule the island with the help of a few advisors. Let´s meet them ...				
+Intro_Text1	First text for the Intro Sequence	Welcome to Flatten Island, Home of the most bizarre people in the world! Don´t worry about the volcano behind the island, it´s not dangerous!	Bienvenido a la isla Aplanar, Inicio de las personas más extrañas del mundo! No se preocupe sobre el volcán detrás de la isla, se inunda no es peligroso!			
+Intro_Text2		Here the governor is selected with a lottery among all citizens. You arrived just in time: the draw is today.  	Aquí el gobernador se selecciona con un sorteo entre todos los ciudadanos. Llegaste justo a tiempo: el sorteo es hoy en día. 			
+Intro_Text3		And the winner is ... you! Congratulations, you will rule the island with the help of a few advisors. Let´s meet them ...	Y el ganador es ... usted! Felicitaciones, gobernarán la isla con la ayuda de algunos asesores. Vamos a cumplir ...			
 OkText		Ok	Ok	Ok	Ok	حسنا
 YesText		Yes	Si	Si	Oui	نعم
 NoText		No	No	No	No	لا
@@ -24,12 +24,18 @@ SFXMenuText		SFX	SFX	SFX
 TutorialMenuText		Tutorial	Tutoriale	Tutoriale		
 CreditsMenuText		Credits	Credits	Credits		
 WatchIntroMenuText		Watch Intro	MIra la Intro	Guarda la Intro		
-CreditsTitle		CREDITS				
-PressSecretary_Name		Mr. Goodnews				
-Treasurer_Name		Mrs. Payalot				
-LabScientist_Name		Prof. Antibody				
-HospitalDirector_Name		Dr.Deepbreath				
-Commander_Name		Agent R0				
+CreditsTitle		CREDITS	CREDITOS			
+PressSecretary_Name		Mr. Goodnews	Don Megusta			
+Treasurer_Name		Mrs. Payalot	Profesora Calderilla			
+LabScientist_Name		Prof. Antibody	Directora Anticuerpos			
+HospitalDirector_Name		Dr.Deepbreath	Doctor Tomeaire			
+Commander_Name		Agent Logarithm	Agente Logaritmo			
+PressSecretary_Presentation_Text		I'm Mr. Goodnews, your PR. I take care of what citizens think about you. Be careful, if your popularity falls to 0%, you'll be fired!				
+Treasurer_Presentation_Text		I'm Mrs. Payalot. I take care of the Money. Be careful, if we run out of money you'll be fired!				
+LabScientist_Presentation_Text		I'm Prof. Antibody, the Lab Scientist. I lead the research for the vaccine. Getting the vaccine means defeating the virus!				
+HospitalDirector_Presentation_Text		I'm Dr. Deepbreath, the Hospital Director. My priority is to treat all patients properly. If we cannot admit all patients, you lose!				
+Commander_Advisor_Presentation_Text		I'm Agent Logarithm, Commander of the Pandemic Special Unit. We just detected the first cases and our priority will be to reduce the growth of the outbreak. 				
+Tutorial_NextDay_Text		Explain parameter update at the end of each day				
 CardTitle_3101		CardTitle_3101				
 CardText_3101		Recommendation on Social Distancing				
 Card_OptA_3101		Only Official Channels				

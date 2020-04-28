@@ -9,6 +9,7 @@ public class AdvisorXmlModel : XmlModel
 	public string bubbleSprite;
 	public string suggestionBackgroundSprite;
 	public string suggestionResultBackgroundSprite;
+	public string presentation;
 
 	override public void Initialize(XElement element)
 	{
@@ -20,6 +21,6 @@ public class AdvisorXmlModel : XmlModel
 		bubbleSprite = ParseStringAttribute(element, "bubbleSprite");
 		suggestionBackgroundSprite = ParseStringAttribute(element, "suggestionBackgroundSprite");
 		suggestionResultBackgroundSprite = ParseStringAttribute(element, "suggestionResultBackgroundSprite");
-
+		presentation = ParseStringAttribute(element, "presentation");
 	}
 }
