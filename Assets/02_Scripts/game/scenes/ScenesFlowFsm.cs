@@ -63,8 +63,9 @@ public class ScenesFlowFsm : FiniteStateMachine
 			TriggerState(LoadingLogoSceneState);
 		}
 		return;
-#endif
+#else
 		TriggerState(LoadingLogoSceneState);
+#endif
 	}
 
 	private void LoadingLogoScene_OnEnter()
