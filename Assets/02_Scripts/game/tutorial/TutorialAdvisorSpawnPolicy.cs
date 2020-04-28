@@ -47,11 +47,24 @@ public class TutorialAdvisorSpawnPolicy : IAdvisorSpawnPolicy
 	private void RemoveAlradyShownAdvisors()
 	{
 		LocalPlayer localPlayer = GameManager.instance.localPlayer;
-		for (int i = 1; i <= localPlayer.gameSession.day; i++)
+		if (localPlayer.gameSession.HasAdvisors())
 		{
-			if (advisorsQueue.Count > 0)
+			for (int i = 1; i <= localPlayer.gameSession.day; i++)
 			{
-				advisorsQueue.Dequeue();
+				if (advisorsQueue.Count > 0)
+				{
+					advisorsQueue.Dequeue();
+				}
+			}
+		}
+		else
+		{
+			for (int i = 1; i < localPlayer.gameSession.day; i++)
+			{
+				if (advisorsQueue.Count > 0)
+				{
+					advisorsQueue.Dequeue();
+				}
 			}
 		}
 	}
