@@ -53,8 +53,7 @@ public class GameSessionFsm : FiniteStateMachine
 
 	private void DayStart_Enter()
 	{
-		Hud.instance.UpdateDayValues();
-		GameManager.instance.SavePlayer();
+		gameSession.gamePhase.DayStart_Enter();
 	}
 
 	private void DayStart_Update()
