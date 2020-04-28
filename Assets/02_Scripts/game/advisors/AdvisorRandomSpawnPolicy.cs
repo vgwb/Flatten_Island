@@ -10,11 +10,6 @@ public class AdvisorRandomSpawnPolicy : IAdvisorSpawnPolicy
 	public void Initialize()
 	{
 		advisorModels = XmlModelManager.instance.FindModels<AdvisorXmlModel>();
-		Reset();
-	}
-
-	public void Reset()
-	{
 		InitializeShuffleBag();
 	}
 

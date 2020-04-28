@@ -12,11 +12,6 @@ public class TutorialAdvisorSpawnPolicy : IAdvisorSpawnPolicy
 
 	public void Initialize()
 	{
-		Reset();
-	}
-
-	public void Reset()
-	{
 		InitializeQueue();
 	}
 
@@ -45,6 +40,20 @@ public class TutorialAdvisorSpawnPolicy : IAdvisorSpawnPolicy
 
 		AdvisorXmlModel commanderAdvisor = XmlModelManager.instance.FindModel<AdvisorXmlModel>(COMMANDER_ADVISOR_ID);
 		advisorsQueue.Enqueue(commanderAdvisor);
+
+		RemoveAlradyShownAdvisors();
+	}
+
+	private void RemoveAlradyShownAdvisors()
+	{
+		LocalPlayer localPlayer = GameManager.instance.localPlayer;
+		for (int i = 1; i <= localPlayer.gameSession.day; i++)
+		{
+			if (advisorsQueue.Count > 0)
+			{
+				advisorsQueue.Dequeue();
+			}
+		}
 	}
 
 	public List<AdvisorXmlModel> GetAdvisors()

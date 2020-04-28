@@ -3,7 +3,6 @@
 public interface IAdvisorSpawnPolicy
 {
 	void Initialize();
-	void Reset();
 
 	List<AdvisorXmlModel> GetAdvisors();
 	List<AdvisorXmlModel> GetAdvisors(List<AdvisorXmlModel> advisorsToAvoid);
