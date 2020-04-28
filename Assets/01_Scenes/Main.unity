@@ -3240,8 +3240,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -290, y: 400}
-  m_SizeDelta: {x: 420, y: 409}
+  m_AnchoredPosition: {x: 610, y: 400}
+  m_SizeDelta: {x: -1380, y: 409}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &1411091490
 CanvasRenderer:
@@ -4605,6 +4605,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   advisorPortrait: {fileID: 929144442}
+  tutorialNextDayTextLocalizationId: Tutorial_NextDay_Text
 --- !u!1 &2037710694
 GameObject:
   m_ObjectHideFlags: 0
@@ -4767,7 +4768,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   advisorMenu: {fileID: 4727782016051036451}
   suggestionMenu: {fileID: 1642954196}
-  tutorialMenu: {fileID: 2026579491}
 --- !u!111 &177481899610881700
 Animation:
   m_ObjectHideFlags: 0
