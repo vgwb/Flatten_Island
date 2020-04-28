@@ -136,6 +136,8 @@ public class TutorialGamePhase : IGamePhase
 
 	public void DayStart_Enter()
 	{
+		Hud.instance.UpdateDayValues();
+
 		currentAdvisor = null;
 	}
 
