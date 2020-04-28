@@ -1065,7 +1065,7 @@ GameObject:
   - component: {fileID: 5581308545998044164}
   - component: {fileID: 3696409017824451982}
   m_Layer: 5
-  m_Name: AdvisorPresentationDialog
+  m_Name: TutorialDialog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1105,7 +1105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   presentationText: {fileID: 5581308545177549498}
-  advisorPresentationChef: {fileID: 3400439724493107391}
+  tutorialDialogChef: {fileID: 3400439724493107391}
 --- !u!1 &5813659963376871367
 GameObject:
   m_ObjectHideFlags: 0

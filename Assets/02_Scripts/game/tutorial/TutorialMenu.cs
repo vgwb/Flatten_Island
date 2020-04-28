@@ -6,26 +6,26 @@ using Messages;
 
 public class TutorialMenu : MonoBehaviour
 {
-	private AdvisorPresentationDialog advisorPresentationDialog;
+	private TutorialDialog advisorPresentationDialog;
 	public Image advisorPortrait;
 
 	private void OnEnable()
 	{
 
 		EventMessageHandler advisorPresentationExitCompletedMessageHandler = new EventMessageHandler(this, OnAdvisorPresentionExitCompleted);
-		EventMessageManager.instance.AddHandler(typeof(AdvisorPresentationExitCompletedEvent).Name, advisorPresentationExitCompletedMessageHandler);
+		EventMessageManager.instance.AddHandler(typeof(TutorialDialogExitCompletedEvent).Name, advisorPresentationExitCompletedMessageHandler);
 	}
 
 	private void OnDisable()
 	{
-		EventMessageManager.instance.RemoveHandler(typeof(AdvisorPresentationExitCompletedEvent).Name, this);
+		EventMessageManager.instance.RemoveHandler(typeof(TutorialDialogExitCompletedEvent).Name, this);
 	}
 
 	public void OnAdvisorPresentionExitCompleted(EventMessage eventMessage)
 	{
-		AdvisorPresentationExitCompletedEvent advisorPresentationExitCompletedEvent = eventMessage.eventObject as AdvisorPresentationExitCompletedEvent;
+		TutorialDialogExitCompletedEvent advisorPresentationExitCompletedEvent = eventMessage.eventObject as TutorialDialogExitCompletedEvent;
 
-		if (advisorPresentationDialog.advisorXmlModel == advisorPresentationExitCompletedEvent.advisorPresentation.advisorXmlModel)
+		if (advisorPresentationDialog.advisorXmlModel == advisorPresentationExitCompletedEvent.tutorialDialog.advisorXmlModel)
 		{
 			AllAdvisorsExitCompletedEvent allAdvisorsExitCompletedEvent = AllAdvisorsExitCompletedEvent.CreateInstance(advisorPresentationDialog.advisorXmlModel);
 			EventMessage allAdvisorsExitCompletedEventMessage = new EventMessage(this, allAdvisorsExitCompletedEvent);
@@ -40,7 +40,7 @@ public class TutorialMenu : MonoBehaviour
 	{
 		TryShowAdvisorPortrait(advisorXmlModel);
 
-		advisorPresentationDialog = AdvisorPresentationDialog.Show(advisorXmlModel, gameObject.transform);
+		advisorPresentationDialog = TutorialDialog.ShowAdvisorPresentation(advisorXmlModel, gameObject.transform);
 	}
 
 	private void TryShowAdvisorPortrait(AdvisorXmlModel advisorXmlModel)
