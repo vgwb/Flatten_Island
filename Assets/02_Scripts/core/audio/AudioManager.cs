@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class AudioManager : MonoSingleton
 {
 	public AudioSource oneShotAudioSource;
+	public AudioSource sfxAudioSource;
 	public AudioSource musicAudioSource;
 	public AudioClip defaultButtonClickAudioClip;
 
@@ -103,6 +104,11 @@ public class AudioManager : MonoSingleton
 		}
 	}
 
+	public AudioSource PlaySfx(AudioClip audioClip)
+	{
+		return PlayAudio(sfxAudioSource, audioClip, EAudioChannelType.Sfx);
+	}
+
 	public AudioSource PlayMusic(AudioClip audioClip, float volume)
 	{
 		SetChannelVolume(EAudioChannelType.Music, volume);
@@ -150,9 +156,9 @@ public class AudioManager : MonoSingleton
 		StopAudio(audioSource, EAudioChannelType.Music);
 	}
 
-	public void StopOneShot()
+	public void StopSfx()
 	{
-		StopAudio(oneShotAudioSource, EAudioChannelType.Sfx);
+		StopAudio(sfxAudioSource, EAudioChannelType.Sfx);
 	}
 
 	public void StopOneShot(AudioSource audioSource)
