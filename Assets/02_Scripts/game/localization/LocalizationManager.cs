@@ -8,7 +8,7 @@ public class LocalizationManager : MonoSingleton
 	public TextAsset localizationFile;
 	public Font latinFont;
 
-	public static string DEFAULT_LANGUAGE_ID = "English";
+	public static string DEFAULT_LANGUAGE_ID = "Spanish";
 	public static int LOCALIZATION_FILE_FIRST_LANGUAGE_COLUMN = 2;
 
 	public static LocalizationManager instance
