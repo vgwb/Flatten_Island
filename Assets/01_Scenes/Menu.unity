@@ -1028,6 +1028,7 @@ MonoBehaviour:
   creditsMenu: {fileID: 129738375}
   menuMusic: {fileID: 8300000, guid: cb2ab74b697345647905f426b11784b5, type: 3}
   highScoreText: {fileID: 1315526844}
+  highScoreGroup: {fileID: 581764633}
 --- !u!4 &322954550
 Transform:
   m_ObjectHideFlags: 0

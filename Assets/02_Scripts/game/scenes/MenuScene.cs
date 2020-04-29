@@ -17,6 +17,7 @@ public class MenuScene : MonoSingleton
 	public CreditsMenu creditsMenu;
 	public AudioClip menuMusic;
 	public HighScoreText highScoreText;
+	public GameObject highScoreGroup;
 
 
 	public static MenuScene instance
@@ -152,12 +153,12 @@ public class MenuScene : MonoSingleton
 
 		if (highScore != null && highScore.HasDayHighScore())
 		{
-			highScoreText.gameObject.SetActive(true);
+			highScoreGroup.gameObject.SetActive(true);
 			highScoreText.DisplayDayHighScore(highScore.day);
 		}
 		else
 		{
-			highScoreText.gameObject.SetActive(false);
+			highScoreGroup.gameObject.SetActive(false);
 		}
 	}
 
