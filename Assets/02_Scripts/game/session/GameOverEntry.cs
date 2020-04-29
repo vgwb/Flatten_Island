@@ -16,11 +16,14 @@ public class GameOverEntry : MonoBehaviour
 	public GameObject winTitleGroup;
 	public GameObject loseTitleGroup;
 	public GameObject newHighScoreGroup;
+	public AudioClip victoryAudioClip;
+	public AudioClip gameOverAudioClip;
 
 	private Canvas titleCanvas;
 	private Canvas messageCanvas;
 
 	public GameOverXmlModel gameOverXmlModel;
+	private bool hasPlayerWon;
 
 	private void Awake()
 	{
@@ -38,6 +41,7 @@ public class GameOverEntry : MonoBehaviour
 		winTitleGroup.SetActive(hasPlayerWon);
 		loseTitleGroup.SetActive(!hasPlayerWon);
 		daysText.gameObject.SetActive(hasPlayerWon);
+		this.hasPlayerWon = hasPlayerWon;
 
 		if (hasPlayerWon)
 		{
@@ -70,6 +74,7 @@ public class GameOverEntry : MonoBehaviour
 	public void OnButtonSelected()
 	{
 		gameOverEntryChef.Cook(gameOverEntryChef.onExitRecipe, OnExitRecipeCompleted);
+		AudioManager.instance.StopOneShot();
 	}
 
 	private void OnExitRecipeCompleted()
@@ -99,6 +104,18 @@ public class GameOverEntry : MonoBehaviour
 	public void PlayEnterRecipe()
 	{
 		gameOverEntryChef.Cook(gameOverEntryChef.onEnterRecipe, OnEnterRecipeCompleted);
+	}
+
+	public void PlayAudioClip()
+	{
+		if (hasPlayerWon)
+		{
+			AudioManager.instance.PlayOneShot(victoryAudioClip, EAudioChannelType.Sfx);
+		}
+		else
+		{
+			AudioManager.instance.PlayOneShot(gameOverAudioClip, EAudioChannelType.Sfx);
+		}
 	}
 
 	private void OnEnterRecipeCompleted()

@@ -254,6 +254,8 @@ public class GameSession : ISavable
 		GameOverEntry gameOverEntryScript = gameOverEntry.GetComponent<GameOverEntry>();
 		gameOverEntryScript.SetParameters(hasPlayerWon);
 		gameOverEntryScript.RefreshCanvas();
+		gameOverEntryScript.PlayEnterRecipe();
+		gameOverEntryScript.PlayAudioClip();
 		return gameOverEntryScript;
 	}
 
