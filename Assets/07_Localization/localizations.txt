@@ -2,29 +2,30 @@ String Identifier	String Description (Comments)	English	Spanish	Italian	French	A
 Intro_Text1	First text for the Intro Sequence	Welcome to Flatten Island, Home of the most bizarre people in the world! Don´t worry about the volcano behind the island, it´s not dangerous!	Bienvenido a la isla Aplanar, Inicio de las personas más extrañas del mundo! No se preocupe sobre el volcán detrás de la isla, se inunda no es peligroso!			
 Intro_Text2		Here the governor is selected with a lottery among all citizens. You arrived just in time: the draw is today.  	Aquí el gobernador se selecciona con un sorteo entre todos los ciudadanos. Llegaste justo a tiempo: el sorteo es hoy en día. 			
 Intro_Text3		And the winner is ... you! Congratulations, you will rule the island with the help of a few advisors. Let´s meet them ...	Y el ganador es ... usted! Felicitaciones, gobernarán la isla con la ayuda de algunos asesores. Vamos a cumplir ...			
-OkText		Ok	Ok	Ok	Ok	حسنا
+OkText		Ok	Okay	Ok	Ok	حسنا
 YesText		Yes	Si	Si	Oui	نعم
 NoText		No	No	No	No	لا
 QuitGameDialogTitle		Quit Game	Salir del juego	Termina partita	Quitter le jeu	قم بإنهاء اللعبة
-QuitGameDialogMessage		Are you sure?	Estas seguro?	Sei sicuro?	Êtes-vous sûr?	هل أنت متأكد؟
-Win_Title		CONGRATULATIONS!				
-Win_Description		The virus has been defeated. You discovered the vaccine in:				
-Lose_Title		YOU FAIL!				
-Lose_Description		The virus infected everybody on the island and you have been Fired!				
-DaysText		days				
-NewText		NEW				
-RecordText		RECORD				
+QuitGameDialogMessage		Are you sure?	¿Estás seguro?	Sei sicuro?	Êtes-vous sûr?	هل أنت متأكد؟
+Win_Title		CONGRATULATIONS!	¡FELICIDADES!			
+Win_Description		The virus has been defeated. You discovered the vaccine in:	El virus ha sido derrotado. Usted descubrió la vacuna en:			
+Lose_Title		YOU FAIL!	¡FALLASTE!			
+Lose_Description		The virus infected everybody on the island and you have been Fired!	El virus de todo el mundo en la isla infectado y que han sido despedidos!			
+DaysText		days	dias			
+NewText		NEW	NUEVO			
+RecordText		RECORD	RECORD			
 YourRecordText		Your Record: %d Days	Tu Record: %d Dias	Il tuo record: %d Giorni		
-StartNewGameText		START NEW GAME	NUEVA PARTIDA	NUOVA PARTITA		
-CallToActionTitleText		CALL TO ACTION	LLAMADA	CHIAMATA ALLE ARMI		
+NextDay_Text		Next Day	Día siguiente			
+StartNewGameText		START NEW GAME	JUEGO NUEVO	NUOVA PARTITA		
+CallToActionTitleText		CALL TO ACTION	LLAMADA A LA ACCIÓN	CHIAMATA ALLE ARMI		
 CallToActionMessageText		You can help people	Ayda las personas	Aiuta le persone		
 DonateText		DONATE	DONA AHORA	DONA ADESSO		
-MusicMenuText		Music	Musica	Musica		
+MusicMenuText		Music	Música	Musica		
 SFXMenuText		SFX	SFX	SFX		
-TutorialMenuText		Tutorial	Tutoriale	Tutoriale		
+TutorialMenuText		Tutorial	Tutorial	Tutoriale		
 CreditsMenuText		Credits	Credits	Credits		
-WatchIntroMenuText		Watch Intro	MIra la Intro	Guarda la Intro		
-CreditsTitle		CREDITS	CREDITOS			
+WatchIntroMenuText		Watch the Intro	Ver Intro	Guarda la Intro		
+CreditsTitle		CREDITS	CRÉDITOS			
 PressSecretary_Name		Mr. Goodnews	Don Megusta			
 Treasurer_Name		Professor. Payalot	Profesora Calderilla			
 LabScientist_Name		Director Antibody	Directora Anticuerpos			
