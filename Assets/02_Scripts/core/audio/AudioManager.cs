@@ -150,6 +150,16 @@ public class AudioManager : MonoSingleton
 		StopAudio(audioSource, EAudioChannelType.Music);
 	}
 
+	public void StopOneShot()
+	{
+		StopAudio(oneShotAudioSource, EAudioChannelType.Sfx);
+	}
+
+	public void StopOneShot(AudioSource audioSource)
+	{
+		StopAudio(audioSource, EAudioChannelType.Sfx);
+	}
+
 	public void StopAudio(AudioSource audioSource, EAudioChannelType audioChannelType)
 	{
 		AudioChannel audioChannel;

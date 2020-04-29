@@ -1783,6 +1783,8 @@ MonoBehaviour:
   winTitleGroup: {fileID: 5648690084575851880}
   loseTitleGroup: {fileID: 7078186608897112594}
   newHighScoreGroup: {fileID: 4372358299322434604}
+  victoryAudioClip: {fileID: 8300000, guid: ac308c0fa925ebd4e8458048e92fb36f, type: 3}
+  gameOverAudioClip: {fileID: 8300000, guid: 10088a53e5d00a742a3ef007ec162117, type: 3}
 --- !u!1 &5597057687391963429
 GameObject:
   m_ObjectHideFlags: 0
