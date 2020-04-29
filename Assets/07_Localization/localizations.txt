@@ -1,42 +1,52 @@
 String Identifier	String Description (Comments)	English	Spanish	Italian	French	Arabic
-Intro_Text1	First text for the Intro Sequence	Welcome to Flatten Island, Home of the most bizarre people in the world! Don´t worry about the volcano behind the island, it´s not dangerous!	Bienvenido a la isla Aplanar, Inicio de las personas más extrañas del mundo! No se preocupe sobre el volcán detrás de la isla, se inunda no es peligroso!			
-Intro_Text2		Here the governor is selected with a lottery among all citizens. You arrived just in time: the draw is today.  	Aquí el gobernador se selecciona con un sorteo entre todos los ciudadanos. Llegaste justo a tiempo: el sorteo es hoy en día. 			
-Intro_Text3		And the winner is ... you! Congratulations, you will rule the island with the help of a few advisors. Let´s meet them ...	Y el ganador es ... usted! Felicitaciones, gobernarán la isla con la ayuda de algunos asesores. Vamos a cumplir ...			
-OkText		Ok	Okay	Ok	Ok	حسنا
-YesText		Yes	Si	Si	Oui	نعم
+Intro_Text1	First text for the Intro Sequence	Welcome to Flatten Island, Home of the most bizarre people in the world! Don´t worry about the volcano behind the island, it´s not dangerous!	¡Bienvenido a Flatten Island, la isla más extraña del mundo!  No te preocupes por el volcán detrás de la isla, no es peligroso.			
+Intro_Text2		Here the governor is selected with a lottery among all citizens. You arrived just in time: the draw is today.  	Aquí el gobernador se selecciona con un sorteo entre todos los ciudadanos. Llegaste justo a tiempo: el sorteo es hoy mismo. 			
+Intro_Text3		And the winner is ... you! Congratulations, you will rule the island with the help of a few advisors. Let´s meet them ...	Y el ganador... ¡eres tú!  ¡Enhorabuena!, gobernarás la isla con la ayuda de algunos asesores.  Vamos a conocerles ...			
+OkText		OK	OK	Ok	Ok	حسنا
+YesText		Yes	Sí	Si	Oui	نعم
 NoText		No	No	No	No	لا
-QuitGameDialogTitle		Quit Game	Salir del juego	Termina partita	Quitter le jeu	قم بإنهاء اللعبة
+QuitGameDialogTitle		Quit Game	Salir de la partida	Termina partita	Quitter le jeu	قم بإنهاء اللعبة
 QuitGameDialogMessage		Are you sure?	¿Estás seguro?	Sei sicuro?	Êtes-vous sûr?	هل أنت متأكد؟
-Win_Title		CONGRATULATIONS!	¡FELICIDADES!			
-Win_Description		The virus has been defeated. You discovered the vaccine in:	El virus ha sido derrotado. Usted descubrió la vacuna en:			
-Lose_Title		YOU FAIL!	¡FALLASTE!			
-Lose_Description		The virus infected everybody on the island and you have been Fired!	El virus de todo el mundo en la isla infectado y que han sido despedidos!			
-DaysText		days	dias			
+Win_Title		CONGRATULATIONS!	¡ENHORABUENA!			
+Win_Description		The virus has been defeated. You discovered the vaccine in:	El virus ha sido derrotado. Has descubierto la vacuna en:			
+Lose_Title		YOU FAILED!	¡PERDISTE!			
+Lose_Description		You were not able to manage the crisis without losing the control, but you can retry. 	No has conseguido gestionar la emergencia sin perder el control, pero puedes volver a intentarlo.			
+LoseMoney_Title		BANKRUPT!	¡BANCAROTA!			
+LoseMoney_Description		You were not able to manage the crisis without running out of money, but you can retry. 	No has conseguido gestionar la emergencia sin quedarte sin dinero, pero puedes volver a intentarlo.			
+LosePubOp_Title		THE PEOPLE AGAINST YOU!	¡EL PUEBLO EN CONTRA!			
+LosePubOp_Description			No has conseguido gestionar la emergencia sin perder la confianza de los ciudadanos, pero puedes volver a intentarlo.			
+LosePatients_Title			¡COLAPSO SANITARIO!			
+LosePatients_Description			No has conseguido gestionar la emergencia sin que el sistema sanitario colapsara y no pudiera atender a todos los pacientes, pero puedes volver a intentarlo.			
+DaysText		days	Días			
 NewText		NEW	NUEVO			
-RecordText		RECORD	RECORD			
-YourRecordText		Your Record: %d Days	Tu Record: %d Dias	Il tuo record: %d Giorni		
+RecordText		RECORD	RÉCORD			
+YourRecordText		Your Record: %d Days	Tu Récord: %d Días	Il tuo record: %d Giorni		
 NextDay_Text		Next Day	Día siguiente			
-StartNewGameText		START NEW GAME	JUEGO NUEVO	NUOVA PARTITA		
-CallToActionTitleText		CALL TO ACTION	LLAMADA A LA ACCIÓN	CHIAMATA ALLE ARMI		
-CallToActionMessageText		You can help people	Ayda las personas	Aiuta le persone		
-DonateText		DONATE	DONA AHORA	DONA ADESSO		
+StartNewGameText		START NEW GAME	NUEVA PARTIDA	NUOVA PARTITA		
+CallToActionTitleText		This is a game.	Esto es un juego.	CHIAMATA		
+CallToActionMessageText		The emergency is real.	La emergencia es real.	Aiuta le persone		
+DonateText		DONATE NOW	DONA AHORA	DONA ADESSO		
 MusicMenuText		Music	Música	Musica		
-SFXMenuText		SFX	SFX	SFX		
+SFXMenuText		SFX	Efectos	SFX		
 TutorialMenuText		Tutorial	Tutorial	Tutoriale		
-CreditsMenuText		Credits	Credits	Credits		
+CreditsMenuText		Credits	Créditos	Credits		
 WatchIntroMenuText		Watch the Intro	Ver Intro	Guarda la Intro		
+Disclaimer		Any resemblance to reality is pure coincidence	Cualquier parecido con la realidad es pura coincidencia			
 CreditsTitle		CREDITS	CRÉDITOS			
+Loading		loading...	cargando...			
+Present		present	presentan			
+InCollaborationWith		in collaboration with	en colaboración con			
 PressSecretary_Name		Mr. Goodnews	Don Megusta			
 Treasurer_Name		Professor. Payalot	Profesora Calderilla			
 LabScientist_Name		Director Antibody	Directora Anticuerpos			
 HospitalDirector_Name		Doctor Deepbreath	Doctor Tomeaire			
 Commander_Name		Agent Logarithm	Agente Logaritmo			
-PressSecretary_Presentation_Text		I'm Mr. Goodnews, your PR. I take care of what citizens think about you. Be careful, if your popularity falls to 0%, you'll be fired!	Soy Don Megusta, el PR. Me ocupo de lo que los ciudadanos piensan de ti. Tenga cuidado, si su popularidad cae a 0%, se le encienden!			
-Treasurer_Presentation_Text		I'm Mrs. Payalot. I take care of the Money. Be careful, if we run out of money you'll be fired!	Soy la Profesora Calderilla. Yo cuido del dinero. Ten cuidado, si nos quedamos sin dinero se le encienden!			
-LabScientist_Presentation_Text		I'm Prof. Antibody, the Lab Scientist. I lead the research for the vaccine. Getting the vaccine means defeating the virus!	Soy Directora Anticuerpos, el científico de laboratorio. Llevo la investigación para la vacuna. Obtención de los medios de vacunas de derrotar a los virus!			
-HospitalDirector_Presentation_Text		I'm Dr. Deepbreath, the Hospital Director. My priority is to treat all patients properly. If we cannot admit all patients, you lose!	Soy el Doctor Tomeaire, el director del hospital. Mi prioridad es tratar a todos los pacientes correctamente. Si no podemos admitir a todos los pacientes, se pierde!			
-Commander_Advisor_Presentation_Text		I'm Agent Logarithm, Commander of the Pandemic Special Unit. We just detected the first cases and our priority will be to reduce the growth of the outbreak. 	Soy el Agente Logaritmo, comandante de la unidad especial de pandemia. Sólo se detectaron los primeros casos y nuestra prioridad será reducir el crecimiento del brote.			
-Tutorial_NextDay_Text		Explain parameter update at the end of each day	Explicar actualización de parámetros al final de cada día			
+PressSecretary_Presentation_Text		I'm Mr. Goodnews, your PR. I take care of what citizens think about you. Be careful, if your popularity falls to 0%, you'll be fired!	Hola, me llamo Don Megusta y soy tu Asesor de Comunicación. Me ocupo de lo que los ciudadanos piensan de ti. ¡Ten cuidado, si tu popularidad cae a 0%, te echarán!			
+Treasurer_Presentation_Text		I'm Mrs. Payalot. I take care of the Money. Be careful, if we run out of money you'll be fired!	Me presento: soy la Profesora Calderilla y cuido del dinero de la administración. Si nos quedamos sin dinero pierdes el puesto y la partida.			
+LabScientist_Presentation_Text		I'm Prof. Antibody, the Lab Scientist. I lead the research for the vaccine. Getting the vaccine means defeating the virus!	Soy la Directora Anticuerpos. Lidero el equpo de investigación sobre la vacuna. Conseguir la vacuna significa derrotar al virus y ganar la partida.			
+HospitalDirector_Presentation_Text		I'm Dr. Deepbreath, the Hospital Director. My priority is to treat all patients properly. If we cannot admit all patients, you lose!	Buenos días, soy el Doctor Tomeaire, director de los hospitales de la isla. Mi prioridad es poder tratar a todos los pacientes con profesionalidad y dignidad. Si no podemos admitir a todos los pacientes que lo necesiten, tu experiencia al mando se acaba... y la partida también.			
+Commander_Advisor_Presentation_Text		I'm Agent Logarithm, Commander of the Pandemic Special Unit. We just detected the first cases and our priority will be to reduce the growth of the outbreak. 	Agente Logaritmo, Comandante de la Unidad de Crisis, a sus órdenes. Acabamos de detectar los primeros casos y nuestra prioridad será reducir el crecimiento del brote.			
+Tutorial_NextDay_Text		Explain parameter update at the end of each day	Al final de cada día se irán actualizando algunos datos: la investigación para la vacuna avanza un pasito, el numero de pacientes de actualiza según su factor de crecimiento y recibiremos algo de dinero gracias a los impuestos			
 CardTitle_3001						
 CardText_3001						
 Card_OptA_3001						
