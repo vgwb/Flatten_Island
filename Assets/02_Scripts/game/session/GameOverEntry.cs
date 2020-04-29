@@ -74,7 +74,7 @@ public class GameOverEntry : MonoBehaviour
 	public void OnButtonSelected()
 	{
 		gameOverEntryChef.Cook(gameOverEntryChef.onExitRecipe, OnExitRecipeCompleted);
-		AudioManager.instance.StopOneShot();
+		AudioManager.instance.StopSfx();
 	}
 
 	private void OnExitRecipeCompleted()
@@ -110,11 +110,11 @@ public class GameOverEntry : MonoBehaviour
 	{
 		if (hasPlayerWon)
 		{
-			AudioManager.instance.PlayOneShot(victoryAudioClip, EAudioChannelType.Sfx);
+			AudioManager.instance.PlaySfx(victoryAudioClip);
 		}
 		else
 		{
-			AudioManager.instance.PlayOneShot(gameOverAudioClip, EAudioChannelType.Sfx);
+			AudioManager.instance.PlaySfx(gameOverAudioClip);
 		}
 	}
 
