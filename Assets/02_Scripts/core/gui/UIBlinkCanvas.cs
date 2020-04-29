@@ -5,6 +5,7 @@ public class UIBlinkCanvas : BaseBehaviour
 {
 	public float blinkingRate;
 	public float blinkingDuration;
+	public AudioClip blinkingAudioClip;
 
 	private Timer blinkingTimer;
 	private Timer durationTimer;
@@ -29,6 +30,11 @@ public class UIBlinkCanvas : BaseBehaviour
 			{
 				blinkingTimer.ResetElapsedTime();
 				canvas.enabled = !canvas.enabled;
+
+				if (canvas.enabled && blinkingAudioClip != null)
+				{
+					AudioManager.instance.PlayOneShot(blinkingAudioClip, EAudioChannelType.Sfx);
+				}
 			}
 		}
 	}

@@ -16,6 +16,7 @@ public class TutorialMenu : MonoSingleton
 
 	public float blinkingRate = 0.4f;
 	public float blinkingDuration = 2.5f;
+	public AudioClip blinkingAudioClip;
 
 	private TutorialDialog tutorialDialog;
 
@@ -174,6 +175,7 @@ public class TutorialMenu : MonoSingleton
 				uiBlinkCanvas = gameObject.AddComponent<UIBlinkCanvas>();
 				uiBlinkCanvas.blinkingRate = blinkingRate;
 				uiBlinkCanvas.blinkingDuration = blinkingDuration;
+				uiBlinkCanvas.blinkingAudioClip = blinkingAudioClip;
 			}
 
 			uiBlinkCanvas.enabled = enabled;
