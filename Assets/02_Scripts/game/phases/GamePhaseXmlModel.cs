@@ -5,6 +5,7 @@ public class GamePhaseXmlModel : XmlModel
 	public string description;
 	public int nextPhaseId;
 	public string musicAudioClip;
+	public float musicVolume;
 
 	public GamePhaseEndConditionGroupXmlModel endConditions;
 
@@ -13,6 +14,7 @@ public class GamePhaseXmlModel : XmlModel
 		base.Initialize(element);
 		description = ParseStringAttribute(element, "description");
 		musicAudioClip = ParseStringAttribute(element, "musicAudioClip");
+		musicVolume = ParseFloatAttribute(element, "musicVolume");
 		nextPhaseId = ParseIntAttribute(element, "nextPhaseId");
 		endConditions = ParseGamePhaseEndConditionsGroupFromChildElement(element, "endConditions");
 	}

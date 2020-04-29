@@ -16,6 +16,7 @@ public class MenuScene : MonoSingleton
 	public GameObject creditsCanvas;
 	public CreditsMenu creditsMenu;
 	public AudioClip menuMusic;
+	public float menuMusicVolume = 0.75f;
 	public HighScoreText highScoreText;
 	public GameObject highScoreGroup;
 
@@ -164,7 +165,7 @@ public class MenuScene : MonoSingleton
 
 	private void OnLoadingPanelExitCompleted()
 	{
-		AudioManager.instance.PlayMusic(menuMusic);
+		AudioManager.instance.PlayMusic(menuMusic, menuMusicVolume);
 		sceneFsm.TriggerState(MenuSceneFsm.MenuState);
 	}
 

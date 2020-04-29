@@ -38,7 +38,7 @@ public class GamePhase : IGamePhase
 		if (!string.IsNullOrEmpty(gamePhaseXmlModel.musicAudioClip))
 		{
 			AudioClip musicAudioClip = Resources.Load<AudioClip>(gamePhaseXmlModel.musicAudioClip);
-			musicAudioSource = AudioManager.instance.PlayMusic(musicAudioClip);
+			musicAudioSource = AudioManager.instance.PlayMusic(musicAudioClip, gamePhaseXmlModel.musicVolume);
 		}
 	}
 

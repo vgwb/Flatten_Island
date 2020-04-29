@@ -103,6 +103,12 @@ public class AudioManager : MonoSingleton
 		}
 	}
 
+	public AudioSource PlayMusic(AudioClip audioClip, float volume)
+	{
+		SetChannelVolume(EAudioChannelType.Music, volume);
+		return PlayAudio(musicAudioSource, audioClip, EAudioChannelType.Music);
+	}
+
 	public AudioSource PlayMusic(AudioClip audioClip)
 	{
 		return PlayAudio(musicAudioSource, audioClip, EAudioChannelType.Music);
