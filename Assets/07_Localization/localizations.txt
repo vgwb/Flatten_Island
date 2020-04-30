@@ -31,7 +31,7 @@ CreditsMenuText		Credits	Créditos	Credits
 WatchIntroMenuText		Watch the Intro	Ver Intro	Guarda la Intro		
 DisclaimerTitle		DISCLAIMER	DESCARGO DE RESPONSABILIDAD			
 DisclaimerText		Any resemblance to reality is pure coincidence	El contenido del juego no tiene niguna base cientifica y no pretende en algún modo sugerir como comportarse frente a una emergencia real.			
-CreditsTitle		CREDITS	CRÉDITOS			
+CreditsTitle		CREDITS	Desarrollado de forma altruista por Videojuegos Sin Fronteras en colaboración con Margarito Estudio, Cicchi Consulting y Asociación Oleaje.			
 Loading		loading...	cargando...			
 Present		present	presentan			
 InCollaborationWith		in collaboration with	en colaboración con			
