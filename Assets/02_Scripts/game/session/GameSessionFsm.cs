@@ -209,6 +209,8 @@ public class GameSessionFsm : FiniteStateMachine
 		EventMessageHandler nextDayDialogExitCompletedMessageHandler = new EventMessageHandler(this, OnNextDayDialogExitCompleted);
 		EventMessageManager.instance.AddHandler(typeof(NextDayEntryExitCompletedEvent).Name, nextDayDialogExitCompletedMessageHandler);
 
+		MainScene.instance.mainSceneChef.Cook(MainScene.instance.mainSceneChef.skyChangeToNightRecipe);
+
 		gameSession.gamePhase.NextDayConfirmation_Enter();
 	}
 
@@ -220,6 +222,7 @@ public class GameSessionFsm : FiniteStateMachine
 
 	private void NextDayConfirmation_Exit()
 	{
+		MainScene.instance.mainSceneChef.Cook(MainScene.instance.mainSceneChef.skyChangeToDayRecipe);
 		EventMessageManager.instance.RemoveHandler(typeof(NextDayEntryExitCompletedEvent).Name, this);
 		gameSession.gamePhase.NextDayConfirmation_Exit();
 	}

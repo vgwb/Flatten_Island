@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MainScene : MonoSingleton
 {
@@ -6,6 +7,9 @@ public class MainScene : MonoSingleton
 
 	public Canvas uiWorldCanvas;
 	public SuggestionMenu suggestionMenu;
+	public MainSceneChef mainSceneChef;
+	public Image backgroundSkyImage;
+	public Color skyDayColor;
 
 	private MainSceneFsm sceneFsm;
 
@@ -41,12 +45,18 @@ public class MainScene : MonoSingleton
 	public void SetupScene()
 	{
 		Hud.instance.Setup();
+		SetSkyDayColor();
 		InitScene.instance.loadingPanel.Exit(OnLoadingPanelExitCompleted);
 	}
 
 	public void UnsetupScene()
 	{
 		Hud.instance.Unsetup();
+	}
+
+	public void SetSkyDayColor()
+	{
+		backgroundSkyImage.color = skyDayColor;
 	}
 
 	private void OnLoadingPanelExitCompleted()
