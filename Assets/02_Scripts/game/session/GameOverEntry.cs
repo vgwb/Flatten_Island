@@ -24,6 +24,7 @@ public class GameOverEntry : MonoBehaviour
 
 	public GameOverXmlModel gameOverXmlModel;
 	private bool hasPlayerWon;
+	private GameSession gameSession;
 
 	private void Awake()
 	{
@@ -31,8 +32,11 @@ public class GameOverEntry : MonoBehaviour
 		messageCanvas = messageText.GetComponent<Canvas>();
 	}
 
-	public void SetParameters(bool hasPlayerWon)
+	public void SetParameters(bool hasPlayerWon, GameSession gameSession)
 	{
+		this.hasPlayerWon = hasPlayerWon;
+		this.gameSession = gameSession;
+
 		if (gameOverXmlModel == null)
 		{
 			gameOverXmlModel = XmlModelManager.instance.FindModel<GameOverXmlModel>();
@@ -41,7 +45,6 @@ public class GameOverEntry : MonoBehaviour
 		winTitleGroup.SetActive(hasPlayerWon);
 		loseTitleGroup.SetActive(!hasPlayerWon);
 		daysText.gameObject.SetActive(hasPlayerWon);
-		this.hasPlayerWon = hasPlayerWon;
 
 		if (hasPlayerWon)
 		{
@@ -54,8 +57,22 @@ public class GameOverEntry : MonoBehaviour
 		}
 		else
 		{
-			LocalizationManager.instance.SetLocalizedText(titleText, gameOverXmlModel.loseTitle);
-			LocalizationManager.instance.SetLocalizedText(messageText, gameOverXmlModel.loseDescription);
+			if (gameSession.HasPlayerLoseDueCapacity())
+			{
+				LocalizationManager.instance.SetLocalizedText(titleText, gameOverXmlModel.loseCapacityTitle);
+				LocalizationManager.instance.SetLocalizedText(messageText, gameOverXmlModel.loseCapacityDescription);
+			}
+			else if (gameSession.HasPlayerLoseDueMoney())
+			{
+				LocalizationManager.instance.SetLocalizedText(titleText, gameOverXmlModel.loseMoneyTitle);
+				LocalizationManager.instance.SetLocalizedText(messageText, gameOverXmlModel.loseMoneyDescription);
+			}
+			else if (gameSession.HasPlayerLoseDuePublicOpinion())
+			{
+				LocalizationManager.instance.SetLocalizedText(titleText, gameOverXmlModel.losePublicOpinionTitle);
+				LocalizationManager.instance.SetLocalizedText(messageText, gameOverXmlModel.losePublicOpinionDescription);
+			}
+
 			LocalizationManager.instance.SetLocalizedText(okButtonText, gameOverXmlModel.loseButton);
 		}
 	}

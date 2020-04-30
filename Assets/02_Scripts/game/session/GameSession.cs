@@ -168,22 +168,17 @@ public class GameSession : ISavable
 
 	public bool HasPlayerLose()
 	{
-		if (patients[day - 1] > capacity)
+		if (HasPlayerLoseDueCapacity())
 		{
 			return true;
 		}
 
-		if (capacity <= 0)
+		if (HasPlayerLoseDueMoney())
 		{
 			return true;
 		}
 
-		if (money <= 0)
-		{
-			return true;
-		}
-
-		if (publicOpinion <= 0)
+		if (HasPlayerLoseDuePublicOpinion())
 		{
 			return true;
 		}
@@ -191,6 +186,20 @@ public class GameSession : ISavable
 		return false;
 	}
 
+	public bool HasPlayerLoseDueCapacity()
+	{
+		return (patients[day - 1] > capacity || capacity <= 0);
+	}
+
+	public bool HasPlayerLoseDueMoney()
+	{
+		return money <= 0;
+	}
+
+	public bool HasPlayerLoseDuePublicOpinion()
+	{
+		return publicOpinion <= 0;
+	}
 
 	public void StartGamePhase(int nextGamePhaseId)
 	{
@@ -252,7 +261,7 @@ public class GameSession : ISavable
 		GameObject gameOverEntry = GameObjectFactory.instance.InstantiateGameObject(GameOverEntry.PREFAB, parentTransform, false);
 		gameOverEntry.gameObject.transform.SetParent(parentTransform, true);
 		GameOverEntry gameOverEntryScript = gameOverEntry.GetComponent<GameOverEntry>();
-		gameOverEntryScript.SetParameters(hasPlayerWon);
+		gameOverEntryScript.SetParameters(hasPlayerWon, this);
 		gameOverEntryScript.RefreshCanvas();
 		gameOverEntryScript.PlayEnterRecipe();
 		gameOverEntryScript.PlayAudioClip();

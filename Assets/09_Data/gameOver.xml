@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group>
-	<gameOver id="6000" winTitle="Win_Title" winDescription="Win_Description" winButton="OkText" loseTitle="Lose_Title" loseDescription="Lose_Description" loseButton="OkText"/>
+	<gameOver id="6000" winTitle="Win_Title" winDescription="Win_Description" winButton="OkText" loseCapacityTitle="LosePatients_Title" loseCapacityDescription="LosePatients_Description" loseMoneyTitle="LoseMoney_Title" loseMoneyDescription="LoseMoney_Description" losePublicOpinionTitle="LosePubOp_Title" losePublicOpinionDescription="LosePubOp_Description" loseButton="OkText"/>
 </group>
