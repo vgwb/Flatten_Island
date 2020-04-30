@@ -47,7 +47,7 @@ HospitalDirector_Presentation_Text		I'm Dr. Deepbreath, the Hospital Director. M
 Commander_Advisor_Presentation_Text		I'm Agent Logarithm, Commander of the Pandemic Special Unit. We just detected the first cases and our priority will be to reduce the growth of the outbreak. 	Agente Logaritmo, Comandante de la Unidad de Crisis, a sus órdenes. Acabamos de detectar los primeros casos y nuestra prioridad será reducir el crecimiento del brote.			
 Tutorial_NextDay_Text		Explain parameter update at the end of each day	Al final de cada día se irán actualizando algunos datos: la investigación para la vacuna avanza un pasito, el numero de pacientes de actualiza según su factor de crecimiento y recibiremos algo de dinero gracias a los impuestos			
 CardTitle_3001		Your first statement	Tu primera declaración			
-CardText_3001		People are worried about the pandemic that is spreading around the world. Let’s make a statement...	La gente está preocupada por la pandemia que se está extendiendo en todo el mundo. Vamos a hacer una declaración al respeto...			
+CardText_3001		People are worried about the pandemic that is spreading around the world. Let’s make a statement...	La gente está preocupada por la pandemia que se está extendiendo en todo el mundo. Vamos a hacer una declaración al respecto...			
 Card_OptA_3001		No worries! It’s just like a flu!	¡Tranquilos! ¡Es como una gripe!			
 Card_OptB_3001		We are getting ready to face the pandemic	Nos estamos preparando para hacer frente a la pandemia y seguimos de cerca su evolución			
 CardTitle_3002		Pandemic Tax	Impuesto para la pandemia			
@@ -55,17 +55,17 @@ CardText_3002		We need money to get ready. Let’s establish a special tax for t
 Card_OptA_3002		No! Better not upsetting the citizens.	¡No! Mejor no enfadar a los ciudadanos nada más tomar posesión			
 Card_OptB_3002		Ok, let’s do it!	¡Bien, hagámoslo!			
 CardTitle_3003		Invest on research	La vacuna			
-CardText_3003		The more we invest on the research, the sooner we’ll get the vaccine! Let’s start immediately!	Cuanto más se invierta en la investigación, más pronto llegaremos a la vacuna. Vamos a empezar de inmediato.			
-Card_OptA_3003		Yes, we cannot waste time!	¡Vale, no podemos perder el tiempo!			
+CardText_3003		The more we invest on the research, the sooner we’ll get the vaccine! Let’s start immediately!	Cuanto más se invierta en investigación, más pronto llegaremos a la vacuna. Vamos a empezar de inmediato.			
+Card_OptA_3003		Yes, we cannot waste time!	¡Vale, no podemos perder tiempo!			
 Card_OptB_3003		No! We don’t even know if the virus will get here!	Mejor esperar, ni siquiera sabemos si el virus va a llegar hasta aquí			
 CardTitle_3004			Capacidad hospitalaria			
 CardText_3004			La capacidad hospitalaria nos dice cuantos pacientes podemos tratar a la vez en nuestro sistema sanitario			
-Card_OptA_3004			Podemos esperar que llegue la tormenta...			
+Card_OptA_3004			Podemos esperar a que llegue la tormenta...			
 Card_OptB_3004			... o invertir ya para incrementar nuestra capacidad			
 CardTitle_3005			El factor de crecimiento			
-CardText_3005			Esta percentaje nos indica como evolucionará el número de paciente entre hoy a mañana, por so es importante mantenerlo más bajo posible.			
+CardText_3005			Esta porcentaje nos indica como evolucionará el número de pacientes entre hoy y mañana, por eso es importante mantenerlo lo más bajo posible			
 Card_OptA_3005			Tomemos medidas ya para evitar que crezca de manera exponencial			
-Card_OptB_3005			No hay prisa, el percentaje está muy bajo todavía			
+Card_OptB_3005			No hay prisa, el porcentaje es muy bajo todavía			
 CardTitle_3201			Que está pasando?			
 CardText_3201			Los ciudadanos no entienden por qué los contagios aumentan			
 Card_OptA_3201			Vamos a hablar de otros temas; así se distraen y dejan de quejarse			
