@@ -9,8 +9,6 @@ QuitGameDialogTitle		Quit Game	Salir de la partida	Termina partita	Quitter le je
 QuitGameDialogMessage		Are you sure?	¿Estás seguro?	Sei sicuro?	Êtes-vous sûr?	هل أنت متأكد؟
 Win_Title		CONGRATULATIONS!	¡ENHORABUENA!			
 Win_Description		The virus has been defeated. You discovered the vaccine in:	El virus ha sido derrotado. Has descubierto la vacuna en:			
-Lose_Title		YOU FAILED!	¡PERDISTE!			
-Lose_Description		You were not able to manage the crisis without losing the control, but you can retry. 	No has conseguido gestionar la emergencia sin perder el control, pero puedes volver a intentarlo.			
 LoseMoney_Title		BANKRUPT!	¡BANCAROTA!			
 LoseMoney_Description		You were not able to manage the crisis without running out of money, but you can retry. 	No has conseguido gestionar la emergencia sin quedarte sin dinero, pero puedes volver a intentarlo.			
 LosePubOp_Title		THE PEOPLE AGAINST YOU!	¡EL PUEBLO EN CONTRA!			
@@ -23,7 +21,7 @@ RecordText		RECORD	RÉCORD
 YourRecordText		Your Record: %d Days	Tu Récord: %d Días	Il tuo record: %d Giorni		
 NextDay_Text		Next Day	Día siguiente			
 StartNewGameText		START NEW GAME	NUEVA PARTIDA	NUOVA PARTITA		
-CallToActionTitleText		This is a game.	Esto es un juego.	CHIAMATA		
+CallToActionTitleText		This is just a game.	Esto es solo un juego.	CHIAMATA		
 CallToActionMessageText		The emergency is real.	La emergencia es real.	Aiuta le persone		
 DonateText		DONATE NOW	DONA AHORA	DONA ADESSO		
 MusicMenuText		Music	Música	Musica		
@@ -31,7 +29,8 @@ SFXMenuText		SFX	Efectos	SFX
 TutorialMenuText		Tutorial	Tutorial	Tutoriale		
 CreditsMenuText		Credits	Créditos	Credits		
 WatchIntroMenuText		Watch the Intro	Ver Intro	Guarda la Intro		
-Disclaimer		Any resemblance to reality is pure coincidence	Cualquier parecido con la realidad es pura coincidencia			
+DisclaimerTitle		DISCLAIMER	DESCARGO DE RESPONSABILIDAD			
+DisclaimerText		Any resemblance to reality is pure coincidence	El contenido del juego no tiene niguna base cientifica y no pretende en algún modo sugerir como comportarse frente a una emergencia real.			
 CreditsTitle		CREDITS	CRÉDITOS			
 Loading		loading...	cargando...			
 Present		present	presentan			
@@ -50,7 +49,7 @@ Tutorial_NextDay_Text		Explain parameter update at the end of each day	Al final 
 CardTitle_3001		Your first statement	Tu primera declaración			
 CardText_3001		People are worried about the pandemic that is spreading around the world. Let’s make a statement...	La gente está preocupada por la pandemia que se está extendiendo en todo el mundo. Vamos a hacer una declaración al respeto...			
 Card_OptA_3001		No worries! It’s just like a flu!	¡Tranquilos! ¡Es como una gripe!			
-Card_OptB_3001		We are getting ready to face the pandemic 	Nos estamos preparando para hacer frente a la pandemia y seguimos de cerca su evolución			
+Card_OptB_3001		We are getting ready to face the pandemic	Nos estamos preparando para hacer frente a la pandemia y seguimos de cerca su evolución			
 CardTitle_3002		Pandemic Tax	Impuesto para la pandemia			
 CardText_3002		We need money to get ready. Let’s establish a special tax for the emergency! 	Necesitamos mucho dinero para estar listos. Vamos a establecer un impuesto especial para la situación de emergencia que se acerca			
 Card_OptA_3002		No! Better not upsetting the citizens.	¡No! Mejor no enfadar a los ciudadanos nada más tomar posesión			
