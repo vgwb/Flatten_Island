@@ -70,13 +70,6 @@ public class GameSimulatorCriticalParamFirstStrategy : IGameSimulatorStrategy
 			}
 		}
 
-		AdvisorXmlModel labAdvisor = advisorsAvailable.Find((advisor) => advisor.id == FlattenIslandGameConstants.LAB_SCIENTIST_ADVISOR_ID);
-		if (labAdvisor != null)
-		{
-			logDescription = "No Critical - VACCINE";
-			return labAdvisor;
-		}
-
 		logDescription = "No Critical - Random";
 		int randomAdvisorIndex = RandomGenerator.GetRandom(0, advisorsAvailable.Count);
 		return advisorsAvailable[randomAdvisorIndex];

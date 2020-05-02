@@ -191,8 +191,19 @@ public class GameSessionSimulator
 				gameSimulationResultRow.stopStoryId = selectedSuggestionOptionXmlModel.GetStopStoryId();
 
 				gameSession.ApplySuggestionOption(selectedSuggestionOptionXmlModel);
-				gameSession.UpdateNextDayValues();
-				gameSession.NextDay();
+
+				if (gameSession.day >= GameSession.MAX_DAYS)
+				{
+					gameSimulationResult.loseResult = "MAX DAY REACHED";
+					loseRuns++;
+					gameOver = true;
+
+				}
+				else
+				{
+					gameSession.UpdateNextDayValues();
+					gameSession.NextDay();
+				}
 
 				gameSimulationResult.AddRow(gameSimulationResultRow);
 			}
