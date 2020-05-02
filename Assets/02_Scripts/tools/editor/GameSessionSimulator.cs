@@ -34,7 +34,6 @@ public class GameSessionSimulator
 			InitializePlayer();
 
 			bool gameOver = false;
-			bool runWin = false;
 
 			GameSimulationResult gameSimulationResult = new GameSimulationResult();
 			gameSimulationResult.run = i + 1;
@@ -57,7 +56,6 @@ public class GameSessionSimulator
 				if (gameSession.HasPlayerWon())
 				{
 					gameOver = true;
-					runWin = true;
 
 					gameSimulationResult.winResult = "VACCINE";
 					gameSimulationResult.AddRow(gameSimulationResultRow);
@@ -67,7 +65,6 @@ public class GameSessionSimulator
 				if (gameSession.HasPlayerLose())
 				{
 					gameOver = true;
-					runWin = false;
 
 					if (gameSession.HasPlayerLoseDueCapacity())
 					{
