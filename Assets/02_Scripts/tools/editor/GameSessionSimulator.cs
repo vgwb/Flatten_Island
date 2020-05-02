@@ -9,6 +9,7 @@ public class GameSessionSimulator
 	private int simulationRuns;
 	public int winRuns { get; private set; }
 	public int loseRuns { get; private set; }
+	public int winDaysRecord { get; private set; }
 
 	private LocalPlayer localPlayer;
 
@@ -28,6 +29,7 @@ public class GameSessionSimulator
 		this.simulationRuns = simulationRuns;
 		winRuns = 0;
 		loseRuns = 0;
+		winDaysRecord = int.MaxValue;
 		this.strategiesData = strategiesData;
 		this.optionStrategiesData = optionStrategiesData;
 
@@ -121,6 +123,12 @@ public class GameSessionSimulator
 
 					gameSimulationResult.winResult = "VACCINE";
 					gameSimulationResult.AddRow(gameSimulationResultRow);
+
+					if (gameSession.day < winDaysRecord)
+					{
+						winDaysRecord = gameSession.day;
+					}
+
 					continue;
 				}
 

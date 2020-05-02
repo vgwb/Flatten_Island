@@ -144,6 +144,11 @@ public class GameSessionSimulatorWindow : EditorWindow
 			EditorGUILayout.LabelField("Lose Runs", GUILayout.Width(100f));
 			EditorGUILayout.LabelField(gameSessionSimulator.loseRuns.ToString(), GUILayout.Width(50f));
 			EditorGUILayout.EndHorizontal();
+
+			EditorGUILayout.BeginHorizontal();
+			EditorGUILayout.LabelField("Win Days Record", GUILayout.Width(100f));
+			EditorGUILayout.LabelField(gameSessionSimulator.winDaysRecord.ToString(), GUILayout.Width(50f));
+			EditorGUILayout.EndHorizontal();
 		}
 	}
 
