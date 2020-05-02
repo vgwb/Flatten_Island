@@ -15,6 +15,8 @@ public class GameSimulatorCriticalParamFirstStrategy : IGameSimulatorStrategy
 	{
 		GameSessionXmlModel gameSessionXmlModel = gameSession.gameSessionXmlModel;
 
+		AdvisorXmlModel commanderAdvisor = advisorsAvailable.Find((advisor) => advisor.id == FlattenIslandGameConstants.COMMANDER_ADVISOR_ID);
+
 		float currentCapacity = gameSession.capacity;
 		int patients = gameSession.patients[gameSession.day - 1];
 		float capacityUsage = patients / currentCapacity;
@@ -22,7 +24,6 @@ public class GameSimulatorCriticalParamFirstStrategy : IGameSimulatorStrategy
 		if (isInWarningzone)
 		{
 			AdvisorXmlModel hospitalAdvisor = advisorsAvailable.Find((advisor) => advisor.id == FlattenIslandGameConstants.HOSPITAL_DOCTOR_ADVISOR_ID);
-			AdvisorXmlModel commanderAdvisor = advisorsAvailable.Find((advisor) => advisor.id == FlattenIslandGameConstants.COMMANDER_ADVISOR_ID);
 
 			if (hospitalAdvisor != null && commanderAdvisor != null)
 			{
@@ -69,6 +70,13 @@ public class GameSimulatorCriticalParamFirstStrategy : IGameSimulatorStrategy
 				return prAdvisor;
 			}
 		}
+
+		if (commanderAdvisor != null)
+		{
+			logDescription = "No Critical - Commander";
+			return commanderAdvisor;
+		}
+
 
 		logDescription = "No Critical - Random";
 		int randomAdvisorIndex = RandomGenerator.GetRandom(0, advisorsAvailable.Count);
