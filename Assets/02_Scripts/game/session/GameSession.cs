@@ -25,8 +25,8 @@ public class GameSession : ISavable
 	public IGamePhase gamePhase;
 	public int gamePhaseId;
 	public List<GameStoryXmlModel> activeGameStories;
+	public GameSessionXmlModel gameSessionXmlModel;
 
-	private GameSessionXmlModel gameSessionXmlModel;
 	private GameSessionFsm gameSessionFsm;
 
 	private ISuggestionSelectionPolicy suggestionSelectionPolicy;

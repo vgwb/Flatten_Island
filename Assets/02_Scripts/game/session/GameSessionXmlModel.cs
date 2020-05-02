@@ -12,7 +12,11 @@ public class GameSessionXmlModel : XmlModel
 	public int nextDayMoneyIncrement;
 	public int nextDayVaccineIncrement;
 	public int nextDayGrowthRateIncrement;
-	
+
+	public int publicOpinionWarningThreshold;
+	public int moneyWarningThreshold;
+	public float capacityWarningThreshold;
+
 	override public void Initialize(XElement element)
 	{
 		base.Initialize(element);
@@ -27,5 +31,9 @@ public class GameSessionXmlModel : XmlModel
 		nextDayMoneyIncrement = ParseIntAttribute(element, "nextDayMoneyIncrement");
 		nextDayVaccineIncrement = ParseIntAttribute(element, "nextDayVaccineIncrement");
 		nextDayGrowthRateIncrement = ParseIntAttribute(element, "nextDayGrowthRateIncrement");
+
+		publicOpinionWarningThreshold = ParseIntAttribute(element, "publicOpinionWarningThreshold");
+		moneyWarningThreshold = ParseIntAttribute(element, "moneyWarningThreshold");
+		capacityWarningThreshold = ParseFloatAttribute(element, "capacityWarningThreshold");
 	}
 }

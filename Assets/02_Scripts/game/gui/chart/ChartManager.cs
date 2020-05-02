@@ -24,7 +24,6 @@ public class ChartManager : MonoSingleton
 	public float totalAnimationTime;
 	public float dashLineSpacing;
 	public int dashLineDotWidth;
-	public float warningThreshold;
 	public float blinkingInterval;
 
 	// Measures, adjusted to viewport. Act like consts but they are potentially overriden
@@ -160,7 +159,7 @@ public class ChartManager : MonoSingleton
 		float currentCapacity = (float)sessionCopy.capacity;
 		int patients = GetPatients(GetDayToDrawTo()-1);
 		float capacityUsage = patients / currentCapacity;
-		bool isInWarningzone = capacityUsage > warningThreshold;
+		bool isInWarningzone = capacityUsage > sessionCopy.gameSessionXmlModel.capacityWarningThreshold;
 		return isInWarningzone;
 	}
 
