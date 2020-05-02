@@ -16,7 +16,6 @@ public class GameSessionSimulator
 	private AdvisorXmlModel selectedAdvisorXmlModel;
 	private AdvisorXmlModel previousSelectedAdvisorXmlModel;
 
-	private IGameSimulatorStrategy currentStrategy;
 	private List<GameSimulatorStrategyData> strategiesData;
 
 	private ShuffleBag<IGameSimulatorStrategy> strategiesShuffleBag;
@@ -76,6 +75,9 @@ public class GameSessionSimulator
 				GameSession gameSession = localPlayer.gameSession;
 				IGameSimulatorStrategy currentStrategy = strategiesShuffleBag.Next();
 				currentStrategy.Initialize(gameSession);
+
+				IGameSimulatorOptionSelectionStrategy currentOptionSelectionStrategy = new GameSimulatorOptionSelectionRandomStrategy();
+				currentOptionSelectionStrategy.Initialize(gameSession);
 
 				GameSimulationResultRow gameSimulationResultRow = new GameSimulationResultRow();
 				gameSimulationResultRow.day = gameSession.day;
@@ -157,8 +159,7 @@ public class GameSessionSimulator
 
 				gameSimulationResultRow.chosenSuggestionId = selectedSuggestionXmlModel.id;
 
-				int randomOptionIndex = RandomGenerator.GetRandom(0, selectedSuggestionXmlModel.suggestionOptionsList.Count);
-				SuggestionOptionXmlModel selectedSuggestionOptionXmlModel = selectedSuggestionXmlModel.suggestionOptionsList[randomOptionIndex];
+				SuggestionOptionXmlModel selectedSuggestionOptionXmlModel = currentOptionSelectionStrategy.ChoseOption(selectedSuggestionXmlModel.suggestionOptionsList);
 
 				gameSimulationResultRow.chosenOptionId = selectedSuggestionOptionXmlModel.id;
 				gameSimulationResultRow.startStoryId = selectedSuggestionOptionXmlModel.GetStartStoryId();
