@@ -13,6 +13,7 @@ public class GameSessionSimulatorWindow : EditorWindow
 	private List<GameSimulatorStrategyData> strategiesData;
 
 	private GameSimulatorStrategyData randomStrategyData;
+	private GameSimulatorStrategyData criticalParamFirstStrategyData;
 
 	[MenuItem("Flatten Island/Game Session Simulator")]
 	static void CreateWindow()
@@ -35,7 +36,8 @@ public class GameSessionSimulatorWindow : EditorWindow
 		ShowUtility();
 
 		strategiesData = new List<GameSimulatorStrategyData>();
-		randomStrategyData = new GameSimulatorStrategyData(new GameSimulatorRandomStrategy(), "100");
+		criticalParamFirstStrategyData = new GameSimulatorStrategyData(new GameSimulatorCriticalParamFirstStrategy(), "100");
+		randomStrategyData = new GameSimulatorStrategyData(new GameSimulatorRandomStrategy(), "0");
 	}
 
 	private void LoadXmlModels()
@@ -71,8 +73,13 @@ public class GameSessionSimulatorWindow : EditorWindow
 		EditorGUILayout.EndHorizontal();
 
 		EditorGUILayout.BeginHorizontal();
-		EditorGUILayout.LabelField("Random Strategy Probability (%)", GUILayout.Width(220f));
-		randomStrategyData.probabilityText = EditorGUILayout.TextField(randomStrategyData.probabilityText, GUILayout.Width(50f));
+		EditorGUILayout.LabelField("Critical Parameter First Strategy - Probability (%)", GUILayout.Width(350f));
+		criticalParamFirstStrategyData.probabilityText = EditorGUILayout.TextField(criticalParamFirstStrategyData.probabilityText, GUILayout.Width(30f));
+		EditorGUILayout.EndHorizontal();
+
+		EditorGUILayout.BeginHorizontal();
+		EditorGUILayout.LabelField("Random Strategy - Probability (%)", GUILayout.Width(350f));
+		randomStrategyData.probabilityText = EditorGUILayout.TextField(randomStrategyData.probabilityText, GUILayout.Width(30f));
 		EditorGUILayout.EndHorizontal();
 
 		EditorGUILayout.Space();
@@ -98,6 +105,7 @@ public class GameSessionSimulatorWindow : EditorWindow
 	{
 		strategiesData.Clear();
 		strategiesData.Add(randomStrategyData);
+		strategiesData.Add(criticalParamFirstStrategyData);
 
 		GameSessionSimulator gameSessionSimulator = new GameSessionSimulator();
 		gameSessionSimulator.Initialize(runs, strategiesData);

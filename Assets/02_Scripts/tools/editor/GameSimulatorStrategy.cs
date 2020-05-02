@@ -4,5 +4,5 @@ public interface IGameSimulatorStrategy
 {
 	void Initialize(GameSession gameSession);
 	AdvisorXmlModel ChoseAdvisor(List<AdvisorXmlModel> advisorsAvailable);
-	string GetName();
+	string GetLogDescription();
 }

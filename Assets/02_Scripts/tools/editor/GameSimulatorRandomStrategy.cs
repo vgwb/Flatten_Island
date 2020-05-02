@@ -16,7 +16,7 @@ public class GameSimulatorRandomStrategy: IGameSimulatorStrategy
 		return advisorsAvailable[randomAdvisorIndex];
 	}
 
-	public string GetName()
+	public string GetLogDescription()
 	{
 		return "Random";
 	}

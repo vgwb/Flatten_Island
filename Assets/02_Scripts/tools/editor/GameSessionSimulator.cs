@@ -135,7 +135,7 @@ public class GameSessionSimulator
 				gameSession.advisors = PickAdvisors();
 				selectedAdvisorXmlModel = currentStrategy.ChoseAdvisor(gameSession.advisors);
 				gameSimulationResultRow.chosenAdvisor = selectedAdvisorXmlModel.name.Replace("_Name", "");
-				gameSimulationResultRow.strategyUsed = currentStrategy.GetName();
+				gameSimulationResultRow.strategyUsed = currentStrategy.GetLogDescription();
 				gameSession.DiscardAdvisors();
 
 				List<SuggestionXmlModel> suggestionXmlModels = XmlModelManager.instance.FindModels<SuggestionXmlModel>((suggestionXmlModel) => suggestionXmlModel.advisorId == selectedAdvisorXmlModel.id);
