@@ -10,7 +10,8 @@ public struct GameSimulationResultRow
 	public int money;
 	public int publicOpinion;
 	public int vaccine;
-	public int chosenAdvisorId;
+	public string chosenAdvisor;
+	public string strategyUsed;
 	public int chosenSuggestionId;
 	public int chosenOptionId;
 	public int startStoryId;
@@ -28,7 +29,8 @@ public struct GameSimulationResultRow
 		stringBuilder.Append(money + ",");
 		stringBuilder.Append(publicOpinion + ",");
 		stringBuilder.Append(vaccine + ",");
-		stringBuilder.Append(chosenAdvisorId + ",");
+		stringBuilder.Append(chosenAdvisor + ",");
+		stringBuilder.Append(strategyUsed + ",");
 		stringBuilder.Append(chosenSuggestionId + ",");
 		stringBuilder.Append(chosenOptionId + ",");
 

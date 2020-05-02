@@ -14,15 +14,42 @@ public class GameSessionSimulator
 	private AdvisorXmlModel selectedAdvisorXmlModel;
 	private AdvisorXmlModel previousSelectedAdvisorXmlModel;
 
+	private IGameSimulatorStrategy currentStrategy;
+	private List<GameSimulatorStrategyData> strategiesData;
 
-	public void Initialize(int simulationRuns)
+	private ShuffleBag<IGameSimulatorStrategy> strategiesShuffleBag;
+
+
+	public void Initialize(int simulationRuns, List<GameSimulatorStrategyData> strategiesData)
 	{
 		this.simulationRuns = simulationRuns;
+		this.strategiesData = strategiesData;
+
+		strategiesShuffleBag = new ShuffleBag<IGameSimulatorStrategy>(100);
 
 		advisorSpawnPolicy = new AdvisorRandomSpawnPolicy();
 		advisorSpawnPolicy.Initialize();
 		selectedAdvisorXmlModel = null;
 		previousSelectedAdvisorXmlModel = null;
+	}
+
+	private void InitializeStrategiesShuffleBag()
+	{
+		strategiesShuffleBag.Clear();
+		foreach (GameSimulatorStrategyData strategyData in strategiesData)
+		{
+			int probability = 0;
+			if (int.TryParse(strategyData.probabilityText, out probability))
+			{
+				strategiesShuffleBag.Add(strategyData.strategy, probability);
+			}
+			else
+			{
+				UnityEngine.Debug.LogWarning("Probability for strategy:" + strategyData.strategy.ToString() + " is not a number! Skipping");
+			}
+		}
+
+		strategiesShuffleBag.Shuffle();
 	}
 
 	public void Run()
@@ -38,8 +65,11 @@ public class GameSessionSimulator
 			GameSimulationResult gameSimulationResult = new GameSimulationResult();
 			gameSimulationResult.run = i + 1;
 
+			InitializeStrategiesShuffleBag();
+
 			while (!gameOver)
 			{
+				IGameSimulatorStrategy currentStrategy = strategiesShuffleBag.Next();
 				GameSession gameSession = localPlayer.gameSession;
 
 				GameSimulationResultRow gameSimulationResultRow = new GameSimulationResultRow();
@@ -102,9 +132,9 @@ public class GameSessionSimulator
 				}
 
 				gameSession.advisors = PickAdvisors();
-				int randomAdvisorIndex = RandomGenerator.GetRandom(0, gameSession.advisors.Count);
-				selectedAdvisorXmlModel = gameSession.advisors[randomAdvisorIndex];
-				gameSimulationResultRow.chosenAdvisorId = selectedAdvisorXmlModel.id;
+				selectedAdvisorXmlModel = currentStrategy.ChoseAdvisor(gameSession.advisors);
+				gameSimulationResultRow.chosenAdvisor = selectedAdvisorXmlModel.name.Replace("_Name", "");
+				gameSimulationResultRow.strategyUsed = currentStrategy.GetName();
 				gameSession.DiscardAdvisors();
 
 				List<SuggestionXmlModel> suggestionXmlModels = XmlModelManager.instance.FindModels<SuggestionXmlModel>((suggestionXmlModel) => suggestionXmlModel.advisorId == selectedAdvisorXmlModel.id);

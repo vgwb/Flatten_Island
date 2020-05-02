@@ -10,6 +10,10 @@ public class GameSessionSimulatorWindow : EditorWindow
 
 	private string runsString = "10";
 
+	private List<GameSimulatorStrategyData> strategiesData;
+
+	private GameSimulatorStrategyData randomStrategyData;
+
 	[MenuItem("Flatten Island/Game Session Simulator")]
 	static void CreateWindow()
 	{
@@ -29,6 +33,9 @@ public class GameSessionSimulatorWindow : EditorWindow
 		LoadXmlModels();
 
 		ShowUtility();
+
+		strategiesData = new List<GameSimulatorStrategyData>();
+		randomStrategyData = new GameSimulatorStrategyData(new GameSimulatorRandomStrategy(), "100");
 	}
 
 	private void LoadXmlModels()
@@ -58,11 +65,24 @@ public class GameSessionSimulatorWindow : EditorWindow
 	{
 		EditorGUILayout.LabelField("Insert the number of simulations you want to perform:");
 		EditorGUILayout.Space();
+
+		EditorGUILayout.BeginHorizontal();
+		EditorGUILayout.LabelField("STRATEGIES", GUILayout.Width(180f));
+		EditorGUILayout.EndHorizontal();
+
+		EditorGUILayout.BeginHorizontal();
+		EditorGUILayout.LabelField("Random Strategy Probability (%)", GUILayout.Width(220f));
+		randomStrategyData.probabilityText = EditorGUILayout.TextField(randomStrategyData.probabilityText, GUILayout.Width(50f));
+		EditorGUILayout.EndHorizontal();
+
+		EditorGUILayout.Space();
+		EditorGUILayout.Space();
+
 		EditorGUILayout.BeginHorizontal();
 		EditorGUILayout.LabelField("Simulation Runs:", GUILayout.Width(180f));
-
 		runsString = EditorGUILayout.TextField(runsString, GUILayout.Width(50f));
 		EditorGUILayout.EndHorizontal();
+
 		EditorGUILayout.Space();
 		if (GUILayout.Button("Run Simulations", GUILayout.Width(150f)))
 		{
@@ -76,8 +96,11 @@ public class GameSessionSimulatorWindow : EditorWindow
 
 	private void RunSimulations(int runs)
 	{
+		strategiesData.Clear();
+		strategiesData.Add(randomStrategyData);
+
 		GameSessionSimulator gameSessionSimulator = new GameSessionSimulator();
-		gameSessionSimulator.Initialize(runs);
+		gameSessionSimulator.Initialize(runs, strategiesData);
 		gameSessionSimulator.Run();
 	}
 
