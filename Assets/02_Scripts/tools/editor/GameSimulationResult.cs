@@ -5,7 +5,8 @@ using System.IO;
 public class GameSimulationResult
 {
 	public int run;
-	public string result;
+	public string winResult;
+	public string loseResult;
 	public int days;
 
 	private string error;
@@ -30,12 +31,12 @@ public class GameSimulationResult
 
 	public void Write(StreamWriter writer)
 	{
-		writer.WriteLine("Simulation N., Result, Days, Day, Phase, Growth Rate, Capacity, Patients, Money, Public Opinion, Vaccine, Chosen Advisor, Chosen Suggestion, Chosen Option, Active Stories, Start Story, Stop Story");
-		writer.WriteLine(run + "," + result + "," + days + ",,,,,,,,,,,,,,");
+		writer.WriteLine("Simulation N., Win Result, Lose Result, Days, Day, Phase, Growth Rate, Capacity, Patients, Money, Public Opinion, Vaccine, Chosen Advisor, Chosen Suggestion, Chosen Option, Active Stories, Start Story, Stop Story");
+		writer.WriteLine(run + "," + winResult + "," + loseResult + "," + days + ",,,,,,,,,,,,,,");
 
 		foreach (GameSimulationResultRow gameSimulationResultRow in gameSimulationResultRows)
 		{
-			writer.WriteLine(",,," + gameSimulationResultRow.GetTextRow());
+			writer.WriteLine(",,,," + gameSimulationResultRow.GetTextRow());
 		}
 
 		writer.WriteLine("");

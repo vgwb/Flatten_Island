@@ -59,6 +59,7 @@ public class GameSessionSimulator
 					gameOver = true;
 					runWin = true;
 
+					gameSimulationResult.winResult = "VACCINE";
 					gameSimulationResult.AddRow(gameSimulationResultRow);
 					continue;
 				}
@@ -67,6 +68,19 @@ public class GameSessionSimulator
 				{
 					gameOver = true;
 					runWin = false;
+
+					if (gameSession.HasPlayerLoseDueCapacity())
+					{
+						gameSimulationResult.loseResult = "CAPACITY";
+					}
+					else if (gameSession.HasPlayerLoseDueMoney())
+					{
+						gameSimulationResult.loseResult = "MONEY";
+					}
+					else if (gameSession.HasPlayerLoseDuePublicOpinion())
+					{
+						gameSimulationResult.loseResult = "PUBLIC OPINION";
+					}
 
 					gameSimulationResult.AddRow(gameSimulationResultRow);
 					continue;
@@ -125,15 +139,6 @@ public class GameSessionSimulator
 
 
 			gameSimulationResult.days = localPlayer.gameSession.day;
-			if (runWin)
-			{
-				gameSimulationResult.result = "WON";
-			}
-			else
-			{
-				gameSimulationResult.result = "LOSE";
-			}
-
 			gameSimulationResult.Write(writer);
 		}
 
