@@ -69,8 +69,9 @@ public class GameSessionSimulator
 
 			while (!gameOver)
 			{
-				IGameSimulatorStrategy currentStrategy = strategiesShuffleBag.Next();
 				GameSession gameSession = localPlayer.gameSession;
+				IGameSimulatorStrategy currentStrategy = strategiesShuffleBag.Next();
+				currentStrategy.Initialize(gameSession);
 
 				GameSimulationResultRow gameSimulationResultRow = new GameSimulationResultRow();
 				gameSimulationResultRow.day = gameSession.day;
