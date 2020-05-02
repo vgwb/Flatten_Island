@@ -15,6 +15,8 @@ public class GameSessionSimulatorWindow : EditorWindow
 	private GameSimulatorStrategyData randomStrategyData;
 	private GameSimulatorStrategyData criticalParamFirstStrategyData;
 
+	private GameSessionSimulator gameSessionSimulator;
+
 	[MenuItem("Flatten Island/Game Session Simulator")]
 	static void CreateWindow()
 	{
@@ -99,6 +101,27 @@ public class GameSessionSimulatorWindow : EditorWindow
 				RunSimulations(runs);
 			}
 		}
+
+		if (gameSessionSimulator != null)
+		{
+			EditorGUILayout.Space();
+			EditorGUILayout.Space();
+			EditorGUILayout.Space();
+
+			EditorGUILayout.BeginHorizontal();
+			EditorGUILayout.LabelField("RESULTS", GUILayout.Width(180f));
+			EditorGUILayout.EndHorizontal();
+
+			EditorGUILayout.BeginHorizontal();
+			EditorGUILayout.LabelField("Win Runs", GUILayout.Width(100f));
+			EditorGUILayout.LabelField(gameSessionSimulator.winRuns.ToString(), GUILayout.Width(50f));
+			EditorGUILayout.EndHorizontal();
+
+			EditorGUILayout.BeginHorizontal();
+			EditorGUILayout.LabelField("Lose Runs", GUILayout.Width(100f));
+			EditorGUILayout.LabelField(gameSessionSimulator.loseRuns.ToString(), GUILayout.Width(50f));
+			EditorGUILayout.EndHorizontal();
+		}
 	}
 
 	private void RunSimulations(int runs)
@@ -107,7 +130,7 @@ public class GameSessionSimulatorWindow : EditorWindow
 		strategiesData.Add(randomStrategyData);
 		strategiesData.Add(criticalParamFirstStrategyData);
 
-		GameSessionSimulator gameSessionSimulator = new GameSessionSimulator();
+		gameSessionSimulator = new GameSessionSimulator();
 		gameSessionSimulator.Initialize(runs, strategiesData);
 		gameSessionSimulator.Run();
 	}

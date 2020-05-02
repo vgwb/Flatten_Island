@@ -7,6 +7,8 @@ public class GameSessionSimulator
 	public static string SIMULATION_FILE_PATH = "Assets/10_Sandbox/simulations/SimulationResults.csv";
 
 	private int simulationRuns;
+	public int winRuns { get; private set; }
+	public int loseRuns { get; private set; }
 
 	private LocalPlayer localPlayer;
 
@@ -23,6 +25,8 @@ public class GameSessionSimulator
 	public void Initialize(int simulationRuns, List<GameSimulatorStrategyData> strategiesData)
 	{
 		this.simulationRuns = simulationRuns;
+		winRuns = 0;
+		loseRuns = 0;
 		this.strategiesData = strategiesData;
 
 		strategiesShuffleBag = new ShuffleBag<IGameSimulatorStrategy>(100);
@@ -87,6 +91,7 @@ public class GameSessionSimulator
 				if (gameSession.HasPlayerWon())
 				{
 					gameOver = true;
+					winRuns++;
 
 					gameSimulationResult.winResult = "VACCINE";
 					gameSimulationResult.AddRow(gameSimulationResultRow);
@@ -96,6 +101,7 @@ public class GameSessionSimulator
 				if (gameSession.HasPlayerLose())
 				{
 					gameOver = true;
+					loseRuns++;
 
 					if (gameSession.HasPlayerLoseDueCapacity())
 					{
