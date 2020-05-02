@@ -46,11 +46,14 @@ public class TutorialGamePhase : IGamePhase
 
 	public void ShowHudElements(bool shown)
 	{
-		TutorialMenu.instance.ShowEvolutionChart(shown);
-		TutorialMenu.instance.ShowDayPanel(shown);
-		TutorialMenu.instance.ShowMoneyPanel(shown);
-		TutorialMenu.instance.ShowVaccineBar(shown);
-		TutorialMenu.instance.ShowPublicOpinionPanel(shown);
+		if (TutorialMenu.instance != null)
+		{
+			TutorialMenu.instance.ShowEvolutionChart(shown);
+			TutorialMenu.instance.ShowDayPanel(shown);
+			TutorialMenu.instance.ShowMoneyPanel(shown);
+			TutorialMenu.instance.ShowVaccineBar(shown);
+			TutorialMenu.instance.ShowPublicOpinionPanel(shown);
+		}
 	}
 
 	public void StartMusic()
