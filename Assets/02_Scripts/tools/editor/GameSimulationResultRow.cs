@@ -14,6 +14,7 @@ public struct GameSimulationResultRow
 	public string strategyUsed;
 	public int chosenSuggestionId;
 	public int chosenOptionId;
+	public string optionStrategyUsed;
 	public int startStoryId;
 	public int stopStoryId;
 	public GameStoryXmlModel[] activeStoriesId;
@@ -33,6 +34,7 @@ public struct GameSimulationResultRow
 		stringBuilder.Append(strategyUsed + ",");
 		stringBuilder.Append(chosenSuggestionId + ",");
 		stringBuilder.Append(chosenOptionId + ",");
+		stringBuilder.Append(optionStrategyUsed + ",");
 
 		if (activeStoriesId.Length > 0)
 		{

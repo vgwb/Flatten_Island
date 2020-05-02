@@ -31,8 +31,8 @@ public class GameSimulationResult
 
 	public void Write(StreamWriter writer)
 	{
-		writer.WriteLine("Simulation N., Win Result, Lose Result, Days, Day, Phase, Growth Rate, Capacity, Patients, Money, Public Opinion, Vaccine, Chosen Advisor, Strategy, Chosen Suggestion, Chosen Option, Active Stories, Start Story, Stop Story");
-		writer.WriteLine(run + "," + winResult + "," + loseResult + "," + days + ",,,,,,,,,,,,,,,");
+		writer.WriteLine("Simulation N., Win Result, Lose Result, Days, Day, Phase, Growth Rate, Capacity, Patients, Money, Public Opinion, Vaccine, Chosen Advisor, Strategy, Chosen Suggestion, Chosen Option, Option Strategy, Active Stories, Start Story, Stop Story");
+		writer.WriteLine(run + "," + winResult + "," + loseResult + "," + days + ",,,,,,,,,,,,,,,,");
 
 		foreach (GameSimulationResultRow gameSimulationResultRow in gameSimulationResultRows)
 		{

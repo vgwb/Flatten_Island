@@ -10,7 +10,7 @@ public class GameSimulatorOptionSelectionRandomStrategy : IGameSimulatorOptionSe
 		this.gameSession = gameSession;
 	}
 
-	public SuggestionOptionXmlModel ChoseOption(List<SuggestionOptionXmlModel> optionsAvailable)
+	public SuggestionOptionXmlModel ChoseOption(AdvisorXmlModel advisorXmlModel, List<SuggestionOptionXmlModel> optionsAvailable)
 	{
 		int randomIndex = RandomGenerator.GetRandom(0, optionsAvailable.Count);
 		return optionsAvailable[randomIndex];

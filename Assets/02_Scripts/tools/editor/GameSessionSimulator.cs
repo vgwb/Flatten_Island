@@ -17,18 +17,22 @@ public class GameSessionSimulator
 	private AdvisorXmlModel previousSelectedAdvisorXmlModel;
 
 	private List<GameSimulatorStrategyData> strategiesData;
+	private List<GameSimulatorOptionSelectionStrategyData> optionStrategiesData;
 
 	private ShuffleBag<IGameSimulatorStrategy> strategiesShuffleBag;
+	private ShuffleBag<IGameSimulatorOptionSelectionStrategy> optionSelectionStrategyShuffleBag;
 
 
-	public void Initialize(int simulationRuns, List<GameSimulatorStrategyData> strategiesData)
+	public void Initialize(int simulationRuns, List<GameSimulatorStrategyData> strategiesData, List<GameSimulatorOptionSelectionStrategyData> optionStrategiesData)
 	{
 		this.simulationRuns = simulationRuns;
 		winRuns = 0;
 		loseRuns = 0;
 		this.strategiesData = strategiesData;
+		this.optionStrategiesData = optionStrategiesData;
 
 		strategiesShuffleBag = new ShuffleBag<IGameSimulatorStrategy>(100);
+		optionSelectionStrategyShuffleBag = new ShuffleBag<IGameSimulatorOptionSelectionStrategy>(100);
 
 		advisorSpawnPolicy = new AdvisorRandomSpawnPolicy();
 		advisorSpawnPolicy.Initialize();
@@ -55,6 +59,25 @@ public class GameSessionSimulator
 		strategiesShuffleBag.Shuffle();
 	}
 
+	private void InitializeOptionSelectionStrategiesShuffleBag()
+	{
+		optionSelectionStrategyShuffleBag.Clear();
+		foreach (GameSimulatorOptionSelectionStrategyData optionStrategyData in optionStrategiesData)
+		{
+			int probability = 0;
+			if (int.TryParse(optionStrategyData.probabilityText, out probability))
+			{
+				optionSelectionStrategyShuffleBag.Add(optionStrategyData.strategy, probability);
+			}
+			else
+			{
+				UnityEngine.Debug.LogWarning("Probability for Option strategy:" + optionStrategyData.strategy.ToString() + " is not a number! Skipping");
+			}
+		}
+
+		optionSelectionStrategyShuffleBag.Shuffle();
+	}
+
 	public void Run()
 	{
 		StreamWriter writer = new StreamWriter(SIMULATION_FILE_PATH, false);
@@ -69,6 +92,7 @@ public class GameSessionSimulator
 			gameSimulationResult.run = i + 1;
 
 			InitializeStrategiesShuffleBag();
+			InitializeOptionSelectionStrategiesShuffleBag();
 
 			while (!gameOver)
 			{
@@ -76,7 +100,7 @@ public class GameSessionSimulator
 				IGameSimulatorStrategy currentStrategy = strategiesShuffleBag.Next();
 				currentStrategy.Initialize(gameSession);
 
-				IGameSimulatorOptionSelectionStrategy currentOptionSelectionStrategy = new GameSimulatorOptionSelectionRandomStrategy();
+				IGameSimulatorOptionSelectionStrategy currentOptionSelectionStrategy = optionSelectionStrategyShuffleBag.Next();
 				currentOptionSelectionStrategy.Initialize(gameSession);
 
 				GameSimulationResultRow gameSimulationResultRow = new GameSimulationResultRow();
@@ -159,7 +183,8 @@ public class GameSessionSimulator
 
 				gameSimulationResultRow.chosenSuggestionId = selectedSuggestionXmlModel.id;
 
-				SuggestionOptionXmlModel selectedSuggestionOptionXmlModel = currentOptionSelectionStrategy.ChoseOption(selectedSuggestionXmlModel.suggestionOptionsList);
+				SuggestionOptionXmlModel selectedSuggestionOptionXmlModel = currentOptionSelectionStrategy.ChoseOption(selectedAdvisorXmlModel, selectedSuggestionXmlModel.suggestionOptionsList);
+				gameSimulationResultRow.optionStrategyUsed = currentOptionSelectionStrategy.GetLogDescription();
 
 				gameSimulationResultRow.chosenOptionId = selectedSuggestionOptionXmlModel.id;
 				gameSimulationResultRow.startStoryId = selectedSuggestionOptionXmlModel.GetStartStoryId();

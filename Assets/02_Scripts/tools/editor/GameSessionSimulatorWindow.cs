@@ -11,9 +11,12 @@ public class GameSessionSimulatorWindow : EditorWindow
 	private string runsString = "10";
 
 	private List<GameSimulatorStrategyData> strategiesData;
-
 	private GameSimulatorStrategyData randomStrategyData;
 	private GameSimulatorStrategyData criticalParamFirstStrategyData;
+
+	private List<GameSimulatorOptionSelectionStrategyData> optionSelectionStrategiesData;
+	private GameSimulatorOptionSelectionStrategyData randomOptionSelectionStrategyData;
+	private GameSimulatorOptionSelectionStrategyData bestOptionSelectionStrategyData;
 
 	private GameSessionSimulator gameSessionSimulator;
 
@@ -40,6 +43,10 @@ public class GameSessionSimulatorWindow : EditorWindow
 		strategiesData = new List<GameSimulatorStrategyData>();
 		criticalParamFirstStrategyData = new GameSimulatorStrategyData(new GameSimulatorCriticalParamFirstStrategy(), "100");
 		randomStrategyData = new GameSimulatorStrategyData(new GameSimulatorRandomStrategy(), "0");
+
+		optionSelectionStrategiesData = new List<GameSimulatorOptionSelectionStrategyData>();
+		bestOptionSelectionStrategyData = new GameSimulatorOptionSelectionStrategyData(new GameSimulatorOptionSelectionBestStrategy(), "100");
+		randomOptionSelectionStrategyData = new GameSimulatorOptionSelectionStrategyData(new GameSimulatorOptionSelectionRandomStrategy(), "0");
 	}
 
 	private void LoadXmlModels()
@@ -71,7 +78,7 @@ public class GameSessionSimulatorWindow : EditorWindow
 		EditorGUILayout.Space();
 
 		EditorGUILayout.BeginHorizontal();
-		EditorGUILayout.LabelField("STRATEGIES", GUILayout.Width(180f));
+		EditorGUILayout.LabelField("ADVISOR SELECTION STRATEGIES", GUILayout.Width(250f));
 		EditorGUILayout.EndHorizontal();
 
 		EditorGUILayout.BeginHorizontal();
@@ -85,6 +92,22 @@ public class GameSessionSimulatorWindow : EditorWindow
 		EditorGUILayout.EndHorizontal();
 
 		EditorGUILayout.Space();
+		EditorGUILayout.Space();
+
+		EditorGUILayout.BeginHorizontal();
+		EditorGUILayout.LabelField("OPTION SELECTION STRATEGIES", GUILayout.Width(250f));
+		EditorGUILayout.EndHorizontal();
+
+		EditorGUILayout.BeginHorizontal();
+		EditorGUILayout.LabelField("Best Option Strategy - Probability (%)", GUILayout.Width(350f));
+		bestOptionSelectionStrategyData.probabilityText = EditorGUILayout.TextField(bestOptionSelectionStrategyData.probabilityText, GUILayout.Width(30f));
+		EditorGUILayout.EndHorizontal();
+
+		EditorGUILayout.BeginHorizontal();
+		EditorGUILayout.LabelField("Random Strategy - Probability (%)", GUILayout.Width(350f));
+		randomOptionSelectionStrategyData.probabilityText = EditorGUILayout.TextField(randomOptionSelectionStrategyData.probabilityText, GUILayout.Width(30f));
+		EditorGUILayout.EndHorizontal();
+
 		EditorGUILayout.Space();
 
 		EditorGUILayout.BeginHorizontal();
@@ -126,12 +149,17 @@ public class GameSessionSimulatorWindow : EditorWindow
 
 	private void RunSimulations(int runs)
 	{
+		
 		strategiesData.Clear();
 		strategiesData.Add(randomStrategyData);
 		strategiesData.Add(criticalParamFirstStrategyData);
 
+		optionSelectionStrategiesData.Clear();
+		optionSelectionStrategiesData.Add(randomOptionSelectionStrategyData);
+		optionSelectionStrategiesData.Add(bestOptionSelectionStrategyData);
+
 		gameSessionSimulator = new GameSessionSimulator();
-		gameSessionSimulator.Initialize(runs, strategiesData);
+		gameSessionSimulator.Initialize(runs, strategiesData, optionSelectionStrategiesData);
 		gameSessionSimulator.Run();
 	}
 
