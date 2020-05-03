@@ -42,7 +42,7 @@ public class FutureProjector : MonoSingleton
 
 	public int ProjectWithMethod1(int day, int currentDay, int capacity, int growth, int patients)
 	{
-		int targetPatients = patients + (patients * growth) / 100; // calculate today with current
+		int targetPatients = patients + (patients * growth) / 100; // calculate today with current growth
 		int capacityOnDate = capacity;
 		int growthOnDate = growth;
 
@@ -59,6 +59,31 @@ public class FutureProjector : MonoSingleton
 		float capacityRatio = capacity / (float)capacityOnDate;
 		int normalisedPatients = (int)(targetPatients * capacityRatio);
 		return normalisedPatients;
+	}
+
+	public bool IsCurvePredictedToOverflow(GameSession session)
+	{
+		if (session == null) return false;
+
+		int currentDay = session.day;
+		int capacity = session.capacity;
+		int growth = session.growthRate;
+		int patients = session.patients[currentDay - 1];
+					
+		// predicted moving variables
+		int targetPatients = patients + (patients * growth) / 100; // calculate today with current growth
+		int capacityOnDate = capacity;
+		int growthOnDate = growth;
+
+		for (int d = currentDay + 1; d <= GameSession.MAX_DAYS; d++)
+		{
+			growthOnDate += GetPredictedGrowthDeltaForDay(d);
+			capacityOnDate += GetPredictedCapacityDeltaForDayInterpolating(d, currentDay, capacity);
+			targetPatients += (targetPatients * growthOnDate) / 100;
+			if (targetPatients > capacityOnDate) return true;
+		}
+
+		return false;
 	}
 
 	public int GetPredictedGrowthDeltaForDay(int day)
