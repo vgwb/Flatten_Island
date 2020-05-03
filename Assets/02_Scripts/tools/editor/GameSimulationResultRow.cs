@@ -11,6 +11,7 @@ public struct GameSimulationResultRow
 	public int publicOpinion;
 	public int vaccine;
 	public string chosenAdvisor;
+	public AdvisorXmlModel[] advisorsAvailable;
 	public string strategyUsed;
 	public int chosenSuggestionId;
 	public int chosenOptionId;
@@ -30,6 +31,25 @@ public struct GameSimulationResultRow
 		stringBuilder.Append(money + ",");
 		stringBuilder.Append(publicOpinion + ",");
 		stringBuilder.Append(vaccine + ",");
+
+		if (advisorsAvailable != null)
+		{
+			stringBuilder.Append("[");
+			for (int i = 0; i < advisorsAvailable.Length; i++)
+			{
+				stringBuilder.Append(advisorsAvailable[i].name.Replace("_Name", ""));
+				if (i < advisorsAvailable.Length - 1)
+				{
+					stringBuilder.Append(";");
+				}
+			}
+			stringBuilder.Append("],");
+		}
+		else
+		{
+			stringBuilder.Append(",");
+		}
+
 		stringBuilder.Append(chosenAdvisor + ",");
 		stringBuilder.Append(strategyUsed + ",");
 		stringBuilder.Append(chosenSuggestionId + ",");

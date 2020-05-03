@@ -173,6 +173,8 @@ public class GameSessionSimulator
 				}
 
 				gameSession.advisors = PickAdvisors();
+				gameSimulationResultRow.advisorsAvailable = gameSession.advisors.ToArray();
+
 				selectedAdvisorXmlModel = currentStrategy.ChoseAdvisor(gameSession.advisors);
 				gameSimulationResultRow.chosenAdvisor = selectedAdvisorXmlModel.name.Replace("_Name", "");
 				gameSimulationResultRow.strategyUsed = currentStrategy.GetLogDescription();
