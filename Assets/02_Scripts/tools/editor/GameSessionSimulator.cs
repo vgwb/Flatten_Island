@@ -9,6 +9,7 @@ public class GameSessionSimulator
 	public int winRuns { get; private set; }
 	public int loseRuns { get; private set; }
 	public int winDaysRecord { get; private set; }
+	public int maxDayReached { get; private set; }
 
 	private LocalPlayer localPlayer;
 
@@ -27,6 +28,7 @@ public class GameSessionSimulator
 		winRuns = 0;
 		loseRuns = 0;
 		winDaysRecord = int.MaxValue;
+		maxDayReached = 0;
 
 		strategiesShuffleBag = new ShuffleBag<IGameSimulatorStrategy>(100);
 		optionSelectionStrategyShuffleBag = new ShuffleBag<IGameSimulatorOptionSelectionStrategy>(100);
@@ -201,6 +203,7 @@ public class GameSessionSimulator
 				{
 					gameSimulationResult.loseResult = "MAX DAY REACHED";
 					loseRuns++;
+					maxDayReached++;
 					gameOver = true;
 
 				}
