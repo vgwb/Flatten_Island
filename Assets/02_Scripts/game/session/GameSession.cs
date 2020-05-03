@@ -317,7 +317,17 @@ public class GameSession : ISavable
 	public void ReadSaveData(GameData gameData)
 	{
 		GameSessionData gameSessionData = gameData as GameSessionData;
-		maxDays = gameSessionData.maxDays;
+
+		if (gameSessionData.maxDays == 0)
+		{
+			//save game retro compatibility
+			maxDays = INITIAL_MAX_DAYS;
+		}
+		else
+		{
+			maxDays = gameSessionData.maxDays;
+		}
+
 		day = gameSessionData.day;
 		growthRate = gameSessionData.growthRate;
 		money = gameSessionData.money;
