@@ -93,7 +93,7 @@ Card_OptB_3206			Aunque la gente no lo entienda, ese dinero es muy necesario
 CardTitle_3207			Cierre de las fronteras			
 CardText_3207			Los turistas que llegan pueden suponer nuevos focos de infección			
 Card_OptA_3207			Mucha gente vive del turismo en la isla, no podemos cerrar fronteras			
-Card_OptB_3207			Cerremos fronteras y demos ayudas al sector turistico			
+Card_OptB_3207			Cerremos fronteras y demos ayudas al sector turístico			
 CardTitle_3208			Inversión en sanidad			
 CardText_3208			Quedan fondos para invertir y tenemos que decidir cómo hacerlo			
 Card_OptA_3208			Prioridad a las pruebas para identificar nuevos focos lo antes posible			
@@ -197,7 +197,7 @@ Card_OptB_3232			Desde ahora les multaremos, es la única manera para que se man
 CardTitle_3233			Tu medico te contesta			
 CardText_3233			Muchos ciudadanos tienen miedo y necesitan alguien con quien hablar sobre lo que está pasando			
 Card_OptA_3233			Pongamos un equipo sanitario a contestar a las llamadas de la gente, seguro les ayudará			
-Card_OptB_3233			Dejemos que la ciudadanía se organice en grupos de apoyo a través de internet			
+Card_OptB_3233			Dejemos que la ciudadanía se organice en grupos de apoyo a través de Internet			
 CardTitle_3234			Recorte de personal			
 CardText_3234			Necesitamos reducir nuestros gastos en personal			
 Card_OptA_3234			Podemos reducir la plantilla de los agentes de policía en las calles, pero habrá menos controles			
@@ -224,32 +224,32 @@ Card_OptA_3239			Se lo tomarán muy mal, pero necesitamos todos los recursos eco
 Card_OptB_3239			No podemos quitar las subvenciones a la familias justo ahora			
 CardTitle_3240			Buenos vecinos			
 CardText_3240			La epidemia está golpeando duramente a nuestro vecinos de Bumpy Island y quieren fichar a nuestros expertos			
-Card_OptA_3240			Si envíaran una delegación aquí, nuestro investigadores podrían compartir sus avances			
+Card_OptA_3240			Si enviaran una delegación aquí, nuestro investigadores podrían compartir sus avances			
 Card_OptB_3240			Les podemos enviar un equipo sanitario completo que se haga cargo de un hospital allí			
 CardTitle_3241			¿Un laboratorio menos?			
 CardText_3241			Tenemos demasiados laboratorios investigando la vacuna			
 Card_OptA_3241			Cerremos un laboratorio y ahorraremos una pasta			
 Card_OptB_3241			Es importante tener varios equipos investigando a la vez, aumenta la esperanza de éxito			
 CardTitle_3242			Flashmob			
-CardText_3242			Un artista nos ha ofrecido dinero para poder organizar un flashmob con miles de personas en frente al volcano			
+CardText_3242			Un artista nos ha ofrecido dinero para poder organizar un flashmob con miles de personas enfrente del volcán			
 Card_OptA_3242			Las aglomeraciones no son recomendables pero en este caso podemos hacer una excepción			
 Card_OptB_3242			No podemos permitir ningun tipo de aglomeración			
 CardTitle_3243			Medidas de prevención			
-CardText_3243			Para prevenir más contagios es fundamentas que todo el mundo entienda muy bien como comportarse			
-Card_OptA_3243			Multemos a todo el mundo que no cumpla las reglas hasta el último coma			
-Card_OptB_3243			Enviemos nuestros cientificos en todos los medios de comunicación			
-CardTitle_3244			Paso doble			
+CardText_3243			Para prevenir más contagios es fundamental que todo el mundo entienda muy bien como comportarse			
+Card_OptA_3243			Multemos a todos los que no cumplan las reglas hasta la última coma			
+Card_OptB_3243			Enviemos a nuestros cientificos a todos los medios de comunicación			
+CardTitle_3244			Pasodoble			
 CardText_3244			Necesitaremos mucha más capacidad hospitalaria			
-Card_OptA_3244			Vamos adaptando áreas infrautilizadas para poder recibir más pacientes			
-Card_OptB_3244			¡Camas dobles! Claro no es lo ideal para el aislamiento			
+Card_OptA_3244			Vayamos adaptando áreas infrautilizadas para poder recibir más pacientes			
+Card_OptB_3244			¡Camas dobles! Aunque no es lo ideal para el aislamiento...			
 CardTitle_3245			Pasillos calientes			
 CardText_3245			Tenemos que estar preparados para poder recibir picos de pacientes			
-Card_OptA_3245			Tengamos camas listas para ponerlas donde sea aunque no le guste a los pacientes			
-Card_OptB_3245			Ya tenemos todo lo que necesitaremos			
+Card_OptA_3245			Tengamos camas listas para ponerlas donde sea aunque no les guste a los pacientes			
+Card_OptB_3245			Ya tenemos todo lo que podemos necesitar			
 CardTitle_3246			Medicos de familia			
-CardText_3246			El personal de atención primaria podría ayudar mucho más para cuidar de los enfermos			
-Card_OptA_3246			Mini-hospitales en los centros de atención primaria aunque no puedan aislar los pacientes			
-Card_OptB_3246			Todo el personal sanitarios en los hospitales y las consultas básicas se harán en urgencias			
+CardText_3246			El personal de atención primaria podría ayudar a cuidar de los enfermos			
+Card_OptA_3246			Montemos mini-hospitales en los centros de atención primaria aunque no puedan aislar los pacientes			
+Card_OptB_3246			Enviemos a todo el personal sanitarios a los hospitales,. Las consultas básicas se harán en urgencias			
 CardTitle_3247			Laboratorio sobre ruedas			
 CardText_3247			Necesitamos que todo el personal cualificado esté disponible en los hospitales por si hay un pico de pacientes			
 Card_OptA_3247			Traslademos los laboratorios dentro de los hospitales			
@@ -258,241 +258,241 @@ CardTitle_3248			Personal internacional
 CardText_3248			Hay una grave falta de personal sanitario en la isla			
 Card_OptA_3248			Fichemos médicos de otras islas donde no haya emergencias			
 Card_OptB_3248			Fichemos enfermeros de islas donde la crisis esté remitiendo y esperemos que no traigan contagios			
-CardTitle_3249			Tumbonas de playas			
+CardTitle_3249			Tumbonas de playa			
 CardText_3249			Podríamos quedarnos pronto sin camas para los nuevos pacientes			
-Card_OptA_3249			Pedimos a los pacientes que vengan en hospital con su tumbona plegable			
+Card_OptA_3249			Pidamos a los pacientes que vengan al hospital con su tumbona plegable			
 Card_OptB_3249			Esperemos que no hagan falta			
 CardTitle_3250			Pico de contagios			
 CardText_3250			Estamos registrando un número de nuevos casos muy superior a lo esperado			
 Card_OptA_3250			Tendremos que aprovechar cada esquina para poner una camilla			
-Card_OptB_3250			Los laboratorios se harán cargo de la preubas a los pacientes para aislarles cuanto antes			
+Card_OptB_3250			Los laboratorios se harán cargo de la pruebas a los pacientes para aislarles cuanto antes			
 CardTitle_3251			Pruebas de laboratorio			
 CardText_3251			Necesitamos toda la capacidad posible para hacer pruebas y tratar a los enfermos			
 Card_OptA_3251			Habrá que suspender la investigación para poder ayudar a los hospitales			
 Card_OptB_3251			Nuestros hospitales ya tienen capacidad suficiente			
 CardTitle_3252			Cadena de montaje			
-CardText_3252			Pronto no tendremos maquinaria suficiente para todos los paciente			
-Card_OptA_3252			Compremos mucho más equipos pero no podremos garantizar el higiene máxima de todos			
-Card_OptB_3252			Vamos adquiriendo poco a poco los nuevos equipos			
+CardText_3252			Pronto no tendremos equipos suficientes para todos los pacientes			
+Card_OptA_3252			Compremos más equipos, pero no podremos garantizar la higiene máxima de todos			
+Card_OptB_3252			Vayamos adquiriendo poco a poco los nuevos equipos			
 CardTitle_3253			El Mega Hospital			
 CardText_3253			La tasa de contagio no para de aumentar, necesitamos aumentar y mucho nuestra capacidad hospitalaria			
-Card_OptA_3253			Vamos a constriur un gran hospital con todas las últimas tecnológías			
+Card_OptA_3253			Vamos a construir un gran hospital con todas las últimas tecnológías			
 Card_OptB_3253			Paremos toda la investigación sobre la vacuna y pongamos prioridad en tratamientos contra el virus			
 CardTitle_3254			La buena inversión			
-CardText_3254			¡La inversión en investigación es siempre una buena invesión! ¿Cuanto queremos invertir?			
-Card_OptA_3254			Poco a poco, avanzemos pasito a pasito			
-Card_OptB_3254			Apuestemos fuerte para encontrar la vacuna cuanto antes			
+CardText_3254			¡La inversión en investigación es siempre una buena inversión! ¿Cuanto queremos invertir?			
+Card_OptA_3254			Poco a poco, avancemos pasito a pasito			
+Card_OptB_3254			Apostemos fuerte para encontrar la vacuna cuanto antes			
 CardTitle_3255			Saberse vender			
-CardText_3255			La gente no entiende para que sirve la invegación si la vacuna no está a la vista todavía			
+CardText_3255			La gente no entiende para que sirve la investigación si la vacuna no está lista todavía			
 Card_OptA_3255			Seguiremos buscando una vacuna aunque la gente no lo entienda			
-Card_OptB_3255			Lo cientificos tendrán que venderse mejor si quieren recibir más recursos			
+Card_OptB_3255			Los cientificos tendrán que venderse mejor si quieren recibir más recursos			
 CardTitle_3256			Ensayo clínico			
 CardText_3256			La vacuna ya está lista para un primer ensayo clínico.			
-Card_OptA_3256			Vamos a infectar nosotros unos cuantos voluntarios para ver si la vacuna les protege			
+Card_OptA_3256			Vamos a infectar nosotros a unos cuantos voluntarios para ver si la vacuna les protege			
 Card_OptB_3256			Vamos a reservar un hospital para la experimentación sobre la vacuna			
 CardTitle_3257			Equipo mixto			
 CardText_3257			La investigación avanza pero podría ir más rápida con un equipo mixto de cientificos y personal sanitario			
-Card_OptA_3257			Seleccionemos un equipo sanitario para que se dedique en exlusiva a apoyar la investigación			
-Card_OptB_3257			¿La investigación avanza? Pués no hace falta nada más			
-CardTitle_3258			Empujon a la investigación			
+Card_OptA_3257			Seleccionemos un equipo sanitario para que se dedique en exclusiva a apoyar la investigación			
+Card_OptB_3257			¿La investigación avanza? Pues entonces no hace falta nada más			
+CardTitle_3258			Empujón a la investigación			
 CardText_3258			Tenemos la oportunidad de ayudar a la investigación			
 Card_OptA_3258			Aumentemos nuestra inversión en investigación y los resultados llegarán			
-Card_OptB_3258			El dinero no es todo. ¿Que tal si pedimos a nuestro mejores médicos de apoyar a los cientificos?			
+Card_OptB_3258			El dinero no es todo. ¿Que tal si pedimos a nuestros mejores médicos que apoyen a los cientificos?			
 CardTitle_3259			Voluntarios a la fuerza			
 CardText_3259			No encontramos voluntarios para la experimentación de la vacuna			
-Card_OptA_3259			Pués non tocará seleccionar unos cuantos ciudadanos y obligarles a ceder su cuerpo para la ciencia			
+Card_OptA_3259			Nos tocará seleccionar unos cuantos ciudadanos y obligarles a ceder su cuerpo para la ciencia			
 Card_OptB_3259			¡Esperemos! Aunque haga falta más tiempo los voluntarios aparecerán			
 CardTitle_3260			Como aprovechar el pico			
-CardText_3260			Hay un pico de contagios y podeos aprovecharlo para empujar a la investigación			
+CardText_3260			Hay un pico de contagios y podemos aprovecharlo para empujar la investigación			
 Card_OptA_3260			Recolectemos cuantos más datos posibles sobre el virus en estos momentos			
-Card_OptB_3260			Podríamos invertir y experimentar ahora la vacuna. Aunque incompleta tendría que reducir los contagios.			
-CardTitle_3261			Estatisticas fiables			
-CardText_3261			La ciencia se basa en datos y para la vacuna necesitamos muestras de sangre de cuantas mas gente posibles			
+Card_OptB_3260			Podríamos invertir y experimentar ahora la vacuna. Aunque incompleta, tendría que reducir los contagios.			
+CardTitle_3261			Estadísticas fiables			
+CardText_3261			La ciencia se basa en datos, y para la vacuna necesitamos las muestras de sangre de cuanta más gente mejor.			
 Card_OptA_3261			Enfoquemos el estudio en los pacientes de un hospital concreto, serán suficientes			
 Card_OptB_3261			Lo mejor es pinchar a todo el mundo, aunque a muchos no le hará niguna gracia			
 CardTitle_3262			Ganar tiempo			
-CardText_3262			Es el momento de invertir en la ciencia. Solo así podemos ganar tiempo en la busqueda de la vacuna			
+CardText_3262			Es el momento de invertir en ciencia. Solo así podemos ganar tiempo en la b´jsqueda de la vacuna			
 Card_OptA_3262			Vale, vamos a invertir ya y esperemos que los resultados se vean pronto			
 Card_OptB_3262			Tenemos otras prioridades			
 CardTitle_3263			Movimientos presupuestarios			
-CardText_3263			Estamos acabando los fondo para la investigación			
-Card_OptA_3263			Podemos mover fondos de otras partidas, por ejemplo de las ayudas a las PyMEs			
+CardText_3263			Estamos acabando los fondos para la investigación			
+Card_OptA_3263			Podemos mover fondos de otras partidas, por ejemplo de las ayudas a las PYMES			
 Card_OptB_3263			La investigación tendrá que esperar para recibir nuevos fondos			
 CardTitle_3264			Paramos motores			
 CardText_3264			Para cortar la cadenas de contagios tenemos que evitar aglomeraciones en lugares cerrados			
-Card_OptA_3264			Paremos todas las actividades no esenciales, aunque tengamos que asumirne el coste			
+Card_OptA_3264			Paremos todas las actividades no esenciales, aunque tengamos que asumir el coste			
 Card_OptB_3264			Con cerrar los pequeños comercios será suficiente			
 CardTitle_3265			Los coles			
-CardText_3265			Los colegios pueden transformarse en un foco de contagios			
-Card_OptA_3265			Mejor cerrar los colegios antes de que se conviertan en un foco, aunque suponga más presión sobre la familias			
-Card_OptB_3265			Si de momento no son lugar de muchos contagios, mejor esperar			
+CardText_3265			Los colegios pueden transformarse en un foco de contagio			
+Card_OptA_3265			Mejor cerrar los colegios antes de que se conviertan en un problema, aunque suponga más presión para las familias			
+Card_OptB_3265			Si de momento no se están produciendo muchos contagios, será mejor esperar			
 CardTitle_3266			Teletrabajo para todos			
 CardText_3266			Para evitar contagios lo mejor sería que todo el mundo trabajara desde su casa, pero las empresas no están preparadas			
-Card_OptA_3266			¡Teletrabajo para todos y ayudas a las empresas! ¿Lor trabajadores? Que se apañen			
+Card_OptA_3266			¡Teletrabajo para todos y ayudas a las empresas! ¿Los trabajadores? Que se apañen			
 Card_OptB_3266			No podemos asumir más gastos			
 CardTitle_3267			Cursos de mascarillas y guantes			
-CardText_3267			Mascarillas y guantes son efectivos para frenar los contagios pero la gente no saben como usarlos bien			
+CardText_3267			Mascarillas y guantes son efectivos para frenar los contagios pero la gente no sabe cómo usarlos bien			
 Card_OptA_3267			Enviemos personal sanitario a dar cursos en los centros civicos de la isla			
-Card_OptB_3267			¡Que se miren tutoriales en internet!			
+Card_OptB_3267			¡Que se miren tutoriales en Internet!			
 CardTitle_3268			Bloquear los contagios			
 CardText_3268			Estamos consiguiendo bloquear los contagios con una serie de medidas alternativas... pero no entendemos muy bien cómo			
 Card_OptA_3268			Lo importante es frenar los contagios, el resto es secundario...			
-Card_OptB_3268			Es una gran oportunidad para estudiar el virus, claro habría que invertir mucho más			
+Card_OptB_3268			Es una gran oportunidad para estudiar el virus, pero por supuesto habría que invertir mucho más			
 CardTitle_3269			El Gran Hermano			
 CardText_3269			Los controles son fondamentales para que todo el mundo respete la reglas de distanciamento social			
-Card_OptA_3269			Pedimos a los ciudadanos de controlar y denunciar a sus vecinos si no cumplen las normas			
+Card_OptA_3269			Pidamos a los ciudadanos controlar y denunciar a sus vecinos si no cumplen las normas			
 Card_OptB_3269			Vamos a crear un equipo de vigilancia que incluya tambíen personal sanitario			
 CardTitle_3270			Confinamiento			
-CardText_3270			Si todo el mundo se quedara en casa durante un tiempo prodíamos freanar de golpe los contagios			
-Card_OptA_3270			Confinamiento obligatorio y total para todo el mundo, aunque el coste economico sea alto			
-Card_OptB_3270			Confinamiento suave, se puede salir para ir a trabajar y hacer recados: mucho más barato			
-CardTitle_3271			¿Vacuna o tratamientos?			
-CardText_3271			Nuestros equipos de cientificos han descubierto como se transite el virus			
-Card_OptA_3271			Podemos aprovechar y pedirles de desarrollar tratamientos que limiten los contagios			
-Card_OptB_3271			Seguimos invertiendo en la vacuna que es lo más importante			
+CardText_3270			Si todo el mundo se quedara en casa durante un tiempo podríamos freanar de golpe los contagios			
+Card_OptA_3270			Confinamiento obligatorio y total para todo el mundo, aunque el coste económico sea alto			
+Card_OptB_3270			Confinamiento suave, se puede salir para ir a trabajar y hacer recados: así es mucho más barato			
+CardTitle_3271			¿Vacuna o tratamiento?			
+CardText_3271			Nuestros equipos de cientificos ha descubierto cómo se transmite el virus			
+Card_OptA_3271			Podemos aprovechar y pedirles que desarrollen tratamientos para limitar los contagios			
+Card_OptB_3271			Sigamos invirtiendo en la vacuna que es lo más importante			
 CardTitle_3272			Focos en los centros de salud			
 CardText_3272			Algunos centros de salud se están convirtiendo en focos de infección			
-Card_OptA_3272			Cerremos todos los centros que no puedan garantizar de evitar contagios			
-Card_OptB_3272			Pongamos los investigadores a estudiar esos centros para gana tiempo con su busqueda			
-CardTitle_3273			Technología punta			
+Card_OptA_3272			Cerremos todos los centros que no puedan garantizar evitar contagios			
+Card_OptB_3272			Pongamos los investigadores a estudiar esos centros para ganar tiempo en su búsqueda			
+CardTitle_3273			Tecnología punta			
 CardText_3273			Esta tecnología nos permite identificar y aislar los casos positvos muy pronto....			
 Card_OptA_3273			... y además lo consigue sin ser invasiva para los pacientes			
 Card_OptB_3273			Lástima que no podamos permitirnosla			
 CardTitle_3401			Todo sobre la vacuna			
-CardText_3401			La población quiere estar informada sobre cada pequeña noveded al respecto de la vacuna			
-Card_OptA_3401			Contratemos una agencia para que se encargue de la comunicación dejando tranquilos a los cientificos			
-Card_OptB_3401			¿Quien mejor que los cientificos mismos para comunicar con frecuencia sobre la vacuna?			
+CardText_3401			La población quiere estar informada sobre todas las novedades respecto a la vacuna			
+Card_OptA_3401			Contratemos una agencia para que se encargue de la comunicación			
+Card_OptB_3401			¿Quién mejor que los cientificos mismos para comunicar con frecuencia sobre la vacuna?			
 CardTitle_3402			Línea directa			
 CardText_3402			Los ciudadanos tienen cada vez más preguntas, montemos un call center para contestarles al teléfono			
-Card_OptA_3402			Mejor contratar a una empresa especializada para que los operadores puedan entretener además de contestar			
-Card_OptB_3402			Usemos personal sanitario así podemos también identificar personas con síntomas y aislarlas inmediatamente			
+Card_OptA_3402			Mejor contratar a una empresa especializada para que los operadores sean profesionales			
+Card_OptB_3402			Usemos personal sanitario; así podremos también identificar personas con síntomas y aislarlas inmediatamente			
 CardTitle_3403			Escucha activa			
 CardText_3403			Con todo el personal sanitario volcado en la emergencia no queda nadie para recibir a quien solo necesite ser escuchado			
-Card_OptA_3403			Dediquemos un equipo sanitario a recibir y escuchar quien lo necesite, el pueblo lo agradecerá			
-Card_OptB_3403			Tenemos tareas más importante para nuestros sanitarios			
+Card_OptA_3403			Dediquemos un equipo sanitario a recibir y escuchar a quien lo necesite, el pueblo lo agradecerá			
+Card_OptB_3403			Nuestros sanitarios tienen tareas más importantes que hacer			
 CardTitle_3404			Las encuestas			
 CardText_3404			Las encuestas sugieren que los ciudadanos se fían más de los investigadores que de nosotros			
-Card_OptA_3404			Involucremos los cientificos en nuestro equipo de comunicación aunque les quite tiempo para la investigación			
-Card_OptB_3404			Aún mejor, involucremosles también en la Unidad de Crisis: su conocimientos serán valiosos para limitar los contagios			
+Card_OptA_3404			Involucremos a los cientificos en nuestro equipo de comunicación, aunque eso les quite tiempo para la investigación			
+Card_OptB_3404			Aún mejor, que ayuden también a la Unidad de Crisis para limitar los contagios			
 CardTitle_3405			Vuelta al cole			
-CardText_3405			La noticia de la reabertura de los colegios será tomada positivamente por la población...			
-Card_OptA_3405			...pero tendríamos que invertir bastante para equipar docentes y alumnos de guantes y mascarillas			
-Card_OptB_3405			O, en alternativa, nos exponemos al riesgo de nuevas infecciónes			
-CardTitle_3416			Formación a la empresa			
-CardText_3416			Una empresa está dispuesta a contratar los servicios de nuestros cientificos para formar sus empleados sobre medidas de prevención			
-Card_OptA_3416			Es un buena oportunidad para recuadar fondos y reducir contagios a la vez			
-Card_OptB_3416			¡Genial! Vamos a buscar más empresas que está interesadas aunque la investigación tenga que pararse durante un tiempo			
+CardText_3405			La noticia de la reapertura de los colegios será tomada positivamente por la población...			
+Card_OptA_3405			...pero tendríamos que invertir bastante para equipar a docentes y alumnos con guantes y mascarillas			
+Card_OptB_3405			De lo contrario nos expondríamos al riesgo de nuevas infecciónes			
+CardTitle_3416			Formación en la empresa			
+CardText_3416			Una empresa está dispuesta a contratar los servicios de nuestros cientificos para formar a sus empleados sobre medidas de prevención			
+Card_OptA_3416			Es una buena oportunidad para recaudar fondos y al mismo tiempo reducir contagios			
+Card_OptB_3416			¡Genial! Vamos a buscar más empresas interesadas aunque la investigación tenga que pararse durante un tiempo			
 CardTitle_3417			Crisis financiera			
 CardText_3417			El presupuesto de la Unidad de Crisis se nos ha ido de las manos			
 Card_OptA_3417			Necesitamos dinero ya, así que recortemos lo que haga falta			
 Card_OptB_3417			Vale, recortemos pero con moderación, no sea que tengamos un repunte de contagios por falta de medios			
 CardTitle_3418			Misión internacional			
-CardText_3418			Gracias a un fondo internacional, se está organizando una misión para aiudar a las islas más golpeadas por la pandemia			
+CardText_3418			Gracias a un fondo internacional, se está organizando una misión para ayudar a las islas más golpeadas por la pandemia			
 Card_OptA_3418			Enviemos un equipo sanitario, seguro que es lo que más se necesita			
-Card_OptB_3418			Enviémos solo un cientifico ya que no podemos prescindir de sanitarios en este momento			
+Card_OptB_3418			Enviémos solo un cientifico; no podemos prescindir de sanitarios en este momento			
 CardTitle_3419			¿Menos pruebas?			
 CardText_3419			Las pruebas de detección del virus son muy caras, tenemos que encontrar la manera de ahorrar			
-Card_OptA_3419			La única manera de mantener el número de pruebas es quitar los técnicos de laboratorio de la investigación			
+Card_OptA_3419			La única manera de mantener el número de pruebas es reducir el número de técnicos que están investigando la vacuna			
 Card_OptB_3419			No podemos parar la investigación, tendremos que conformarnos con hacer menos pruebas			
-CardTitle_3420			Impuesto de solidariedad			
-CardText_3420			De vez en cuando volvemos a hablar de impuestos: esta vez la ides es grabar la clase medio-alta			
+CardTitle_3420			Impuesto de solidaridad			
+CardText_3420			De vez en cuando hay que volver a hablar de impuestos: esta vez la idea es gravar a las clases medias y altas			
 Card_OptA_3420			Tiene un coste en opinión pública, pero cuando hace falta dinero hay tomar decisiones difíciles			
-Card_OptB_3420			No podemos grabar las familias con más impuestos, tampoco las familias de clase medio-alta			
+Card_OptB_3420			No podemos cargar a las familias con más impuestos, ni siquiera a las de nivel medio-alto			
 CardTitle_3431			Largas colas			
 CardText_3431			El nuevo hospital está listo para la inauguración pero ya sabemos que las colas serán largas			
-Card_OptA_3431			Reducimos las colas a toda costa, aunque signifique no respetar todas las medidad de distanciamiento			
+Card_OptA_3431			Reduzcamos las colas a toda costa, aunque  ello signifique no respetar todas las medidas de distanciamiento			
 Card_OptB_3431			Lo siento por los ciudadanos pero si las colas son tan largas es para evitar más contagios			
 CardTitle_3432			Carencia de técnicos			
 CardText_3432			Para completar el plan de aumento de la capacidad hospitalaria necesitamos más técnicos sanitarios			
 Card_OptA_3432			Contratemos técnicos aunque nos requiera aumentar la inversión presupuestada			
-Card_OptB_3432			Traskademos técnicos desde los laboratorios aunque tenga un impacto negativo sobre de investigación			
+Card_OptB_3432			Traslademos técnicos desde los laboratorios aunque tenga un impacto negativo sobre de investigación			
 CardTitle_3433			A toda prisa			
-CardText_3433			Si queremos atender más pacientes sin nuevas inversiones tenemos que reducir el tiempo que dedicamos a cada paciente			
-Card_OptA_3433			Vale, aunque pueda significar más disgnositcos equivocados y más contagios			
+CardText_3433			Si queremos atender más pacientes sin nuevas inversiones, tendremos que reducir el tiempo que dedicamos a cada paciente			
+Card_OptA_3433			Vale, aunque ello pueda significar más diagnósticos equivocados y en consecuencia más contagios			
 Card_OptB_3433			Eso no es aceptable, seguiremos como hasta ahora			
 CardTitle_3434			Inversión ya aprobada			
 CardText_3434			Ya está aprobada una inversión importante en personal sanitario, solo tenemos que decidir...			
 Card_OptA_3434			... si reservamos una parte del dinero para material de protección del personal...			
 Card_OptB_3434			... o si la gastamos enteramente en aumentar la capacidad hospitalaria			
 CardTitle_3435			Abarrotados			
-CardText_3435			En cualquer momento puede haber un pico de pacientes y hay que estar preparados para atenderles			
-Card_OptA_3435			Tengamos muchas camas extras disponibles y en caso de necesidad las pondremos abarrotadas en culaquier lado			
-Card_OptB_3435			Enfoquemosnos en dar el mejor trato posible a los pacientes con las estructuras que ya tenemos			
+CardText_3435			En cualquier momento puede haber un pico de pacientes y hay que estar preparados para atenderles			
+Card_OptA_3435			Tengamos muchas camas extras disponibles y en caso de necesidad las podemos montar en cualquier lado			
+Card_OptB_3435			Enfoquémonos en dar el mejor trato posible a los pacientes con la estructura que ya tenemos			
 CardTitle_3446			Ayuda a la investigación			
-CardText_3446			He llegado el momento de ayudar la investigación, sea como sea			
-Card_OptA_3446			Transformemos un hosptal en centro de experimentación para la vacuna			
-Card_OptB_3446			Pedimos a los ciudadanos de contribur con una pequeña retención en su próxima nómina			
+CardText_3446			He llegado el momento de ayudar a la investigación, sea como sea			
+Card_OptA_3446			Transformemos un hospital en centro de experimentación para la vacuna			
+Card_OptB_3446			Pidamos a los ciudadanos que contribuyan con una pequeña retención en su próxima nómina			
 CardTitle_3447			Dinero para la investigación			
 CardText_3447			Hemos reservado ya una partida importante del presupuesto para investigación			
-Card_OptA_3447			¿Queremos dedicarla enteramente a la busqueda de la vacuna?			
-Card_OptB_3447			¿O preferimos reservar una parte para tratamientos que limiten los contagios?			
+Card_OptA_3447			¿Queremos dedicarla enteramente a la búsqueda de la vacuna?			
+Card_OptB_3447			¿O preferimos reservar una parte para buscar tratamientos que limiten los contagios?			
 CardTitle_3448			Estudio a gran escala			
 CardText_3448			Para conocer todas las mutaciones del virus lo ideal sería un gran estudio sobre su difusión en la isla			
-Card_OptA_3448			Miles de ciudadanos nos ofrecerán su sangre para que podamos trazar su evuloción y avanzar con la vacuna			
-Card_OptB_3448			No podemos obligar a miles de ciudadanos a darnos muestras de sangre, se lo tomorían muy mal			
+Card_OptA_3448			Miles de ciudadanos nos ofrecerán su sangre para que podamos trazar su evolución y avanzar con la vacuna			
+Card_OptB_3448			No podemos obligar a miles de ciudadanos a darnos muestras de sangre, se lo tomarían muy mal			
 CardTitle_3449			Prueba en los sanitarios			
 CardText_3449			Lo más expuestos a riesgo de contagios son los sanitarios, tendremos que probar la vacuna en ellos			
-Card_OptA_3449			Vamos a selecionar centernares de sanitarios para eso, aunque nuestra capacidad hospitalaria se verá afectada			
-Card_OptB_3449			Mejor probar la vacusa solo en unos pocos, no podemos permitirnos de perder muchos sanitarios en este momento			
+Card_OptA_3449			Vamos a seleccionar centenares de sanitarios para eso, aunque signifique que nuestra capacidad hospitalaria se vea afectada			
+Card_OptB_3449			Mejor probar la vacuna solo en unos pocos, no podemos permitirnos perder muchos sanitarios en este momento			
 CardTitle_3450			La vacuna y su riesgo			
 CardText_3450			Las pruebas de la vacuna en personas siempre conllevan un riesgo, pero lo podemos limitar con una inversión adecuada			
-Card_OptA_3450			No vamos a ahorrar sobre la salud de nuestro ciudadanos y no vamos a exponer a nadie al riesgo de contagio			
+Card_OptA_3450			No vamos a ahorrar sobre la salud de nuestros ciudadanos ni a exponer a nadie al riesgo de contagio			
 Card_OptB_3450			No podemos invertir ahora mismo, así que nos toca aceptar el riesgo de generar nuevos contagios			
 CardTitle_3461			La colaboración de todos			
 CardText_3461			Para controlar los contagios necesitamos la colaboración de todos, pero siempre hay alguien a quien podemos pedir algo más			
-Card_OptA_3461			Nuestros cientificos tendrán que dedicar un parte de su tiempo a apoyar la labor de la Unid de Crisis con su recommendaciones			
-Card_OptB_3461			Serán los ciudadanos los encargados de vigilar sus barrios y señalar eventuales comportamientos de riesgo			
+Card_OptA_3461			Nuestros cientificos tendrán también que apoyar la labor de la Unidad de Crisis con su recomendaciones			
+Card_OptB_3461			Serán los ciudadanos los encargados de vigilar y señalar eventuales comportamientos de riesgo			
 CardTitle_3462			Hula hoops para todos			
-CardText_3462			Hay horas de cola en los súper por miedo a que haya falta de comida y no se está repetando la distancia de seguridad			
-Card_OptA_3462			Regalemos hula hoops a todo el mundo así pueden hacer ejercicio y mantener la distancia a la vez			
-Card_OptB_3462			Los ùltimos datos de lo contagos son positivos así que mejor seguir como hasta ahora			
+CardText_3462			Hay horas de cola en los supermercados por miedo a la falta de comida, y no se está respetando la distancia de seguridad			
+Card_OptA_3462			Regalemos hula hoops a todo el mundo, así pueden hacer ejercicio y mantener la distancia a la vez			
+Card_OptB_3462			Los ùltimos datos de contagios son positivos así que mejor seguir como hasta ahora			
 CardTitle_3463			Reducir contagios			
 CardText_3463			Nuestra prioridad tendría que ser siempre la de reducir al máximo la transmisión del virus			
 Card_OptA_3463			Pongamos un equipo de investigadores a estudiar como limitar contagios aunque la vacuna se retrase un poco			
-Card_OptB_3463			No vamos a frenar de alguna manera la investigación de la vacuna, encontraremos otras formas de reducir los contagios			
+Card_OptB_3463			No vamos a frenar la investigación de la vacuna, encontraremos otras formas de reducir los contagios			
 CardTitle_3464			Tasa de contagios			
-CardText_3464			Ya sabemos que queremos bajar la tasa de contagios, solo nos falta decidir cómo...			
-Card_OptA_3464			Pongamos sobre la mesa una inversión importante y de paso reforzaremos también nuestro sistema sanitario			
+CardText_3464			Queremos bajar la tasa de contagios, solo nos falta decidir cómo.			
+Card_OptA_3464			Pongamos sobre la mesa una inversión importante y de paso reforcemos también nuestro sistema sanitario			
 Card_OptB_3464			Dediquemos un equipo sanitario especializado al seguimiento de los casos sospechosos			
-CardTitle_3465			Sistema imformático			
+CardTitle_3465			Sistema informático			
 CardText_3465			Con la compra de este nuevo sistema informático vamos a poder gestionar en tiempo real toda la información sobre el virus...			
-Card_OptA_3465			... así que vamos a poder coordinar mucho mejor nuestra interveciones para reducir contagios			
-Card_OptB_3465			Sería ún mejor si integramos también la investigación en el sistema pero eso necesitaría una parte del tiempo de los cientificos			
+Card_OptA_3465			... así que vamos a poder coordinar mucho mejor nuestras intervenciones para reducir contagios			
+Card_OptB_3465			Sería aún mejor si integrásemos la investigación en el sistema, pero eso podría ralentizar sus avances			
 CardTitle_3601			Subidón de popularidad			
 CardText_3601			Esta crisis está dañando tu imagen publica, necesitamos hacer algo ya para que vuelvas a subir en la encuestas de opinión.			
-Card_OptA_3601			Lanzemos una mega campaña en los medio para explicar todos y cada uno de los logros de tu gestión			
+Card_OptA_3601			Lancemos una gran campaña en los medios para explicar todos y cada uno de los logros de tu gestión			
 Card_OptB_3601			Que los cientificos dediquen su tiempo a explicar que la vacuna está cerca, ¡necesitamos esperanza!			
-CardTitle_3602			Concierto de solidariedad			
-CardText_3602			La gente tiene ganas de fiesta: montemos un gran concierto solidario para relanzar tu popularidad			
-Card_OptA_3602			Claro que, aparte el coste, significa ir en contra de nuestra recommendacioes de distanciamiento social			
+CardTitle_3602			Concierto de solidaridad			
+CardText_3602			La gente necesita divertirse: montemos un gran concierto solidario para relanzar tu popularidad			
+Card_OptA_3602			Claro que, además del coste, eso significa ir en contra de nuestra recomendaciones de distanciamiento social			
 Card_OptB_3602			Mejor que no: no podemos tirar por la borda todo el trabajo hecho hasta ahora			
 CardTitle_3603			Un gesto			
-CardText_3603			Cada pequeño gesto tiene un impacto en la opinión pública			
-Card_OptA_3603			Enviemos la prensa a seguir la investigación durante un día entero, el público tiene curiosidad			
-Card_OptB_3603			Vamos a inauguar un nuevo pavillon del hospital con toda la prensa al seguito			
+CardText_3603			Cualquier pequeño gesto tiene un impacto en la opinión pública			
+Card_OptA_3603			Enviemos a la prensa a cubrir la investigación durante un día entero, el público tiene curiosidad			
+Card_OptB_3603			Vamos a inaugurar un nuevo pabellón del hospital con toda la prensa presente			
 CardTitle_3604			Empatía			
 CardText_3604			Necesitamos que la gente empatice contigo			
-Card_OptA_3604			Financiemos un cortometraje sobre la fugura del gobernador y su liderazgo en esta emergencia sanitaria			
-Card_OptB_3604			Major aún, un videojuego en el cual se pueda impersonar el gobernador y experimentar con la gestíon de la crisis			
+Card_OptA_3604			Financiemos un cortometraje sobre la figura del gobernador y su liderazgo en esta emergencia sanitaria			
+Card_OptB_3604			Major aún, lancemos un videojuego en el cual se pueda tomar el rol de gobernador y gestionar la crisis			
 CardTitle_3605			Volver al estadio			
 CardText_3605			La gente está deseando volver al estadio para apoyar a su equipo			
 Card_OptA_3605			Vale, podemos hacer frente a la reducción de la distancia social: ¡que vuelvan las ligas deportivas!			
 Card_OptB_3605			Todavía no es el momento, mejor esperar un poco más, la gente lo entenderá			
 CardTitle_3616			Más impuestos			
 CardText_3616			Siempre hace falta más dinero y subir los impuestos es la solución más rápida			
-Card_OptA_3616			Pongamos un impuesto reducido solamenta para dar un poco de respiro a la caja			
-Card_OptB_3616			Necesitamos mucho dinero, hará falta un impuesto importante aunque a los ciudadanos ne le gustará nada			
+Card_OptA_3616			Apliquemos un impuesto reducido, que sirva para dar un poco de respiro a la caja			
+Card_OptB_3616			Necesitamos mucho dinero, hará falta un impuesto importante aunque a los ciudadanos no les va a gustar			
 CardTitle_3617			Rebajas de fin de emergencia			
 CardText_3617			Nuestros vecinos de Bumpy Island quieren comprarnos todo el material sanitario que ya no necesitamos			
-Card_OptA_3617			El pico de pacientes ya lo hemos pasado, aprovechemos la oportunidad para poner dinero en la caja			
-Card_OptB_3617			Mejor que no, el pueblo no lo entendería con el riesgo de rebrotes muy presente			
+Card_OptA_3617			El pico de pacientes ya lo hemos pasado, aprovechemos la oportunidad para meter dinero en la caja			
+Card_OptB_3617			Mejor que no, el pueblo no lo entendería con el riesgo de rebrotes aún muy presente			
 CardTitle_3618			Vamos a la playa			
-CardText_3618			Hay miles de turistas que esperan la reabertura de las fronteras para venir a nuestras playas			
-Card_OptA_3618			Es el momento de reabrir el paso a los turistas, nos van a traer mucho dinero			
-Card_OptB_3618			Mejor esperar, todavía hay riesgo de rebrotes y nuestro ciudadanos están deseando disfrutar de las playas sin turistas			
+CardText_3618			Hay miles de turistas que esperan la reapertura de las fronteras para venir a nuestras playas			
+Card_OptA_3618			Es el momento de reabrir el paso a los turistas, porque nos van a traer mucho dinero			
+Card_OptB_3618			Mejor esperar, todavía hay riesgo de rebrotes y nuestros ciudadanos están deseando disfrutar de las playas sin turistas			
 CardTitle_3619			Cientificos famosos			
-CardText_3619			La noticia que nos estamos acercando a la vacuna está dando la vuelta al mundo y no podemos desaprovechar la oportunidad para sacar un beneficio económico			
-Card_OptA_3619			Firmemos un contrato con una editorial: entrevistarán nuestros scientificos y publicarán un libro nada más encontremos la vacuna			
+CardText_3619			La noticia de que nos estamos acercando a la vacuna está dando la vuelta al mundo. Aprovechemos la oportunidad para sacar beneficio económico			
+Card_OptA_3619			Firmemos un contrato con una editorial: entrevistarán a nuestros cientificos y publicarán un libro nada más encontremos la vacuna			
 Card_OptB_3619			Firmemos con Hollywood: filmarán un documental en nuestros laboratorios y por las calles de la isla			
 CardTitle_3620			Recortes sanitarios			
 CardText_3620			El gasto sanitario se ha disparado recientemente y ha llegado el momento de recortar			
@@ -500,61 +500,61 @@ Card_OptA_3620			Si hay que hacerlo se hará aunque no sea una medida popular
 Card_OptB_3620			En alternativa, para no recortar, podríamos pedir a los ciudadanos que contribuyan a cubrir los gastos			
 CardTitle_3631			Nuevas estructuras			
 CardText_3631			Con dinero podemos conseguir todas las estructuras sanitarias que queremos, la pregunta es: ¿cuanto estamos dispuestos a invertir?			
-Card_OptA_3631			Con moderiación, no merece la pena invertir mucho de golpe			
+Card_OptA_3631			Con moderación, es arriesgado invertir mucho de golpe			
 Card_OptB_3631			Siempre sale más a cuenta hacer inversiones grandes, así que adelante sin frenos			
 CardTitle_3632			Atención a domicilio			
-CardText_3632			Estamos listos para lanzar el servicio de atención sanitaria a domicilio pero no hemos encontrado la cobertura financiaria todavía			
-Card_OptA_3632			Lo siento por los ciudadanos pero tendrá que ser un servicio de pago			
-Card_OptB_3632			Una farmaceutica nos ha ofrecido de patrocinar el servicio a cambio del último descubrimiento de nuestros laboratorios			
+CardText_3632			Estamos listos para lanzar el servicio de atención sanitaria a domicilio pero aún no hemos encontrado la cobertura financiera			
+Card_OptA_3632			Lo siento por los ciudadanos, pero tendrá que ser un servicio de pago			
+Card_OptB_3632			Una farmaceutica ha ofrecido patrocinar el servicio a cambio del último descubrimiento de nuestros laboratorios			
 CardTitle_3633			La factura al pueblo			
-CardText_3633			Si queremos más capacidad y no queremos invertir dinero, tendrán que ser los cuidadanos que cubran los gastos			
-Card_OptA_3633			Vale, pero sin exagerar ya que tiene un coste a nivél de popularidad			
+CardText_3633			Si queremos más capacidad hospitalaria sin invertir más, tendrán que ser los ciudadanos quienes cubran el gasto			
+Card_OptA_3633			Vale, pero sin exagerar ya que tiene un coste a nivel de popularidad			
 Card_OptB_3633			¡Adelante! De la opinión pública nos preocuparemos en otro momento			
 CardTitle_3634			Hospital de nueva generación			
-CardText_3634			Sigue habiendo contagios entre el personal sanitario non obstante hayamos tomado toda las medidas posibles			
-Card_OptA_3634			La única soluccion sería construir un hospital de nueva generación , diseñado especificadamente para limitar contagios			
-Card_OptB_3634			Desafortunadamente no nos lo podemos permirtir en este momento			
+CardText_3634			Sigue habiendo contagios entre el personal sanitari, a pesar de haber tomado todas las medidas posibles			
+Card_OptA_3634			La única solución sería construir un hospital de nueva generación, diseñado especificadamente para minimizar los contagios			
+Card_OptB_3634			Desafortunadamente no nos lo podemos permitir en este momento			
 CardTitle_3635			Más camas			
 CardText_3635			Vamos a necesitar más camas para hacer frente a posibles rebrotes			
-Card_OptA_3635			Tendrémos que construir un nuevo pavillón aunque no salga muy barato			
-Card_OptB_3635			Si no hay dinero tendremos que reducir la distancia entre camas con el riesgo de más contagios			
+Card_OptA_3635			Tendremos que construir un nuevo pabellón aunque resulte costoso			
+Card_OptB_3635			Si no hay dinero tendremos que reducir la distancia entre camas, con el consiguiente aumento del riesgo de contagios			
 CardTitle_3646			Dinero bien gastado			
 CardText_3646			El dinero gastado en investigación es dinero bien gastado, solo tenemos que decidir cuanto queremos "bien gastar"			
-Card_OptA_3646			Me gustaría poder invertir más pero de momento nos tendremos que conformar con cantidad moderata			
+Card_OptA_3646			Me gustaría poder invertir más pero de momento nos tendremos que conformar con una cantidad moderata			
 Card_OptB_3646			Apostemos fuerte ahora que hay dinero en la caja			
 CardTitle_3647			Fichaje de prestigio			
 CardText_3647			Tenemos la oportunidad de fichar a un cientifico de prestigio internacional			
-Card_OptA_3647			No sale barato pero dará una gran contribución a la investigación			
-Card_OptB_3647			Hay problemas más urgentes que necesitan ese dinero			
+Card_OptA_3647			Ficharlo es caro pero hará una gran contribución a la investigación			
+Card_OptB_3647			Hay problemas más urgentes que necesitan ser resueltos con ese dinero			
 CardTitle_3648			Un nuevo ensayo			
-CardText_3648			Gracias a nuestra inversión estamos ya listos para lanzar un nuevo ensayo clínico pero nos faltan voluntarios			
-Card_OptA_3648			Tendremos que reducir la muestra del ensayo aunque los resultados serán parciales			
-Card_OptB_3648			Obligaremos a unos cuantos ciudadanos a participar al ensayo para el bien común, aunque no se lo tomen bien			
+CardText_3648			Gracias a nuestra inversión estamos listos para lanzar un nuevo ensayo clínico, pero nos faltan voluntarios			
+Card_OptA_3648			Tendremos que reducir la muestra, pero los resultados serán parciales			
+Card_OptB_3648			Obligaremos a unos cuantos ciudadanos a participar en el ensayo por el bien común, aunque quizás no se lo tomen bien			
 CardTitle_3649			Pruebas a gran escala			
-CardText_3649			La vacuna está cada día más cerca pero ahora nos toca organizar una prueba a gran escala			
-Card_OptA_3649			Miles de ciudadanos serán nuestras cobayas para esa gran prueba y es normal que estarán muy enfadados			
-Card_OptB_3649			En alternativa podemos enfocarnos en centenares de personas en situación de riesgo, como los sanitarios			
-CardTitle_3650						
-CardText_3650			Ha llegado al momento de probar si la vacuna en personas sanas			
-Card_OptA_3650			Con la inversión adecuada podemos mantener aislados todos los participantes, evitando contagios indeseados			
+CardText_3649			La vacuna está cada día más cerca; el siguiente paso es organizar una prueba a gran escala			
+Card_OptA_3649			Miles de ciudadanos serán nuestras cobayas para esa gran prueba; seguramente se enfaden.			
+Card_OptB_3649			Si no, podemos enfocarnos en centenares de personas en situación de riesgo, como los sanitarios			
+CardTitle_3650			Efectos colaterales			
+CardText_3650			Ha llegado al momento de probar la vacuna en personas sanas			
+Card_OptA_3650			Con la inversión adecuada podemos mantener aislados a todos los participantes, evitando contagios indeseados			
 Card_OptB_3650			Si no podemos asumir el coste tendremos que correr el riesgo que los participantes sean contagiosos			
 CardTitle_3661			Eliminación total			
-CardText_3661			Hasta ahora hemos intentado mitigar la difusion del virus, ha llegado el momento de eliminarlo por completo llegando a cero nuevos contagios			
-Card_OptA_3661			Es un objetivo inalcanzable, mejor seguir invertiendo para reducir los contagios poco a poco			
-Card_OptB_3661			Lo conseguiremos: invertamos lo que haga falta			
+CardText_3661			Hasta ahora hemos mitigado la difusion del virus,pero ha llegado el momento de eliminarlo por completo			
+Card_OptA_3661			Es un objetivo inalcanzable, mejor seguir invirtiendo para reducir los contagios poco a poco			
+Card_OptB_3661			Adelante! invirtamos lo que haga falta			
 CardTitle_3662			¿Relajar o endurecer?			
-CardText_3662			Se habla mucho de relajar las medidas de distanciamiento social y la población espera un nuestro anuncio a breve...			
+CardText_3662			Se habla mucho de relajar las medidas de distanciamiento social y la población espera un nuevo anuncio en breve...7			
 Card_OptA_3662			... pero todavía no es el momento: mejor mantenerlas durante un tiempo			
 Card_OptB_3662			... al contrario, tenemos que endurecerlas aunque será una decepción grande para nuestra gente			
 CardTitle_3663			Detección temprana			
-CardText_3663			Más pronto detectemos nuevos casos, más pronto podemos cortar la cadena de contagios			
+CardText_3663			Cuanto antes detectemos nuevos casos, más pronto podremos cortar la cadena de contagios			
 Card_OptA_3663			Enviemos pequeños equipos de sanitarios a hacer pruebas a la gente por la calle			
 Card_OptB_3663			Mejor aún, organicemos equipos completos de sanitarios para ir a visitar todo el mundo en su casa			
 CardTitle_3664			La paradoja			
-CardText_3664			Puede parecer una paradoja pero meno contagios tengamos, más dificil será la investigación			
-Card_OptA_3664			Seguiremos mitigando la difusión de virus aunque la vacuna tarde un poco más a llegar			
-Card_OptB_3664			Si eliminamos los contagios la vacuna se puede retrasar mucho sin muchas consecuencias			
+CardText_3664			Puede parecer una paradoja pero cuantos menos contagios tengamos, más dificil será la investigación			
+Card_OptA_3664			Seguiremos mitigando la difusión de virus aunque la vacuna tarde un poco más en llegar			
+Card_OptB_3664			Si eliminamos los contagios, la vacuna se puede retrasar sin muchas consecuencias			
 CardTitle_3665			Seguimiento individual			
 CardText_3665			Para evitar nuevos brotes es fundamental poner en marcha un protocolo de seguimiento individual de todos los casos activos			
-Card_OptA_3665			Invertamos en tecnología para trazar todo los movimientos de los pacientes e identificar con quien han estado en contacto			
-Card_OptB_3665			Apostemos en un equpo especializado compuesto en gran mayoría por personal sanitario			
+Card_OptA_3665			Invirtamos en tecnología para trazar todos los movimientos de los pacientes e identificar con quién han estado en contacto			
+Card_OptB_3665			Apostemos por un equpo especializado, compuesto en gran mayoría por personal sanitario			
