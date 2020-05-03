@@ -1233,8 +1233,8 @@
   </suggestion>
   <suggestion id="3620" advisorId="2002" title="CardTitle_3620" description="CardText_3620">
     <suggestionOptions>
-      <suggestionOption id="1" text="Card_OptA_3620" money="2000" publicOpinion="-6" />
-      <suggestionOption id="2" text="Card_OptB_3620" money="2000" publicOpinion="-3" capacity="-300" />
+      <suggestionOption id="1" text="Card_OptA_3620" money="2000" publicOpinion="-3" capacity="-300" />
+      <suggestionOption id="2" text="Card_OptB_3620" money="2000" publicOpinion="-6" />
     </suggestionOptions>
     <requirements>
       <gamePhaseRequirement>
@@ -1321,7 +1321,7 @@
   </suggestion>
   <suggestion id="3648" advisorId="2003" title="CardTitle_3648" description="CardText_3648">
     <suggestionOptions>
-      <suggestionOption id="1" text="Card_OptA_3648" money="-1000" capacity="1" />
+      <suggestionOption id="1" text="Card_OptA_3648" money="-1000" vaccine="1" />
       <suggestionOption id="2" text="Card_OptB_3648" money="-1000" publicOpinion="-3" vaccine="2" />
     </suggestionOptions>
     <requirements>
