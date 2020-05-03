@@ -3,6 +3,7 @@
 [Serializable]
 public class GameSessionData : GameData
 {
+	public int maxDays;
 	public int day;
 	public int vaccineDevelopment;
 	public int growthRate;

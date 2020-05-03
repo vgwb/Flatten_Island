@@ -131,6 +131,7 @@ public class ChartManager : MonoSingleton
 	{
 		this.dayToDrawTo = dayToDrawTo;
 		this.sessionCopy = new GameSession {
+			maxDays = GameManager.instance.localPlayer.gameSession.maxDays,
 			day = GameManager.instance.localPlayer.gameSession.day,
 			patients = (int[])GameManager.instance.localPlayer.gameSession.patients.Clone(),
 			growthRate = GameManager.instance.localPlayer.gameSession.growthRate,
@@ -412,6 +413,14 @@ public class ChartManager : MonoSingleton
 
 	private int GetMaxDays()
 	{
-		return Math.Max(GetDayToDrawTo(), GameSession.MAX_DAYS);
+		if (GameManager.instance.localPlayer.gameSession != null)
+		{
+			return Math.Max(GetDayToDrawTo(), GameManager.instance.localPlayer.gameSession.maxDays);
+		}
+		else
+		{
+			return Math.Max(GetDayToDrawTo(), GameSession.INITIAL_MAX_DAYS);
+		}
+
 	}
 }

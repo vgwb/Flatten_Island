@@ -75,7 +75,7 @@ public class FutureProjector : MonoSingleton
 		int capacityOnDate = capacity;
 		int growthOnDate = growth;
 
-		for (int d = currentDay + 1; d <= GameSession.MAX_DAYS; d++)
+		for (int d = currentDay + 1; d <= session.maxDays; d++)
 		{
 			growthOnDate += GetPredictedGrowthDeltaForDay(d);
 			capacityOnDate += GetPredictedCapacityDeltaForDayInterpolating(d, currentDay, capacity);
@@ -124,6 +124,13 @@ public class FutureProjector : MonoSingleton
 
 	private int GetMaxDays(int currentDay)
 	{
-		return Math.Max(currentDay, GameSession.MAX_DAYS);
+		if (GameManager.instance.localPlayer.gameSession != null)
+		{
+			return Math.Max(currentDay, GameManager.instance.localPlayer.gameSession.maxDays);
+		}
+		else
+		{
+			return Math.Max(currentDay, GameSession.INITIAL_MAX_DAYS);
+		}
 	}
 }

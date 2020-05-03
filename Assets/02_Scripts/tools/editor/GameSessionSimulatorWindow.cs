@@ -163,7 +163,7 @@ public class GameSessionSimulatorWindow : EditorWindow
 			EditorGUILayout.BeginHorizontal();
 			EditorGUILayout.LabelField("Lose Runs", GUILayout.Width(200f));
 			EditorGUILayout.LabelField(gameSessionSimulator.loseRuns.ToString(), GUILayout.Width(50f));
-			string loseResultInfo = " ( Capacity:" + gameSessionSimulator.capacityLoseCount + ", Money:" + gameSessionSimulator.moneyLoseCount + ", Public:" + gameSessionSimulator.publicOpinionLoseCount + ", Max Days:" + gameSessionSimulator.maxDayReached.ToString() + ")";
+			string loseResultInfo = " ( Capacity:" + gameSessionSimulator.capacityLoseCount + ", Money:" + gameSessionSimulator.moneyLoseCount + ", Public:" + gameSessionSimulator.publicOpinionLoseCount + ")";
 			EditorGUILayout.LabelField(loseResultInfo, GUILayout.Width(400f));
 			EditorGUILayout.EndHorizontal();
 
