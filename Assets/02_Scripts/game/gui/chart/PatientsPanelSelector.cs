@@ -53,6 +53,11 @@ public class PatientsPanelSelector : MonoSingleton
 			Debug.Log("returning IsInitialPeriod -> patientsStraight");
 			return patientsStraight;
 		}
+		if (IsOverMaxExpectedDays(currentDay))
+		{
+			Debug.Log("returning IsOverMaxExpectedDays -> patientsAbove");
+			return patientsAbove;
+		}
 		if (IsCloseToAPeak(growth))
 		{
 			Debug.Log("returning IsCloseToAPeak -> patientsAbove");
@@ -82,6 +87,11 @@ public class PatientsPanelSelector : MonoSingleton
 	private bool IsInitialPeriod(int currentDay)
 	{
 		return currentDay < initialPeriod;
+	}
+
+	private bool IsOverMaxExpectedDays(int currentDay)
+	{
+		return currentDay > GameSession.MAX_DAYS;
 	}
 
 	private bool IsCloseToAPeak(int growth)

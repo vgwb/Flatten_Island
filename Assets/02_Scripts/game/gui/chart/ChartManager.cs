@@ -109,19 +109,19 @@ public class ChartManager : MonoSingleton
 
 	public void RestartChartAnimation()
 	{
-		animating = true;
-		elapsedTime = 0.0f; // restarts the animation
-		FreezeDrawingData(GameManager.instance.localPlayer.gameSession.day + 1);
-		HidePatientsIndicator();
-
-		AudioManager.instance.PlayOneShot(redrawChartSfx, EAudioChannelType.Sfx);
+		RestartChartAnimationOnDay(GameManager.instance.localPlayer.gameSession.day + 1);
 	}
 
 	public void RestartCurrentDayChartAnimation()
 	{
+		RestartChartAnimationOnDay(GameManager.instance.localPlayer.gameSession.day);
+	}
+
+	public void RestartChartAnimationOnDay(int day)
+	{
 		animating = true;
 		elapsedTime = 0.0f; // restarts the animation
-		FreezeDrawingData(GameManager.instance.localPlayer.gameSession.day);
+		FreezeDrawingData(day);
 		HidePatientsIndicator();
 
 		AudioManager.instance.PlayOneShot(redrawChartSfx, EAudioChannelType.Sfx);
