@@ -160,7 +160,7 @@ PlayerSettings:
     Android: org.vgwb.flattenisland
     iOS: org.vgwb.flattenisland
   buildNumber: {}
-  AndroidBundleVersionCode: 100000
+  AndroidBundleVersionCode: 100001
   AndroidMinSdkVersion: 16
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
