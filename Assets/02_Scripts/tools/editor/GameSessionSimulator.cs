@@ -9,6 +9,8 @@ public class GameSessionSimulator
 	public int winRuns { get; private set; }
 	public int loseRuns { get; private set; }
 	public int winDaysRecord { get; private set; }
+	public float epochWinDays { get; private set; }
+	public float epochLoseDays { get; private set; }
 	public int capacityLoseCount { get; private set; }
 	public int publicOpinionLoseCount { get; private set; }
 	public int moneyLoseCount { get; private set; }
@@ -33,6 +35,8 @@ public class GameSessionSimulator
 		capacityLoseCount = 0;
 		publicOpinionLoseCount = 0;
 		moneyLoseCount = 0;
+		epochWinDays = 0;
+		epochLoseDays = 0;
 
 		strategiesShuffleBag = new ShuffleBag<IGameSimulatorStrategy>(100);
 		optionSelectionStrategyShuffleBag = new ShuffleBag<IGameSimulatorOptionSelectionStrategy>(100);
@@ -130,6 +134,8 @@ public class GameSessionSimulator
 						winDaysRecord = gameSession.day;
 					}
 
+					epochWinDays += gameSession.day;
+
 					continue;
 				}
 
@@ -137,6 +143,7 @@ public class GameSessionSimulator
 				{
 					gameOver = true;
 					loseRuns++;
+					epochLoseDays += gameSession.day;
 
 					if (gameSession.HasPlayerLoseDueCapacity())
 					{

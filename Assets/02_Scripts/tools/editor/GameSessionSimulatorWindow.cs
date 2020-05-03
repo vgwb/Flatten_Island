@@ -168,8 +168,20 @@ public class GameSessionSimulatorWindow : EditorWindow
 			EditorGUILayout.EndHorizontal();
 
 			EditorGUILayout.BeginHorizontal();
-			EditorGUILayout.LabelField("Win Days Record", GUILayout.Width(200f));
+			EditorGUILayout.LabelField("Win Days Record:", GUILayout.Width(200f));
 			EditorGUILayout.LabelField(gameSessionSimulator.winDaysRecord.ToString(), GUILayout.Width(50f));
+			EditorGUILayout.EndHorizontal();
+
+			EditorGUILayout.BeginHorizontal();
+			EditorGUILayout.LabelField("Win Average Days:", GUILayout.Width(200f));
+			float winAverageDays = gameSessionSimulator.epochWinDays / gameSessionSimulator.winRuns;
+			EditorGUILayout.LabelField(winAverageDays.ToString(), GUILayout.Width(50f));
+			EditorGUILayout.EndHorizontal();
+
+			EditorGUILayout.BeginHorizontal();
+			EditorGUILayout.LabelField("Lose Average Days", GUILayout.Width(200f));
+			float loseAverageDays = gameSessionSimulator.epochLoseDays / gameSessionSimulator.loseRuns;
+			EditorGUILayout.LabelField(loseAverageDays.ToString(), GUILayout.Width(50f));
 			EditorGUILayout.EndHorizontal();
 		}
 	}
