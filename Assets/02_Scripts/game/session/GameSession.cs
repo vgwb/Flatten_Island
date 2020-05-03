@@ -9,7 +9,7 @@ public class GameSession : ISavable
 	public static int INITIAL_PHASE_ID = 1;
 	private const int MIN_GROWTH_RATE = -50;
 
-	public const int MAX_DAYS = 200; // TODO
+	public const int MAX_DAYS = 110; // TODO
 	public const int MAX_PATIENTS = 30000; // TODO
 
 	private const int VACCINE_PROGRESS_END_DEVELOPMENT = 100;
