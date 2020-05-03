@@ -61,7 +61,7 @@ public class PatientsPanelSelector : MonoSingleton
 		if (IsCloseToAPeak(growth))
 		{
 			Debug.Log("returning IsCloseToAPeak -> patientsAbove");
-			return patientsAbove;
+			return patientsAboveRight;
 		}
 		if (!HasPassedPeak(currentDay, peakDay))
 		{
