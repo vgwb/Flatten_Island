@@ -163,16 +163,12 @@ public class GameSessionSimulatorWindow : EditorWindow
 			EditorGUILayout.BeginHorizontal();
 			EditorGUILayout.LabelField("Lose Runs", GUILayout.Width(200f));
 			EditorGUILayout.LabelField(gameSessionSimulator.loseRuns.ToString(), GUILayout.Width(50f));
+			EditorGUILayout.LabelField(" ( Max Day Reached:" + gameSessionSimulator.maxDayReached.ToString() + ")", GUILayout.Width(200f));
 			EditorGUILayout.EndHorizontal();
 
 			EditorGUILayout.BeginHorizontal();
 			EditorGUILayout.LabelField("Win Days Record", GUILayout.Width(200f));
 			EditorGUILayout.LabelField(gameSessionSimulator.winDaysRecord.ToString(), GUILayout.Width(50f));
-			EditorGUILayout.EndHorizontal();
-
-			EditorGUILayout.BeginHorizontal();
-			EditorGUILayout.LabelField("Lose for Max Days Reached", GUILayout.Width(200));
-			EditorGUILayout.LabelField(gameSessionSimulator.maxDayReached.ToString(), GUILayout.Width(50f));
 			EditorGUILayout.EndHorizontal();
 		}
 	}
