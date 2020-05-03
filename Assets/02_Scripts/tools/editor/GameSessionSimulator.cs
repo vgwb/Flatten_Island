@@ -10,6 +10,9 @@ public class GameSessionSimulator
 	public int loseRuns { get; private set; }
 	public int winDaysRecord { get; private set; }
 	public int maxDayReached { get; private set; }
+	public int capacityLoseCount { get; private set; }
+	public int publicOpinionLoseCount { get; private set; }
+	public int moneyLoseCount { get; private set; }
 
 	private LocalPlayer localPlayer;
 
@@ -29,6 +32,9 @@ public class GameSessionSimulator
 		loseRuns = 0;
 		winDaysRecord = int.MaxValue;
 		maxDayReached = 0;
+		capacityLoseCount = 0;
+		publicOpinionLoseCount = 0;
+		moneyLoseCount = 0;
 
 		strategiesShuffleBag = new ShuffleBag<IGameSimulatorStrategy>(100);
 		optionSelectionStrategyShuffleBag = new ShuffleBag<IGameSimulatorOptionSelectionStrategy>(100);
@@ -137,14 +143,17 @@ public class GameSessionSimulator
 					if (gameSession.HasPlayerLoseDueCapacity())
 					{
 						gameSimulationResult.loseResult = "CAPACITY";
+						capacityLoseCount++;
 					}
 					else if (gameSession.HasPlayerLoseDueMoney())
 					{
 						gameSimulationResult.loseResult = "MONEY";
+						moneyLoseCount++;
 					}
 					else if (gameSession.HasPlayerLoseDuePublicOpinion())
 					{
 						gameSimulationResult.loseResult = "PUBLIC OPINION";
+						publicOpinionLoseCount++;
 					}
 
 					gameSimulationResult.AddRow(gameSimulationResultRow);
