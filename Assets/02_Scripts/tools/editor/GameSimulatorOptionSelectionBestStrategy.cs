@@ -4,11 +4,13 @@ using System.Collections.Generic;
 public class GameSimulatorOptionSelectionBestStrategy : IGameSimulatorOptionSelectionStrategy
 {
 	private GameSession gameSession;
+	private GameSessionSimulatorSettings simulatorSettings;
 	private string logDescription;
 
-	public void Initialize(GameSession gameSession)
+	public void Initialize(GameSession gameSession, GameSessionSimulatorSettings simulatorSettings)
 	{
 		this.gameSession = gameSession;
+		this.simulatorSettings = simulatorSettings;
 	}
 
 	public SuggestionOptionXmlModel ChoseOption(AdvisorXmlModel advisorXmlModel, List<SuggestionOptionXmlModel> optionsAvailable)

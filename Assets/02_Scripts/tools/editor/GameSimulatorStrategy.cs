@@ -2,7 +2,7 @@
 
 public interface IGameSimulatorStrategy
 {
-	void Initialize(GameSession gameSession);
+	void Initialize(GameSession gameSession, GameSessionSimulatorSettings simulatorSettings);
 	AdvisorXmlModel ChoseAdvisor(List<AdvisorXmlModel> advisorsAvailable);
 	string GetLogDescription();
 }

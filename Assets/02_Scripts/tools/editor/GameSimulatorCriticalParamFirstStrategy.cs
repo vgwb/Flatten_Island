@@ -4,11 +4,13 @@ using System.Collections.Generic;
 public class GameSimulatorCriticalParamFirstStrategy : IGameSimulatorStrategy
 {
 	private GameSession gameSession;
+	private GameSessionSimulatorSettings simulatorSettings;
 	private string logDescription;
 
-	public void Initialize(GameSession gameSession)
+	public void Initialize(GameSession gameSession, GameSessionSimulatorSettings simulatorSettings)
 	{
 		this.gameSession = gameSession;
+		this.simulatorSettings = simulatorSettings;
 	}
 
 	public AdvisorXmlModel ChoseAdvisor(List<AdvisorXmlModel> advisorsAvailable)
@@ -20,8 +22,14 @@ public class GameSimulatorCriticalParamFirstStrategy : IGameSimulatorStrategy
 		float currentCapacity = gameSession.capacity;
 		int patients = gameSession.patients[gameSession.day - 1];
 		float capacityUsage = patients / currentCapacity;
-		bool isInWarningzone = capacityUsage > gameSession.gameSessionXmlModel.capacityWarningThreshold;
-		if (isInWarningzone)
+		bool isInWarningzone = (capacityUsage > gameSession.gameSessionXmlModel.capacityWarningThreshold);
+		bool isCapacityWarning = false;
+		if (patients > simulatorSettings.capacityWarningStart)
+		{
+			isCapacityWarning = capacityUsage < patients + simulatorSettings.capacityWarning;
+		}
+		
+		if (isInWarningzone || isCapacityWarning)
 		{
 			AdvisorXmlModel hospitalAdvisor = advisorsAvailable.Find((advisor) => advisor.id == FlattenIslandGameConstants.HOSPITAL_DOCTOR_ADVISOR_ID);
 

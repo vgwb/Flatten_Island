@@ -6,7 +6,6 @@ public class GameSessionSimulator
 {
 	public static string SIMULATION_FILE_PATH = "Assets/10_Sandbox/simulations/SimulationResults.csv";
 
-	private int simulationRuns;
 	public int winRuns { get; private set; }
 	public int loseRuns { get; private set; }
 	public int winDaysRecord { get; private set; }
@@ -17,21 +16,17 @@ public class GameSessionSimulator
 	private AdvisorXmlModel selectedAdvisorXmlModel;
 	private AdvisorXmlModel previousSelectedAdvisorXmlModel;
 
-	private List<GameSimulatorStrategyData> strategiesData;
-	private List<GameSimulatorOptionSelectionStrategyData> optionStrategiesData;
-
 	private ShuffleBag<IGameSimulatorStrategy> strategiesShuffleBag;
 	private ShuffleBag<IGameSimulatorOptionSelectionStrategy> optionSelectionStrategyShuffleBag;
 
+	private GameSessionSimulatorSettings simulatorSettings;
 
-	public void Initialize(int simulationRuns, List<GameSimulatorStrategyData> strategiesData, List<GameSimulatorOptionSelectionStrategyData> optionStrategiesData)
+	public void Initialize(GameSessionSimulatorSettings simulatorSettings)
 	{
-		this.simulationRuns = simulationRuns;
+		this.simulatorSettings = simulatorSettings;
 		winRuns = 0;
 		loseRuns = 0;
 		winDaysRecord = int.MaxValue;
-		this.strategiesData = strategiesData;
-		this.optionStrategiesData = optionStrategiesData;
 
 		strategiesShuffleBag = new ShuffleBag<IGameSimulatorStrategy>(100);
 		optionSelectionStrategyShuffleBag = new ShuffleBag<IGameSimulatorOptionSelectionStrategy>(100);
@@ -45,7 +40,7 @@ public class GameSessionSimulator
 	private void InitializeStrategiesShuffleBag()
 	{
 		strategiesShuffleBag.Clear();
-		foreach (GameSimulatorStrategyData strategyData in strategiesData)
+		foreach (GameSimulatorStrategyData strategyData in simulatorSettings.strategiesData)
 		{
 			int probability = 0;
 			if (int.TryParse(strategyData.probabilityText, out probability))
@@ -64,7 +59,7 @@ public class GameSessionSimulator
 	private void InitializeOptionSelectionStrategiesShuffleBag()
 	{
 		optionSelectionStrategyShuffleBag.Clear();
-		foreach (GameSimulatorOptionSelectionStrategyData optionStrategyData in optionStrategiesData)
+		foreach (GameSimulatorOptionSelectionStrategyData optionStrategyData in simulatorSettings.optionStrategiesData)
 		{
 			int probability = 0;
 			if (int.TryParse(optionStrategyData.probabilityText, out probability))
@@ -84,7 +79,7 @@ public class GameSessionSimulator
 	{
 		StreamWriter writer = new StreamWriter(SIMULATION_FILE_PATH, false);
 
-		for (int i = 0; i < simulationRuns; i++)
+		for (int i = 0; i < simulatorSettings.simulationRuns; i++)
 		{
 			InitializePlayer();
 
@@ -100,10 +95,10 @@ public class GameSessionSimulator
 			{
 				GameSession gameSession = localPlayer.gameSession;
 				IGameSimulatorStrategy currentStrategy = strategiesShuffleBag.Next();
-				currentStrategy.Initialize(gameSession);
+				currentStrategy.Initialize(gameSession, simulatorSettings);
 
 				IGameSimulatorOptionSelectionStrategy currentOptionSelectionStrategy = optionSelectionStrategyShuffleBag.Next();
-				currentOptionSelectionStrategy.Initialize(gameSession);
+				currentOptionSelectionStrategy.Initialize(gameSession, simulatorSettings);
 
 				GameSimulationResultRow gameSimulationResultRow = new GameSimulationResultRow();
 				gameSimulationResultRow.day = gameSession.day;

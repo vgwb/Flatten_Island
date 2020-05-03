@@ -5,7 +5,7 @@ public class GameSimulatorRandomStrategy: IGameSimulatorStrategy
 {
 	private GameSession gameSession;
 
-	public void Initialize(GameSession gameSession)
+	public void Initialize(GameSession gameSession, GameSessionSimulatorSettings simulatorSettings)
 	{
 		this.gameSession = gameSession;
 	}

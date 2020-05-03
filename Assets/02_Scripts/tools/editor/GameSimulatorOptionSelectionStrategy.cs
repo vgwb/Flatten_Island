@@ -2,7 +2,7 @@
 
 public interface IGameSimulatorOptionSelectionStrategy
 {
-	void Initialize(GameSession gameSession);
+	void Initialize(GameSession gameSession, GameSessionSimulatorSettings simulatorSettings);
 	SuggestionOptionXmlModel ChoseOption(AdvisorXmlModel advisorXmlModel, List<SuggestionOptionXmlModel> optionsAvailable);
 	string GetLogDescription();
 }

@@ -9,6 +9,8 @@ public class GameSessionSimulatorWindow : EditorWindow
 	private const string DATA_FOLDER = "09_Data";
 
 	private string runsString = "10";
+	private string capacityWarningString = "2000";
+	private string capacityWarningStartString = "1000";
 
 	private List<GameSimulatorStrategyData> strategiesData;
 	private GameSimulatorStrategyData randomStrategyData;
@@ -109,9 +111,27 @@ public class GameSessionSimulatorWindow : EditorWindow
 		EditorGUILayout.EndHorizontal();
 
 		EditorGUILayout.Space();
+		EditorGUILayout.Space();
 
 		EditorGUILayout.BeginHorizontal();
-		EditorGUILayout.LabelField("Simulation Runs:", GUILayout.Width(180f));
+		EditorGUILayout.LabelField("CAPACITY WARNING RULE", GUILayout.Width(250f));
+		EditorGUILayout.EndHorizontal();
+		EditorGUILayout.BeginHorizontal();
+		EditorGUILayout.LabelField("Activates when (patients > Capacity Rule Start) AND (capacity < patients + capacity Backup)", GUILayout.Width(600f));
+		EditorGUILayout.EndHorizontal();
+
+		EditorGUILayout.BeginHorizontal();
+		EditorGUILayout.LabelField("Capacity Rule Start (# patients):", GUILayout.Width(280f));
+		capacityWarningStartString = EditorGUILayout.TextField(capacityWarningStartString, GUILayout.Width(50f));
+		EditorGUILayout.EndHorizontal();
+
+		EditorGUILayout.BeginHorizontal();
+		EditorGUILayout.LabelField("Capacity Backup:", GUILayout.Width(280f));
+		capacityWarningString = EditorGUILayout.TextField(capacityWarningString, GUILayout.Width(50f));
+		EditorGUILayout.EndHorizontal();
+
+		EditorGUILayout.BeginHorizontal();
+		EditorGUILayout.LabelField("Simulation Runs:", GUILayout.Width(280f));
 		runsString = EditorGUILayout.TextField(runsString, GUILayout.Width(50f));
 		EditorGUILayout.EndHorizontal();
 
@@ -163,8 +183,28 @@ public class GameSessionSimulatorWindow : EditorWindow
 		optionSelectionStrategiesData.Add(randomOptionSelectionStrategyData);
 		optionSelectionStrategiesData.Add(bestOptionSelectionStrategyData);
 
+
+		int capacityWarning;
+		if (!int.TryParse(capacityWarningString, out capacityWarning))
+		{
+			capacityWarning = 0;
+		}
+
+		int capacityWarningStart;
+		if (!int.TryParse(capacityWarningStartString, out capacityWarningStart))
+		{
+			capacityWarningStart = 100000;
+		}
+
+		GameSessionSimulatorSettings simulatorSettings = new GameSessionSimulatorSettings();
+		simulatorSettings.simulationRuns = runs;
+		simulatorSettings.strategiesData = strategiesData;
+		simulatorSettings.optionStrategiesData = optionSelectionStrategiesData;
+		simulatorSettings.capacityWarning = capacityWarning;
+		simulatorSettings.capacityWarningStart = capacityWarningStart;
+
 		gameSessionSimulator = new GameSessionSimulator();
-		gameSessionSimulator.Initialize(runs, strategiesData, optionSelectionStrategiesData);
+		gameSessionSimulator.Initialize(simulatorSettings);
 		gameSessionSimulator.Run();
 	}
 
