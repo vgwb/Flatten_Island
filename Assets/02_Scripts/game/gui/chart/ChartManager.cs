@@ -156,11 +156,12 @@ public class ChartManager : MonoSingleton
 
 	private bool IsInWarningZone()
 	{
-		float currentCapacity = (float)sessionCopy.capacity;
-		int patients = GetPatients(GetDayToDrawTo()-1);
-		float capacityUsage = patients / currentCapacity;
-		bool isInWarningzone = capacityUsage > sessionCopy.gameSessionXmlModel.capacityWarningThreshold;
-		return isInWarningzone;
+		return FutureProjector.instance.IsCurvePredictedToOverflow(sessionCopy);
+		// float currentCapacity = (float)sessionCopy.capacity;
+		// int patients = GetPatients(GetDayToDrawTo()-1);
+		// float capacityUsage = patients / currentCapacity;
+		// bool isInWarningzone = capacityUsage > sessionCopy.gameSessionXmlModel.capacityWarningThreshold;
+		// return isInWarningzone;
 	}
 
 	private void BlinkIndicators(float elapsedTime)
