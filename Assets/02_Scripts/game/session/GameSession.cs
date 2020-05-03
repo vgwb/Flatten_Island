@@ -9,11 +9,13 @@ public class GameSession : ISavable
 	public static int INITIAL_PHASE_ID = 1;
 	private const int MIN_GROWTH_RATE = -50;
 
-	public const int MAX_DAYS = 110; // TODO
+	public const int INITIAL_MAX_DAYS = 110;
+	public const int EXTRA_MAX_DAYS = 10;
 	public const int MAX_PATIENTS = 30000; // TODO
 
 	private const int VACCINE_PROGRESS_END_DEVELOPMENT = 100;
 
+	public int maxDays;
 	public int day;
 	public int[] patients;
 	public int vaccineDevelopment;
@@ -41,7 +43,8 @@ public class GameSession : ISavable
 
 	public void Initialize()
 	{
-		patients = new int[MAX_DAYS];
+		maxDays = INITIAL_MAX_DAYS;
+		patients = new int[maxDays];
 		activeGameStories = new List<GameStoryXmlModel>();
 		day = 1;
 		advisors = new List<AdvisorXmlModel>();
@@ -154,6 +157,18 @@ public class GameSession : ISavable
 	public void NextDay()
 	{
 		day++;
+		if (day >= maxDays)
+		{
+			maxDays += EXTRA_MAX_DAYS;
+			int[] newPatients = new int[maxDays];
+
+			for (int i = 0; i < patients.Length; i++)
+			{
+				newPatients[i] = patients[i];
+			}
+
+			patients = (int[]) newPatients.Clone();
+		}
 	}
 
 	public bool IsCurrentPhaseFinished()
@@ -272,6 +287,7 @@ public class GameSession : ISavable
 	{
 		GameSessionData gameSessionData = new GameSessionData();
 		gameSessionData.day = day;
+		gameSessionData.maxDays = maxDays;
 		gameSessionData.growthRate = growthRate;
 		gameSessionData.money = money;
 		gameSessionData.vaccineDevelopment = vaccineDevelopment;
@@ -301,6 +317,7 @@ public class GameSession : ISavable
 	public void ReadSaveData(GameData gameData)
 	{
 		GameSessionData gameSessionData = gameData as GameSessionData;
+		maxDays = gameSessionData.maxDays;
 		day = gameSessionData.day;
 		growthRate = gameSessionData.growthRate;
 		money = gameSessionData.money;

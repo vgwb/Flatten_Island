@@ -9,7 +9,6 @@ public class GameSessionSimulator
 	public int winRuns { get; private set; }
 	public int loseRuns { get; private set; }
 	public int winDaysRecord { get; private set; }
-	public int maxDayReached { get; private set; }
 	public int capacityLoseCount { get; private set; }
 	public int publicOpinionLoseCount { get; private set; }
 	public int moneyLoseCount { get; private set; }
@@ -31,7 +30,6 @@ public class GameSessionSimulator
 		winRuns = 0;
 		loseRuns = 0;
 		winDaysRecord = int.MaxValue;
-		maxDayReached = 0;
 		capacityLoseCount = 0;
 		publicOpinionLoseCount = 0;
 		moneyLoseCount = 0;
@@ -208,19 +206,8 @@ public class GameSessionSimulator
 
 				gameSession.ApplySuggestionOption(selectedSuggestionOptionXmlModel);
 
-				if (gameSession.day >= GameSession.MAX_DAYS)
-				{
-					gameSimulationResult.loseResult = "MAX DAY REACHED";
-					loseRuns++;
-					maxDayReached++;
-					gameOver = true;
-
-				}
-				else
-				{
-					gameSession.UpdateNextDayValues();
-					gameSession.NextDay();
-				}
+				gameSession.UpdateNextDayValues();
+				gameSession.NextDay();
 
 				gameSimulationResult.AddRow(gameSimulationResultRow);
 			}
