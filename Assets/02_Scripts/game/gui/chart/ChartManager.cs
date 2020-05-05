@@ -8,11 +8,9 @@ using ProtoTurtle.BitmapDrawing;
 
 public class ChartManager : MonoSingleton
 {
-	private static Vector3 invisiblePosition = new Vector3(10000f,10000f,0f);
-
 	public GameObject growthPanel;
-	public GameObject capacityText;
-	public GameObject growthText;
+	public Text capacityText;
+	public Text growthText;
 	public GameObject evolutionChart;
 	public GameObject initialDot;
 	public GameObject finalDot;
@@ -46,9 +44,6 @@ public class ChartManager : MonoSingleton
 	private int dayToDrawTo = -1; // The chart is being drawn up to day and day-1
 	private GameSession sessionCopy = null;
     private float elapsedTime = 0.0f;
-	private Vector3 capacityLastPosition;
-	private Vector3 growthLastPosition;
-
 
 	public static ChartManager instance
 	{
@@ -62,8 +57,6 @@ public class ChartManager : MonoSingleton
 	{
 		base.OnMonoSingletonAwake();
 		AdjustToViewport();
-		capacityLastPosition = capacityText.transform.localPosition;
-		growthLastPosition = growthText.transform.localPosition;
 	}
 
 	public void FirstDraw()
@@ -89,6 +82,11 @@ public class ChartManager : MonoSingleton
 		else if (IsInWarningZone())
 		{
 			BlinkIndicators(elapsedTime);
+		}
+		else
+		{
+			capacityText.enabled = true;
+			growthText.enabled = true;
 		}
 	}
 
@@ -168,16 +166,8 @@ public class ChartManager : MonoSingleton
 	private void BlinkIndicators(float elapsedTime)
 	{
 		bool visible = (int)Math.Round(elapsedTime / blinkingInterval) % 2 == 0;
-		if (!visible)
-		{
-			growthText.transform.localPosition = invisiblePosition;
-			capacityText.transform.localPosition = invisiblePosition;
-		}
-		else
-		{
-			growthText.transform.localPosition = growthLastPosition;
-			capacityText.transform.localPosition = capacityLastPosition;
-		}
+		growthText.enabled = visible;
+		capacityText.enabled = visible;
 	}
 
 	private void ShowPatientsIndicator()
@@ -338,8 +328,8 @@ public class ChartManager : MonoSingleton
 	}
 
 	private void Hide(GameObject obj)
-	{		
-		obj.transform.localPosition = invisiblePosition;
+	{
+		obj.SetActive(false);
 	}
 
 	private void PositionDot(GameObject dot, int x, int y) {
@@ -347,6 +337,7 @@ public class ChartManager : MonoSingleton
 		float x1 = x;
 		float y1 = HEIGHT - y;
 		dot.transform.localPosition = CoordinatesInViewport(x1, y1);
+		dot.SetActive(true);
 	}
 
 	private int GetXForDay(int day)
