@@ -12,7 +12,7 @@ public class UIBlinkCanvas : BaseBehaviour
 	private float stepTime;
 	private Canvas canvas;
 
-	private void Awake()
+	private void Start()
 	{
 		canvas = GetComponent<Canvas>();
 		blinkingTimer = new Timer(blinkingRate);

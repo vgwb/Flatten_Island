@@ -148,6 +148,11 @@ public class ChartManager : MonoSingleton
 		evolutionChartImage.sprite = CreateChartSprite(elapsedTime);
 	}
 
+	public void HideChart()
+	{
+		UpdateChart(0f);
+	}
+
 	private void HidePatientsIndicator()
 	{
  		PatientsPanelSelector.instance.HidePanels();

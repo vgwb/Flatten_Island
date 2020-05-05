@@ -83,6 +83,7 @@ public class TutorialMenu : MonoSingleton
 				ShowEvolutionChart(true);
 				ShowChartCapacityPanel(true);
 				ShowChartGrowthPanel(false);
+				ChartManager.instance.HideChart();
 				PatientsPanelSelector.instance.HidePanels();
 				break;
 			case FlattenIslandGameConstants.COMMANDER_ADVISOR_ID:
