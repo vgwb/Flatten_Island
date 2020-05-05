@@ -188,6 +188,8 @@ public class TutorialGamePhase : IGamePhase
 	{
 		gameSession.UpdateNextDayValues();
 
+		TutorialMenu.instance.HideAdvisorPortrait();
+
 		TutorialMenu.instance.ShowNextDayTipDialog();
 	}
 
