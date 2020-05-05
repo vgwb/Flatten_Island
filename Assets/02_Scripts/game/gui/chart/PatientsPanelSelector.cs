@@ -45,37 +45,37 @@ public class PatientsPanelSelector : MonoSingleton
 
 		if (IsOverflow(currentPatients, capacity))
 		{
-			Debug.Log("returning IsOverflow -> patientsOverflow");
+			//Debug.Log("returning IsOverflow -> patientsOverflow");
 			return patientsOverflow;
 		}
 		if (IsInitialPeriod(currentDay))
 		{
-			Debug.Log("returning IsInitialPeriod -> patientsStraight");
+			//Debug.Log("returning IsInitialPeriod -> patientsStraight");
 			return patientsStraight;
 		}
 		if (IsOverMaxExpectedDays(currentDay))
 		{
-			Debug.Log("returning IsOverMaxExpectedDays -> patientsAbove");
+			//Debug.Log("returning IsOverMaxExpectedDays -> patientsAbove");
 			return patientsAbove;
 		}
 		if (IsCloseToAPeak(growth))
 		{
-			Debug.Log("returning IsCloseToAPeak -> patientsAbove");
+			//Debug.Log("returning IsCloseToAPeak -> patientsAbove");
 			return patientsAboveRight;
 		}
 		if (!HasPassedPeak(currentDay, peakDay))
 		{
-			Debug.Log("returning not HasPassedPeak -> patientsBelowRight");
+			//Debug.Log("returning not HasPassedPeak -> patientsBelowRight");
 			return patientsBelowRight;
 		}
 		if (IsGrowingAfterPeak(currentDay, peakDay, growth))
 		{
-			Debug.Log("returning IsGrowingAfterPeak -> patientsAbove");
+			//Debug.Log("returning IsGrowingAfterPeak -> patientsAbove");
 			return patientsAbove;
 		}
 		
 		// going down after peak
-		Debug.Log("returning going down after peak -> patientsAboveLeft");
+		//Debug.Log("returning going down after peak -> patientsAboveLeft");
 		return patientsAboveRight;
 	}
 

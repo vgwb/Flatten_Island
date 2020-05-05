@@ -74,7 +74,7 @@ public class AdvisorsMenu : MonoBehaviour
 
 		if (currentAdvisorEntries.Count == 0)
 		{
-			Debug.Log("All Advisor Entries have exited");
+			//Debug.Log("All Advisor Entries have exited");
 
 			AllAdvisorsExitCompletedEvent allAdvisorsExitCompletedEvent = AllAdvisorsExitCompletedEvent.CreateInstance(advisorEntrySelected.advisorXmlModel);
 			EventMessage allAdvisorsExitCompletedEventMessage = new EventMessage(this, allAdvisorsExitCompletedEvent);

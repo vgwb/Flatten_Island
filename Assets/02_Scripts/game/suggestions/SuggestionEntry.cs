@@ -54,7 +54,7 @@ public class SuggestionEntry : MonoBehaviour
 
 	public void OnButtonOptionASelected()
 	{
-		Debug.Log("Suggestion - Option A Selected");
+		//Debug.Log("Suggestion - Option A Selected");
 		selectedSuggestionOptionXmlModel = suggestionXmlModel.suggestionOptionsList[0];
 		SendSuggestionOptionSelectedMessage(suggestionXmlModel.suggestionOptionsList[0]);
 
@@ -63,7 +63,7 @@ public class SuggestionEntry : MonoBehaviour
 
 	public void OnButtonOptionBSelected()
 	{
-		Debug.Log("Suggestion - Option B Selected");
+		//Debug.Log("Suggestion - Option B Selected");
 		selectedSuggestionOptionXmlModel = suggestionXmlModel.suggestionOptionsList[1];
 		SendSuggestionOptionSelectedMessage(suggestionXmlModel.suggestionOptionsList[1]);
 

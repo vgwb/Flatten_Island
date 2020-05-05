@@ -49,7 +49,7 @@ public class SuggestionMenu : MonoBehaviour
 
 	private void OnSuggestionEntryExitCompleted(EventMessage eventMessage)
 	{
-		Debug.Log("Suggestion Entry has exited");
+		//Debug.Log("Suggestion Entry has exited");
 		suggestionEntry.gameObject.SetActive(false);
 		GameObjectFactory.instance.ReleaseGameObject(suggestionEntry.gameObject, SuggestionEntry.PREFAB);
 	}
@@ -76,7 +76,7 @@ public class SuggestionMenu : MonoBehaviour
 		SuggestionResultEntryExitCompletedEvent suggestionResultEntryExitCompletedEvent = eventMessage.eventObject as SuggestionResultEntryExitCompletedEvent;
 		GameObjectFactory.instance.ReleaseGameObject(suggestionResultEntry.gameObject, SuggestionResultEntry.PREFAB);
 
-		Debug.Log("Suggestion Entry has exited");
+		//Debug.Log("Suggestion Entry has exited");
 
 		suggestionResultEntry = null;
 		suggestionEntry = null;

@@ -96,7 +96,7 @@ public class SuggestionResultEntry : MonoBehaviour
 
 	private void OnExitRecipeCompleted()
 	{
-		Debug.Log("Suggestion Result Exit Recipe completed");
+		//Debug.Log("Suggestion Result Exit Recipe completed");
 
 		GameObjectUtils.instance.DestroyAllChildren(parametersGridLayoutGroup.transform);
 
@@ -126,7 +126,7 @@ public class SuggestionResultEntry : MonoBehaviour
 
 	private void OnEnterRecipeCompleted()
 	{
-		Debug.Log("Suggestion Result Enter Recipe completed");
+		//Debug.Log("Suggestion Result Enter Recipe completed");
 		SendEnterCompletedEvent();
 	}
 }

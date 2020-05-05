@@ -45,7 +45,7 @@ public class AdvisorEntry : MonoBehaviour
 
 	public void OnSelected()
 	{
-		Debug.Log("Advisor " + advisorXmlModel.name + " Selected");
+		//Debug.Log("Advisor " + advisorXmlModel.name + " Selected");
 
 		AdvisorSelectedEvent advisorSelectedEvent = AdvisorSelectedEvent.CreateInstance(this);
 		EventMessage advisorSelectedEventMessage = new EventMessage(this, advisorSelectedEvent);
@@ -68,13 +68,13 @@ public class AdvisorEntry : MonoBehaviour
 
 	private void OnSelectedRecipeCompleted()
 	{
-		Debug.Log("Advisor " + advisorXmlModel.name + " Selected Recipe completed");
+		//Debug.Log("Advisor " + advisorXmlModel.name + " Selected Recipe completed");
 		SendExitCompletedEvent();
 	}
 
 	public void OnDiscardedRecipeCompleted()
 	{
-		Debug.Log("Advisor " + advisorXmlModel.name + " Discarded Recipe completed");
+		//Debug.Log("Advisor " + advisorXmlModel.name + " Discarded Recipe completed");
 		SendExitCompletedEvent();
 	}
 
@@ -106,7 +106,7 @@ public class AdvisorEntry : MonoBehaviour
 
 	private void OnEnterRecipeCompleted()
 	{
-		Debug.Log("Advisor " + advisorXmlModel.name + " Enter Recipe completed");
+		//Debug.Log("Advisor " + advisorXmlModel.name + " Enter Recipe completed");
 		SendEnterCompletedEvent();
 	}
 }
