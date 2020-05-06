@@ -1,9 +1,23 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class SettingsMenu : MonoBehaviour
+public class SettingsMenu : MonoSingleton
 {
 	public GridLayoutGroup settingsGrid;
+
+	public static SettingsMenu instance
+	{
+		get
+		{
+			return GetInstance<SettingsMenu>();
+		}
+	}
+
+	public void HideMenu()
+	{
+		settingsGrid.gameObject.SetActive(false);
+		MenuScene.instance.UpdateBlockingBackground();
+	}
 
 	public void OnButtonShowMenuClick()
 	{

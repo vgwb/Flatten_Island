@@ -15,6 +15,8 @@ public class LanguageButton : MonoBehaviour
 
 	public void OnClick()
 	{
+		LanguageMenu.instance.HideMenu();
+
 		if (languageXmlModel != null)
 		{
 			LanguageSelectedEvent languageSelectedEvent = LanguageSelectedEvent.CreateInstance(languageXmlModel);

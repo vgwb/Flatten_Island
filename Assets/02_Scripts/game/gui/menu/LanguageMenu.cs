@@ -3,13 +3,27 @@ using UnityEngine;
 using UnityEngine.UI;
 using Messages;
 
-public class LanguageMenu : MonoBehaviour
+public class LanguageMenu : MonoSingleton
 {
 	public GridLayoutGroup languagesGrid;
+
+	public static LanguageMenu instance
+	{
+		get
+		{
+			return GetInstance<LanguageMenu>();
+		}
+	}
 
 	public bool IsGridShown()
 	{
 		return languagesGrid.gameObject.activeInHierarchy;
+	}
+
+	public void HideMenu()
+	{
+		languagesGrid.gameObject.SetActive(false);
+		MenuScene.instance.UpdateBlockingBackground();
 	}
 
 	public void OnButtonShowMenuClick()

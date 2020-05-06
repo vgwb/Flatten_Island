@@ -176,4 +176,17 @@ public class MenuScene : MonoSingleton
 		Destroy(gameObject);
 		Resources.UnloadUnusedAssets();
 	}
+
+	public void HideMenus()
+	{
+		if (SettingsMenu.instance != null)
+		{
+			SettingsMenu.instance.HideMenu();
+		}
+
+		if (LanguageMenu.instance != null)
+		{
+			LanguageMenu.instance.HideMenu();
+		}
+	}
 }
