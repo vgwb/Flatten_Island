@@ -1,5 +1,5 @@
 String Identifier	String Description (Comments)	English	Spanish	Italian	French	Arabic
-Intro_Text1	First text for the Intro Sequence	Welcome to Flatten Island, Home of the most bizarre people in the world! Don´t worry about the volcano behind the island, it´s not dangerous!	¡Bienvenido a Flatten Island, la isla más extraña del mundo!  No te preocupes por el volcán detrás de la isla, no es peligroso.			
+Intro_Text1	First text for the Intro Sequence	Welcome to Flatten Island, Home of the most bizarre people in the world! Don´t worry about the volcano behind the island, it´s not dangerous!	¡Bienvenido a Flatten Island, la isla más estrafalaria del mundo!  No te preocupes por el volcán detrás de la isla, no es peligroso.			
 Intro_Text2		Here the governor is selected with a lottery among all citizens. You arrived just in time: the draw is today.  	Aquí el gobernador se selecciona con un sorteo entre todos los ciudadanos. Llegaste justo a tiempo: el sorteo es hoy mismo. 			
 Intro_Text3		And the winner is ... you! Congratulations, you will rule the island with the help of a few advisors. Let´s meet them ...	Y el ganador... ¡eres tú!  ¡Enhorabuena! Gobernarás la isla con la ayuda de algunos asesores.  Vamos a conocerles ...			
 OkText		OK	OK	Ok	Ok	حسنا
@@ -44,13 +44,13 @@ PressSecretary_Presentation_Text		I'm Mr. Goodnews, your PR. I take care of what
 Treasurer_Presentation_Text		I'm Mrs. Payalot. I take care of the Money. Be careful, if we run out of money you'll be fired!	Me presento: soy la Profesora Calderilla y cuido del dinero de la administración. Si nos quedamos sin dinero pierdes el puesto y la partida.			
 LabScientist_Presentation_Text		I'm Prof. Antibody, the Lab Scientist. I lead the research for the vaccine. Getting the vaccine means defeating the virus!	Soy la Directora Anticuerpos. Lidero el equpo de investigación sobre la vacuna. Conseguir la vacuna significa derrotar al virus y ganar la partida.			
 HospitalDirector_Presentation_Text		I'm Dr. Deepbreath, the Hospital Director. My priority is to treat all patients properly. If we cannot admit all patients, you lose!	Buenos días, soy el Doctor Tomeaire, director de los hospitales de la isla. Mi prioridad es poder tratar a todos los pacientes con profesionalidad y dignidad. Si no podemos admitir a todos los pacientes que lo necesiten, tu experiencia al mando se acaba... y la partida también.			
-Commander_Advisor_Presentation_Text		I'm Agent Logarithm, Commander of the Pandemic Special Unit. We just detected the first cases and our priority will be to reduce the growth of the outbreak. 	Agente Logaritmo, Comandante de la Unidad de Crisis, a sus órdenes. Acabamos de detectar los primeros casos y nuestra prioridad será reducir el crecimiento del brote.			
-Tutorial_NextDay_Text		Explain parameter update at the end of each day	Al final de cada día se irán actualizando algunos datos: la investigación para la vacuna avanza un pasito, el numero de pacientes de actualiza según su factor de crecimiento y recibiremos algo de dinero gracias a los impuestos			
+Commander_Advisor_Presentation_Text		I'm Agent Logarithm, Commander of the Crisis Special Unit. We just detected the first cases and our priority will be to reduce the growth of the outbreak. 	Agente Logaritmo, Comandante de la Unidad de Crisis, a sus órdenes. Acabamos de detectar los primeros casos y nuestra prioridad será reducir el crecimiento del brote.			
+Tutorial_NextDay_Text		Explain parameter update at the end of each day	Al final de cada día se irán actualizando algunos datos: la investigación para la vacuna avanza un pasito, el numero de pacientes se actualiza según su factor de crecimiento y recibiremos algo de dinero gracias a los impuestos			
 CardTitle_3001		Your first statement	Tu primera declaración			
-CardText_3001		People are worried about the pandemic that is spreading around the world. Let’s make a statement...	La gente está preocupada por la pandemia que se está extendiendo en todo el mundo. Vamos a hacer una declaración al respecto...			
+CardText_3001		People are worried about the virus that is spreading around the world. Let’s make a statement...	La gente está preocupada por el virus que se está extendiendo en todo el mundo. Vamos a hacer una declaración al respecto...			
 Card_OptA_3001		No worries! It’s just like a flu!	¡Tranquilos! ¡Es como una gripe!			
-Card_OptB_3001		We are getting ready to face the pandemic	Nos estamos preparando para hacer frente a la pandemia y seguimos de cerca su evolución			
-CardTitle_3002		Pandemic Tax	Impuesto para la pandemia			
+Card_OptB_3001		We are getting ready to face the virus	Nos estamos preparando para hacer frente al virus y seguimos de cerca su evolución			
+CardTitle_3002		Virus Tax	Impuesto para el virus			
 CardText_3002		We need money to get ready. Let’s establish a special tax for the emergency! 	Necesitamos mucho dinero para estar listos. Vamos a establecer un impuesto especial para la situación de emergencia que se acerca			
 Card_OptA_3002		No! Better not upsetting the citizens.	¡No! Mejor no enfadar a los ciudadanos nada más tomar posesión			
 Card_OptB_3002		Ok, let’s do it!	¡Bien, hagámoslo!			
@@ -387,7 +387,7 @@ CardText_3417			El presupuesto de la Unidad de Crisis se nos ha ido de las manos
 Card_OptA_3417			Necesitamos dinero ya, así que recortemos lo que haga falta			
 Card_OptB_3417			Vale, recortemos pero con moderación, no sea que tengamos un repunte de contagios por falta de medios			
 CardTitle_3418			Misión internacional			
-CardText_3418			Gracias a un fondo internacional, se está organizando una misión para ayudar a las islas más golpeadas por la pandemia			
+CardText_3418			Gracias a un fondo internacional, se está organizando una misión para ayudar a las islas más golpeadas por el virus			
 Card_OptA_3418			Enviemos un equipo sanitario, seguro que es lo que más se necesita			
 Card_OptB_3418			Enviémos solo un cientifico; no podemos prescindir de sanitarios en este momento			
 CardTitle_3419			¿Menos pruebas?			
