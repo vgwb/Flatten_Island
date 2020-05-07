@@ -61,8 +61,6 @@ public class MenuScene : MonoSingleton
 		if (playCinematicCompletedEvent.cinematicMenu == introCinematicMenu)
 		{
 			GameManager.instance.localPlayer.playerSettings.skipIntro = true;
-			GameManager.instance.SavePlayer();
-
 			sceneFsm.TriggerState(MenuSceneFsm.UninitState);
 		}
 	}
