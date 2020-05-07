@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43667546, g: 0.48427135, b: 0.5645225, a: 1}
+  m_IndirectSpecularColor: {r: 0.4366757, g: 0.48427194, b: 0.5645252, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2397,7 +2397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62f62ab3e0189f38d9191b8fd3fb4f40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  phase1FinalDay: 15
+  phase1FinalDay: 14
   phase2FinalDay: 47
   phase1GrowthDelta: 2
   phase2GrowthDelta: -1

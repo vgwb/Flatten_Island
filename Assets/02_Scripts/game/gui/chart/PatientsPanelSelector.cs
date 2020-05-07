@@ -40,7 +40,17 @@ public class PatientsPanelSelector : MonoSingleton
 		int growth = GameManager.instance.localPlayer.gameSession.growthRate;
 		int[] patients = GameManager.instance.localPlayer.gameSession.patients;
 		int capacity = GameManager.instance.localPlayer.gameSession.capacity;
-		int currentPatients = GameManager.instance.localPlayer.gameSession.patients[currentDay-1];
+
+		int currentPatients;
+		if (currentDay == 0)
+		{
+			currentPatients = GameManager.instance.localPlayer.gameSession.GetPreviousDayPatientsForTutorialDayZero();
+		}
+		else
+		{
+			currentPatients = GameManager.instance.localPlayer.gameSession.patients[currentDay - 1];
+		}
+
 		int peakDay = FindPeakDay(patients, currentDay);
 
 		if (IsOverflow(currentPatients, capacity))

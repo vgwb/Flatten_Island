@@ -40,12 +40,21 @@ public class GameSession : ISavable
 		}
 	}
 
-	public void Initialize()
+	public void Initialize(LocalPlayer localPlayer)
 	{
 		maxDays = INITIAL_MAX_DAYS;
 		patients = new int[maxDays];
 		activeGameStories = new List<GameStoryXmlModel>();
-		day = 1;
+
+		if (localPlayer.playerSettings.showTutorial)
+		{
+			day = 0;
+		}
+		else
+		{
+			day = 1;
+		}
+
 		advisors = new List<AdvisorXmlModel>();
 		vaccineDevelopment = gameSessionXmlModel.initialVaccineDevelopment;
 		patients[0] = gameSessionXmlModel.initialPatients;
@@ -149,8 +158,22 @@ public class GameSession : ISavable
 		money += gameSessionXmlModel.nextDayMoneyIncrement;
 		IncrementVaccineDevelopment(gameSessionXmlModel.nextDayVaccineIncrement);
 		growthRate += gameSessionXmlModel.nextDayGrowthRateIncrement;
-		int patientsIncrease = (patients[day - 1] * growthRate) / 100;
-		patients[day] = patients[day - 1] + patientsIncrease;
+
+		if (day == 0)
+		{
+			int patientsIncrease = (GetPreviousDayPatientsForTutorialDayZero() * growthRate) / 100;
+			patients[day] = gameSessionXmlModel.initialPatients + patientsIncrease;
+		}
+		else
+		{
+			int patientsIncrease = (patients[day - 1] * growthRate) / 100;
+			patients[day] = patients[day - 1] + patientsIncrease;
+		}
+	}
+
+	public int GetPreviousDayPatientsForTutorialDayZero()
+	{
+		return gameSessionXmlModel.initialPatients;
 	}
 
 	public void NextDay()
@@ -202,7 +225,14 @@ public class GameSession : ISavable
 
 	public bool HasPlayerLoseDueCapacity()
 	{
-		return (patients[day - 1] > capacity || capacity <= 0);
+		if (day == 0)
+		{
+			return (GetPreviousDayPatientsForTutorialDayZero() > capacity || capacity <= 0);
+		}
+		else
+		{
+			return (patients[day - 1] > capacity || capacity <= 0);
+		}
 	}
 
 	public bool HasPlayerLoseDueMoney()

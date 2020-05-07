@@ -58,7 +58,17 @@ public class Hud : MonoSingleton
 		growthValue.text = session.growthRate + "%";
 		moneyValue.text = session.money.ToString();
 		dayValue.text = session.day.ToString();
-		string patientsText = session.patients[session.day - 1].ToString();
+
+		string patientsText;
+		if (session.day == 0)
+		{
+			patientsText = session.GetPreviousDayPatientsForTutorialDayZero().ToString();
+		}
+		else
+		{
+			patientsText = session.patients[session.day - 1].ToString();
+		}
+
 		patients1Value.text = patientsText;
 		patients2Value.text = patientsText;
 		patients3Value.text = patientsText;

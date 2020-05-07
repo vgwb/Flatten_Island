@@ -19,7 +19,16 @@ public class GameSimulatorCriticalParamFirstStrategy : IGameSimulatorStrategy
 
 		AdvisorXmlModel commanderAdvisor = advisorsAvailable.Find((advisor) => advisor.id == FlattenIslandGameConstants.COMMANDER_ADVISOR_ID);
 
-		int patients = gameSession.patients[gameSession.day - 1];
+		int patients;
+		
+		if (gameSession.day == 0)
+		{
+			patients = gameSession.GetPreviousDayPatientsForTutorialDayZero();
+		}
+		else
+		{
+			patients = gameSession.patients[gameSession.day - 1];
+		}
 		float capacityUsage = patients / gameSession.capacity;
 		bool isInWarningZone = (capacityUsage > gameSession.gameSessionXmlModel.capacityWarningThreshold);
 
