@@ -2397,7 +2397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62f62ab3e0189f38d9191b8fd3fb4f40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  phase1FinalDay: 14
+  phase1FinalDay: 15
   phase2FinalDay: 47
   phase1GrowthDelta: 2
   phase2GrowthDelta: -1
