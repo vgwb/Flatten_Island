@@ -169,6 +169,11 @@ public class TutorialGamePhase : IGamePhase
 	public void UpdateResult_Enter()
 	{
 		Hud.instance.UpdateSuggestionOptions();
+		if (currentAdvisor.id == LAST_ADVISOR_ID)
+		{
+			ChartManager.instance.RestartCurrentDayChartAnimation();
+		}
+
 		Hud.instance.UpdateDayValues();
 	}
 
