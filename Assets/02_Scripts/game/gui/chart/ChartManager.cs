@@ -27,7 +27,7 @@ public class ChartManager : MonoSingleton
 	// Measures, adjusted to viewport. Act like consts but they are potentially overriden
 	private int VIEWPORT_WITDH = 2235;
 	private int WIDTH;
-	private int CURVE_MIN_WIDTH;
+	private int CURVE_MIN_WIDTH = 30;
 	private int CURVE_MAX_WIDTH;
 	private float DAY_WIDTH_INCREMENT;
 
@@ -188,8 +188,8 @@ public class ChartManager : MonoSingleton
 
 	private void PositionGrowthPanel()
 	{
-		float x = GetXForDay(-1);
-		float y = HEIGHT - GetYForPatients(GetPatients(-1));
+		float x = GetXForDay(-2);
+		float y = HEIGHT - GetYForPatients(GetPatients(-2));
 		growthPanel.transform.localPosition = CoordinatesInViewport(x, y);
 	}
 
@@ -320,8 +320,8 @@ public class ChartManager : MonoSingleton
 		float animationProgress = elapsedTime / totalAnimationTime;
 		bool hasActualCurveFinished = elapsedTime > GetSegmentsAnimationTime();
 		int day = GetDayToDrawTo();
-		
-		PositionDot(initialDot, GetXForDay(-1), GetYForPatients(GetPatients(-1)));
+
+		PositionDot(initialDot, GetXForDay(-2), GetYForPatients(GetPatients(-2)));
 		if (hasActualCurveFinished)
 		{
 		    PositionDot(finalDot, GetXForDay(day-1), GetYForPatients(GetPatients(day-1)));
@@ -347,8 +347,8 @@ public class ChartManager : MonoSingleton
 
 	private int GetXForDay(int day)
 	{
-		if (day < 0) return 0;
-		if (day == 0) return CURVE_MIN_WIDTH;
+		if (day < -1) return 0;
+		if (day == -1) return CURVE_MIN_WIDTH;
 		return CURVE_MIN_WIDTH + (int)(day * DAY_WIDTH_INCREMENT);
 	}
 
