@@ -9,6 +9,13 @@ public class GameSessionXmlModel : XmlModel
 	public int initialPublicOpinion;
 	public int initialVaccineDevelopment;
 
+	public int initialTutorialPatients;
+	public int initialTutorialCapacity;
+	public int initialTutorialGrowthRate;
+	public int initialTutorialMoney;
+	public int initialTutorialPublicOpinion;
+	public int initialTutorialVaccineDevelopment;
+
 	public int nextDayMoneyIncrement;
 	public int nextDayVaccineIncrement;
 	public int nextDayGrowthRateIncrement;
@@ -27,6 +34,13 @@ public class GameSessionXmlModel : XmlModel
 		initialMoney = ParseIntAttribute(element, "initialMoney");
 		initialPublicOpinion = ParseIntAttribute(element, "initialPublicOpinion");
 		initialVaccineDevelopment = ParseIntAttribute(element, "initialVaccineDevelopment");
+
+		initialTutorialPatients = ParseIntAttribute(element, "initialTutorialPatients");
+		initialTutorialCapacity = ParseIntAttribute(element, "initialTutorialCapacity");
+		initialTutorialGrowthRate = ParseIntAttribute(element, "initialTutorialGrowthRate");
+		initialTutorialMoney = ParseIntAttribute(element, "initialTutorialMoney");
+		initialTutorialPublicOpinion = ParseIntAttribute(element, "initialTutorialPublicOpinion");
+		initialTutorialVaccineDevelopment = ParseIntAttribute(element, "initialTutorialVaccineDevelopment");
 
 		nextDayMoneyIncrement = ParseIntAttribute(element, "nextDayMoneyIncrement");
 		nextDayVaccineIncrement = ParseIntAttribute(element, "nextDayVaccineIncrement");

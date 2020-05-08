@@ -49,19 +49,25 @@ public class GameSession : ISavable
 		if (localPlayer.playerSettings.showTutorial)
 		{
 			day = 0;
+			vaccineDevelopment = gameSessionXmlModel.initialTutorialVaccineDevelopment;
+			patients[0] = gameSessionXmlModel.initialTutorialPatients;
+			growthRate = gameSessionXmlModel.initialTutorialGrowthRate;
+			capacity = gameSessionXmlModel.initialTutorialCapacity;
+			money = gameSessionXmlModel.initialTutorialMoney;
+			publicOpinion = gameSessionXmlModel.initialTutorialPublicOpinion;
 		}
 		else
 		{
 			day = 1;
+			vaccineDevelopment = gameSessionXmlModel.initialVaccineDevelopment;
+			patients[0] = gameSessionXmlModel.initialPatients;
+			growthRate = gameSessionXmlModel.initialGrowthRate;
+			capacity = gameSessionXmlModel.initialCapacity;
+			money = gameSessionXmlModel.initialMoney;
+			publicOpinion = gameSessionXmlModel.initialPublicOpinion;
 		}
 
 		advisors = new List<AdvisorXmlModel>();
-		vaccineDevelopment = gameSessionXmlModel.initialVaccineDevelopment;
-		patients[0] = gameSessionXmlModel.initialPatients;
-		growthRate = gameSessionXmlModel.initialGrowthRate;
-		capacity = gameSessionXmlModel.initialCapacity;
-		money = gameSessionXmlModel.initialMoney;
-		publicOpinion = gameSessionXmlModel.initialPublicOpinion;
 	}
 
 	public void Start(int initialGamePhaseId)
@@ -162,7 +168,7 @@ public class GameSession : ISavable
 		if (day == 0)
 		{
 			int patientsIncrease = (GetPreviousDayPatientsForTutorialDayZero() * growthRate) / 100;
-			patients[day] = gameSessionXmlModel.initialPatients + patientsIncrease;
+			patients[day] = gameSessionXmlModel.initialTutorialPatients + patientsIncrease;
 		}
 		else
 		{
@@ -173,7 +179,7 @@ public class GameSession : ISavable
 
 	public int GetPreviousDayPatientsForTutorialDayZero()
 	{
-		return gameSessionXmlModel.initialPatients;
+		return gameSessionXmlModel.initialTutorialPatients;
 	}
 
 	public void NextDay()
