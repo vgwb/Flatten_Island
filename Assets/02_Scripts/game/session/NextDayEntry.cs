@@ -48,7 +48,7 @@ public class NextDayEntry : MonoBehaviour
 		
 		if (day == 0)
 		{
-			patientsIncrement = gameSession.gameSessionXmlModel.initialPatients - gameSession.GetPreviousDayPatientsForTutorialDayZero();
+			patientsIncrement = gameSession.patients[day] - gameSession.GetPreviousDayPatientsForTutorialDayZero();
 		}
 		else
 		{
