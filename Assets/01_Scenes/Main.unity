@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43667546, g: 0.48427135, b: 0.5645225, a: 1}
+  m_IndirectSpecularColor: {r: 0.4366757, g: 0.48427194, b: 0.5645252, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -890,6 +890,7 @@ GameObject:
   - component: {fileID: 232702324}
   - component: {fileID: 232702323}
   - component: {fileID: 232702325}
+  - component: {fileID: 232702326}
   m_Layer: 5
   m_Name: PublicOpinionPanel
   m_TagString: Untagged
@@ -974,6 +975,20 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &232702326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 232702321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc6e9db255ccd144b83b55319d330a94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  publicOpinionText: {fileID: 1116629858}
+  uiBlinkText: {fileID: 1116629860}
 --- !u!1 &249646381
 GameObject:
   m_ObjectHideFlags: 0
@@ -2397,7 +2412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62f62ab3e0189f38d9191b8fd3fb4f40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  phase1FinalDay: 15
+  phase1FinalDay: 14
   phase2FinalDay: 47
   phase1GrowthDelta: 2
   phase2GrowthDelta: -1
@@ -2562,6 +2577,7 @@ GameObject:
   - component: {fileID: 1116629857}
   - component: {fileID: 1116629859}
   - component: {fileID: 1116629858}
+  - component: {fileID: 1116629860}
   m_Layer: 5
   m_Name: PublicOpinionValue
   m_TagString: Untagged
@@ -2628,6 +2644,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1116629856}
   m_CullTransparentMesh: 0
+--- !u!114 &1116629860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1116629856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e2253b80edb8724d924850c89ad9474, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blinkingRate: 0.3
+  blinkingAudioClip: {fileID: 0}
 --- !u!1 &1220453005
 GameObject:
   m_ObjectHideFlags: 0
@@ -3728,6 +3758,7 @@ GameObject:
   - component: {fileID: 1642366698}
   - component: {fileID: 1642366697}
   - component: {fileID: 1642366699}
+  - component: {fileID: 1642366700}
   m_Layer: 5
   m_Name: MoneyPanel
   m_TagString: Untagged
@@ -3811,6 +3842,20 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1642366700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1642366695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a21cd7d4bc6013e49b074c9460f20faa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moneyText: {fileID: 1969586655}
+  uiBlinkText: {fileID: 1969586657}
 --- !u!1 &1642954194
 GameObject:
   m_ObjectHideFlags: 0
@@ -4437,6 +4482,7 @@ GameObject:
   - component: {fileID: 1969586654}
   - component: {fileID: 1969586656}
   - component: {fileID: 1969586655}
+  - component: {fileID: 1969586657}
   m_Layer: 5
   m_Name: MoneyValue
   m_TagString: Untagged
@@ -4503,6 +4549,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1969586653}
   m_CullTransparentMesh: 0
+--- !u!114 &1969586657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1969586653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e2253b80edb8724d924850c89ad9474, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blinkingRate: 0.3
+  blinkingAudioClip: {fileID: 0}
 --- !u!1 &1989430052
 GameObject:
   m_ObjectHideFlags: 0

@@ -20,8 +20,8 @@ public class LocalPlayer : Player
 
 	public bool HasSession()
 	{
-		//The check day > 0 is needed because Unity Json Serializer serialize a null object with its default values :-(
-		return gameSession != null && gameSession.day > 0;
+		//The capacity > 0 is needed because Unity Json Serializer serialize a null object with its default values :-(
+		return gameSession != null && gameSession.capacity > 0;
 	}
 
 	public bool HasLanguageId()
@@ -45,7 +45,7 @@ public class LocalPlayer : Player
 
 		int gamePhaseId = GetInitialGamePhaseId();
 
-		gameSession.Initialize();
+		gameSession.Initialize(this);
 		gameSession.Start(gamePhaseId);
 	}
 

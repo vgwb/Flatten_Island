@@ -44,7 +44,17 @@ public class NextDayEntry : MonoBehaviour
 	private void ShowPatientsIncrement(int day)
 	{
 		GameSession gameSession = GameManager.instance.localPlayer.gameSession;
-		int patientsIncrement = gameSession.patients[day] - gameSession.patients[day - 1];
+		int patientsIncrement;
+		
+		if (day == 0)
+		{
+			patientsIncrement = gameSession.gameSessionXmlModel.initialPatients - gameSession.GetPreviousDayPatientsForTutorialDayZero();
+		}
+		else
+		{
+			patientsIncrement = gameSession.patients[day] - gameSession.patients[day - 1];
+		}
+
 
 		OptionParameterEntry optionParameterEntry = CreateOptionParameterEntry();
 		optionParameterEntry.SetParameter(patientsIncrement, patientsSprite);

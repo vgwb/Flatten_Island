@@ -115,7 +115,16 @@ public class GameSessionSimulator
 				gameSimulationResultRow.phase = gameSession.gamePhase.GetPhaseId();
 				gameSimulationResultRow.capacity = gameSession.capacity;
 				gameSimulationResultRow.growthRate = gameSession.growthRate;
-				gameSimulationResultRow.patients = gameSession.patients[gameSession.day - 1];
+
+				if (gameSession.day == 0)
+				{
+					gameSimulationResultRow.patients = gameSession.GetPreviousDayPatientsForTutorialDayZero();
+				}
+				else
+				{
+					gameSimulationResultRow.patients = gameSession.patients[gameSession.day - 1];
+				}
+
 				gameSimulationResultRow.money = gameSession.money;
 				gameSimulationResultRow.publicOpinion = gameSession.publicOpinion;
 				gameSimulationResultRow.vaccine = gameSession.vaccineDevelopment;
@@ -232,7 +241,7 @@ public class GameSessionSimulator
 		localPlayer = new LocalPlayer();
 		localPlayer.Init();
 		localPlayer.gameSession = new GameSession();
-		localPlayer.gameSession.Initialize();
+		localPlayer.gameSession.Initialize(localPlayer);
 		localPlayer.gameSession.gamePhase = new TutorialGamePhase();
 		localPlayer.gameSession.gamePhase.Start(localPlayer.gameSession, GameSession.TUTORIAL_GAME_PHASE_ID, localPlayer.gameSession.day);
 		localPlayer.gameSession.advisors = localPlayer.gameSession.gamePhase.GetAdvisorSpawnPolicy().GetAdvisors();

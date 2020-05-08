@@ -32,8 +32,17 @@ public class FutureProjector : MonoSingleton
 		int currentDay = session.day;
 		int capacity = session.capacity;
 		int growth = session.growthRate;
-		int patients = session.patients[currentDay - 1];
-					
+		int patients;
+		
+		if (currentDay == 0)
+		{
+			patients = session.GetPreviousDayPatientsForTutorialDayZero();
+		}
+		else
+		{
+			patients = session.patients[currentDay - 1];
+		}
+
 		int predictedPatients = ProjectWithMethod1(day, currentDay, capacity, growth, patients);
 		
 		// Debug.Log("GetPredictedPatients: " + day + ": " + currentDay + " currentDay, " + patients + " current patients " + predictedPatients + " predictedPatients");
@@ -68,8 +77,17 @@ public class FutureProjector : MonoSingleton
 		int currentDay = session.day;
 		int capacity = session.capacity;
 		int growth = session.growthRate;
-		int patients = session.patients[currentDay - 1];
-					
+		int patients;
+
+		if (currentDay == 0)
+		{
+			patients = session.GetPreviousDayPatientsForTutorialDayZero();
+		}
+		else
+		{
+			patients = session.patients[currentDay - 1];
+		}
+
 		// predicted moving variables
 		int targetPatients = patients + (patients * growth) / 100; // calculate today with current growth
 		int capacityOnDate = capacity;
@@ -95,7 +113,16 @@ public class FutureProjector : MonoSingleton
 
 	public int GetPredictedCapacityDeltaForDayInterpolating(int day, int currentDay, int currentCapacity)
 	{
-		float averageDeltaInPast = currentCapacity / (float)currentDay;
+		float averageDeltaInPast;
+		if (currentDay == 0)
+		{
+			averageDeltaInPast = currentCapacity;
+		}
+		else
+		{
+			averageDeltaInPast = currentCapacity / (float)currentDay;
+		}
+
 		float expectedDeltaInFuture = phase3CapacityDelta;
 		if (day < phase1FinalDay) expectedDeltaInFuture = phase1CapacityDelta;
 		if (day < phase2FinalDay) expectedDeltaInFuture = phase2CapacityDelta;
