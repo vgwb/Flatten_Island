@@ -9,8 +9,6 @@ using ProtoTurtle.BitmapDrawing;
 public class ChartManager : MonoSingleton
 {
 	public GameObject growthPanel;
-	public Text capacityText;
-	public Text growthText;
 	public GameObject evolutionChart;
 	public GameObject initialDot;
 	public GameObject finalDot;
@@ -78,15 +76,6 @@ public class ChartManager : MonoSingleton
 			{
 				UpdateChart(elapsedTime);
 			}
-		}
-		else if (IsInWarningZone())
-		{
-			BlinkIndicators(elapsedTime);
-		}
-		else
-		{
-			capacityText.enabled = true;
-			growthText.enabled = true;
 		}
 	}
 
@@ -158,21 +147,23 @@ public class ChartManager : MonoSingleton
  		PatientsPanelSelector.instance.HidePanels();
 	}
 
-	private bool IsInWarningZone()
+	public bool IsGrowthRateInWarningZone()
 	{
 		return FutureProjector.instance.IsCurvePredictedToOverflow(sessionCopy);
-		// float currentCapacity = (float)sessionCopy.capacity;
-		// int patients = GetPatients(GetDayToDrawTo()-1);
-		// float capacityUsage = patients / currentCapacity;
-		// bool isInWarningzone = capacityUsage > sessionCopy.gameSessionXmlModel.capacityWarningThreshold;
-		// return isInWarningzone;
 	}
 
-	private void BlinkIndicators(float elapsedTime)
+	public bool IsCapacityInWarningZone()
 	{
-		bool visible = (int)Math.Round(elapsedTime / blinkingInterval) % 2 == 0;
-		growthText.enabled = visible;
-		capacityText.enabled = visible;
+		if (sessionCopy == null)
+		{
+			return false;
+		}
+
+		float currentCapacity = (float)sessionCopy.capacity;
+		int patients = GetPatients(GetDayToDrawTo()-1);
+		float capacityUsage = patients / currentCapacity;
+		bool isInWarningzone = capacityUsage > sessionCopy.gameSessionXmlModel.capacityWarningThreshold;
+		return isInWarningzone;
 	}
 
 	private void ShowPatientsIndicator()

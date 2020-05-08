@@ -478,6 +478,7 @@ GameObject:
   - component: {fileID: 59786004}
   - component: {fileID: 59786006}
   - component: {fileID: 59786005}
+  - component: {fileID: 59786007}
   m_Layer: 5
   m_Name: GrowthValue
   m_TagString: Untagged
@@ -544,6 +545,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 59786003}
   m_CullTransparentMesh: 0
+--- !u!114 &59786007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59786003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e2253b80edb8724d924850c89ad9474, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blinkingRate: 0.3
+  blinkingAudioClip: {fileID: 0}
 --- !u!1 &87406326
 GameObject:
   m_ObjectHideFlags: 0
@@ -1246,6 +1261,7 @@ GameObject:
   - component: {fileID: 554770245}
   - component: {fileID: 554770244}
   - component: {fileID: 554770246}
+  - component: {fileID: 554770247}
   m_Layer: 5
   m_Name: CapacityPanel
   m_TagString: Untagged
@@ -1329,6 +1345,20 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &554770247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 554770242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46435fabc53713e44b1434b1d3ed786a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  capacityPanel: {fileID: 1220453007}
+  uiBlinkText: {fileID: 1220453009}
 --- !u!1 &614687938
 GameObject:
   m_ObjectHideFlags: 0
@@ -2669,6 +2699,7 @@ GameObject:
   - component: {fileID: 1220453006}
   - component: {fileID: 1220453008}
   - component: {fileID: 1220453007}
+  - component: {fileID: 1220453009}
   m_Layer: 5
   m_Name: CapacityValue
   m_TagString: Untagged
@@ -2735,6 +2766,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1220453005}
   m_CullTransparentMesh: 0
+--- !u!114 &1220453009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1220453005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e2253b80edb8724d924850c89ad9474, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blinkingRate: 0.3
+  blinkingAudioClip: {fileID: 0}
 --- !u!1 &1254351011
 GameObject:
   m_ObjectHideFlags: 0
@@ -3327,8 +3372,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   growthPanel: {fileID: 1859792847}
-  capacityText: {fileID: 1220453007}
-  growthText: {fileID: 59786005}
   evolutionChart: {fileID: 23463065}
   initialDot: {fileID: 379389030}
   finalDot: {fileID: 87406326}
@@ -4352,6 +4395,7 @@ GameObject:
   - component: {fileID: 1859792850}
   - component: {fileID: 1859792849}
   - component: {fileID: 1859792851}
+  - component: {fileID: 1859792852}
   m_Layer: 5
   m_Name: GrowthPanel
   m_TagString: Untagged
@@ -4435,6 +4479,20 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 2
   m_TargetDisplay: 0
+--- !u!114 &1859792852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1859792847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97312a9c60cfca14295481ef54adaf5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  growthPanelText: {fileID: 59786005}
+  uiBlinkText: {fileID: 59786007}
 --- !u!1 &1917745239
 GameObject:
   m_ObjectHideFlags: 0
