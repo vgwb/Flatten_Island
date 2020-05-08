@@ -25,8 +25,16 @@ public class CheatMenu : MonoBehaviour
 		EventMessageManager.instance.RemoveHandler(typeof(SuggestionEntryExitCompletedEvent).Name, this);
 
 		suggestionsPanel.SetActive(false);
-		suggestionMenu.gameObject.SetActive(true);
-		advisorMenu.gameObject.SetActive(true);
+
+		if (suggestionMenu != null)
+		{
+			suggestionMenu.gameObject.SetActive(true);
+		}
+
+		if (advisorMenu != null)
+		{
+			advisorMenu.gameObject.SetActive(true);
+		}
 
 		if (suggestionEntry != null)
 		{
