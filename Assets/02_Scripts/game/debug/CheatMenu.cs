@@ -49,6 +49,8 @@ public class CheatMenu : MonoBehaviour
 	{
 		if (suggestionEntry == null)
 		{
+			suggestionEntryIndex = CheatManager.instance.suggestionTextsStartIndex;
+
 			suggestionsPanel.SetActive(true);
 			layout.SetActive(false);
 			suggestionMenu = AdvisorsManager.instance.suggestionMenu;

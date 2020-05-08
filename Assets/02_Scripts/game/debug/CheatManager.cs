@@ -3,6 +3,7 @@
 	public bool showSuggestionParameters;
 	public bool forceIntro;
 	public bool skipLogo;
+	public int suggestionTextsStartIndex;
 
 	public static CheatManager instance
 	{
