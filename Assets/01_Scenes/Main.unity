@@ -5965,7 +5965,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 4
   m_TargetDisplay: 0
 --- !u!224 &7139861221097243270
 RectTransform:
@@ -6388,6 +6388,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barTransform: {fileID: 7139861222178493601}
+  barSpriteCanvas: {fileID: 7773140005997311074}
   rightBorderPivotTransform: {fileID: 6491521014936423451}
   diagonalBorderSpriteTransform: {fileID: 7139861222161860272}
 --- !u!222 &7139861222234949471
