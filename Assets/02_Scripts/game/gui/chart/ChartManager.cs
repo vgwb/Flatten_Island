@@ -43,6 +43,8 @@ public class ChartManager : MonoSingleton
 	private GameSession sessionCopy = null;
     private float elapsedTime = 0.0f;
 
+	private Texture2D clearTexture;
+
 	public static ChartManager instance
 	{
 		get
@@ -381,8 +383,8 @@ public class ChartManager : MonoSingleton
 
 	public Texture2D GetTransparentTexture()
 	{
-		// TODO ideally this texture could be cached and cloned, but doesn't seem to work
-		Texture2D clearTexture = new Texture2D(WIDTH, HEIGHT);
+		clearTexture = null; //Unity doesn't deallocate automatically 2D Texture, needs to set to null to mark as unused.
+		clearTexture = new Texture2D(WIDTH, HEIGHT);
 		for (int x = WIDTH-1; x >= 0; x--)
 		{
 			for (int y = HEIGHT-1; y >= 0; y--)

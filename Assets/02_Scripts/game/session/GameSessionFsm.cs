@@ -1,4 +1,5 @@
-﻿using Messages;
+﻿using UnityEngine;
+using Messages;
 
 public class GameSessionFsm : FiniteStateMachine
 {
@@ -53,6 +54,7 @@ public class GameSessionFsm : FiniteStateMachine
 
 	private void DayStart_Enter()
 	{
+		Resources.UnloadUnusedAssets();
 		gameSession.gamePhase.DayStart_Enter();
 	}
 
