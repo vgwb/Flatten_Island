@@ -39,6 +39,7 @@ public class ChartManager : MonoSingleton
 
 	// Internal state
 	private bool animating = false;
+	private bool prediction = true;
 	private int dayToDrawTo = -1; // The chart is being drawn up to day and day-1
 	private GameSession sessionCopy = null;
     private float elapsedTime = 0.0f;
@@ -96,19 +97,20 @@ public class ChartManager : MonoSingleton
 		DAY_WIDTH_INCREMENT = (CURVE_MAX_WIDTH - CURVE_MIN_WIDTH) / (float)GetMaxDays();
 	}
 
-	public void RestartChartAnimation()
+	public void RestartChartAnimation(bool prediction = true)
 	{
-		RestartChartAnimationOnDay(GameManager.instance.localPlayer.gameSession.day + 1);
+		RestartChartAnimationOnDay(GameManager.instance.localPlayer.gameSession.day + 1, prediction);
 	}
 
-	public void RestartCurrentDayChartAnimation()
+	public void RestartCurrentDayChartAnimation(bool prediction = true)
 	{
-		RestartChartAnimationOnDay(GameManager.instance.localPlayer.gameSession.day);
+		RestartChartAnimationOnDay(GameManager.instance.localPlayer.gameSession.day, prediction);
 	}
 
-	public void RestartChartAnimationOnDay(int day)
+	public void RestartChartAnimationOnDay(int day, bool prediction)
 	{
 		animating = true;
+		this.prediction = prediction;
 		elapsedTime = 0.0f; // restarts the animation
 		FreezeDrawingData(day);
 		HidePatientsIndicator();
@@ -196,7 +198,7 @@ public class ChartManager : MonoSingleton
 		{
 			ShowPatientsIndicator();
 		}
-		DrawPredictionCurve(tex, elapsedTime);
+		if (prediction) DrawPredictionCurve(tex, elapsedTime);
 		
 		tex.Apply();
 		return Sprite.Create(tex, new Rect(0.0f, 0.0f, tex.width, tex.height), new Vector2(0.5f, 0.5f), 100.0f);
