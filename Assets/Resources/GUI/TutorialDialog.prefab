@@ -314,7 +314,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &176971194909748046
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1127,8 +1127,6 @@ MonoBehaviour:
   advisorIcon: {fileID: 400248513148791968}
   background: {fileID: 7844087004540565459}
   advisorBubble: {fileID: 4369605813585621399}
-  blueBackgroundSprite: {fileID: 21300000, guid: 8be03cbe1ad52d94484d98cad5518e3f,
-    type: 3}
 --- !u!1 &5813659963376871367
 GameObject:
   m_ObjectHideFlags: 0
