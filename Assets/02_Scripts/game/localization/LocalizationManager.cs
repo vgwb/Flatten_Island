@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using System;
 using Messages;
 
 public class LocalizationManager : MonoSingleton
@@ -92,6 +93,8 @@ public class LocalizationManager : MonoSingleton
 		{
 			textField.font = nonLatinFont;
 		}
+
+		localizedText = localizedText.Replace("%n", Environment.NewLine);
 
 		textField.text = localizedText;
 	}
