@@ -1,4 +1,5 @@
-﻿<group>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<group>
   <suggestion id="3001" advisorId="2001" title="CardTitle_3001" description="CardText_3001">
     <suggestionOptions>
       <suggestionOption id="1" text="Card_OptA_3001" publicOpinion="-3" />
@@ -13,7 +14,7 @@
   <suggestion id="3002" advisorId="2002" title="CardTitle_3002" description="CardText_3002">
     <suggestionOptions>
       <suggestionOption id="1" text="Card_OptA_3002" />
-      <suggestionOption id="2" text="Card_OptB_3002" money="3000" publicOpinion="-9" />
+      <suggestionOption id="2" text="Card_OptB_3002" money="2000" publicOpinion="-3" />
     </suggestionOptions>
     <requirements>
       <gamePhaseRequirement>

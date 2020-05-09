@@ -1,4 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <group>
-  <gameSession id="5000" initialPatients="100" initialPublicOpinion="36" initialCapacity="3000" initialGrowthRate="1" initialMoney="10000" initialVaccineDevelopment="0" initialTutorialPatients="100" initialTutorialPublicOpinion="36" initialTutorialCapacity="3000" initialTutorialGrowthRate="1" initialTutorialMoney="10000" initialTutorialVaccineDevelopment="0" nextDayMoneyIncrement="1000" nextDayVaccineIncrement="1" nextDayGrowthRateIncrement="0" capacityWarningThreshold="0.7" publicOpinionWarningThreshold="20" moneyWarningThreshold="7000"></gameSession>
+  <gameSession id="5000" initialPatients="101" initialPublicOpinion="36" initialCapacity="3300" initialGrowthRate="1" initialMoney="10000" initialVaccineDevelopment="2" initialTutorialPatients="100" initialTutorialPublicOpinion="36" initialTutorialCapacity="3000" initialTutorialGrowthRate="0" initialTutorialMoney="10000" initialTutorialVaccineDevelopment="0" nextDayMoneyIncrement="1000" nextDayVaccineIncrement="1" nextDayGrowthRateIncrement="0" capacityWarningThreshold="0.7" publicOpinionWarningThreshold="20" moneyWarningThreshold="7000"></gameSession>
 </group>
