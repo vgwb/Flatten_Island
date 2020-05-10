@@ -8,7 +8,7 @@ NoText		No	No	No	No	لا
 QuitGameDialogTitle		Quit Game	Salir de la partida	Termina partita	Quitter le jeu	قم بإنهاء اللعبة
 QuitGameDialogMessage		Are you sure?	¿Estás seguro?	Sei sicuro?	Êtes-vous sûr?	هل أنت متأكد؟
 Win_Title		CONGRATULATIONS!	¡ENHORABUENA!			
-Win_Description		The virus has been defeated. You discovered the vaccine in:	El virus ha sido derrotado. Has descubierto la vacuna en:			
+Win_Description		The virus has been defeated. You discovered the vaccine in:	Le has ganado la partida al virus.%n Has descubierto la vacuna en:			
 LoseMoney_Title		BANKRUPT!	¡BANCARROTA!			
 LoseMoney_Description		You were not able to manage the emergency without running out of money, but you can try again.	No has conseguido gestionar la emergencia sin quedarte sin dinero, pero puedes volver a intentarlo.			
 LosePubOp_Title		PEOPLE ARE AGAINST YOU!	¡EL PUEBLO EN CONTRA!			
@@ -30,25 +30,25 @@ TutorialMenuText		Tutorial	Tutorial	Tutoriale
 CreditsMenuText		Credits	Créditos	Credits		
 WatchIntroMenuText		Watch the Intro	Ver Intro	Guarda la Intro		
 DisclaimerTitle		DISCLAIMER	DESCARGO DE RESPONSABILIDAD			
-DisclaimerText		The content of this game does not have any scientific base and does not intend in any way to suggest how to act towards a real emergency.	El contenido del juego no tiene ninguna base científica y no pretende en algún modo sugerir como comportarse frente a una emergencia real			
+DisclaimerText		The content of this game does not have any scientific base and does not intend in any way to suggest how to act in a real emergency.	El contenido del juego no tiene ninguna base científica y no pretende en algún modo sugerir como comportarse frente a una emergencia real			
 CreditsTitle		Developed altruistically by Video Games Without Borders in cooperation with Margarito Estudio, Cicchi Consulting and Asociación Oleaje.	Desarrollado de forma altruista por Videojuegos Sin Fronteras en colaboración con Margarito Estudio, Cicchi Consulting y Asociación Oleaje			
 Loading		loading...	cargando...			
 Present		present	presentan			
 InCollaborationWith		in coperation with	en colaboración con			
 PressSecretary_Name		Mr. Goodnews	Don Megusta	Sr. Mipiace		
-Treasurer_Name		Professor. Payalot	Profesora Calderilla	Professoressa Spiccioli		
+Treasurer_Name		Professor Payalot	Profesora Calderilla	Professoressa Spiccioli		
 LabScientist_Name		Director Antibody	Directora Anticuerpos	Direttrice Anticorpi		
 HospitalDirector_Name		Doctor Deepbreath	Doctor Tomeaire	Dottor Polmoni		
 Commander_Name		Agent Logarithm	Agente Logaritmo	Agente Logaritmo		
-PressSecretary_Presentation_Text		Hello! I'm Mr. Goodnews, your Public Relations Consultant. I take care of what citizens think about you. Be careful, if your popularity falls down to a 0%, you'll get fired!	Hola, me llamo Don Megusta y soy tu Asesor de Comunicación. Me ocupo de lo que los ciudadanos piensan de ti. ¡Ten cuidado, si tu popularidad cae a 0%, te echarán!			
-Treasurer_Presentation_Text		Let me introduce myself: I'm Mrs. Payalot. I take care of the Administration's Money. If we run out of money you will lose your job and the game.	Me presento: soy la Profesora Calderilla y cuido del dinero de la administración. Si nos quedamos sin dinero pierdes el puesto y la partida.			
-LabScientist_Presentation_Text		I'm Prof. Antibody. I lead the research team to find the vaccine. Getting the vaccine means defeating the virus and winning the game.	Soy la Directora Anticuerpos. Lidero el equipo de investigación sobre la vacuna. Conseguir la vacuna significa derrotar al virus y ganar la partida.			
-HospitalDirector_Presentation_Text		Good morning! I'm Dr. Deepbreath, the Director of the Island's Hospitals. My priority is to take care of all the patients with professionalism and dignity. If we cannot manage to admit all patients in need, your chance as leader will be over and so will the game!	Buenos días, soy el Doctor Tomeaire, director de los hospitales de la isla. Mi prioridad es poder tratar a todos los pacientes con profesionalidad y dignidad. Si no podemos admitir a todos los pacientes que lo necesiten, tu experiencia al mando se acaba... y la partida también.			
-Commander_Advisor_Presentation_Text		Agent Logarithm here, Commander of the Crisis Special Unit at your service. We just detected the first cases and our priority will be to reduce the growth of the outbreak. 	Agente Logaritmo, Comandante de la Unidad de Crisis, a sus órdenes. Acabamos de detectar los primeros casos y nuestra prioridad será reducir el crecimiento del brote.			
+PressSecretary_Presentation_Text		Hello! I'm Mr. Goodnews, your PR. I take care of what citizens think about you. Be careful, if your popularity falls down to a 0%, you'll get fired!	Hola, me llamo Don Megusta y soy tu Asesor de Comunicación. Me ocupo de lo que los ciudadanos piensan de ti.%n ¡Ten cuidado, si tu popularidad cae a 0%, te echarán!			
+Treasurer_Presentation_Text		Let me introduce myself: I'm Mrs. Payalot. I take care of the Administration's Money. If we run out of money you will lose your job and the game.	Me presento: soy la Profesora Calderilla y cuido del dinero de la administración.%n Si nos quedamos sin dinero pierdes el puesto y la partida.			
+LabScientist_Presentation_Text		I'm Prof. Antibody. I lead the research team to find the vaccine. Getting the vaccine means defeating the virus and winning the game.	Soy la Directora Anticuerpos. Lidero el equipo de investigación sobre la vacuna.%n Conseguir la vacuna significa derrotar al virus y ganar la partida.			
+HospitalDirector_Presentation_Text		Good morning! I'm Dr. Deepbreath, the Director of the Island's Hospitals. My priority is to take care of all the patients with professionalism and dignity. If we cannot manage to admit all patients in need, your chance as leader will be over and so will the game!	Buenos días, soy el Doctor Tomeaire, director de los hospitales de la isla. Mi prioridad es poder tratar a todos los pacientes con profesionalidad y dignidad.%n Si no podemos admitir a todos los pacientes que lo necesiten, tu experiencia al mando se acaba... y la partida también.			
+Commander_Advisor_Presentation_Text		Agent Logarithm here, Commander of the Crisis Special Unit at your service. We just detected the first cases and our priority will be to reduce the growth of the outbreak. 	Agente Logaritmo, Comandante de la Unidad de Crisis, a sus órdenes.%n Acabamos de detectar los primeros casos y nuestra prioridad será reducir el crecimiento del brote.			
 Tutorial_NextDay_Text		Some data will be updated at the end of each day: the vaccines research has progressed a little bit, the number of patients is updated based on its growth factor and we will get some money thanks to the taxes.	Al final de cada día se irán actualizando algunos datos: la investigación para la vacuna avanza un pasito, el número de pacientes se actualiza según su factor de crecimiento y recibiremos algo de dinero gracias a los impuestos			
 CardTitle_3001		Your first statement	Tu primera declaración			
 CardText_3001		People are worried about the virus that is spreading around the world. Let’s make a statement...	La gente está preocupada por el virus que se está extendiendo en todo el mundo. Vamos a hacer una declaración al respecto...			
-Card_OptA_3001	33	No worries! It’s just like a flu!	¡Tranquilos! ¡Es como una gripe!			
+Card_OptA_3001	33	No worries! It’s just like a flu!	¡Tranquilos!%n ¡Es como una gripe!			
 Card_OptB_3001	83	We are getting ready to face the virus and we are following closely its development	Nos estamos preparando para hacer frente al virus y seguimos de cerca su evolución			
 CardTitle_3002		Virus Tax	Impuesto para el virus			
 CardText_3002		We need a lot of money to get ready. We are going to establish a special tax to deal with the emergency that is coming up.	Necesitamos mucho dinero para estar listos. Vamos a establecer un impuesto especial para la situación de emergencia que se acerca			
@@ -67,7 +67,7 @@ CardText_3005		This percentage indicates how the number of patients will evolve 
 Card_OptA_3005	67	Let's take measures now to prevent it from increasing exponentially	Tomemos medidas ya para evitar que crezca de manera exponencial			
 Card_OptB_3005	49	There's no rush, the percentage is still very low	No hay prisa, el porcentaje es muy bajo todavía			
 CardTitle_3201		What is happening?	¿Qué está pasando?			
-CardText_3201		Citizens don't understand why infections are growing	Los ciudadanos no entienden por qué los contagios aumentan			
+CardText_3201		The citizens don't understand why the number of infections are growing	Los ciudadanos no entienden por qué los contagios aumentan			
 Card_OptA_3201	97	We are going to bring up other subjects, in order to distract them, so they will stop complaining	Vamos a hablar de otros temas; así se distraen y dejan de quejarse			
 Card_OptB_3201	54	We are going to launch a tv campaign to explain it all	Vamos a lanzar una campaña en la tele para explicarlo todo			
 CardTitle_3202		Citizen participation	Participación ciudadana			
@@ -75,7 +75,7 @@ CardText_3202		Our Communications campaign is working well	Nuestra campaña de c
 Card_OptA_3202	42	Keep it up: a winner team does not change!	Sigamos así: ¡un equipo ganador no se cambia!			
 Card_OptB_3202	42	We can do more: let's involve the citizens	Podemos hacer más: involucremos a los ciudadanos			
 CardTitle_3203		The toilet paper crisis	La crisis del papel higiénico			
-CardText_3203		The supermarket shelves are running out of toilet paper	Las estanterías de los súper se están quedando sin papel higiénico			
+CardText_3203		There is not much toilet paper left on the supermarket shelves	Las estanterías de los súper se están quedando sin papel higiénico			
 Card_OptA_3203	60	Let's subsidise soap, what they have to wash are their hands	Subvencionemos el jabón: lo que tienen que limpiarse son las manos			
 Card_OptB_3203	56	Tax on toilet paper, it's a chance to collect more money	Impuesto al papel higiénico, es una oportunidad de recaudar más dinero			
 CardTitle_3204		Cinemas and theatres	Cines y teatros			
@@ -201,14 +201,14 @@ Card_OptB_3233	48	Let citizens organise support groups on Internet	Dejemos que l
 CardTitle_3234		Layoffs	Recorte de personal			
 CardText_3234		We need to reduce our staff costs	Necesitamos reducir nuestros gastos en personal			
 Card_OptA_3234	90	We can reduce the number of police workers on the streets, but there will be less controls	Podemos reducir la plantilla de los agentes de policía en las calles, pero habrá menos controles			
-Card_OptB_3234	74	Fire health personnel and we will contract them when they are needed again	Despidamos a personal sanitario, y los volveremos a contratar cuando haga falta			
+Card_OptB_3234	75	Fire health personnel and we will hire them back again when they are needed	Despidamos a personal sanitario, y los volveremos a contratar cuando haga falta			
 CardTitle_3235		Tighten the belt	Apretarse el cinturón			
 CardText_3235		The health care system costs us too much, we have to find a way to balance the expenditure	El sistema sanitario nos cuesta demasiado, tenemos que encontrar una manera de equilibrar el gasto			
 Card_OptA_3235	83	Let's not renew the health personnel with temporary contracts: less salaries to pay	No renovemos los contratos temporales de personal sanitario: menos sueldos que pagar			
 Card_OptB_3235	61	Make the citizens pay for core benefits that aren't essential	Cobremos a los ciudadanos por prestaciones no esenciales			
-CardTitle_3236		Cutbacks in materials	Recortes en material			
+CardTitle_3236		Cutbacks in medical supplies	Recortes en material			
 CardText_3236		An easy way to have more money is not spending 	Una manera sencilla para tener más dinero es no gastar algo de lo que estaba presupuestado			
-Card_OptA_3236	91	Research teams spend a lot in materials, this time they will have to manage with less money	Los equipos de investigación gastan mucho en materiales, esta vez se las arreglarán con menos			
+Card_OptA_3236	90	Research teams spend a lot in supplies, this time they will have to manage with less money	Los equipos de investigación gastan mucho en materiales, esta vez se las arreglarán con menos			
 Card_OptB_3236	72	Screening tests are very expensive, we can save money doing less of them	Las pruebas de detección del virus son muy caras, podemos ahorrar haciendo menos tests			
 CardTitle_3237		International Symposium	Simposio internacional			
 CardText_3237		The biggest international meeting about vulcanology starts tomorrow and the atendees are worried about getting infected	El mayor encuentro internacional sobre vulcanología empieza mañana y los asistentes están preocupados por posibles contagios			
@@ -325,236 +325,236 @@ Card_OptB_3264	50	It will be enough just by closing small businesses	Con cerrar 
 CardTitle_3265		Schools	Los coles			
 CardText_3265		Schools can become sources of infection	Los colegios pueden transformarse en un foco de contagio			
 Card_OptA_3265	84	It is better to close schools now, even if it means to put more pressure on families	Mejor cerrar los colegios ya, aunque suponga más presión para las familias			
-Card_OptB_3265	17	If at the moment 	Si de momento no se están produciendo muchos contagios, será mejor esperar			
-CardTitle_3266		Every	Teletrabajo para todos			
-CardText_3266			Para evitar contagios lo mejor sería que todo el mundo trabajara desde su casa, pero las empresas no están preparadas			
-Card_OptA_3266	0		¡Teletrabajo para todos y ayudas a las empresas! ¿Los trabajadores? Que se apañen			
-Card_OptB_3266	0		No podemos asumir más gastos			
-CardTitle_3267			Cursos de mascarillas y guantes			
-CardText_3267			Mascarillas y guantes son efectivos para frenar los contagios pero la gente no sabe cómo usarlos bien			
-Card_OptA_3267	0		Enviemos personal sanitario a dar cursos en los centros cívicos de la isla			
-Card_OptB_3267	0		¡Que se miren tutoriales en Internet!			
-CardTitle_3268			Bloquear los contagios			
-CardText_3268			Estamos consiguiendo bloquear los contagios con una serie de medidas alternativas... pero no entendemos muy bien cómo			
-Card_OptA_3268	0		Lo importante es frenar los contagios, el resto es secundario...			
-Card_OptB_3268	0		Es una gran oportunidad para estudiar el virus, pero por supuesto habría que invertir mucho más			
-CardTitle_3269		Big brother	El Gran Hermano			
-CardText_3269			Los controles son fundamentales para que todo el mundo respete la reglas de distanciamiento social			
-Card_OptA_3269	0		Pidamos a los ciudadanos controlar y denunciar a sus vecinos si no cumplen las normas			
-Card_OptB_3269	0		Vamos a crear un equipo de vigilancia que incluya también personal sanitario			
+Card_OptB_3265	73	If at the moment there are not many infections, it will be better to wait	Si de momento no se están produciendo muchos contagios, será mejor esperar			
+CardTitle_3266		Everybody works from home	Teletrabajo para todos			
+CardText_3266		The best idea to avoid further infections would be that everybody works from home, but companies are not ready for it	Para evitar contagios lo mejor sería que todo el mundo trabajara desde su casa, pero las empresas no están preparadas			
+Card_OptA_3266	83	Everybody works from home and we help companies! Workers? They will have to manage.	¡Teletrabajo para todos y ayudas a las empresas! ¿Los trabajadores? Que se apañen			
+Card_OptB_3266	27	We cannot assume more costs	No podemos asumir más gastos			
+CardTitle_3267		Courses about Face masks and gloves	Cursos de mascarillas y guantes			
+CardText_3267		Face masks and gloves are effective to stop infections but people do not know how to use them properly	Mascarillas y guantes son efectivos para frenar los contagios pero la gente no sabe cómo usarlos bien			
+Card_OptA_3267	95	Let's send health care personnel to provide training courses in the island's community centres 	Enviemos personal sanitario a dar cursos en los centros cívicos de la isla			
+Card_OptB_3267	34	They can watch Internet tutorials!	¡Que se miren tutoriales en Internet!			
+CardTitle_3268		Blocking the infection	Bloquear los contagios			
+CardText_3268		We are managing to block the number of infections with a series of alternative measures... but we do not understand well how	Estamos consiguiendo bloquear los contagios con una serie de medidas alternativas... pero no entendemos muy bien cómo			
+Card_OptA_3268	64	The important thing is to stop infections, the rest is secondary	Lo importante es frenar los contagios, el resto es secundario...			
+Card_OptB_3268	93	It is a great opportunity to study the virus, but, obviously, it requires a bigger investment	Es una gran oportunidad para estudiar el virus, pero por supuesto habría que invertir mucho más			
+CardTitle_3269		The Big brother	El Gran Hermano			
+CardText_3269		Controls are fundamental in order to make everybody respect the rules of social distancing	Los controles son fundamentales para que todo el mundo respete la reglas de distanciamiento social			
+Card_OptA_3269	93	Let's ask the citizens to control and report their neighbours if they do not follow the rules	Pidamos a los ciudadanos controlar y denunciar a sus vecinos si no cumplen las normas			
+Card_OptB_3269	83	We are going to create a surveillance team that also includes health care personnel	Vamos a crear un equipo de vigilancia que incluya también personal sanitario			
 CardTitle_3270		Confinement	Confinamiento			
-CardText_3270			Si todo el mundo se quedara en casa durante un tiempo podríamos frenar de golpe los contagios			
-Card_OptA_3270	0		Confinamiento obligatorio y total para todo el mundo, aunque el coste económico sea alto			
-Card_OptB_3270	0		Confinamiento suave, se puede salir para ir a trabajar y hacer recados: así es mucho más barato			
+CardText_3270		If everybody stayed home for a period of time we could stop the infection all at once	Si todo el mundo se quedara en casa durante un tiempo podríamos frenar de golpe los contagios			
+Card_OptA_3270	81	Obligatory and total confinement for everybody, even if the economic cost is high	Confinamiento obligatorio y total para todo el mundo, aunque el coste económico sea alto			
+Card_OptB_3270	98	Soft confinement, people are allowed to go to work and to run errands, that way it is much cheaper	Confinamiento suave, se puede salir para ir a trabajar y hacer recados: así es mucho más barato			
 CardTitle_3271		Vaccine or treatment?	¿Vacuna o tratamiento?			
-CardText_3271			Nuestros equipos de científicos  ha descubierto cómo se transmite el virus			
-Card_OptA_3271	0		Podemos aprovechar y pedirles que desarrollen tratamientos para limitar los contagios			
-Card_OptB_3271	0		Sigamos invirtiendo en la vacuna que es lo más importante			
-CardTitle_3272			Focos en los centros de salud			
-CardText_3272			Algunos centros de salud se están convirtiendo en focos de infección			
-Card_OptA_3272	0		Cerremos todos los centros que no puedan garantizar evitar contagios			
-Card_OptB_3272	0		Pongamos los científicos  a estudiar esos centros para ganar tiempo en su investigación			
+CardText_3271		Our teams of scientists have discovered how the virus is transmited	Nuestros equipos de científicos  ha descubierto cómo se transmite el virus			
+Card_OptA_3271	79	We can take advantage and ask them to develop treatments to limit the infection	Podemos aprovechar y pedirles que desarrollen tratamientos para limitar los contagios			
+Card_OptB_3271	68	Let's keep investing into the vaccine since it is the most important	Sigamos invirtiendo en la vacuna que es lo más importante			
+CardTitle_3272		Infection sources in health-care centres	Focos en los centros de salud			
+CardText_3272		Some health-care centres are becoming sources of infection	Algunos centros de salud se están convirtiendo en focos de infección			
+Card_OptA_3272	89	Let's close all the centres that cannot guarantee to avoid the spreading of the infection	Cerremos todos los centros que no puedan garantizar evitar contagios			
+Card_OptB_3272	78	Let's put the scientists to study those centres to save time in their research	Pongamos los científicos  a estudiar esos centros para ganar tiempo en su investigación			
 CardTitle_3273		Cutting-edge technology	Tecnología punta			
-CardText_3273			Esta tecnología nos permite identificar y aislar los casos positivos muy pronto....			
-Card_OptA_3273	0		... y además lo consigue sin ser invasiva para los pacientes			
-Card_OptB_3273	0		Lástima que no podamos permitirnosla			
+CardText_3273		This technology allows us to identify and isolate the positive cases early...	Esta tecnología nos permite identificar y aislar los casos positivos muy pronto....			
+Card_OptA_3273	58	... and it even manages to be noninvasive for the patients	... y además lo consigue sin ser invasiva para los pacientes			
+Card_OptB_3273	37	It is a pity that we cannot afford it	Lástima que no podamos permitirnosla			
 CardTitle_3401		All about the vaccine	Todo sobre la vacuna			
-CardText_3401			La población quiere estar informada sobre todas las novedades respecto a la vacuna			
-Card_OptA_3401	0		Contratemos una agencia para que se encargue de la comunicación			
-Card_OptB_3401	0		¿Quién mejor que nuestros científicos para comunicar con frecuencia sobre la vacuna?			
+CardText_3401		Citizens want to be inform about all the news regarding the vaccine	La población quiere estar informada sobre todas las novedades respecto a la vacuna			
+Card_OptA_3401	50	Hire an agency to take charge of the communication	Contratemos una agencia para que se encargue de la comunicación			
+Card_OptB_3401	77	Is anybody better that our scientists to inform frequently about the vaccine?	¿Quién mejor que nuestros científicos para comunicar con frecuencia sobre la vacuna?			
 CardTitle_3402		Direct line	Línea directa			
-CardText_3402			Los ciudadanos tienen cada vez más preguntas, montemos un call center para contestarles al teléfono			
-Card_OptA_3402	0		Mejor contratar a una empresa especializada para que los operadores sean profesionales			
-Card_OptB_3402	0		Usemos personal sanitario; así podremos también identificar personas con síntomas y aislarlas inmediatamente			
+CardText_3402		Citizens are asking more and more questions, let's create a call centre to answer them on the phone	Los ciudadanos tienen cada vez más preguntas, montemos un call center para contestarles al teléfono			
+Card_OptA_3402	84	It is better to hire a specialised company, so the phone operators are professionals	Mejor contratar a una empresa especializada para que los operadores sean profesionales			
+Card_OptB_3402	123	Let's use health care personel, that way we will also be able to identify people with symptons and isolate them inmediately	Usemos personal sanitario; así podremos también identificar personas con síntomas y aislarlas inmediatamente			
 CardTitle_3403		Active listening	Escucha activa			
-CardText_3403			Con todo el personal sanitario volcado en la emergencia no queda nadie para recibir a quien solo necesite ser escuchado			
-Card_OptA_3403	0		Dediquemos un equipo sanitario a recibir y escuchar a quien lo necesite, el pueblo lo agradecerá			
-Card_OptB_3403	0		Nuestros sanitarios tienen tareas más importantes que hacer			
-CardTitle_3404			Las encuestas			
-CardText_3404			Las encuestas sugieren que los ciudadanos se fían más de los investigadores que de nosotros			
-Card_OptA_3404	0		Involucremos a los científicos en la comunicación, aunque eso les quite tiempo para la investigación			
-Card_OptB_3404	0		Aún mejor, que ayuden también a la Unidad de Crisis para limitar los contagios			
-CardTitle_3405			Vuelta al cole			
-CardText_3405			La noticia de la reapertura de los colegios será tomada positivamente por la población...			
-Card_OptA_3405	0		...pero tendríamos que invertir bastante para equipar a docentes y alumnos con guantes y mascarillas			
-Card_OptB_3405	0		De lo contrario nos expondremos al riesgo de nuevas infecciones			
+CardText_3403		With all the health care personnel focused on the emergency there is nobody to see those who only need to be listened to	Con todo el personal sanitario volcado en la emergencia no queda nadie para recibir a quien solo necesite ser escuchado			
+Card_OptA_3403	101	Let's devote a health care team to see and listen to whoever might need it, people will appreciate it	Dediquemos un equipo sanitario a recibir y escuchar a quien lo necesite, el pueblo lo agradecerá			
+Card_OptB_3403	51	Our health workers have more important things to do	Nuestros sanitarios tienen tareas más importantes que hacer			
+CardTitle_3404		Polls	Las encuestas			
+CardText_3404		Polls suggest that the citizens trust the scientists more than us	Las encuestas sugieren que los ciudadanos se fían más de los investigadores que de nosotros			
+Card_OptA_3404	79	Involve scientist in our community even if that takes up time from the research	Involucremos a los científicos en la comunicación, aunque eso les quite tiempo para la investigación			
+Card_OptB_3404	71	Even better, they also have to help the Crisis Unit to limit infections	Aún mejor, que ayuden también a la Unidad de Crisis para limitar los contagios			
+CardTitle_3405		Back to school	Vuelta al cole			
+CardText_3405		The news about the re-opening of schools will be taken positively by the population...	La noticia de la reapertura de los colegios será tomada positivamente por la población...			
+Card_OptA_3405	109	... but we would have to invest plenty of money to provide the teachers and pupils with gloves and face masks	...pero tendríamos que invertir bastante para equipar a docentes y alumnos con guantes y mascarillas			
+Card_OptB_3405	50	Otherwise we will be risking having new infections	De lo contrario nos expondremos al riesgo de nuevas infecciones			
 CardTitle_3416		In-house training	Formación en la empresa			
-CardText_3416			Una empresa está dispuesta a contratar los servicios de nuestros científicos para formar a sus empleados sobre medidas de prevención			
-Card_OptA_3416	0		Es una buena oportunidad para recaudar fondos y al mismo tiempo reducir contagios			
-Card_OptB_3416	0		¡Genial! Busquemos más empresas interesadas aunque la investigación tenga que parar durante un tiempo			
+CardText_3416		A company is willing to hire our scientists services to train their employees about prevention measures	Una empresa está dispuesta a contratar los servicios de nuestros científicos para formar a sus empleados sobre medidas de prevención			
+Card_OptA_3416	97	It is a good opportunity to collect money and at the same time to reduce the number of infections	Es una buena oportunidad para recaudar fondos y al mismo tiempo reducir contagios			
+Card_OptB_3416	106	Great! Let's look for more companies that might be interested even if the research has to stop for a while	¡Genial! Busquemos más empresas interesadas aunque la investigación tenga que parar durante un tiempo			
 CardTitle_3417		Financial crisis	Crisis financiera			
-CardText_3417			El presupuesto de la Unidad de Crisis se nos ha ido de las manos			
-Card_OptA_3417	0		Necesitamos dinero ya, así que recortemos lo que haga falta			
-Card_OptB_3417	0		Vale, recortemos pero con moderación, no sea que tengamos un repunte de contagios por falta de medios			
-CardTitle_3418			Misión internacional			
-CardText_3418			Gracias a un fondo internacional, se está organizando una misión para ayudar a las islas más golpeadas por la pandemia			
-Card_OptA_3418	0		Enviemos un equipo sanitario, seguro que es lo que más se necesita			
-Card_OptB_3418	0		Enviémos solo un científico; no podemos prescindir de sanitarios en este momento			
+CardText_3417		The Crisis Unit's budget has gotten out of hand	El presupuesto de la Unidad de Crisis se nos ha ido de las manos			
+Card_OptA_3417	55	We need money now, so we will cut whatever is necessary	Necesitamos dinero ya, así que recortemos lo que haga falta			
+Card_OptB_3417	112	OK, let's cut with with moderation, we don't want the lack of means to cause a rise in the number of infections 	Vale, recortemos pero con moderación, no sea que tengamos un repunte de contagios por falta de medios			
+CardTitle_3418		International mission	Misión internacional			
+CardText_3418		Thanks to an international fund, a mission is being organised to help the islands that have been more affected by the pandemic	Gracias a un fondo internacional, se está organizando una misión para ayudar a las islas más golpeadas por la pandemia			
+Card_OptA_3418	59	Let's send a health care team, it is surely the most needed	Enviemos un equipo sanitario, seguro que es lo que más se necesita			
+Card_OptB_3418	75	Send just one scientist, we cannot do without health care workers right now	Enviémos solo un científico; no podemos prescindir de sanitarios en este momento			
 CardTitle_3419		Less tests?	¿Menos pruebas?			
-CardText_3419			Las pruebas de detección del virus son muy caras, tenemos que encontrar la manera de ahorrar			
-Card_OptA_3419	0		La única manera de mantener el número de pruebas es quitar técnicos de la investigación			
-Card_OptB_3419	0		No podemos parar la investigación, tendremos que conformarnos con hacer menos pruebas			
-CardTitle_3420			Impuesto de solidaridad			
-CardText_3420			De vez en cuando hay que volver a hablar de impuestos: esta vez la idea es gravar a las clases medias y altas			
-Card_OptA_3420	0		Tiene un coste en opinión pública, pero cuando hace falta dinero hay que tomar decisiones difíciles			
-Card_OptB_3420	0		No podemos cargar a las familias con más impuestos, ni siquiera a las de nivel medio-alto			
+CardText_3419		Screening tests are very expensive, we have to find the way to save money	Las pruebas de detección del virus son muy caras, tenemos que encontrar la manera de ahorrar			
+Card_OptA_3419	83	The only way to keep the number of tests is to get rid of some research technicians	La única manera de mantener el número de pruebas es quitar técnicos de la investigación			
+Card_OptB_3419	68	We cannot stop the research, we will have to settle for testing less	No podemos parar la investigación, tendremos que conformarnos con hacer menos pruebas			
+CardTitle_3420		Solidarity tax	Impuesto de solidaridad			
+CardText_3420		Once in a while, we have to talk again about taxes: this time, the idea is to charge more to the upper and middle class	De vez en cuando hay que volver a hablar de impuestos: esta vez la idea es gravar a las clases medias y altas			
+Card_OptA_3420	93	It will affect the public opinion, but when money is needed difficult decissions must be made	Tiene un coste en opinión pública, pero cuando hace falta dinero hay que tomar decisiones difíciles			
+Card_OptB_3420	72	We cannot charge families with more taxes, not even the medium-high ones	No podemos cargar a las familias con más impuestos, ni siquiera a las de nivel medio-alto			
 CardTitle_3431		Long queues	Largas colas			
-CardText_3431			El nuevo hospital está listo para la inauguración pero ya sabemos que las colas serán largas			
-Card_OptA_3431	0		Reduzcamos las colas a toda costa, aunque signifique no respetar todas las medidas de distanciamiento			
-Card_OptB_3431	0		Lo siento por los ciudadanos pero si las colas son tan largas es para evitar más contagios			
-CardTitle_3432			Carencia de técnicos			
-CardText_3432			Para completar el plan de aumento de la capacidad hospitalaria necesitamos más técnicos sanitarios			
-Card_OptA_3432	0		Contratemos técnicos aunque nos requiera aumentar la inversión presupuestada			
-Card_OptB_3432	0		Traslademos técnicos desde los laboratorios aunque tenga un impacto negativo sobre de investigación			
-CardTitle_3433			A toda prisa			
-CardText_3433			Si queremos atender más pacientes sin nuevas inversiones, tendremos que reducir el tiempo que dedicamos a cada paciente			
-Card_OptA_3433	0		Vale, aunque pueda significar más diagnósticos erroneos y en consecuencia más contagios			
-Card_OptB_3433	0		Eso no es aceptable, seguiremos como hasta ahora			
-CardTitle_3434			Inversión ya aprobada			
-CardText_3434			Ya está aprobada una inversión importante en personal sanitario, solo tenemos que decidir...			
-Card_OptA_3434	0		... si reservamos una parte del dinero para material de protección del personal...			
-Card_OptB_3434	0		... o si la gastamos enteramente en aumentar la capacidad hospitalaria			
+CardText_3431		The new hospital is ready for the inauguration but we already know that the queues are going to be long	El nuevo hospital está listo para la inauguración pero ya sabemos que las colas serán largas			
+Card_OptA_3431	111	Let's reduce the queues at any cost, even if this means to not comply with all the social distancing measures  	Reduzcamos las colas a toda costa, aunque signifique no respetar todas las medidas de distanciamiento			
+Card_OptB_3431	85	I am sorry for the citizens but if the queues are so long is to avoid more infections	Lo siento por los ciudadanos pero si las colas son tan largas es para evitar más contagios			
+CardTitle_3432		Lack of technicians	Carencia de técnicos			
+CardText_3432		To finish the plan to increase hospital capacity we need more health care technicians	Para completar el plan de aumento de la capacidad hospitalaria necesitamos más técnicos sanitarios			
+Card_OptA_3432	77	Let's hire technicians even if that means to increase the budgeted investment	Contratemos técnicos aunque nos requiera aumentar la inversión presupuestada			
+Card_OptB_3432	87	Let's move technicians from the labs even if this has a negative impact on the research	Traslademos técnicos desde los laboratorios aunque tenga un impacto negativo sobre de investigación			
+CardTitle_3433		In a hurry	A toda prisa			
+CardText_3433		If we want to attend more patients without new investments, we will have to reduce the time that we dedicate to each patient	Si queremos atender más pacientes sin nuevas inversiones, tendremos que reducir el tiempo que dedicamos a cada paciente			
+Card_OptA_3433	84	OK, even if it can mean an increase on wrong diagnoses and therefore more infections	Vale, aunque pueda significar más diagnósticos erroneos y en consecuencia más contagios			
+Card_OptB_3433	53	That is not acceptable, we will continue as it is now	Eso no es aceptable, seguiremos como hasta ahora			
+CardTitle_3434		Approved investment already	Inversión ya aprobada			
+CardText_3434		It has been already approved an important investment in health care personnel, we only have to decide...	Ya está aprobada una inversión importante en personal sanitario, solo tenemos que decidir...			
+Card_OptA_3434	82	... if we reserve a part of the money for protection material for the personnel...	... si reservamos una parte del dinero para material de protección del personal...			
+Card_OptB_3434	70	... or if we spend the whole of it in increasing the hospital capacity	... o si la gastamos enteramente en aumentar la capacidad hospitalaria			
 CardTitle_3435		Crammed	Abarrotados			
-CardText_3435			En cualquier momento puede haber un pico de pacientes y hay que estar preparados para atenderles			
-Card_OptA_3435	0		Tengamos muchas camas extras disponibles y en caso de necesidad las podemos montar en cualquier lado			
-Card_OptB_3435	0		Enfoquémonos en dar el mejor trato posible a los pacientes con la estructura que ya tenemos			
-CardTitle_3446			Ayuda a la investigación			
-CardText_3446			He llegado el momento de ayudar a la investigación, sea como sea			
-Card_OptA_3446	0		Transformemos un hospital en centro de experimentación para la vacuna			
-Card_OptB_3446	0		Pidamos a los ciudadanos que contribuyan con una pequeña retención en su próxima nómina			
-CardTitle_3447			Dinero para la investigación			
-CardText_3447			Hemos reservado ya una partida importante del presupuesto para investigación			
-Card_OptA_3447	0		¿Queremos dedicarla enteramente a la búsqueda de la vacuna?			
-Card_OptB_3447	0		¿O preferimos reservar una parte para buscar tratamientos que limiten los contagios?			
-CardTitle_3448			Estudio a gran escala			
-CardText_3448			Para conocer todas las mutaciones del virus lo ideal sería un gran estudio sobre su difusión en la isla			
-Card_OptA_3448	0		Miles de ciudadanos nos ofrecerán su sangre para que podamos trazar su evolución y avanzar con la vacuna			
-Card_OptB_3448	0		No podemos obligar a miles de ciudadanos a darnos muestras de sangre, se lo tomarían muy mal			
-CardTitle_3449			Prueba en los sanitarios			
-CardText_3449			Lo más expuestos a riesgo de contagios son los sanitarios, tendremos que probar la vacuna en ellos			
-Card_OptA_3449	0		La probaremos en centenares de sanitarios, aunque signifique reducir nuestra capacidad hospitalaria			
-Card_OptB_3449	0		Mejor probarla solo en unos pocos, no podemos permitirnos perder muchos sanitarios en este momento			
-CardTitle_3450			La vacuna y su riesgo			
-CardText_3450			Las pruebas de la vacuna en personas siempre conllevan un riesgo, pero lo podemos limitar con una inversión adecuada			
-Card_OptA_3450	0		No vamos a ahorrar sobre la salud de nuestros ciudadanos ni a exponer a nadie al riesgo de contagio			
-Card_OptB_3450	0		No podemos invertir ahora mismo, así que nos toca aceptar el riesgo de generar nuevos contagios			
-CardTitle_3461			La colaboración de todos			
-CardText_3461			Para controlar los contagios necesitamos la colaboración de todos, pero siempre hay alguien a quien podemos pedir algo más			
-Card_OptA_3461	0		Nuestros científicos tendrán que apoyar la labor de la Unidad de Crisis con su recomendaciones			
-Card_OptB_3461	0		Serán los ciudadanos los encargados de vigilar y señalar eventuales comportamientos de riesgo			
-CardTitle_3462			Hula hoops para todos			
-CardText_3462			Hay horas de cola en los supermercados por miedo a la falta de comida, y no se está respetando la distancia de seguridad			
-Card_OptA_3462	0		Regalemos hula hoops a todo el mundo, así pueden hacer ejercicio y mantener la distancia a la vez			
-Card_OptB_3462	0		Los ùltimos datos de contagios son positivos así que mejor no hacer nada			
-CardTitle_3463			Reducir contagios			
-CardText_3463			Nuestra prioridad tendría que ser siempre la de reducir al máximo la transmisión del virus			
-Card_OptA_3463	0		Pongamos unos investigadores a estudiar cómo limitar contagios aunque la vacuna se retrase			
-Card_OptB_3463	0		No vamos a frenar la investigación de la vacuna, encontraremos otras formas de reducir los contagios			
-CardTitle_3464			Tasa de contagios			
-CardText_3464			Queremos bajar la tasa de contagios, solo nos falta decidir cómo.			
-Card_OptA_3464	0		Pongamos sobre la mesa una inversión importante y de paso reforcemos nuestro sistema sanitario			
-Card_OptB_3464	0		Dediquemos un equipo sanitario especializado al seguimiento de los casos sospechosos			
-CardTitle_3465			Sistema informático			
-CardText_3465			Con la compra de este nuevo sistema informático vamos a poder gestionar en tiempo real toda la información sobre el virus...			
-Card_OptA_3465	0		... así que vamos a poder coordinar mucho mejor nuestras intervenciones para reducir contagios			
-Card_OptB_3465	0		Sería aún mejor si integramos la investigación en el sistema, pero eso podría ralentizar sus avances			
-CardTitle_3601			Subidón de popularidad			
-CardText_3601			Esta crisis está dañando tu imagen pública, necesitamos hacer algo ya para que vuelvas a subir en la encuestas de opinión.			
-Card_OptA_3601	0		Lancemos una gran campaña en los medios para explicar todos y cada uno de los logros de tu gestión			
-Card_OptB_3601	0		Que los científicos dediquen su tiempo a explicar que la vacuna está cerca, ¡necesitamos esperanza!			
-CardTitle_3602			Concierto de solidaridad			
-CardText_3602			La gente necesita divertirse: montemos un gran concierto solidario para relanzar tu popularidad			
-Card_OptA_3602	0		Claro que, además del coste, eso significa ir en contra de nuestra recomendaciones de distanciamiento social			
-Card_OptB_3602	0		Mejor que no: no podemos tirar por la borda todo el trabajo hecho hasta ahora			
-CardTitle_3603			Un gesto			
-CardText_3603			Cualquier pequeño gesto tiene un impacto en la opinión pública			
-Card_OptA_3603	0		Enviemos a la prensa a cubrir la investigación durante un día entero, el público tiene curiosidad			
-Card_OptB_3603	0		Vamos a inaugurar un nuevo pabellón del hospital con toda la prensa presente			
-CardTitle_3604			Empatía			
-CardText_3604			Necesitamos que la gente empatice contigo			
-Card_OptA_3604	0		Financiemos un cortometraje sobre la figura del gobernador y su liderazgo en esta emergencia sanitaria			
-Card_OptB_3604	0		Major aún, lancemos un videojuego en el cual se pueda tomar el rol de gobernador y gestionar la crisis			
-CardTitle_3605			Volver al estadio			
-CardText_3605			La gente está deseando volver al estadio para apoyar a su equipo			
-Card_OptA_3605	0		Vale, podemos hacer frente a la reducción de la distancia social: ¡que vuelvan las ligas deportivas!			
-Card_OptB_3605	0		Todavía no es el momento, mejor esperar un poco más, la gente lo entenderá			
-CardTitle_3616			Más impuestos			
-CardText_3616			Siempre hace falta más dinero y subir los impuestos es la solución más rápida			
-Card_OptA_3616	0		Apliquemos un impuesto reducido, que sirva para dar un poco de respiro a la caja			
-Card_OptB_3616	0		Necesitamos mucho dinero, hará falta un impuesto importante aunque los ciudadanos se enfaden			
-CardTitle_3617			Rebajas de fin de emergencia			
-CardText_3617			Nuestros vecinos de Bumpy Island quieren comprarnos todo el material sanitario que ya no necesitamos			
-Card_OptA_3617	0		El pico de pacientes ya lo hemos pasado, aprovechemos la oportunidad para meter dinero en la caja			
-Card_OptB_3617	0		Mejor que no, el pueblo no lo entendería con el riesgo de rebrotes aún muy presente			
-CardTitle_3618			Vamos a la playa			
-CardText_3618			Hay miles de turistas que esperan la reapertura de las fronteras para venir a nuestras playas			
-Card_OptA_3618	0		Es el momento de reabrir el paso a los turistas, porque nos van a traer mucho dinero			
-Card_OptB_3618	0		Mejor esperar, todavía hay riesgo de rebrotes y nuestros ciudadanos están deseando disfrutar de las playas sin turistas			
-CardTitle_3619			científicos  famosos			
-CardText_3619			La noticia de que nos estamos acercando a la vacuna está dando la vuelta al mundo. Aprovechemos la oportunidad para sacar beneficio económico			
-Card_OptA_3619	0		Firmemos con una editorial: entrevistarán a nuestros científicos y publicarán un libro en cuanto haya vacuna			
-Card_OptB_3619	0		Firmemos con Hollywood: filmarán un documental en nuestros laboratorios y por las calles de la isla			
-CardTitle_3620			Recortes sanitarios			
-CardText_3620			El gasto sanitario se ha disparado recientemente y ha llegado el momento de recortar			
-Card_OptA_3620	0		Si hay que hacerlo se hará aunque no sea una medida popular			
-Card_OptB_3620	0		En alternativa, para no recortar, podríamos pedir a los ciudadanos que contribuyan a cubrir los gastos			
-CardTitle_3631			Nuevas estructuras			
-CardText_3631			Con dinero podemos conseguir todas las estructuras sanitarias que queremos, la pregunta es: ¿cuánto estamos dispuestos a invertir?			
-Card_OptA_3631	0		Con moderación, es arriesgado invertir mucho de golpe			
-Card_OptB_3631	0		Siempre sale más a cuenta hacer inversiones grandes, así que adelante sin frenos			
-CardTitle_3632			Atención a domicilio			
-CardText_3632			Estamos listos para lanzar el servicio de atención sanitaria a domicilio pero aún no hemos encontrado la cobertura financiera			
-Card_OptA_3632	0		Lo siento por los ciudadanos, pero tendrá que ser un servicio de pago			
-Card_OptB_3632	0		Una farmacéutica ha ofrecido patrocinar el servicio a cambio del último descubrimiento de nuestros laboratorios			
-CardTitle_3633			La factura al pueblo			
-CardText_3633			Si queremos más capacidad hospitalaria sin invertir más, tendrán que ser los ciudadanos quienes cubran el gasto			
-Card_OptA_3633	0		Vale, pero sin exagerar ya que tiene un coste a nivel de popularidad			
-Card_OptB_3633	0		¡Adelante! De la opinión pública nos preocuparemos en otro momento			
-CardTitle_3634			Hospital de nueva generación			
-CardText_3634			Sigue habiendo contagios entre el personal sanitario, a pesar de haber tomado todas las medidas posibles			
-Card_OptA_3634	0		Solo nos falta construir un hospital de nueva generación, diseñado específicamente para minimizar los contagios			
-Card_OptB_3634	0		Desafortunadamente no nos lo podemos permitir en este momento			
-CardTitle_3635			Más camas			
-CardText_3635			Vamos a necesitar más camas para hacer frente a posibles rebrotes			
-Card_OptA_3635	0		Tendremos que construir un nuevo pabellón aunque resulte costoso			
-Card_OptB_3635	0		Si no hay dinero tendremos que reducir la distancia entre camas, con el aumento del riesgo de contagios			
-CardTitle_3646			Dinero bien gastado			
-CardText_3646			El dinero gastado en investigación es dinero bien gastado, solo tenemos que decidir cuánto queremos "bien gastar"			
-Card_OptA_3646	0		De momento nos tendremos que conformar con una cantidad moderata			
-Card_OptB_3646	0		Apostemos fuerte ahora que hay dinero en la caja			
-CardTitle_3647			Fichaje de prestigio			
-CardText_3647			Tenemos la oportunidad de fichar a un científico de prestigio internacional			
-Card_OptA_3647	0		Ficharlo es caro pero hará una gran contribución a la investigación			
-Card_OptB_3647	0		Hay problemas más urgentes que necesitan ser resueltos con ese dinero			
-CardTitle_3648			Un nuevo ensayo			
-CardText_3648			Gracias a nuestra inversión estamos listos para lanzar un nuevo ensayo clínico, pero nos faltan voluntarios			
-Card_OptA_3648	0		Tendremos que reducir la muestra, pero los resultados serán parciales			
-Card_OptB_3648	0		Obligaremos a unos cuantos ciudadanos a participar por el bien común, aunque quizás no se lo tomen bien			
-CardTitle_3649			Pruebas a gran escala			
-CardText_3649			La vacuna está cada día más cerca; el siguiente paso es organizar una prueba a gran escala			
-Card_OptA_3649	0		Miles de ciudadanos serán nuestras cobayas para esa gran prueba; seguramente se enfaden.			
-Card_OptB_3649	0		Si no, podemos enfocarnos en centenares de personas en situación de riesgo, como los sanitarios			
-CardTitle_3650			Efectos colaterales			
-CardText_3650			Ha llegado al momento de probar la vacuna en personas sanas			
-Card_OptA_3650	0		Con la inversión adecuada podemos mantener aislados a todos los participantes, evitando contagios indeseados			
-Card_OptB_3650	0		Si no podemos asumir el coste tendremos que correr el riesgo que los participantes sean contagiosos			
-CardTitle_3661			Eliminación total			
-CardText_3661			Hasta ahora hemos mitigado la difusión del virus,pero ha llegado el momento de eliminarlo por completo			
-Card_OptA_3661	0		Es un objetivo inalcanzable, mejor seguir invirtiendo para reducir los contagios poco a poco			
-Card_OptB_3661	0		Adelante! invirtamos lo que haga falta			
-CardTitle_3662			¿Relajar o endurecer?			
-CardText_3662			Se habla mucho de relajar las medidas de distanciamiento social y la población espera un nuevo anuncio en breve...			
-Card_OptA_3662	0		... pero todavía no es el momento: mejor mantenerlas durante un tiempo			
-Card_OptB_3662	0		... al contrario, tenemos que endurecerlas aunque será una decepción grande para nuestra gente			
-CardTitle_3663			Detección temprana			
-CardText_3663			Cuanto antes detectemos nuevos casos, más pronto podremos cortar la cadena de contagios			
-Card_OptA_3663	0		Enviemos pequeños equipos de sanitarios a hacer pruebas a la gente por la calle			
-Card_OptB_3663	0		Mejor aún, organicemos equipos completos de sanitarios para ir a visitar todo el mundo en su casa			
-CardTitle_3664			La paradoja			
-CardText_3664			Puede parecer una paradoja pero cuantos menos contagios tengamos, más difícil será la investigación			
-Card_OptA_3664	0		Seguiremos mitigando la difusión de virus aunque la vacuna tarde un poco más en llegar			
-Card_OptB_3664	0		Si eliminamos los contagios, la vacuna se puede retrasar sin muchas consecuencias			
-CardTitle_3665			Seguimiento individual			
-CardText_3665			Para evitar nuevos brotes es fundamental poner en marcha un protocolo de seguimiento individual de todos los casos activos			
-Card_OptA_3665	0		Invirtamos en tecnología para seguir todos los movimientos e identificar los contactos de los pacientes			
-Card_OptB_3665	0		Apostemos por un equipo especializado, compuesto en gran mayoría por personal sanitario			
+CardText_3435		Anytime there can be a peak of patients and we have to be ready to attend them	En cualquier momento puede haber un pico de pacientes y hay que estar preparados para atenderles			
+Card_OptA_3435	87	We should have many extra beds available and, in case of need, we can put them anywhere	Tengamos muchas camas extras disponibles y en caso de necesidad las podemos montar en cualquier lado			
+Card_OptB_3435	103	Focus in giving the patients the best treatment possible with the infraestructure that we already have 	Enfoquémonos en dar el mejor trato posible a los pacientes con la estructura que ya tenemos			
+CardTitle_3446		Research support	Ayuda a la investigación			
+CardText_3446		The time to help the research has arrived, come what may	Ha llegado el momento de ayudar a la investigación, sea como sea			
+Card_OptA_3446	62	Turn a hospital into an experimentation centre for the vaccine	Transformemos un hospital en centro de experimentación para la vacuna			
+Card_OptB_3446	76	Ask the citizens to contribute with a small withholding of their next salary	Pidamos a los ciudadanos que contribuyan con una pequeña retención en su próxima nómina			
+CardTitle_3447		Money for the research	Dinero para la investigación			
+CardText_3447		We have reserved a big portion of the budget for the research	Hemos reservado ya una partida importante del presupuesto para investigación			
+Card_OptA_3447	64	Do we want to dedicate it entirely to the search of the vaccine?	¿Queremos dedicarla enteramente a la búsqueda de la vacuna?			
+Card_OptB_3447	96	Or do we prefer to keep a part of it to look for treatments that limit the number of infections?	¿O preferimos reservar una parte para buscar tratamientos que limiten los contagios?			
+CardTitle_3448		Large-scale study	Estudio a gran escala			
+CardText_3448		To learn about all the mutations of the virus, to make a big study about its spreading in the island would be ideal	Para conocer todas las mutaciones del virus lo ideal sería un gran estudio sobre su difusión en la isla			
+Card_OptA_3448	107	Thousands of citizens will offer us their blood so we can track its evolution and progress with the vaccine	Miles de ciudadanos nos ofrecerán su sangre para que podamos trazar su evolución y avanzar con la vacuna			
+Card_OptB_3448	100	We cannot oblige thousands of citizens to give us their blood samples, they would take it really bad	No podemos obligar a miles de ciudadanos a darnos muestras de sangre, se lo tomarían muy mal			
+CardTitle_3449		Test on health care 	Test on health care workers			
+CardText_3449		The ones who are more exposed to the risk of infection are the health care workers, we will have to test the vaccine on them	Lo más expuestos a riesgo de contagios son los sanitarios, tendremos que probar la vacuna en ellos			
+Card_OptA_3449	106	We will try it in hundreds of health care workers, even if that might mean to reduce our hospital capacity	La probaremos en centenares de sanitarios, aunque signifique reducir nuestra capacidad hospitalaria			
+Card_OptB_3449	104	It is better to try it in a few of them, we cannot allow to lose many health care workers at this moment	Mejor probarla solo en unos pocos, no podemos permitirnos perder muchos sanitarios en este momento			
+CardTitle_3450		The vaccine and its risk	La vacuna y su riesgo			
+CardText_3450		Testing a vaccine on people always entails risks, but we can reduce them with an appropriate investment	Las pruebas de la vacuna en personas siempre conllevan un riesgo, pero lo podemos limitar con una inversión adecuada			
+Card_OptA_3450	123	We are not going to save costs over our citizen's health nor we are going to expose anybody to the risk of getting infected	No vamos a ahorrar sobre la salud de nuestros ciudadanos ni a exponer a nadie al riesgo de contagio			
+Card_OptB_3450	93	We cannot invest right now, and that means we have to accept the risk to cause new infections	No podemos invertir ahora mismo, así que nos toca aceptar el riesgo de generar nuevos contagios			
+CardTitle_3461		The cooperation of all	La colaboración de todos			
+CardText_3461		In order to control new infections we need the cooperation of all, but there is always someone who can we ask for more	Para controlar los contagios necesitamos la colaboración de todos, pero siempre hay alguien a quien podemos pedir algo más			
+Card_OptA_3461	81	Our scientists will have to support the Crisis Unit's work with their suggestions	Nuestros científicos tendrán que apoyar la labor de la Unidad de Crisis con sus recomendaciones			
+Card_OptB_3461	80	The citizens will be in charge to watch and point out eventual risky behaviours 	Serán los ciudadanos los encargados de vigilar y señalar eventuales comportamientos de riesgo			
+CardTitle_3462		Hula hoops for all	Hula hoops para todos			
+CardText_3462		The queues at the supermarkets are hours long, due to fear to a food shortage and the safety distance is not being respected	Hay horas de cola en los supermercados por miedo a la falta de comida, y no se está respetando la distancia de seguridad			
+Card_OptA_3462	100	Let's give hula hoops to everyone, this way they can exercise and keep the distance at the same time	Regalemos hula hoops a todo el mundo, así pueden hacer ejercicio y mantener la distancia a la vez			
+Card_OptB_3462	74	The last infection rate is positive that is why it is better to do nothing	Los últimos datos de contagios son positivos así que mejor no hacer nada			
+CardTitle_3463		Reduce infections	Reducir contagios			
+CardText_3463		Our priority should always be to reduce the transmision of the virus to the maximum	Nuestra prioridad tendría que ser siempre la de reducir al máximo la transmisión del virus			
+Card_OptA_3463	98	Put some researchers to study how to limit the number of infections even if the vaccine is delayed	Pongamos unos investigadores a estudiar cómo limitar contagios aunque la vacuna se retrase			
+Card_OptB_3463	95	We are not going to stop the vaccine research, we will find other ways to reduce the infections	No vamos a frenar la investigación de la vacuna, encontraremos otras formas de reducir los contagios			
+CardTitle_3464		Infection rate	Tasa de contagios			
+CardText_3464		We want to lower the infection rate, we just have to decide how	Queremos bajar la tasa de contagios, solo nos falta decidir cómo			
+Card_OptA_3464	123	Let's put the issue of an important investment on the table and while we are at it we can strengthen our health care system	Pongamos sobre la mesa una inversión importante y de paso reforcemos nuestro sistema sanitario			
+Card_OptB_3464	78	Let's dedicate a specialized health care team to follow up the suspected cases	Dediquemos un equipo sanitario especializado al seguimiento de los casos sospechosos			
+CardTitle_3465		Computer system	Sistema informático			
+CardText_3465		Buying this new computer system we will be able to manage in real time all the virus information...	Con la compra de este nuevo sistema informático vamos a poder gestionar en tiempo real toda la información sobre el virus...			
+Card_OptA_3465	99	... so we are going to be able to coordinate much better our interventions to reduce the infections	... así que vamos a poder coordinar mucho mejor nuestras intervenciones para reducir contagios			
+Card_OptB_3465	109	It will be even better if we incorporate the research into the system, but that could slow down its progress 	Sería aún mejor si integramos la investigación en el sistema, pero eso podría ralentizar sus avances			
+CardTitle_3601		Popularity rush	Subidón de popularidad			
+CardText_3601		This crisis is damaging your public image, we need to do something now to make you rise in the public opinion polls 	Esta crisis está dañando tu imagen pública, necesitamos hacer algo ya para que vuelvas a subir en la encuestas de opinión.			
+Card_OptA_3601	95	Let's launch a big media campaign to explain each and every one of your management achievements	Lancemos una gran campaña en los medios para explicar todos y cada uno de los logros de tu gestión			
+Card_OptB_3601	80	Scientist must use their time to explain that the vaccine is near, we need hope!	Que los científicos dediquen su tiempo a explicar que la vacuna está cerca, ¡necesitamos esperanza!			
+CardTitle_3602		Solidarity concert	Concierto de solidaridad			
+CardText_3602		People need to have fun: let's organise a solidarity concert to relaunch your popularity	La gente necesita divertirse: montemos un gran concierto solidario para relanzar tu popularidad			
+Card_OptA_3602	110	It is obvious, apart from the cost, that would mean to go against our own recommendations of social distancing	Claro que, además del coste, eso significa ir en contra de nuestra recomendaciones de distanciamiento social			
+Card_OptB_3602	65	Better not: we cannot throw away all the work we have done so far	Mejor que no: no podemos tirar por la borda todo el trabajo hecho hasta ahora			
+CardTitle_3603		A gesture	Un gesto			
+CardText_3603		Every little gesture has an impact on the public opinion	Cualquier pequeño gesto tiene un impacto en la opinión pública			
+Card_OptA_3603	80	Send the press to cover the research for a whole day long, the public is curious	Enviemos a la prensa a cubrir la investigación durante un día entero, el público tiene curiosidad			
+Card_OptB_3603	83	We are going to inaugurate a new pavilion of the hospital in front of all the press	Vamos a inaugurar un nuevo pabellón del hospital con toda la prensa presente			
+CardTitle_3604		Empathy	Empatía			
+CardText_3604		We need people to empathise with you	Necesitamos que la gente empatice contigo			
+Card_OptA_3604	90	Let's finance a short movie about the Governor and his leadership in this health emergency	Financiemos un cortometraje sobre la figura del gobernador y su liderazgo en esta emergencia sanitaria			
+Card_OptB_3604	106	Even better, let's launch a videogame in which you can take the role of the Governor and manage the crisis	Mejor aún, lancemos un videojuego en el cual se pueda tomar el rol de gobernador y gestionar la crisis			
+CardTitle_3605		Go back to the stadium	Volver al estadio			
+CardText_3605		People are looking forward to going back to the stadium to support their team	La gente está deseando volver al estadio para apoyar a su equipo			
+Card_OptA_3605	90	OK, we can deal with a reduction of the social distancing: sports leagues are coming back!	Vale, podemos hacer frente a la reducción de la distancia social: ¡que vuelvan las ligas deportivas!			
+Card_OptB_3605	88	It is still not the moment, it is better to wait a bit longer, people will understand it	Todavía no es el momento, mejor esperar un poco más, la gente lo entenderá			
+CardTitle_3616		More taxes	Más impuestos			
+CardText_3616		Money is always necessary and increasing taxes is the fastest solution	Siempre hace falta más dinero y subir los impuestos es la solución más rápida			
+Card_OptA_3616	76	Apply a reduced tax, that might help to lessen the pressure on the money box	Apliquemos un impuesto reducido, que sirva para dar un poco de respiro a la caja			
+Card_OptB_3616	90	We need a lot of money, it will be necessary a big tax even if it makes the citizens angry	Necesitamos mucho dinero, hará falta un impuesto importante aunque los ciudadanos se enfaden			
+CardTitle_3617		End-of-emergency sales	Rebajas de fin de emergencia			
+CardText_3617		Our neighbours from Bumpy Island want to buy from us all the medical supplies that we do not need anymore	Nuestros vecinos de Bumpy Island quieren comprarnos todo el material sanitario que ya no necesitamos			
+Card_OptA_3617	93	The peak of patients has passed, let's take the chance to put more money inside the cash box 	El pico de pacientes ya lo hemos pasado, aprovechemos la oportunidad para meter dinero en la caja			
+Card_OptB_3617	102	It is better not to do it, people would not understand it with the risk of new outbreaks still present	Mejor que no, el pueblo no lo entendería con el riesgo de rebrotes aún muy presente			
+CardTitle_3618		Let's go to the beach	Vamos a la playa			
+CardText_3618		There are thousands of tourists waiting for the borders to reopen to come to our beaches	Hay miles de turistas que esperan la reapertura de las fronteras para venir a nuestras playas			
+Card_OptA_3618	107	It is the moment to reopen the border crossing to tourists, since they are going to bring us a lot of money	Es el momento de reabrir el paso a los turistas, porque nos van a traer mucho dinero			
+Card_OptB_3618	136	It is better to wait, there is still the risk of outbreaks and our citizens are looking forward to enjoying the beaches without tourists	Mejor esperar, todavía hay riesgo de rebrotes y nuestros ciudadanos están deseando disfrutar de las playas sin turistas			
+CardTitle_3619		Famous scientists	Científicos famosos			
+CardText_3619		The news that we are getting close to having the vaccine is going around the globe. Let's take advantage to make profit	La noticia de que nos estamos acercando a la vacuna está dando la vuelta al mundo. Aprovechemos la oportunidad para sacar beneficio económico			
+Card_OptA_3619	118	Sign with a publishing house: they will interview our scientists and will publish a book as soon as there is a vaccine	Firmemos con una editorial: entrevistarán a nuestros científicos y publicarán un libro en cuanto haya vacuna			
+Card_OptB_3619	88	Sign with Hollywood: they will film a documentary in our labs and on the island streets 	Firmemos con Hollywood: filmarán un documental en nuestros laboratorios y por las calles de la isla			
+CardTitle_3620		Coutbacks in health care	Recortes sanitarios			
+CardText_3620		The health spending has skyrocketed lately and it has arrived the moment of cutting costs	El gasto sanitario se ha disparado recientemente y ha llegado el momento de recortar			
+Card_OptA_3620	74	If it has to be done, it will be done, even if it is not a popular measure	Si hay que hacerlo se hará aunque no sea una medida popular			
+Card_OptB_3620	97	The alternative to not cutting costs could be to ask the citizens to contribute to cover expenses	En alternativa, para no recortar, podríamos pedir a los ciudadanos que contribuyan a cubrir los gastos			
+CardTitle_3631		New structures	Nuevas estructuras			
+CardText_3631		With the money we can get all the health structures that we want, the question is: how much are we willing to invest? 	Con dinero podemos conseguir todas las estructuras sanitarias que queremos, la pregunta es: ¿cuánto estamos dispuestos a invertir?			
+Card_OptA_3631	56	With moderation, it is risky to invest a lot all at once	Con moderación, es arriesgado invertir mucho de golpe			
+Card_OptB_3631	71	It generates more profit making big investments, so let's not hesitate!	Siempre sale más a cuenta hacer inversiones grandes, así que adelante sin frenos			
+CardTitle_3632		Home health care	Atención a domicilio			
+CardText_3632		We are ready to launch a service of home health care but we haven't found the financial coverage yet	Estamos listos para lanzar el servicio de atención sanitaria a domicilio pero aún no hemos encontrado la cobertura financiera			
+Card_OptA_3632	67	I feel sorry for the citizens but it will have to be a paid service	Lo siento por los ciudadanos, pero tendrá que ser un servicio de pago			
+Card_OptB_3632	94	A pharmacist has offered to sponsor the service in exchange for the last discovery of our labs	Una farmacéutica ha ofrecido patrocinar el servicio a cambio del último descubrimiento de nuestros laboratorios			
+CardTitle_3633		The bill to the people	La factura al pueblo			
+CardText_3633		If we want to have more hospital capacity without investing more money, the citizens will have to bear the costs	Si queremos más capacidad hospitalaria sin invertir más, tendrán que ser los ciudadanos quienes cubran el gasto			
+Card_OptA_3633	70	OK, but let's no overdo it since the popularity level will be affected	Vale, pero sin exagerar ya que tiene un coste a nivel de popularidad			
+Card_OptB_3633	72	Let's go ahead! We will worry about the public opinion at another moment	¡Adelante! De la opinión pública nos preocuparemos en otro momento			
+CardTitle_3634		New generation hospital	Hospital de nueva generación			
+CardText_3634		Health care personnel are still getting infected even though all the possible measures had been taken 	Sigue habiendo contagios entre el personal sanitario, a pesar de haber tomado todas las medidas posibles			
+Card_OptA_3634	116	There is only one thing to be done, to build a new generation hospital, specifically designed to minimize infections	Solo nos falta construir un hospital de nueva generación, diseñado específicamente para minimizar los contagios			
+Card_OptB_3634	43	Unfortunately we cannot afford it right now	Desafortunadamente no nos lo podemos permitir en este momento			
+CardTitle_3635		More beds	Más camas			
+CardText_3635		We are going to need more beds to face the possible outbreaks	Vamos a necesitar más camas para hacer frente a posibles rebrotes			
+Card_OptA_3635	61	We will have to build a new pavilion, even if it is expensive	Tendremos que construir un nuevo pabellón aunque resulte costoso			
+Card_OptB_3635	104	If there is no money we will have to reduce the distance between beds, risking an increase of infections	Si no hay dinero tendremos que reducir la distancia entre camas, con el aumento del riesgo de contagios			
+CardTitle_3646		Well spent money	Dinero bien gastado			
+CardText_3646		The money we spend on research is money well spent, we only have to decide how much money do we want to "well spend"	El dinero gastado en investigación es dinero bien gastado, solo tenemos que decidir cuánto queremos "bien gastar"			
+Card_OptA_3646	61	At the moment, we will have to settle for a moderate quantity	De momento nos tendremos que conformar con una cantidad moderada			
+Card_OptB_3646	54	Let's bet high now that there is money in the cash box	Apostemos fuerte ahora que hay dinero en la caja			
+CardTitle_3647		Prestigious recruit	Fichaje de prestigio			
+CardText_3647		We have the chance to recruit an internationally renowned scientist 	Tenemos la oportunidad de fichar a un científico de prestigio internacional			
+Card_OptA_3647	72	Recruiting him is expensive but he will contribute a lot to the research	Ficharlo es caro pero hará una gran contribución a la investigación			
+Card_OptB_3647	69	There are more urgent problems that need to be solved with that money	Hay problemas más urgentes que necesitan ser resueltos con ese dinero			
+CardTitle_3648		A new clinical trial	Un nuevo ensayo			
+CardText_3648		Thanks to our investment we are ready to launch a new clinical trial, but we are missing the volunteers	Gracias a nuestra inversión estamos listos para lanzar un nuevo ensayo clínico, pero nos faltan voluntarios			
+Card_OptA_3648	66	We will have to reduce the sample, but the results will be partial	Tendremos que reducir la muestra, pero los resultados serán parciales			
+Card_OptB_3648	99	We will oblige some citizens to participate for the common good, even if the might not take it well	Obligaremos a unos cuantos ciudadanos a participar por el bien común, aunque quizás no se lo tomen bien			
+CardTitle_3649		Large-scale trials	Pruebas a gran escala			
+CardText_3649		The vaccine is closer each day; the next step is to organise a large-scale trial	La vacuna está cada día más cerca; el siguiente paso es organizar una prueba a gran escala			
+Card_OptA_3649	96	Thousands of citizens will be our guinea pigs for this great trial; probably they will get angry	Miles de ciudadanos serán nuestras cobayas para esa gran prueba; seguramente se enfaden.			
+Card_OptB_3649	110	If that is not possible, we can focus on the hundreds of people that are at risk, like the health care workers	Si no, podemos enfocarnos en centenares de personas en situación de riesgo, como los sanitarios			
+CardTitle_3650		Collateral effects	Efectos colaterales			
+CardText_3650		It has arrived the time to test the vaccine on healthy people	Ha llegado al momento de probar la vacuna en personas sanas			
+Card_OptA_3650	97	With the right investment we can keep all the participants isolated, avoiding unwanted infections	Con la inversión adecuada podemos mantener aislados a todos los participantes, evitando contagios indeseados			
+Card_OptB_3650	86	If we cannot assume the cost we will have to risk that the participants are contagious	Si no podemos asumir el coste tendremos que correr el riesgo que los participantes sean contagiosos			
+CardTitle_3661		Total elimination	Eliminación total			
+CardText_3661		Up until now we have mitigated the dissemination of the virus, but now it is time to eliminate it completely	Hasta ahora hemos mitigado la difusión del virus,pero ha llegado el momento de eliminarlo por completo			
+Card_OptA_3661	105	It is an unattainable objective, it is better to keep investing to reduce the infections little by little	Es un objetivo inalcanzable, mejor seguir invirtiendo para reducir los contagios poco a poco			
+Card_OptB_3661	22	Come on! Let's invest 	Come on! Let's invest as much as it is needed			
+CardTitle_3662		Loosen up or toughen?	¿Relajar o endurecer?			
+CardText_3662		They are talking about loosening up the social distancing measures and people are expecting a new announcement soon...	Se habla mucho de relajar las medidas de distanciamiento social y la población espera un nuevo anuncio en breve...			
+Card_OptA_3662	73	... but it is still not the moment: it is better to keep them for a while	... pero todavía no es el momento: mejor mantenerlas durante un tiempo			
+Card_OptB_3662	99	... on the contrary, we have to toughen them even if it will be a big disappointment for our people	... al contrario, tenemos que endurecerlas aunque será una decepción grande para nuestra gente			
+CardTitle_3663		Early detection	Detección temprana			
+CardText_3663		The sooner we detect new cases, the earlier we can cut the chain of infections	Cuanto antes detectemos nuevos casos, más pronto podremos cortar la cadena de contagios			
+Card_OptA_3663	73	Let's send small health care teams to make tests to people on the streets	Enviemos pequeños equipos de sanitarios a hacer pruebas a la gente por la calle			
+Card_OptB_3663	87	Even better, let's organise full health care teams to examine everybody in their houses	Mejor aún, organicemos equipos completos de sanitarios para ir a visitar todo el mundo en su casa			
+CardTitle_3664		The paradox	La paradoja			
+CardText_3664		It can seem a paradox but the lesser infections we have, the harder the research will be	Puede parecer una paradoja pero cuantos menos contagios tengamos, más difícil será la investigación			
+Card_OptA_3664	106	We will keep on mitigating the dissemination of the virus even if the vaccine takes a bit longer to arrive	Seguiremos mitigando la difusión de virus aunque la vacuna tarde un poco más en llegar			
+Card_OptB_3664	76	If we eliminate the infections, the vaccine can be delayed without a problem	Si eliminamos los contagios, la vacuna se puede retrasar sin muchas consecuencias			
+CardTitle_3665		Individual monitoring	Seguimiento individual			
+CardText_3665		To avoid new outbreaks it is essential to start up an individual monitoring protocol of all the active cases	Para evitar nuevos brotes es fundamental poner en marcha un protocolo de seguimiento individual de todos los casos activos			
+Card_OptA_3665	100	Let's invest in technology to monitor all the movements and to identify the contacts of the patients	Invirtamos en tecnología para seguir todos los movimientos e identificar los contactos de los pacientes			
+Card_OptB_3665	81	Let's take a chance on a specialized team, formed mainly by health care personnel	Apostemos por un equipo especializado, compuesto en gran mayoría por personal sanitario			
