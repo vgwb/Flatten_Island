@@ -272,13 +272,23 @@ public class GameSession : ISavable
 
 	public NextDayEntry ShowNextDayEntry()
 	{
+		SuggestionMenu suggestionMenu = MainScene.instance.suggestionMenu;
+		NextDayEntry[] nextDayEntryScripts = suggestionMenu.GetComponentsInChildren<NextDayEntry>();
+		if (nextDayEntryScripts.Length > 0)
+		{
+			foreach (NextDayEntry entry in nextDayEntryScripts)
+			{
+				GameObjectFactory.instance.ReleaseGameObject(entry.gameObject, NextDayEntry.PREFAB);
+			}
+		}
+
 		Transform parentTransform = MainScene.instance.suggestionMenu.transform;
 		GameObject nextDayEntry = GameObjectFactory.instance.InstantiateGameObject(NextDayEntry.PREFAB, parentTransform, false);
 		nextDayEntry.gameObject.transform.SetParent(parentTransform, true);
 		NextDayEntry nextDayEntryScript = nextDayEntry.GetComponent<NextDayEntry>();
 		nextDayEntryScript.SetParameters(gameSessionXmlModel, day);
-		nextDayEntry.gameObject.SetActive(true);
-		nextDayEntry.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
+		nextDayEntry.SetActive(true);
+		nextDayEntry.transform.localScale = new Vector3(1f, 1f, 1f);
 		return nextDayEntryScript;
 	}
 
