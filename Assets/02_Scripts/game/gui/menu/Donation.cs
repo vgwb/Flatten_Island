@@ -8,7 +8,14 @@ public class Donation : MonoBehaviour
     {
 		if (!string.IsNullOrEmpty(url))
 		{
-			Application.OpenURL(url);
+			if (Application.platform == RuntimePlatform.WebGLPlayer)
+			{
+				Application.ExternalEval("window.open('" + url + "');");
+			}
+			else
+			{
+				Application.OpenURL(url);
+			}
 		}
 	}
 }
