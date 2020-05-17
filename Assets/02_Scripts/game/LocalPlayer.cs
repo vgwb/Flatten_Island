@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using UnityEngine.Analytics;
 
 public class LocalPlayer : Player
 {
@@ -51,6 +52,10 @@ public class LocalPlayer : Player
 		gameSession.Start(gamePhaseId);
 
 		statistics.IncreaseTotGamesPlayed();
+
+		FlattenIslandAnalyticsEvent startNewGameEvent = new FlattenIslandAnalyticsEvent(new FlattenIslandAnalyticsEventName(FlattenIslandAnalyticsEventName.StartNewGame));
+		startNewGameEvent.AddParam(new FlattenIslandAnalyticsEventParameter(FlattenIslandAnalyticsEventParameter.TotGamesPlayed), statistics.totGamesPlayed.ToString());
+		startNewGameEvent.Send();
 	}
 
 	private int GetInitialGamePhaseId()
@@ -73,6 +78,11 @@ public class LocalPlayer : Player
 	public void QuitGameSession()
 	{
 		statistics.IncreaseGamesQuit();
+
+		FlattenIslandAnalyticsEvent quitGameEvent = new FlattenIslandAnalyticsEvent(new FlattenIslandAnalyticsEventName(FlattenIslandAnalyticsEventName.QuitGame));
+		quitGameEvent.AddParam(new FlattenIslandAnalyticsEventParameter(FlattenIslandAnalyticsEventParameter.TotGamesPlayed), statistics.totGamesPlayed.ToString());
+		quitGameEvent.AddParam(new FlattenIslandAnalyticsEventParameter(FlattenIslandAnalyticsEventParameter.GameCurrentDay), gameSession.day.ToString());
+		quitGameEvent.Send();
 
 		gameSession.Dispose();
 		gameSession = null;
@@ -113,6 +123,38 @@ public class LocalPlayer : Player
 		else if (gameSession.HasPlayerWon())
 		{
 			statistics.IncreaseGamesWon();
+		}
+	}
+
+	public void TrySendingGameOverAnalyticsEvent()
+	{
+		if (gameSession.HasPlayerLose())
+		{
+			FlattenIslandAnalyticsEvent loseGameEvent;
+
+			if (gameSession.HasPlayerLoseDueCapacity())
+			{
+				loseGameEvent = new FlattenIslandAnalyticsEvent(new FlattenIslandAnalyticsEventName(FlattenIslandAnalyticsEventName.LoseGamePatients));
+			}
+			else if (gameSession.HasPlayerLoseDueMoney())
+			{
+				loseGameEvent = new FlattenIslandAnalyticsEvent(new FlattenIslandAnalyticsEventName(FlattenIslandAnalyticsEventName.LoseGameMoney));
+			}
+			else
+			{
+				loseGameEvent = new FlattenIslandAnalyticsEvent(new FlattenIslandAnalyticsEventName(FlattenIslandAnalyticsEventName.LoseGamePubOp));
+			}
+
+			loseGameEvent.AddParam(new FlattenIslandAnalyticsEventParameter(FlattenIslandAnalyticsEventParameter.TotGamesPlayed), statistics.totGamesPlayed.ToString());
+			loseGameEvent.AddParam(new FlattenIslandAnalyticsEventParameter(FlattenIslandAnalyticsEventParameter.GameCurrentDay), gameSession.day.ToString());
+			loseGameEvent.Send();
+		}
+		else if (gameSession.HasPlayerWon())
+		{
+			FlattenIslandAnalyticsEvent winGameEvent = new FlattenIslandAnalyticsEvent(new FlattenIslandAnalyticsEventName(FlattenIslandAnalyticsEventName.WinGame));
+			winGameEvent.AddParam(new FlattenIslandAnalyticsEventParameter(FlattenIslandAnalyticsEventParameter.TotGamesPlayed), statistics.totGamesPlayed.ToString());
+			winGameEvent.AddParam(new FlattenIslandAnalyticsEventParameter(FlattenIslandAnalyticsEventParameter.GameCurrentDay), gameSession.day.ToString());
+			winGameEvent.Send();
 		}
 	}
 

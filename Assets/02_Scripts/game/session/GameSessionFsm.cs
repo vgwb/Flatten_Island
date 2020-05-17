@@ -64,12 +64,14 @@ public class GameSessionFsm : FiniteStateMachine
 	{
 		if (gameSession.HasPlayerWon())
 		{
+			GameManager.instance.localPlayer.TrySendingGameOverAnalyticsEvent();
 			TriggerState(WinningState);
 			return;
 		}
 
 		if (gameSession.HasPlayerLose())
 		{
+			GameManager.instance.localPlayer.TrySendingGameOverAnalyticsEvent();
 			TriggerState(LosingState);
 			return;
 		}
