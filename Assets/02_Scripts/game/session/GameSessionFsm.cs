@@ -56,6 +56,8 @@ public class GameSessionFsm : FiniteStateMachine
 	{
 		Resources.UnloadUnusedAssets();
 		gameSession.gamePhase.DayStart_Enter();
+
+		GameManager.instance.localPlayer.UpdateStatistics();
 	}
 
 	private void DayStart_Update()

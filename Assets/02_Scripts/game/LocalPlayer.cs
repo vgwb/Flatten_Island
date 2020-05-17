@@ -5,6 +5,7 @@ public class LocalPlayer : Player
 	public GameSession gameSession;
 	public PlayerSettings playerSettings;
 	public HighScore highScore;
+	public Statistics statistics;
 
 	public LocalPlayer()
 	{
@@ -16,6 +17,7 @@ public class LocalPlayer : Player
 		gameSession = null;
 		playerSettings = new PlayerSettings();
 		highScore = new HighScore();
+		statistics = new Statistics();
 	}
 
 	public bool HasSession()
@@ -47,6 +49,8 @@ public class LocalPlayer : Player
 
 		gameSession.Initialize(this);
 		gameSession.Start(gamePhaseId);
+
+		statistics.IncreaseTotGamesPlayed();
 	}
 
 	private int GetInitialGamePhaseId()
@@ -68,6 +72,8 @@ public class LocalPlayer : Player
 
 	public void QuitGameSession()
 	{
+		statistics.IncreaseGamesQuit();
+
 		gameSession.Dispose();
 		gameSession = null;
 	}
@@ -87,6 +93,28 @@ public class LocalPlayer : Player
 		return highScore.TryUpdatePublicOpinionHighScore(gameSession.publicOpinion);
 	}
 
+	public void UpdateStatistics()
+	{
+		if (gameSession.HasPlayerLose())
+		{
+			if (gameSession.HasPlayerLoseDueCapacity())
+			{
+				statistics.IncreaseGamesLostForPatients();
+			}
+			else if (gameSession.HasPlayerLoseDueMoney())
+			{
+				statistics.IncreaseGamesLostForMoney();
+			}
+			else if (gameSession.HasPlayerLoseDuePublicOpinion())
+			{
+				statistics.IncreaseGamesLostForPublicOpinion();
+			}
+		}
+		else if (gameSession.HasPlayerWon())
+		{
+			statistics.IncreaseGamesWon();
+		}
+	}
 
 	public override GameData WriteSaveData()
 	{
@@ -107,6 +135,9 @@ public class LocalPlayer : Player
 
 		HighScoreData highScoreData = highScore.WriteSaveData() as HighScoreData;
 		localPlayerData.highScoreData = highScoreData;
+
+		StatisticsData statisticsData = statistics.WriteSaveData() as StatisticsData;
+		localPlayerData.statisticsData = statisticsData;
 
 		return localPlayerData;
 	}
@@ -141,6 +172,15 @@ public class LocalPlayer : Player
 		else
 		{
 			highScore = new HighScore();
+		}
+
+		if (localPlayerData.statisticsData != null)
+		{
+			statistics.ReadSaveData(localPlayerData.statisticsData);
+		}
+		else
+		{
+			statistics = new Statistics();
 		}
 	}
 }
