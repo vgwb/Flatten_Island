@@ -1,6 +1,6 @@
 String Identifier	String Description (Comments)	English	Spanish	Italian	French	Arabic
 Intro_Text1	First text for the Intro Sequence	Welcome to Flatten Island, The World's most bizarre island!%n%n Don´t worry about the volcano behind the island, it´s not dangerous!	¡Bienvenido a Flatten Island, la isla más estrafalaria del mundo!%n%n No te preocupes por el volcán detrás de la isla, no es peligroso.			
-Intro_Text2		Here the governor is selected with a raffle amongst all citizens.%n%n You arrived just in time: the draw is today.  	Aquí el gobernador se selecciona con un sorteo entre todos los ciudadanos.%n%n Llegaste justo a tiempo: el sorteo es hoy mismo. 			
+Intro_Text2		Here the governor is selected in a raffle amongst all citizens.%n%n You arrived just in time: the draw is today.  	Aquí el gobernador se selecciona con un sorteo entre todos los ciudadanos.%n%n Llegaste justo a tiempo: el sorteo es hoy mismo. 			
 Intro_Text3		And the winner is ... you!%n%n Congratulations, you will rule the island with the help of a few advisors.%n Let´s meet them ...	Y el ganador... ¡eres tú!%n%n ¡Enhorabuena! Gobernarás la isla con la ayuda de algunos asesores.%n Vamos a conocerlos ...			
 OkText		OK	OK	Ok	Ok	حسنا
 YesText		Yes	Sí	Si	Oui	نعم
@@ -30,26 +30,26 @@ TutorialMenuText		Tutorial	Tutorial	Tutoriale
 CreditsMenuText		Credits	Créditos	Credits		
 WatchIntroMenuText		Watch the Intro	Ver Intro	Guarda la Intro		
 DisclaimerTitle		DISCLAIMER	DESCARGO DE RESPONSABILIDAD			
-DisclaimerText		The content of this game does not have any scientific base and does not intend in any way to suggest how to act in a real emergency.	El contenido del juego no tiene ninguna base científica y no pretende en algún modo sugerir como comportarse frente a una emergencia real			
+DisclaimerText		The content of this game does not have any scientific basis and does not intend in any way to suggest how to act in a real emergency.	El contenido del juego no tiene ninguna base científica y no pretende en algún modo sugerir como comportarse frente a una emergencia real			
 CreditsTitle		Developed altruistically by Video Games Without Borders in cooperation with Margarito Estudio, Cicchi Consulting and Asociación Oleaje.	Desarrollado de forma altruista por Videojuegos Sin Fronteras en colaboración con Margarito Estudio, Cicchi Consulting y Asociación Oleaje			
 Loading		loading...	cargando...			
 Present		present	presentan			
-InCollaborationWith		in coperation with	en colaboración con			
+InCollaborationWith		in cooperation with	en colaboración con			
 PressSecretary_Name		Mr. Goodnews	Don Megusta	Sr. Mipiace		
 Treasurer_Name		Professor Payalot	Profesora Calderilla	Professoressa Spiccioli		
 LabScientist_Name		Director Antibody	Directora Anticuerpos	Direttrice Anticorpi		
 HospitalDirector_Name		Doctor Deepbreath	Doctor Tomeaire	Dottor Polmoni		
 Commander_Name		Agent Logarithm	Agente Logaritmo	Agente Logaritmo		
 PressSecretary_Presentation_Text		Hello! I'm Mr. Goodnews, your PR. I take care of what citizens think about you.%n Be careful, if your popularity falls down to a 0%, you'll get fired!	Hola, me llamo Don Megusta y soy tu Asesor de Comunicación. Me ocupo de lo que los ciudadanos piensan de ti.%n ¡Ten cuidado, si tu popularidad cae a 0%, te echarán!			
-Treasurer_Presentation_Text		Let me introduce myself: I'm Mrs. Payalot. I take care of the Administration's Money.%n If we run out of money you will lose your job and the game.	Me presento: soy la Profesora Calderilla y cuido del dinero de la administración.%n Si nos quedamos sin dinero pierdes el puesto y la partida.			
-LabScientist_Presentation_Text		I'm Prof. Antibody. I lead the research team to find the vaccine.%n Getting the vaccine means defeating the virus and winning the game.	Soy la Directora Anticuerpos. Lidero el equipo de investigación sobre la vacuna.%n Conseguir la vacuna significa derrotar al virus y ganar la partida.			
-HospitalDirector_Presentation_Text		Good morning! I'm Dr. Deepbreath, the Director of the Island's Hospitals. My priority is to take care of all the patients with professionalism and dignity.%n If we cannot manage to admit all patients in need, your chance as leader will be over and so will the game!	Buenos días, soy el Doctor Tomeaire, director de los hospitales de la isla. Mi prioridad es poder tratar a todos los pacientes con profesionalidad y dignidad.%n Si no podemos admitir a todos los pacientes que lo necesiten, tu experiencia al mando se acaba... y la partida también.			
+Treasurer_Presentation_Text		Let me introduce myself: I'm Professor Payalot. I take care of the Administration's Money.%n If we run out of money you will lose your job and the game.	Me presento: soy la Profesora Calderilla y cuido del dinero de la administración.%n Si nos quedamos sin dinero pierdes el puesto y la partida.			
+LabScientist_Presentation_Text		I'm Director Antibody. I lead the research team to find the vaccine.%n Getting the vaccine means defeating the virus and winning the game.	Soy la Directora Anticuerpos. Lidero el equipo de investigación sobre la vacuna.%n Conseguir la vacuna significa derrotar al virus y ganar la partida.			
+HospitalDirector_Presentation_Text		Good morning! I'm Doctor Deepbreath, the director of the Island's Hospitals. My priority is to take care of all the patients with professionalism and dignity.%n If we cannot manage to admit all patients in need, your chance as leader will be over and so will the game!	Buenos días, soy el Doctor Tomeaire, director de los hospitales de la isla. Mi prioridad es poder tratar a todos los pacientes con profesionalidad y dignidad.%n Si no podemos admitir a todos los pacientes que lo necesiten, tu experiencia al mando se acaba... y la partida también.			
 Commander_Advisor_Presentation_Text		Agent Logarithm here, Commander of the Crisis Special Unit at your service.%n We just detected the first cases and our priority will be to reduce the growth of the outbreak. 	Agente Logaritmo, Comandante de la Unidad de Crisis, a sus órdenes.%n Acabamos de detectar los primeros casos y nuestra prioridad será reducir el crecimiento del brote.			
-Tutorial_NextDay_Text		Some data will be updated at the end of each day: the vaccines research has progressed a little bit, the number of patients is updated based on its growth factor and we will get some money thanks to the taxes.	Al final de cada día se irán actualizando algunos datos: la investigación para la vacuna avanza un pasito, el número de pacientes se actualiza según su factor de crecimiento y recibiremos algo de dinero gracias a los impuestos			
+Tutorial_NextDay_Text		Some data will be updated at the end of each day; the vaccines research has progressed a little bit, the number of patients is updated based on its growth factor, and we will get some money thanks to the taxes.	Al final de cada día se irán actualizando algunos datos: la investigación para la vacuna avanza un pasito, el número de pacientes se actualiza según su factor de crecimiento y recibiremos algo de dinero gracias a los impuestos			
 CardTitle_3001		Your first statement	Tu primera declaración			
 CardText_3001		People are worried about the virus that is spreading around the world. Let’s make a statement...	La gente está preocupada por el virus que se está extendiendo en todo el mundo. Vamos a hacer una declaración al respecto...			
 Card_OptA_3001	35	No worries!%n It’s just like a flu!	¡Tranquilos!%n ¡Es como una gripe!			
-Card_OptB_3001	83	We are getting ready to face the virus and we are following closely its development	Nos estamos preparando para hacer frente al virus y seguimos de cerca su evolución			
+Card_OptB_3001	83	We are getting ready to face the virus and we are closely following its development	Nos estamos preparando para hacer frente al virus y seguimos de cerca su evolución			
 CardTitle_3002		Virus Tax	Impuesto para el virus			
 CardText_3002		We need a lot of money to get ready. We are going to establish a special tax to deal with the emergency that is coming up.	Necesitamos mucho dinero para estar listos. Vamos a establecer un impuesto especial para la situación de emergencia que se acerca			
 Card_OptA_3002	68	No! It's better not to upset the citizens right after taking office.	¡No! Mejor no enfadar a los ciudadanos nada más tomar posesión			
@@ -57,13 +57,13 @@ Card_OptB_3002	16	Ok, let’s do it!	¡Bien, hagámoslo!
 CardTitle_3003		The vaccine	La vacuna			
 CardText_3003		The more we invest into research, the sooner we will get the vaccine! Let’s start immediately!	Cuanto más se invierta en investigación, más pronto llegaremos a la vacuna. Vamos a empezar de inmediato.			
 Card_OptA_3003	26	Yes, we cannot waste time!	¡Vale, no podemos perder tiempo!			
-Card_OptB_3003	67	It's better to wait, we don’t even know if the virus will get here.	Mejor esperar, ni siquiera sabemos si el virus va a llegar hasta aquí			
+Card_OptB_3003	66	It's better to wait, we don’t even know if the virus will get here	Mejor esperar, ni siquiera sabemos si el virus va a llegar hasta aquí			
 CardTitle_3004		Hospital capacity	Capacidad hospitalaria			
 CardText_3004		The hospital capacity tells us how many patients our healthcare system can take care of at the same time	La capacidad hospitalaria nos dice cuantos pacientes podemos tratar a la vez en nuestro sistema sanitario			
 Card_OptA_3004	36	We can wait until the storm comes...	Podemos esperar a que llegue la tormenta...			
-Card_OptB_3004	52	... or invest now in order to increase our capacity.	... o invertir ya para incrementar nuestra capacidad			
+Card_OptB_3004	58	... or invest money now in order to increase our capacity.	... o invertir ya para incrementar nuestra capacidad			
 CardTitle_3005		The growth factor	El factor de crecimiento			
-CardText_3005		This percentage indicates how the number of patients will evolve between today and tomorrow, that is why it is important to keep it as low as possible.	Este porcentaje nos indica cómo evolucionará el número de pacientes entre hoy y mañana, por eso es importante mantenerlo lo más bajo posible			
+CardText_3005		This percentage indicates how the number of patients will evolve between today and tomorrow, that is why it is important to keep it as low as possible	Este porcentaje nos indica cómo evolucionará el número de pacientes entre hoy y mañana, por eso es importante mantenerlo lo más bajo posible			
 Card_OptA_3005	67	Let's take measures now to prevent it from increasing exponentially	Tomemos medidas ya para evitar que crezca de manera exponencial			
 Card_OptB_3005	49	There's no rush, the percentage is still very low	No hay prisa, el porcentaje es muy bajo todavía			
 CardTitle_3201		What is happening?	¿Qué está pasando?			
@@ -760,5 +760,5 @@ Card_OptA_3665		Let's invest in technology to monitor all the movements and to i
 Card_OptB_3665		Let's take a chance on a specialized team, formed mainly by health care personnel	Apostemos por un equipo especializado, compuesto en gran mayoría por personal sanitario			
 PrivacyTitle		Privacy	Privacidad			
 PrivacyText		Simply put, we do not collect any sensitive or personal information.%n We only use a data analytics service to trace a few anonymous events and exclusively to enhance the gaming experience.	En pocas palabras, no recopilamos información confidencial o personal.%n Solo utilizamos un servicio de análisis de datos para rastrear algunos eventos anónimos y exclusivamente para mejorar la experiencia de juego.			
-ButtonPrivacyPolicy		Read the Privacy Policy	Leer la Politica di Privacidad			
-ButtonAnalyticsOpOut		Opt-out form the analytics service	Darse de baja del servicio de analítica de datos			
+ButtonPrivacyPolicy		Read the Privacy Policy	Leer la Politica de Privacidad			
+ButtonAnalyticsOpOut		Opt-out form the analytics service	Baja del servicio de análisis de datos			
