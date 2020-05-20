@@ -156,7 +156,7 @@ Card_OptA_3222	36	It is good to invest, but moderately	Está bien invertir, pero
 Card_OptB_3222	52	Finding the vaccine is a priority, whatever it costs	Encontrar la vacuna es la prioridad, cueste lo que cueste			
 CardTitle_3223		International project	Proyecto internacional			
 CardText_3223		We have the chance to join an international research project	Tenemos la oportunidad de sumarnos a una investigación internacional			
-Card_OptA_3223	64	No, it is better to keep on working our own, slowly but steadily	No, mejor seguir por nuestra cuenta, despacito pero con paso firme			
+Card_OptA_3223	67	No, it is better to keep on working on our own, slowly but steadily	No, mejor seguir por nuestra cuenta, despacito pero con paso firme			
 Card_OptB_3223	57	It is a good chance to earn time but it is more expensive	Es una buena oportunidad para ganar tiempo pero sale más cara			
 CardTitle_3224		One island, one leader	Una isla, un líder			
 CardText_3224		In an emergency, it is important that the people trust their governor: we are going to launch a big image campaign	En la emergencia es importante que el pueblo confíe en su gobernador: vamos a lanzar una gran campaña de imagen			
@@ -177,7 +177,7 @@ Card_OptB_3227	65	This year it will be better to cancel it in order to avoid cro
 CardTitle_3228		The Governor's intervention	La actuación del Gobernador			
 CardText_3228		The management of the crisis will give us the chance to improve our public image	La gestión de la crisis nos da la oportunidad de mejorar nuestra imagen de cara a los ciudadanos			
 Card_OptA_3228	82	We are going to launch a campaign about the Governor's intervention in this crisis	Vamos a lanzar una campaña sobre la actuación del Gobernador frente a la crisis			
-Card_OptB_3228	108	It will be enough by just putting the Governor's portrait as visible as posible during the press conferences	Con poner el retrato del Gobernador bien visible en cada rueda de prensa que demos será suficiente			
+Card_OptB_3228	109	It will be enough by just putting the Governor's portrait as visible as possible during the press conferences	Con poner el retrato del Gobernador bien visible en cada rueda de prensa que demos será suficiente			
 CardTitle_3229		The clowns	Los payasos			
 CardText_3229		Infection rates are rising and people are really worried. We have to do something now!	Los contagios se aceleran y la gente está muy preocupada.¡Tenemos que hacer algo ya!			
 Card_OptA_3229	44	Clowns! A tv show to lift everyboy's spirits	¡Payasos! Un espectáculo en la tele para subir los ánimos a todos			
@@ -211,7 +211,7 @@ CardText_3236		An easy way to have more money is not spending 	Una manera sencil
 Card_OptA_3236	90	Research teams spend a lot in supplies, this time they will have to manage with less money	Los equipos de investigación gastan mucho en materiales, esta vez se las arreglarán con menos			
 Card_OptB_3236	72	Screening tests are very expensive, we can save money doing less of them	Las pruebas de detección del virus son muy caras, podemos ahorrar haciendo menos tests			
 CardTitle_3237		International Symposium	Simposio internacional			
-CardText_3237		The biggest international meeting about vulcanology starts tomorrow and the atendees are worried about getting infected	El mayor encuentro internacional sobre vulcanología empieza mañana y los asistentes están preocupados por posibles contagios			
+CardText_3237		The biggest international meeting about volcanology starts tomorrow and the attendees are worried about getting infected	El mayor encuentro internacional sobre vulcanología empieza mañana y los asistentes están preocupados por posibles contagios			
 Card_OptA_3237	69	We can no longer cancel it because we have been paid by the sponsors 	Ya no podemos cancelarlo porque hemos recibido la aportación de los patrocinadores			
 Card_OptB_3237	81	They would double their economic contribution if we book a hospital for the event	Duplicarían su contribución si reservamos un hospital para el evento			
 CardTitle_3238		Cutbacks in research	Tijeretazo a la investigación			
@@ -347,7 +347,7 @@ CardText_3270		If everybody stayed home for a period of time we could stop the i
 Card_OptA_3270	81	Obligatory and total confinement for everybody, even if the economic cost is high	Confinamiento obligatorio y total para todo el mundo, aunque el coste económico sea alto			
 Card_OptB_3270	98	Soft confinement, people are allowed to go to work and to run errands, that way it is much cheaper	Confinamiento suave, se puede salir para ir a trabajar y hacer recados: así es mucho más barato			
 CardTitle_3271		Vaccine or treatment?	¿Vacuna o tratamiento?			
-CardText_3271		Our teams of scientists have discovered how the virus is transmitted	Nuestros equipos de científicos  ha descubierto cómo se transmite el virus			
+CardText_3271		Our teams of scientists have discovered how the virus is transmitted	Nuestros equipos de científicos han descubierto cómo se transmite el virus			
 Card_OptA_3271	79	We can take advantage and ask them to develop treatments to limit the infection	Podemos aprovechar y pedirles que desarrollen tratamientos para limitar los contagios			
 Card_OptB_3271	66	Let's keep investing in the vaccine since it is the most important	Sigamos invirtiendo en la vacuna que es lo más importante			
 CardTitle_3272		Infection sources in healthcare centres	Focos en los centros de salud			
@@ -359,13 +359,13 @@ CardText_3273		This technology allows us to identify and isolate the positive ca
 Card_OptA_3273	58	... and it even manages to be noninvasive for the patients	... y además lo consigue sin ser invasiva para los pacientes			
 Card_OptB_3273	37	It is a pity that we cannot afford it	Lástima que no podamos permitirnosla			
 CardTitle_3401		All about the vaccine	Todo sobre la vacuna			
-CardText_3401		Citizens want to be inform about all the news regarding the vaccine	La población quiere estar informada sobre todas las novedades respecto a la vacuna			
+CardText_3401		Citizens want to be informed about all the news regarding the vaccine	La población quiere estar informada sobre todas las novedades respecto a la vacuna			
 Card_OptA_3401	50	Hire an agency to take charge of the communication	Contratemos una agencia para que se encargue de la comunicación			
 Card_OptB_3401	77	Is anybody better than our scientists to inform frequently about the vaccine?	¿Quién mejor que nuestros científicos para comunicar con frecuencia sobre la vacuna?			
 CardTitle_3402		Direct line	Línea directa			
 CardText_3402		Citizens are asking more and more questions, let's create a call centre to answer them	Los ciudadanos tienen cada vez más preguntas, montemos un call center para contestarles al teléfono			
 Card_OptA_3402	84	It is better to hire a specialised company, so the phone operators are professionals	Mejor contratar a una empresa especializada para que los operadores sean profesionales			
-Card_OptB_3402	124	Let's use health care personnel, that way we will also be able to identify people with symptons and isolate them inmediately	Usemos personal sanitario; así podremos también identificar personas con síntomas y aislarlas inmediatamente			
+Card_OptB_3402	124	Let's use health care personnel, that way we will also be able to identify people with symptoms and isolate them immediately	Usemos personal sanitario; así podremos también identificar personas con síntomas y aislarlas inmediatamente			
 CardTitle_3403		Active listening	Escucha activa			
 CardText_3403		With all the health care personnel focused on the emergency there is nobody to see those who only need to be listened to	Con todo el personal sanitario volcado en la emergencia no queda nadie para recibir a quien solo necesite ser escuchado			
 Card_OptA_3403	101	Let's devote a health care team to see and listen to whoever might need it, people will appreciate it	Dediquemos un equipo sanitario a recibir y escuchar a quien lo necesite, el pueblo lo agradecerá			
@@ -758,3 +758,7 @@ CardTitle_3665		Individual monitoring	Seguimiento individual
 CardText_3665		To avoid new outbreaks it is essential to start up an individual monitoring protocol of all the active cases	Para evitar nuevos brotes es fundamental poner en marcha un protocolo de seguimiento individual de todos los casos activos			
 Card_OptA_3665		Let's invest in technology to monitor all the movements and to identify the contacts of the patients	Invirtamos en tecnología para seguir todos los movimientos e identificar los contactos de los pacientes			
 Card_OptB_3665		Let's take a chance on a specialized team, formed mainly by health care personnel	Apostemos por un equipo especializado, compuesto en gran mayoría por personal sanitario			
+PrivacyTitle		Privacy	Privacidad			
+PrivacyText		Simply put, we do not collect any sensitive or personal information.%n We only use a data analytics service to trace a few anonymous events and exclusively to enhance the gaming experience.	En pocas palabras, no recopilamos información confidencial o personal.%n Solo utilizamos un servicio de análisis de datos para rastrear algunos eventos anónimos y exclusivamente para mejorar la experiencia de juego.			
+ButtonPrivacyPolicy		Read the Privacy Policy	Leer la Politica di Privacidad			
+ButtonAnalyticsOpOut		Opt-out form the analytics service	Darse de baja del servicio de analítica de datos			
