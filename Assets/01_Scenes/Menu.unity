@@ -9334,7 +9334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a82520784acc7054f9234cb33f86695b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  url: https://flattenisland.org/donate/
+  urlLocalizationId: DonateURL
 --- !u!114 &3991835049784429314
 MonoBehaviour:
   m_ObjectHideFlags: 0

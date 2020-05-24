@@ -2,9 +2,15 @@
 
 public class Donation : MonoBehaviour
 {
-	public string url;
+	public string urlLocalizationId;
+	private string url;
 
-    public void CallForDonation()
+	private void Start()
+	{
+		url = LocalizationManager.instance.GetPlainText(urlLocalizationId);
+	}
+
+	public void CallForDonation()
     {
 		if (!string.IsNullOrEmpty(url))
 		{

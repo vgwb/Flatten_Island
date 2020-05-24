@@ -24,6 +24,7 @@ StartNewGameText		START NEW GAME	NUEVA PARTIDA	NUOVA PARTITA
 CallToActionTitleText		This is just a game.	Esto es solo un juego.	CHIAMATA		
 CallToActionMessageText		The emergency is real.	La emergencia es real.	Aiuta le persone		
 DonateText		DONATE NOW	DONA AHORA	DONA ADESSO		
+DonateURL		https://flattenisland.org/donate/	https://flattenisland.org/donate/			
 MusicMenuText		Music	Música	Musica		
 SFXMenuText		SFX	Efectos	SFX		
 TutorialMenuText		Tutorial	Tutorial	Tutoriale		
@@ -71,7 +72,7 @@ CardText_3201		The citizens don't understand why the number of infections are gr
 Card_OptA_3201	97	We are going to bring up other subjects, in order to distract them, so they will stop complaining	Vamos a hablar de otros temas; así se distraen y dejan de quejarse			
 Card_OptB_3201	54	We are going to launch a tv campaign to explain it all	Vamos a lanzar una campaña en la tele para explicarlo todo			
 CardTitle_3202		Citizen participation	Participación ciudadana			
-CardText_3202		Our Communications campaign is working well	Nuestra campaña de comunicación está funcionando bien			
+CardText_3202		Our communications campaign is working well	Nuestra campaña de comunicación está funcionando bien			
 Card_OptA_3202	43	Keep it up: a winning team does not change!	Sigamos así: ¡un equipo ganador no se cambia!			
 Card_OptB_3202	42	We can do more: let's involve the citizens	Podemos hacer más: involucremos a los ciudadanos			
 CardTitle_3203		The toilet paper crisis	La crisis del papel higiénico			
@@ -630,7 +631,7 @@ CardTitle_3468		Face masks for everybody	Mascarillas para todos
 CardText_3468		Face masks are not the most effective solution, but they can avoid that asymptomatic patients infect others	Las mascarillas no son la solución más eficaz, pero pueden evitar que los asintomáticos contagien a los demás			
 Card_OptA_3468		With a moderate investment we can buy face masks for all the citizens, they will be thankful 	Con una inversión moderada podemos ofrecer mascarillas a toda la población, lo agradecerán			
 Card_OptB_3468		It is better to save the money for higher impact measures	Mejor reservar el dinero para medidas de más impacto			
-CardTitle_3469		Bye gazpacho!	¡Adiós, gazpacho!			
+CardTitle_3469		Goodbye gazpacho!	¡Adiós, gazpacho!			
 CardText_3469		A message has gone viral online suggesting that eating raw garlic protects from the infection	Por la red está circulando con mucho éxito un mensaje que sugiere que tomar ajo crudo protege del contagio			
 Card_OptA_3469		Let's hire a team to detect and block any fake news before they can cause damage	Contratemos un equipo para detectar y bloquear cualquier bulo antes de que pueda causar daños			
 Card_OptB_3469		Let's buy all the garlic on the island, so people will have to follow the security measures correctly	Compremos todo el ajo de la isla, así la gente tendrá que seguir las correctas medidas de seguridad			
