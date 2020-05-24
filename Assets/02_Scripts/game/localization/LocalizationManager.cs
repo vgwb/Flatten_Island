@@ -125,6 +125,11 @@ public class LocalizationManager : MonoSingleton
 		return localizationId;
 	}
 
+	public string GetPlainText(string localizationId)
+	{
+		return GetText(localizationId);
+	}
+
 	private string GetLocalizedText(string localizationId)
 	{
 		LocalPlayer localPlayer = GameManager.instance.localPlayer;
