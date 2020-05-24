@@ -65,7 +65,7 @@ public class FutureProjector : MonoSingleton
 		}
 
 		// Normalise those patients to the current capacity based on the predicted capacity
-		float capacityRatio = capacity / (float)capacityOnDate;
+		float capacityRatio = capacity / (float)Math.Max(capacityOnDate, ChartManager.MIN_CAPACITY);
 		int normalisedPatients = (int)(targetPatients * capacityRatio);
 		return normalisedPatients;
 	}

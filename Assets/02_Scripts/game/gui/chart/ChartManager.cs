@@ -36,6 +36,7 @@ public class ChartManager : MonoSingleton
 	private const int MAX_Y_RANGE = HEIGHT - CAPACITY_LINE_Y;
 	private const int LINE_THICKNESS = 3;
 	private const float EPSILON = 0.05f;
+	public const float MIN_CAPACITY = 100.0f;
 
 	// Internal state
 	private bool animating = false;
@@ -351,7 +352,7 @@ public class ChartManager : MonoSingleton
 	{
 		if (sessionCopy == null) return HEIGHT;
 		
-		float currentCapacity = (float)sessionCopy.capacity;
+		float currentCapacity = (float)Math.Max(sessionCopy.capacity, MIN_CAPACITY); // Never divide by 0
 		float capacityUsage = patients / currentCapacity;
 		return HEIGHT - (int)(capacityUsage * MAX_Y_RANGE);
 	}
