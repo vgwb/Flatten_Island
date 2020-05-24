@@ -24,7 +24,7 @@ public class LocalPlayer : Player
 	public bool HasSession()
 	{
 		//The capacity > 0 is needed because Unity Json Serializer serialize a null object with its default values :-(
-		return gameSession != null && gameSession.capacity > 0;
+		return gameSession != null && gameSession.maxDays > 0;
 	}
 
 	public bool HasLanguageId()
