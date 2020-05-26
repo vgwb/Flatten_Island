@@ -101,7 +101,8 @@ public class PatientsPanelSelector : MonoSingleton
 
 	private bool IsOverMaxExpectedDays(int currentDay)
 	{
-		return currentDay > GameManager.instance.localPlayer.gameSession.maxDays;
+		int intoOvertime = GameManager.instance.localPlayer.gameSession.maxDays - GameSession.EXTRA_MAX_DAYS;
+		return currentDay > intoOvertime;
 	}
 
 	private bool IsCloseToAPeak(int growth)
