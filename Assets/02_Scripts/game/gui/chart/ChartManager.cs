@@ -95,7 +95,6 @@ public class ChartManager : MonoSingleton
 		WIDTH = (HEIGHT * VIEWPORT_WITDH) / VIEWPORT_HEIGHT;
 		CURVE_MIN_WIDTH = (int)(WIDTH * 0.11); // tune, so show a minimum line and separate indicators
 		CURVE_MAX_WIDTH = (int)(WIDTH * 0.85); // tune, to leave space for the patients indicator
-		DAY_WIDTH_INCREMENT = (CURVE_MAX_WIDTH - CURVE_MIN_WIDTH) / (float)GetMaxDays();
 	}
 
 	public void RestartChartAnimation(bool prediction = true)
@@ -192,6 +191,7 @@ public class ChartManager : MonoSingleton
 	private Sprite CreateChartSprite(float elapsedTime)
 	{
 		Texture2D tex = GetTransparentTexture();
+		DAY_WIDTH_INCREMENT = (CURVE_MAX_WIDTH - CURVE_MIN_WIDTH) / (float)GetMaxDays();
 		DrawDaySegments(tex, elapsedTime);
 		PositionBeginAndEndDots(elapsedTime);
 		PositionGrowthPanel();
