@@ -1,23 +1,64 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <group>
-	<localization id="1001" name="English" languageId="English" useLatinFont="true">
-		<tag>en</tag>
-		<tag>english</tag>
-	</localization>
-	<localization id="1002" name="Español" languageId="Spanish" useLatinFont="true">
-		<tag>es</tag>
-		<tag>spanish</tag>
-	</localization>	
-	<localization id="1003" name="Italiano" languageId="Italian" useLatinFont="true">
-		<tag>it</tag>
-		<tag>italian</tag>
-	</localization>
-	<localization id="1004" name="Français" languageId="French" useLatinFont="true">
-		<tag>fr</tag>
-		<tag>french</tag>
-	</localization>
-	<localization id="1005" name="Arabic" languageId="Arabic" useLatinFont="false">
-		<tag>ar</tag>
-		<tag>arabic</tag>
-	</localization>
+  <localization id="1001" name="English (US)" languageId="EnglishUS" useLatinFont="true">
+    <tag>en</tag>
+    <tag>en-us</tag>
+    <tag>english</tag>
+  </localization>
+  <localization id="1002" name="English (UK)" languageId="EnglishUK" useLatinFont="true">
+    <tag>en-gb</tag>
+    <tag>english</tag>
+  </localization>
+  <localization id="1003" name="Español" languageId="Spanish" useLatinFont="true">
+    <tag>es</tag>
+    <tag>spanish</tag>
+  </localization>
+  <localization id="1004" name="Français" languageId="French" useLatinFont="true">
+    <tag>fr</tag>
+    <tag>french</tag>
+  </localization>
+  <localization id="1005" name="Italiano" languageId="Italian" useLatinFont="true">
+    <tag>it</tag>
+    <tag>italian</tag>
+  </localization>
+  <localization id="1006" name="Polish" languageId="Polish" useLatinFont="true">
+    <tag>pl</tag>
+    <tag>polish</tag>
+  </localization>
+  <localization id="1007" name="Ukranian" languageId="Ukranian" useLatinFont="true">
+    <tag>uk</tag>
+    <tag>ukranian</tag>
+  </localization>
+  <localization id="1008" name="Croatian" languageId="Croatian" useLatinFont="true">
+    <tag>hr</tag>
+    <tag>croatian</tag>
+  </localization>
+  <localization id="1009" name="Turkish" languageId="Turkish" useLatinFont="true">
+    <tag>tr</tag>
+    <tag>turkish</tag>
+  </localization>
+  <localization id="1010" name="Hebrew" languageId="Hebrew" useLatinFont="true">
+    <tag>he</tag>
+    <tag>hebrew</tag>
+  </localization>
+  <localization id="1011" name="Arabic" languageId="Arabic" useLatinFont="false">
+    <tag>ar</tag>
+    <tag>arabic</tag>
+  </localization>
+  <localization id="1012" name="Persian" languageId="Persian" useLatinFont="true">
+    <tag>fa</tag>
+    <tag>persian</tag>
+  </localization>
+  <localization id="1013" name="Chinese" languageId="Chinese" useLatinFont="true">
+    <tag>zh</tag>
+    <tag>chinese</tag>
+  </localization>
+  <localization id="1014" name="Korean" languageId="Korean" useLatinFont="true">
+    <tag>ko</tag>
+    <tag>korean</tag>
+  </localization>
+  <localization id="1015" name="Japanese" languageId="Japanese" useLatinFont="true">
+    <tag>ja</tag>
+    <tag>japanese</tag>
+  </localization>
 </group>
