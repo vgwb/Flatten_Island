@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class SettingsMenu : MonoSingleton
 {
 	public GridLayoutGroup settingsGrid;
+	public Button settingsButton;
 
 	public static SettingsMenu instance
 	{
@@ -16,12 +17,19 @@ public class SettingsMenu : MonoSingleton
 	public void HideMenu()
 	{
 		settingsGrid.gameObject.SetActive(false);
+		LanguageMenu.instance.ShowLanguagesButton(true);
 		MenuScene.instance.UpdateBlockingBackground();
+	}
+
+	public void ShowSettingsButton(bool shown)
+	{
+		settingsButton.gameObject.SetActive(shown);
 	}
 
 	public void OnButtonShowMenuClick()
 	{
 		ShowGrid(!settingsGrid.gameObject.activeInHierarchy);
+		LanguageMenu.instance.ShowLanguagesButton(!settingsGrid.gameObject.activeInHierarchy);
 	}
 
 	private void ShowGrid(bool visible)

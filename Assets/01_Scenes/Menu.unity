@@ -4734,6 +4734,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   languagesGrid: {fileID: 777481966}
+  languagesButton: {fileID: 807646636}
 --- !u!1 &931267655
 GameObject:
   m_ObjectHideFlags: 0
@@ -12714,6 +12715,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settingsGrid: {fileID: 1729332478}
+  settingsButton: {fileID: 1459342351}
 --- !u!114 &6080458907496565509
 MonoBehaviour:
   m_ObjectHideFlags: 0
