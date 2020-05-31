@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <group>
-  <localization id="1001" name="English (US)" languageId="EnglishUS" useLatinFont="true">
+  <localization id="1001" name="English (US)" languageId="English_US" useLatinFont="true">
     <tag>en</tag>
     <tag>en-us</tag>
     <tag>english</tag>
   </localization>
-  <localization id="1002" name="English (UK)" languageId="EnglishUK" useLatinFont="true">
+  <localization id="1002" name="English (UK)" languageId="English_UK" useLatinFont="true">
     <tag>en-gb</tag>
     <tag>english</tag>
   </localization>
@@ -25,7 +25,7 @@
     <tag>pl</tag>
     <tag>polish</tag>
   </localization>
-  <localization id="1007" name="Ukranian" languageId="Ukranian" useLatinFont="true">
+  <localization id="1007" name="Ukranian" languageId="Ukrainian" useLatinFont="true">
     <tag>uk</tag>
     <tag>ukranian</tag>
   </localization>
@@ -49,7 +49,7 @@
     <tag>fa</tag>
     <tag>persian</tag>
   </localization>
-  <localization id="1013" name="Chinese" languageId="Chinese" useLatinFont="true">
+  <localization id="1013" name="Chinese" languageId="Simplified Chinese" useLatinFont="true">
     <tag>zh</tag>
     <tag>chinese</tag>
   </localization>

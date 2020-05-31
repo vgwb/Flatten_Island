@@ -957,7 +957,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79cf0c3ea8741b34e97a222bc0e5888b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  languageId: Chinese
+  languageId: Simplified Chinese
 --- !u!114 &204195681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8178,7 +8178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79cf0c3ea8741b34e97a222bc0e5888b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  languageId: EnglishUS
+  languageId: English_US
 --- !u!114 &1598545796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10237,7 +10237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79cf0c3ea8741b34e97a222bc0e5888b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  languageId: EnglishUK
+  languageId: English_UK
 --- !u!114 &1948751550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11342,7 +11342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79cf0c3ea8741b34e97a222bc0e5888b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  languageId: Ukranian
+  languageId: Ukrainian
 --- !u!114 &2098764069
 MonoBehaviour:
   m_ObjectHideFlags: 0
