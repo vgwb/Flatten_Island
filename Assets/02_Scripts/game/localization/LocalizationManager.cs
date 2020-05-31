@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using ArabicSupport;
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using System;
@@ -119,7 +120,15 @@ public class LocalizationManager : MonoSingleton
 		string localizedText = GetLocalizedText(localizationId);
 		if (localizedText != null)
 		{
-			return localizedText;
+			LocalizationXmlModel currentLanguageXmlModel = instance.GetCurrentLanguage();
+			if (currentLanguageXmlModel.isRightToLeft)
+			{
+				return ArabicFixer.Fix(localizedText);
+			}
+			else
+			{
+				return localizedText;
+			}
 		}
 
 		return localizationId;
