@@ -2,6 +2,7 @@
 using UnityEngine;
 using Messages;
 using UnityEngine.UI;
+using ArabicSupport;
 
 public class LanguageButton : MonoBehaviour
 {
@@ -13,7 +14,14 @@ public class LanguageButton : MonoBehaviour
 	private void Awake()
 	{
 		languageXmlModel = LocalizationManager.instance.FindLocalizationXmlModelWithLanguageId(languageId);
-		languageButtonText.text = languageXmlModel.name;
+		if (languageXmlModel.isRightToLeft)
+		{
+			languageButtonText.text = ArabicFixer.Fix(languageXmlModel.name);
+		}
+		else
+		{
+			languageButtonText.text = languageXmlModel.name;
+		}
 	}
 
 	public void OnClick()
