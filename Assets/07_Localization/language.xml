@@ -21,43 +21,43 @@
     <tag>it</tag>
     <tag>italian</tag>
   </localization>
-  <localization id="1006" name="Polish" languageId="Polish" useLatinFont="true">
+  <localization id="1006" name="Polski" languageId="Polish" useLatinFont="true">
     <tag>pl</tag>
     <tag>polish</tag>
   </localization>
-  <localization id="1007" name="Ukranian" languageId="Ukrainian" useLatinFont="true">
+  <localization id="1007" name="Українська" languageId="Ukrainian" useLatinFont="true">
     <tag>uk</tag>
     <tag>ukranian</tag>
   </localization>
-  <localization id="1008" name="Croatian" languageId="Croatian" useLatinFont="true">
+  <localization id="1008" name="Hrvatski" languageId="Croatian" useLatinFont="true">
     <tag>hr</tag>
     <tag>croatian</tag>
   </localization>
-  <localization id="1009" name="Turkish" languageId="Turkish" useLatinFont="true">
+  <localization id="1009" name="Türkçe" languageId="Turkish" useLatinFont="true">
     <tag>tr</tag>
     <tag>turkish</tag>
   </localization>
-  <localization id="1010" name="Hebrew" languageId="Hebrew" useLatinFont="true">
+  <localization id="1010" name="עברית" languageId="Hebrew" useLatinFont="false" rtl="true">
     <tag>he</tag>
     <tag>hebrew</tag>
   </localization>
-  <localization id="1011" name="Arabic" languageId="Arabic" useLatinFont="false">
+  <localization id="1011" name="العربية" languageId="Arabic" useLatinFont="false" rtl="true">
     <tag>ar</tag>
     <tag>arabic</tag>
   </localization>
-  <localization id="1012" name="Persian" languageId="Persian" useLatinFont="true">
+  <localization id="1012" name="فارسی" languageId="Persian" useLatinFont="false" rtl="true">
     <tag>fa</tag>
     <tag>persian</tag>
   </localization>
-  <localization id="1013" name="Chinese" languageId="Simplified Chinese" useLatinFont="true">
+  <localization id="1013" name="简体中文" languageId="Simplified Chinese" useLatinFont="true">
     <tag>zh</tag>
     <tag>chinese</tag>
   </localization>
-  <localization id="1014" name="Korean" languageId="Korean" useLatinFont="true">
+  <localization id="1014" name="한국어" languageId="Korean" useLatinFont="true">
     <tag>ko</tag>
     <tag>korean</tag>
   </localization>
-  <localization id="1015" name="Japanese" languageId="Japanese" useLatinFont="true">
+  <localization id="1015" name="日本語" languageId="Japanese" useLatinFont="true">
     <tag>ja</tag>
     <tag>japanese</tag>
   </localization>
