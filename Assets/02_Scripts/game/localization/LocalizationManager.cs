@@ -123,7 +123,7 @@ public class LocalizationManager : MonoSingleton
 			LocalizationXmlModel currentLanguageXmlModel = instance.GetCurrentLanguage();
 			if (currentLanguageXmlModel.isRightToLeft)
 			{
-				return ArabicFixer.Fix(localizedText);
+				return ArabicFixer.Fix(localizedText, false, false);
 			}
 			else
 			{
