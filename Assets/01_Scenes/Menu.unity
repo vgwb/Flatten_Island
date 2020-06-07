@@ -862,9 +862,9 @@ RectTransform:
   m_Father: {fileID: 398860844}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 700}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 2588, y: 10000}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &204195676
@@ -9415,7 +9415,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transformToMove: {fileID: 196141244}
-  speed: 20
+  speed: 40
 --- !u!1 &1789764350
 GameObject:
   m_ObjectHideFlags: 0
@@ -9449,8 +9449,8 @@ RectTransform:
   m_Father: {fileID: 196141244}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 2500, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -9461,7 +9461,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1789764350}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ab4284b9935c8154d9d6fd04dac8864a, type: 3}
   m_Name: 
@@ -9487,20 +9487,49 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: f4f0f56469569464e8e858aa8a368f7a, type: 3}
-    m_FontSize: 140
+    m_FontSize: 120
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 140
-    m_Alignment: 4
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'CREDITS
-
-'
+  m_Text: "FLATTEN ISLAND\r\n\r\nDeveloped and distributed by \r\nVideo Games Without
+    Borders\r\n\r\nIn collaboration with\r\nMargarito Estudio\r\nCicchi Consulting\r\nAsociaci\xF3n
+    Oleaje\r\n\r\n\r\n\r\nDEV TEAM\r\n\r\nProducer and Creative Director\r\nFrancesco
+    Cavallari\r\n\r\nArtistic Director\r\nSr. Margarito\r\n\r\nTechnical Director\r\nFederico
+    Cicchi\r\n\r\nComposer and Audio Director\r\nPaolo Fosso\r\n\r\nGame Design\r\nJos\xE9
+    Manuel Salado Fern\xE1ndez\r\n\r\nProgramming\r\nPablo Arroyo Coll\r\nJavier Trib\xF3\r\nZakia
+    Pezhman\r\n\r\nUI/Graphic Design and Illustration\r\nCristina Segura Toro\r\n\r\nIllustration
+    Assistant\r\nLuc\xEDa Garc\xEDa P\xE9rez\r\n\r\nArt Integration\r\nWassim Bassil\r\n\r\nSound
+    Design\r\nAlberto Gatti\r\n\r\nBuild and Configuration Manager\r\nStefano Cecere\r\n\r\n\r\n\r\nSCRIPT
+    AND LOCALIZATION\r\n\r\nOriginal Spanish Script\r\nFrancesco Cavallari\r\n\r\nScript
+    Assistant\r\nJos\xE9 Manuel Salado Fern\xE1ndez\r\n\r\nLocalization Manager\r\nPaolo
+    Fosso\r\n\r\nEnglish Translation\r\nLydia Lord\r\nRebekah Dawes\r\n\r\nUS English
+    Review\r\nCory Garfin\r\n\r\nEnglish Proofreading\r\nFrancesca Serri\r\n\r\nBrazilian
+    Portuguese Translation\r\nPedro Nicoletti\r\n\r\nCatalan Translation\r\nSis Graus
+    de Separaci\xF3\r\n\r\nFrench Translation\r\nJoanna Zouhour\r\n\r\nItalian Translation\r\nLisa
+    Salzano\r\n\r\nItalian Review and Proofreading\r\nClaudio Todeschini\r\nNicoletta
+    Podest\xE0\r\n\r\nDutch Translation\r\nCarlos Blanco\r\n\r\nGerman Translation\r\nKatrin
+    Lindenbauer\r\n\r\nCzech Translation\r\nDominik Lipovsk\xFD\r\n\r\nPolish Translation\r\nDominika
+    Schoenborn-Joseph\r\n\r\nEstonian Translation\r\nTriin Kask\r\n\r\nRussian Translation\r\nCristina
+    Aroutiounova\r\n\r\nUkranian Translation\r\nAntonina Vakula\r\n\r\nRomanian Translation\r\nMonica
+    Iliescu\r\n\r\nHungarian Translation\r\nSzofia Els\r\n\r\nCroatian Translation\r\nTina
+    Vidovi\u0107\r\n\r\nBulgarian Translation\r\nLiana Kamenova\r\n\r\nGreek Translation\r\nEva
+    Kardasi\r\nPanagiotis Papadopoulos\r\n\r\nTurkish Translation\r\nEmre Evcin\r\n\r\nHebrew
+    Translation\r\nLeonardo Rafael Berenstein\r\n\r\nArabic Translation\r\nWassim
+    Bassil\r\n\r\nPersian Translation\r\nZakia Pezhman\r\n\r\nUrdu Translation\r\nKinza
+    Ameen\r\n\r\nSimplified Chinese Translation\r\nYetian Ouyang\r\n\r\nKorean Translation\r\nSomyeong
+    Kim\r\n\r\nJapanese Translation\r\nKyoka Hirasawa\r\n\r\n\r\n\r\nSPECIAL THANKS
+    TO\r\n\r\nMiriam Lozano De Paz\r\nJosu\xE9 Monchan\r\nAdolfo Zilli\r\nDaniele
+    Giardini\r\nDaniela Seti\xE9n Lopez\r\nHugo Morgan\r\nAlberto Allegri\r\nImelda
+    De Paz Ferrero\r\nSegundo Segurado Lozano\r\nRub\xE9n Lopez Sanchez\r\n\r\n\r\n\r\nA
+    VERY SPECIAL THANKS TO\r\n\r\nPepo Jim\xE9nez and PIENSO, LUEGO ACT\xDCO\r\n\r\nAntonio
+    Santo and JALEO PR\r\n\r\n"
 --- !u!222 &1789764354
 CanvasRenderer:
   m_ObjectHideFlags: 0
