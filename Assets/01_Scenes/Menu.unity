@@ -9429,7 +9429,7 @@ GameObject:
   - component: {fileID: 1789764353}
   - component: {fileID: 1789764352}
   m_Layer: 5
-  m_Name: Credits Title
+  m_Name: Credits Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9514,18 +9514,18 @@ MonoBehaviour:
     Portuguese Translation\r\nPedro Nicoletti\r\n\r\nCatalan Translation\r\nSis Graus
     de Separaci\xF3\r\n\r\nFrench Translation\r\nJoanna Zouhour\r\n\r\nItalian Translation\r\nLisa
     Salzano\r\n\r\nItalian Review and Proofreading\r\nClaudio Todeschini\r\nNicoletta
-    Podest\xE0\r\n\r\nDutch Translation\r\nCarlos Blanco\r\n\r\nGerman Translation\r\nKatrin
-    Lindenbauer\r\n\r\nCzech Translation\r\nDominik Lipovsk\xFD\r\n\r\nPolish Translation\r\nDominika
-    Schoenborn-Joseph\r\n\r\nEstonian Translation\r\nTriin Kask\r\n\r\nRussian Translation\r\nCristina
-    Aroutiounova\r\n\r\nUkranian Translation\r\nAntonina Vakula\r\n\r\nRomanian Translation\r\nMonica
-    Iliescu\r\n\r\nHungarian Translation\r\nSzofia Els\r\n\r\nCroatian Translation\r\nTina
-    Vidovi\u0107\r\n\r\nBulgarian Translation\r\nLiana Kamenova\r\n\r\nGreek Translation\r\nEva
-    Kardasi\r\nPanagiotis Papadopoulos\r\n\r\nTurkish Translation\r\nEmre Evcin\r\n\r\nHebrew
-    Translation\r\nLeonardo Rafael Berenstein\r\n\r\nArabic Translation\r\nWassim
-    Bassil\r\n\r\nPersian Translation\r\nZakia Pezhman\r\n\r\nUrdu Translation\r\nKinza
-    Ameen\r\n\r\nSimplified Chinese Translation\r\nYetian Ouyang\r\n\r\nKorean Translation\r\nSomyeong
-    Kim\r\n\r\nJapanese Translation\r\nKyoka Hirasawa\r\n\r\n\r\n\r\nSPECIAL THANKS
-    TO\r\n\r\nMiriam Lozano De Paz\r\nJosu\xE9 Monchan\r\nAdolfo Zilli\r\nDaniele
+    Podest\xE0\r\n\r\nDutch Translation\r\nCarlos Blanco\r\nRegien Biesma\n\r\nGerman
+    Translation\r\nKatrin Lindenbauer\r\n\r\nCzech Translation\r\nDominik Lipovsk\xFD\r\n\r\nPolish
+    Translation\r\nDominika Schoenborn-Joseph\r\n\r\nEstonian Translation\r\nTriin
+    Kask\r\n\r\nRussian Translation\r\nCristina Aroutiounova\r\n\r\nUkranian Translation\r\nAntonina
+    Vakula\r\n\r\nRomanian Translation\r\nMonica Iliescu\r\n\r\nHungarian Translation\r\nSzofia
+    Els\r\n\r\nCroatian Translation\r\nTina Vidovi\u0107\r\n\r\nBulgarian Translation\r\nLiana
+    Kamenova\r\n\r\nGreek Translation\r\nEva Kardasi\r\nPanagiotis Papadopoulos\r\n\r\nTurkish
+    Translation\r\nEmre Evcin\r\n\r\nHebrew Translation\r\nLeonardo Rafael Berenstein\r\n\r\nArabic
+    Translation\r\nWassim Bassil\r\n\r\nPersian Translation\r\nZakia Pezhman\r\n\r\nUrdu
+    Translation\r\nKinza Ameen\r\n\r\nSimplified Chinese Translation\r\nYetian Ouyang\r\n\r\nKorean
+    Translation\r\nSomyeong Kim\r\n\r\nJapanese Translation\r\nKyoka Hirasawa\r\n\r\n\r\n\r\nSPECIAL
+    THANKS TO\r\n\r\nMiriam Lozano De Paz\r\nJosu\xE9 Monchan\r\nAdolfo Zilli\r\nDaniele
     Giardini\r\nDaniela Seti\xE9n Lopez\r\nHugo Morgan\r\nAlberto Allegri\r\nImelda
     De Paz Ferrero\r\nSegundo Segurado Lozano\r\nRub\xE9n Lopez Sanchez\r\n\r\n\r\n\r\nA
     VERY SPECIAL THANKS TO\r\n\r\nPepo Jim\xE9nez and PIENSO, LUEGO ACT\xDCO\r\n\r\nAntonio
