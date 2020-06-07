@@ -95,14 +95,14 @@ public class LocalizationManager : MonoSingleton
 			textField.font = nonLatinFont;
 		}
 
-		localizedText = localizedText.Replace("%n", Environment.NewLine);
+		localizedText = localizedText.Replace("%n%", Environment.NewLine);
 
 		textField.text = localizedText;
 	}
 
 	public string ReplaceIntInText(string text, int value)
 	{
-		return text.Replace("%d", value.ToString());
+		return text.Replace("%d%", value.ToString());
 	}
 
 	private string GetText(string localizationId)
