@@ -96,13 +96,78 @@ public class LocalizationManager : MonoSingleton
 		}
 
 		localizedText = localizedText.Replace("%n%", Environment.NewLine);
-
-		textField.text = localizedText;
+		TryFixRightToLeftText(textField, localizedText);
+		Canvas.ForceUpdateCanvases();
 	}
 
-	public string ReplaceIntInText(string text, int value)
+	public void SetLocalizedTextWithParameter(Text textField, string localizationId, string parameter, string parameterValue)
 	{
-		return text.Replace("%d%", value.ToString());
+		LocalPlayer localPlayer = GameManager.instance.localPlayer;
+
+		string localizedText = GetText(localizationId);
+		LocalizationXmlModel currentLocalizationXmlModel = FindLocalizationXmlModelWithLanguageId(localPlayer.GetLanguageId());
+		if (currentLocalizationXmlModel.useLatinFont)
+		{
+			textField.font = latinFont;
+		}
+		else
+		{
+			textField.font = nonLatinFont;
+		}
+
+		localizedText = localizedText.Replace("%n%", Environment.NewLine);
+		localizedText = localizedText.Replace(parameter, parameterValue.ToString());
+
+		TryFixRightToLeftText(textField, localizedText);
+
+		Canvas.ForceUpdateCanvases();
+	}
+
+
+	private void TryFixRightToLeftText(Text textField, string localizedText)
+	{
+		LocalizationXmlModel currentLanguageXmlModel = instance.GetCurrentLanguage();
+		if (currentLanguageXmlModel.isRightToLeft)
+		{
+			string rtlText = ArabicFixer.Fix(localizedText, false, false);
+			rtlText = rtlText.Replace("\r", ""); // the Arabix fixer Return \r\n for everyy \n .. need to be removed
+
+			string finalText = "";
+			string[] rtlParagraph = rtlText.Split('\n');
+
+			textField.text = "";
+			for (int lineIndex = 0; lineIndex < rtlParagraph.Length; lineIndex++)
+			{
+				string[] words = rtlParagraph[lineIndex].Split(' ');
+				Array.Reverse(words);
+				textField.text = string.Join(" ", words);
+
+				Canvas.ForceUpdateCanvases();
+				if (textField.cachedTextGeneratorForLayout.lines.Count > 0)
+				{
+					for (int i = 0; i < textField.cachedTextGeneratorForLayout.lines.Count; i++)
+					{
+						int startIndex = textField.cachedTextGeneratorForLayout.lines[i].startCharIdx;
+						int endIndex = (i == textField.cachedTextGeneratorForLayout.lines.Count - 1) ? textField.text.Length : textField.cachedTextGeneratorForLayout.lines[i + 1].startCharIdx;
+						int length = endIndex - startIndex;
+
+						string[] lineWords = textField.text.Substring(startIndex, length).Split(' ');
+						Array.Reverse(lineWords);
+
+						finalText = finalText + string.Join(" ", lineWords).Trim() + "\n";
+					}
+				}
+				else
+				{
+					finalText = rtlText;
+				}
+			}
+			textField.text = finalText.TrimEnd('\n');
+		}
+		else
+		{
+			textField.text = localizedText;
+		}
 	}
 
 	private string GetText(string localizationId)
@@ -120,15 +185,7 @@ public class LocalizationManager : MonoSingleton
 		string localizedText = GetLocalizedText(localizationId);
 		if (localizedText != null)
 		{
-			LocalizationXmlModel currentLanguageXmlModel = instance.GetCurrentLanguage();
-			if (currentLanguageXmlModel.isRightToLeft)
-			{
-				return ArabicFixer.Fix(localizedText, false, false);
-			}
-			else
-			{
-				return localizedText;
-			}
+			return localizedText;
 		}
 
 		return localizationId;

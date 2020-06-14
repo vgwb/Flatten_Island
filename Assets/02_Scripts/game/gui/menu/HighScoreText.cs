@@ -16,8 +16,6 @@ public class HighScoreText : UILocalizedText
 	protected override void RefreshText()
 	{
 		base.RefreshText();
-
-		LocalizationManager.instance.SetLocalizedText(highScoreText, localizationId);
-		highScoreText.text = LocalizationManager.instance.ReplaceIntInText(highScoreText.text, day);
+		LocalizationManager.instance.SetLocalizedTextWithParameter(highScoreText, localizationId, "%d%", day.ToString());
 	}
 }
