@@ -96,7 +96,7 @@ public class LocalizationManager : MonoSingleton
 		}
 
 		localizedText = localizedText.Replace("%n%", Environment.NewLine);
-		TryFixRightToLeftText(textField, localizedText);
+		TryFixRightToLeftText(textField, localizedText, localizationId);
 		Canvas.ForceUpdateCanvases();
 	}
 
@@ -118,13 +118,13 @@ public class LocalizationManager : MonoSingleton
 		localizedText = localizedText.Replace("%n%", Environment.NewLine);
 		localizedText = localizedText.Replace(parameter, parameterValue.ToString());
 
-		TryFixRightToLeftText(textField, localizedText);
+		TryFixRightToLeftText(textField, localizedText, localizationId);
 
 		Canvas.ForceUpdateCanvases();
 	}
 
 
-	private void TryFixRightToLeftText(Text textField, string localizedText)
+	private void TryFixRightToLeftText(Text textField, string localizedText, string localizationId)
 	{
 		LocalizationXmlModel currentLanguageXmlModel = instance.GetCurrentLanguage();
 		if (currentLanguageXmlModel.isRightToLeft)
@@ -143,18 +143,34 @@ public class LocalizationManager : MonoSingleton
 				textField.text = string.Join(" ", words);
 
 				Canvas.ForceUpdateCanvases();
-				if (textField.cachedTextGeneratorForLayout.lines.Count > 0)
+				//Debug.LogWarning("text:" + textField.text + " - lines count For Layout:" + textField.cachedTextGeneratorForLayout.lines.Count + " lines count:" + textField.cachedTextGenerator.lines.Count);
+
+				if (textField.cachedTextGenerator.lines.Count > 0)
 				{
-					for (int i = 0; i < textField.cachedTextGeneratorForLayout.lines.Count; i++)
+					for (int i = 0; i < textField.cachedTextGenerator.lines.Count; i++)
 					{
-						int startIndex = textField.cachedTextGeneratorForLayout.lines[i].startCharIdx;
-						int endIndex = (i == textField.cachedTextGeneratorForLayout.lines.Count - 1) ? textField.text.Length : textField.cachedTextGeneratorForLayout.lines[i + 1].startCharIdx;
+						int startIndex = textField.cachedTextGenerator.lines[i].startCharIdx;
+						int endIndex = (i == textField.cachedTextGenerator.lines.Count - 1) ? textField.text.Length : textField.cachedTextGenerator.lines[i + 1].startCharIdx;
 						int length = endIndex - startIndex;
+						//Debug.LogWarning("line " + i + " - startIndex:" + startIndex + " endIndex:" + endIndex + " length:" + length );
 
-						string[] lineWords = textField.text.Substring(startIndex, length).Split(' ');
-						Array.Reverse(lineWords);
+						if (length > 0)
+						{
+							if (length > textField.text.Length)
+							{
+								Debug.LogWarning("localization Id:" + localizationId + " length:" + length + " > textField length:" + textField.text.Length);
+								length = textField.text.Length;
+							}
 
-						finalText = finalText + string.Join(" ", lineWords).Trim() + "\n";
+							string[] lineWords = textField.text.Substring(startIndex, length).Split(' ');
+							Array.Reverse(lineWords);
+							finalText = finalText + string.Join(" ", lineWords).Trim() + Environment.NewLine;
+							//Debug.LogWarning("finalText:" + finalText);
+						}
+						else
+						{
+							Debug.LogWarning("localizationId:" + localizationId + " length <= 0");
+						}
 					}
 				}
 				else
