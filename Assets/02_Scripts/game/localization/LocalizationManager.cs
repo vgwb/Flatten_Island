@@ -143,13 +143,12 @@ public class LocalizationManager : MonoSingleton
 				textField.text = string.Join(" ", words);
 
 				Canvas.ForceUpdateCanvases();
-				if (textField.cachedTextGenerator.lines.Count > 0)
+				if (textField.cachedTextGeneratorForLayout.lines.Count > 0)
 				{
-					for (int i = 0; i < textField.cachedTextGenerator.lines.Count; i++)
+					for (int i = 0; i < textField.cachedTextGeneratorForLayout.lines.Count; i++)
 					{
-						int startIndex = textField.cachedTextGenerator.lines[i].startCharIdx;
-						int endIndex = (i == textField.cachedTextGenerator.lines.Count - 1) ? textField.text.Length
-							: textField.cachedTextGenerator.lines[i + 1].startCharIdx;
+						int startIndex = textField.cachedTextGeneratorForLayout.lines[i].startCharIdx;
+						int endIndex = (i == textField.cachedTextGeneratorForLayout.lines.Count - 1) ? textField.text.Length : textField.cachedTextGeneratorForLayout.lines[i + 1].startCharIdx;
 						int length = endIndex - startIndex;
 
 						string[] lineWords = textField.text.Substring(startIndex, length).Split(' ');
