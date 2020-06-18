@@ -9,55 +9,83 @@
     <tag>en-gb</tag>
     <tag>english</tag>
   </localization>
-  <localization id="1003" name="Español" languageId="Spanish" useLatinFont="true">
+  <localization id="1003" name="Português" languageId="Portuguese" useLatinFont="true">
+    <tag>pt</tag>
+    <tag>portuguese</tag>
+  </localization>
+  <localization id="1004" name="Español" languageId="Spanish" useLatinFont="true">
     <tag>es</tag>
     <tag>spanish</tag>
   </localization>
-  <localization id="1004" name="Français" languageId="French" useLatinFont="true">
+  <localization id="1005" name="Català" languageId="Catalan" useLatinFont="true">
+    <tag>ca</tag>
+    <tag>catalan</tag>
+  </localization>
+  <localization id="1006" name="Français" languageId="French" useLatinFont="true">
     <tag>fr</tag>
     <tag>french</tag>
   </localization>
-  <localization id="1005" name="Italiano" languageId="Italian" useLatinFont="true">
+  <localization id="1007" name="Italiano" languageId="Italian" useLatinFont="true">
     <tag>it</tag>
     <tag>italian</tag>
   </localization>
-  <localization id="1006" name="Polski" languageId="Polish" useLatinFont="true">
+  <localization id="1008" name="Nederlands" languageId="Dutch" useLatinFont="true">
+    <tag>nl</tag>
+    <tag>dutch</tag>
+  </localization>
+  <localization id="1009" name="Deutsch" languageId="German" useLatinFont="true">
+    <tag>de</tag>
+    <tag>german</tag>
+  </localization>
+  <localization id="1010" name="Čeština" languageId="Czech" useLatinFont="true">
+    <tag>cs</tag>
+    <tag>czech</tag>
+  </localization>
+  <localization id="1011" name="Polski" languageId="Polish" useLatinFont="true">
     <tag>pl</tag>
     <tag>polish</tag>
   </localization>
-  <localization id="1007" name="Українська" languageId="Ukrainian" useLatinFont="true">
+  <localization id="1013" name="Русский" languageId="Russian" useLatinFont="true">
+    <tag>ru</tag>
+    <tag>russian</tag>
+  </localization>
+  <localization id="1014" name="Українська" languageId="Ukrainian" useLatinFont="true">
     <tag>uk</tag>
     <tag>ukranian</tag>
   </localization>
-  <localization id="1008" name="Hrvatski" languageId="Croatian" useLatinFont="true">
+  <localization id="1017" name="Hrvatski" languageId="Croatian" useLatinFont="true">
     <tag>hr</tag>
     <tag>croatian</tag>
   </localization>
-  <localization id="1009" name="Türkçe" languageId="Turkish" useLatinFont="true">
+  <localization id="1018" name="Ελληνικά" languageId="Greek" useLatinFont="true">
+    <tag>el</tag>
+    <tag>greek</tag>
+  </localization>
+  <localization id="1020" name="Türkçe" languageId="Turkish" useLatinFont="true">
     <tag>tr</tag>
     <tag>turkish</tag>
   </localization>
-  <localization id="1010" name="עברית" languageId="Hebrew" useLatinFont="false" rtl="true">
+  <localization id="1021" name="עברית" languageId="Hebrew" useLatinFont="false" rtl="true">
     <tag>he</tag>
     <tag>hebrew</tag>
   </localization>
-  <localization id="1011" name="العربية" languageId="Arabic" useLatinFont="false" rtl="true">
+  <localization id="1022" name="العربية" languageId="Arabic" useLatinFont="false" rtl="true">
     <tag>ar</tag>
     <tag>arabic</tag>
   </localization>
-  <localization id="1012" name="فارسی" languageId="Persian" useLatinFont="false" rtl="true">
+  <localization id="1023" name="فارسی" languageId="Persian" useLatinFont="false" rtl="true">
     <tag>fa</tag>
     <tag>persian</tag>
   </localization>
-  <localization id="1013" name="简体中文" languageId="Simplified Chinese" useLatinFont="true">
+  <localization id="1025" name="简体中文" languageId="Simplified Chinese" useLatinFont="true">
     <tag>zh</tag>
     <tag>chinese</tag>
   </localization>
-  <localization id="1014" name="한국어" languageId="Korean" useLatinFont="true">
+  <localization id="1026" name="한국어" languageId="Korean" useLatinFont="true">
     <tag>ko</tag>
     <tag>korean</tag>
   </localization>
-  <localization id="1015" name="日本語" languageId="Japanese" useLatinFont="true">
+  <localization id="1027" name="日本語" languageId="Japanese" useLatinFont="true">
     <tag>ja</tag>
     <tag>japanese</tag>
   </localization>
