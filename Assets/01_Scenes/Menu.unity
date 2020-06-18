@@ -286,7 +286,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 700, y: 8.999992}
+  m_AnchoredPosition: {x: 800, y: 8.999992}
   m_SizeDelta: {x: 370, y: 354}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &108570171
@@ -959,7 +959,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79cf0c3ea8741b34e97a222bc0e5888b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  languageId: Ukranian
+  languageId: Ukrainian
   languageButtonText: {fileID: 1091401018}
 --- !u!114 &204195681
 MonoBehaviour:
@@ -10763,7 +10763,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -700, y: 8.999992}
+  m_AnchoredPosition: {x: -800, y: 8.999992}
   m_SizeDelta: {x: 370, y: 354}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1838151972
