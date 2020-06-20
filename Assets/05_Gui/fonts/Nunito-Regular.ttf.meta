@@ -11,7 +11,11 @@ TrueTypeFontImporter:
   fontName: Nunito
   fontNames:
   - Nunito
+  - Arial Unicode MS
   fallbackFontReferences:
+  - {fileID: 12800000, guid: f4f0f56469569464e8e858aa8a368f7a, type: 3}
+  - {fileID: 12800000, guid: dfe83a46dd3109848889733016429319, type: 3}
+  - {fileID: 12800000, guid: 2744997e8ec770545b4a210e1d0cef6b, type: 3}
   - {fileID: 12800000, guid: 53d92affb8cdd0e4bbaf5e5cb8498b9e, type: 3}
   customCharacters: 
   fontRenderingMode: 0

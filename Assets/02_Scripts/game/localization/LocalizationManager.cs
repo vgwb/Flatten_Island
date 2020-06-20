@@ -12,6 +12,7 @@ public class LocalizationManager : MonoSingleton
 
 	public static string DEFAULT_LANGUAGE_ID = "Spanish";
 	public static int LOCALIZATION_FILE_FIRST_LANGUAGE_COLUMN = 2;
+	public static string NON_LATIN_FONT_PATH = "GUI/Fonts/arial-unicode-ms";
 
 	public static LocalizationManager instance
 	{
@@ -38,7 +39,7 @@ public class LocalizationManager : MonoSingleton
 	public void Init()
 	{
 		localizationXmlModels = XmlModelManager.instance.FindModels<LocalizationXmlModel>();
-		nonLatinFont = Resources.GetBuiltinResource<Font>("Arial.ttf");
+		nonLatinFont = (Font) Resources.Load(NON_LATIN_FONT_PATH);
 
 		EventMessageHandler languageSelectedMessageHandler = new EventMessageHandler(this, OnLanguageSelectedEvent);
 		EventMessageManager.instance.AddHandler(typeof(LanguageSelectedEvent).Name, languageSelectedMessageHandler);
