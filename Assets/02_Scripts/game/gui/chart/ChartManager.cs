@@ -9,12 +9,15 @@ using ProtoTurtle.BitmapDrawing;
 public class ChartManager : MonoSingleton
 {
 	public GameObject growthPanel;
+	public GameObject capacityPanel;
 	public GameObject evolutionChart;
 	public GameObject initialDot;
 	public GameObject finalDot;
 	public Color normalColor;
 	public Color overFlowColor;
 	public AudioClip redrawChartSfx;
+	public Sprite capacityNormalImg;
+	public Sprite capacityRedImg;
 
 	// Public options
 	public float totalAnimationTime;
@@ -137,8 +140,19 @@ public class ChartManager : MonoSingleton
 
 	public void UpdateChart(float elapsedTime)
 	{
+		Image capacityPanelImage = capacityPanel.gameObject.GetComponent<Image>();
 		Image evolutionChartImage = evolutionChart.gameObject.GetComponent<Image>();
-		evolutionChartImage.sprite = CreateChartSprite(elapsedTime);
+		if (sessionCopy.capacity != null && sessionCopy.capacity<=0)
+		{
+			capacityPanelImage.sprite = capacityRedImg;
+			evolutionChartImage.sprite = CreateChartSprite(0f); // Do not draw a line
+			HidePatientsIndicator();
+		}
+		else
+		{
+			capacityPanelImage.sprite = capacityNormalImg;
+			evolutionChartImage.sprite = CreateChartSprite(elapsedTime);
+		}
 	}
 
 	public void HideChart()
@@ -163,7 +177,7 @@ public class ChartManager : MonoSingleton
 			return false;
 		}
 
-		float currentCapacity = (float)sessionCopy.capacity;
+		float currentCapacity = (float)Math.Max(sessionCopy.capacity, MIN_CAPACITY); // Never divide by 0
 		int patients = GetPatients(GetDayToDrawTo()-1);
 		float capacityUsage = patients / currentCapacity;
 		bool isInWarningzone = capacityUsage > sessionCopy.gameSessionXmlModel.capacityWarningThreshold;

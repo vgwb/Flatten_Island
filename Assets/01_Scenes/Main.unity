@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4366757, g: 0.48427194, b: 0.5645252, a: 1}
+  m_IndirectSpecularColor: {r: 0.43667555, g: 0.4842717, b: 0.56452394, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3372,12 +3372,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   growthPanel: {fileID: 1859792847}
+  capacityPanel: {fileID: 554770242}
   evolutionChart: {fileID: 23463065}
   initialDot: {fileID: 379389030}
   finalDot: {fileID: 87406326}
   normalColor: {r: 0, g: 0, b: 0, a: 1}
   overFlowColor: {r: 0, g: 0, b: 0, a: 1}
   redrawChartSfx: {fileID: 8300000, guid: e4807792c27a3d947897a3cdbf24d3a2, type: 3}
+  capacityNormalImg: {fileID: 21300000, guid: 98b1efcd4cb36694c8f5549db80cd37f, type: 3}
+  capacityRedImg: {fileID: 21300000, guid: c54795c9abfabd5e283dd6a864d7fb11, type: 3}
   totalAnimationTime: 1.2
   dashLineSpacing: 10
   dashLineDotWidth: 2
